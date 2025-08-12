@@ -15,3 +15,11 @@ class Node:
 
 class ProcessableNode(Node):
     """Nodes that can be further processed with filters."""
+
+
+class InputNode(ProcessableNode):
+    """Nodes representing input files."""
+
+    def __init__(self, id, filename):
+        super().__init__(id, NodeType.INPUT)
+        self.filename: str = filename
