@@ -11,3 +11,7 @@ class Node:
     def __init__(self, id: str, type: NodeType):
         self.id: str = id
         self.type: NodeType = type
+
+
+class ProcessableNode(Node):
+    """Nodes that can be further processed with filters."""
