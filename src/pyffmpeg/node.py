@@ -16,10 +16,25 @@ class Node:
 class ProcessableNode(Node):
     """Nodes that can be further processed with filters."""
 
+    def __init__(self, id: int, type: NodeType, num_output_streams: int = 1):
+        super().__init__(id, type)
+        self.output_streams: list[Stream] = [
+            Stream(self, i) for i in range(num_output_streams)
+        ]
+
 
 class InputNode(ProcessableNode):
     """Nodes representing input files."""
 
-    def __init__(self, id, filename):
+    def __init__(self, id: int, filename: str):
         super().__init__(id, NodeType.INPUT)
         self.filename: str = filename
+        self.output_streams: list[Stream] = [Stream(self)]
+
+
+class Stream:
+    """Represents a single output stream from a node."""
+
+    def __init__(self, source_node: Node, index: int):
+        self.source_node: Node = source_node
+        self.index: int = index
