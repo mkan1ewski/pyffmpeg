@@ -29,12 +29,12 @@ class InputNode(ProcessableNode):
     def __init__(self, id: int, filename: str):
         super().__init__(id, NodeType.INPUT)
         self.filename: str = filename
-        self.output_streams: list[Stream] = [Stream(self)]
+        self.output_streams: list[Stream] = [Stream(self, )]
 
 
 class Stream:
     """Represents a single output stream from a node."""
 
-    def __init__(self, source_node: Node, index: int):
+    def __init__(self, source_node: Node, index: int = 0):
         self.source_node: Node = source_node
         self.index: int = index
