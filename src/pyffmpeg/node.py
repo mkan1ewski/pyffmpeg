@@ -31,6 +31,23 @@ class InputNode(ProcessableNode):
         self.filename: str = filename
 
 
+class FilterNode(ProcessableNode):
+    """Nodes representing filter operations."""
+
+    def __init__(
+        self,
+        id: int,
+        filter_name: str,
+        params: dict,
+        inputs: list["Stream"],
+        num_output_streams: int = 1,
+    ):
+        super().__init__(id, NodeType.FILTER, num_output_streams)
+        self.filter_name: str = filter_name
+        self.params: dict = params
+        self.inputs: list[Stream] = inputs
+
+
 class Stream:
     """Represents a single output stream from a node."""
 
