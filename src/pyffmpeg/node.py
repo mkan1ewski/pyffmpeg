@@ -29,7 +29,6 @@ class InputNode(ProcessableNode):
     def __init__(self, id: int, filename: str):
         super().__init__(id, NodeType.INPUT)
         self.filename: str = filename
-        self.output_streams: list[Stream] = [Stream(self, )]
 
 
 class Stream:
