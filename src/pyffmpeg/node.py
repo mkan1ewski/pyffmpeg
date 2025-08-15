@@ -17,16 +17,16 @@ def get_id():
 
 
 class Node:
-    def __init__(self, id: str, type: NodeType):
-        self.id: str = id
+    def __init__(self, type: NodeType):
+        self.id: str = get_id()
         self.type: NodeType = type
 
 
 class ProcessableNode(Node):
     """Nodes that can be further processed with filters."""
 
-    def __init__(self, id: int, type: NodeType, num_output_streams: int = 1):
-        super().__init__(id, type)
+    def __init__(self, type: NodeType, num_output_streams: int = 1):
+        super().__init__(type)
         self.output_streams: list[Stream] = [
             Stream(self, i) for i in range(num_output_streams)
         ]
@@ -35,8 +35,8 @@ class ProcessableNode(Node):
 class InputNode(ProcessableNode):
     """Nodes representing input files."""
 
-    def __init__(self, id: int, filename: str):
-        super().__init__(id, NodeType.INPUT)
+    def __init__(self, filename: str):
+        super().__init__(NodeType.INPUT)
         self.filename: str = filename
 
 
@@ -45,13 +45,12 @@ class FilterNode(ProcessableNode):
 
     def __init__(
         self,
-        id: int,
         filter_name: str,
         params: dict,
         inputs: list["Stream"],
         num_output_streams: int = 1,
     ):
-        super().__init__(id, NodeType.FILTER, num_output_streams)
+        super().__init__(NodeType.FILTER, num_output_streams)
         self.filter_name: str = filter_name
         self.params: dict = params
         self.inputs: list[Stream] = inputs
