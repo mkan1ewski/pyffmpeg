@@ -1,10 +1,19 @@
 from enum import Enum, auto
+from itertools import count
 
 
 class NodeType(Enum):
     INPUT = auto()
     FILTER = auto()
     OUTPUT = auto()
+
+
+_id_generator = count()
+
+
+def get_id():
+    """Generates a new id."""
+    return next(_id_generator)
 
 
 class Node:
@@ -61,4 +70,3 @@ class Stream:
         """Creates a FilterNode and returns its output streams."""
         node = FilterNode(node_id, filter_name, params, [self], num_output_streams)
         return node.output_streams
-
