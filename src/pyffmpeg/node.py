@@ -64,8 +64,8 @@ class Stream:
         self.index: int = index
 
     def _apply_filter(
-        self, node_id: int, filter_name: str, params: dict, num_output_streams: int = 1
+        self, filter_name: str, params: dict, num_output_streams: int = 1
     ) -> list["Stream"]:
         """Creates a FilterNode and returns its output streams."""
-        node = FilterNode(node_id, filter_name, params, [self], num_output_streams)
+        node = FilterNode(filter_name, params, [self], num_output_streams)
         return node.output_streams
