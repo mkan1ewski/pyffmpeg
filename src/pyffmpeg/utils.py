@@ -1,4 +1,5 @@
 import re
+import subprocess
 
 
 def extract_filenames(makefile: str = "Makefile") -> list[str]:
@@ -15,3 +16,30 @@ def extract_filenames(makefile: str = "Makefile") -> list[str]:
 def get_c_files_names(object_files: list[str]) -> list[str]:
     """Changes object file names to equivalent .c file names."""
     return [file[:-1] + "c" for file in object_files]
+
+
+def preprocess_code(filename) -> str | None:
+    """Preprocesses a C file using clang."""
+    result = subprocess.run(
+        [
+            "clang",
+            "-E",
+            "-D__attribute__(x)=",
+            "-D__extension__=",
+            "-I",
+            "./pycparser/utils/fake_libc_include",
+            "-I",
+            "./FFmpeg",
+            "-I",
+            "./FFmpeg/libavcodec/",
+            f"./FFmpeg/libavfilter/{filename}",
+        ],
+        capture_output=True,
+        text=True,
+    )
+
+    if result.returncode == 0:
+        preprocessed_code = result.stdout
+        return preprocessed_code
+    else:
+        return None
