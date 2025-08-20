@@ -10,3 +10,8 @@ def extract_filenames(makefile: str = "Makefile") -> list[str]:
             if match:
                 filenames.append(match.group(1))
     return filenames
+
+
+def get_c_files_names(object_files: list[str]) -> list[str]:
+    """Changes object file names to equivalent .c file names."""
+    return [file[:-1] + "c" for file in object_files]
