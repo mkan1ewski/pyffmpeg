@@ -81,3 +81,9 @@ class Stream:
     def split(self, num_outputs: int = 2) -> list["Stream"]:
         """Split into multiple identical streams."""
         return self._apply_filter("split", {}, num_output_streams=num_outputs)
+
+    def overlay(self, overlay_stream: "Stream", x: int = 0, y: int = 0) -> "Stream":
+        """Overlay another video stream on top of this one."""
+        return self._apply_filter(
+            "overlay", {"x": x, "y": y}, inputs=[self, overlay_stream]
+        )[0]
