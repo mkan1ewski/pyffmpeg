@@ -40,6 +40,15 @@ class InputNode(ProcessableNode):
         self.filename: str = filename
 
 
+class OutputNode(Node):
+    """Nodes representing output files."""
+
+    def __init__(self, filename: str, inputs: list["Stream"]):
+        super().__init__(NodeType.OUTPUT)
+        self.inputs: list[Stream] = inputs
+        self.filename: str = filename
+
+
 class FilterNode(ProcessableNode):
     """Nodes representing filter operations."""
 
@@ -71,7 +80,8 @@ class Stream:
         num_output_streams: int = 1,
     ) -> list["Stream"]:
         """Creates a FilterNode and returns its output streams."""
-        node = FilterNode(filter_name, params, inputs or [self], num_output_streams)
+        node = FilterNode(filter_name, params, inputs or [
+                          self], num_output_streams)
         return node.output_streams
 
     def scale(self, height: int, width: int) -> "Stream":
