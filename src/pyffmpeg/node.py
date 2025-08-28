@@ -73,3 +73,7 @@ class Stream:
     def scale(self, height: int, width: int) -> "Stream":
         """Scales to width and height."""
         return self._apply_filter("scale", {"height": height, "width": width})[0]
+
+    def split(self, num_outputs: int = 2) -> list["Stream"]:
+        """Split into multiple identical streams."""
+        return self._apply_filter("split", {}, num_output_streams=num_outputs)
