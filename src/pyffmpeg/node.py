@@ -69,3 +69,7 @@ class Stream:
         """Creates a FilterNode and returns its output streams."""
         node = FilterNode(filter_name, params, [self], num_output_streams)
         return node.output_streams
+
+    def scale(self, height: int, width: int) -> "Stream":
+        """Scales to width and height."""
+        return self._apply_filter("scale", {"height": height, "width": width})[0]
