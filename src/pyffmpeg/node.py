@@ -100,6 +100,27 @@ class Stream:
     def output(self, filename: str, inputs: list["Stream"] = None):
         inputs = inputs + [self] if inputs else [self]
         output = OutputNode(filename, inputs)
-        # TODO call sorting on output node
-        # sorter = GraphSorter(output)
-        # return sorter.sort()
+        sorter = GraphSorter(output)
+        return sorter.sort()
+
+
+class GraphSorter:
+    def __init__(self, output: Node):
+        self.start_node: Node = output
+        self.visited: set[Node] = set()
+        self.sorted: list[Node] = []
+
+    def sort(self) -> list[Node]:
+        self._sort(self.start_node)
+        return self.sorted
+
+    def _sort(self, node: Node):
+        if node in self.visited:
+            return
+        self.visited.add(node)
+
+        if node.type in [NodeType.FILTER, NodeType.OUTPUT]:
+            for stream in node.inputs:
+                self._sort(stream.source_node)
+
+        self.sorted.append(node)
