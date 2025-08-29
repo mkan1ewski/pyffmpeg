@@ -80,8 +80,7 @@ class Stream:
         num_output_streams: int = 1,
     ) -> list["Stream"]:
         """Creates a FilterNode and returns its output streams."""
-        node = FilterNode(filter_name, params, inputs or [
-                          self], num_output_streams)
+        node = FilterNode(filter_name, params, inputs or [self], num_output_streams)
         return node.output_streams
 
     def scale(self, height: int, width: int) -> "Stream":
@@ -97,3 +96,10 @@ class Stream:
         return self._apply_filter(
             "overlay", {"x": x, "y": y}, inputs=[self, overlay_stream]
         )[0]
+
+    def output(self, filename: str, inputs: list["Stream"] = None):
+        inputs = inputs + [self] if inputs else [self]
+        output = OutputNode(filename, inputs)
+        # TODO call sorting on output node
+        # sorter = GraphSorter(output)
+        # return sorter.sort()
