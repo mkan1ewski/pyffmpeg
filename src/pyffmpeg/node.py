@@ -8,17 +8,8 @@ class NodeType(Enum):
     OUTPUT = auto()
 
 
-_id_generator = count()
-
-
-def get_id():
-    """Generates a new id."""
-    return next(_id_generator)
-
-
 class Node:
     def __init__(self, type: NodeType):
-        self.id: str = get_id()
         self.type: NodeType = type
 
 
@@ -35,9 +26,12 @@ class ProcessableNode(Node):
 class InputNode(ProcessableNode):
     """Nodes representing input files."""
 
+    _id_generator = count()
+
     def __init__(self, filename: str):
         super().__init__(NodeType.INPUT)
         self.filename: str = filename
+        self.input_index = next(InputNode._id_generator)
 
 
 class OutputNode(Node):
@@ -52,6 +46,8 @@ class OutputNode(Node):
 class FilterNode(ProcessableNode):
     """Nodes representing filter operations."""
 
+    _label_generator = count()
+
     def __init__(
         self,
         filter_name: str,
@@ -63,6 +59,7 @@ class FilterNode(ProcessableNode):
         self.filter_name: str = filter_name
         self.params: dict = params
         self.inputs: list[Stream] = inputs
+        self.label = f"f{next(FilterNode._label_generator)}"
 
 
 class Stream:
