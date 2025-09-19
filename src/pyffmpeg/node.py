@@ -69,6 +69,9 @@ class Stream:
         self.source_node: Node = source_node
         self.index: int = index
 
+    def get_command_repr(self) -> str:
+        return f"[{self.source_node.input_index}]" if self.source_node.type == NodeType.INPUT else f"[{self.source_node.label}_{self.index}]"
+
     def _apply_filter(
         self,
         filter_name: str,
@@ -77,7 +80,8 @@ class Stream:
         num_output_streams: int = 1,
     ) -> list["Stream"]:
         """Creates a FilterNode and returns its output streams."""
-        node = FilterNode(filter_name, params, inputs or [self], num_output_streams)
+        node = FilterNode(filter_name, params, inputs or [
+                          self], num_output_streams)
         return node.output_streams
 
     def scale(self, height: int, width: int) -> "Stream":
@@ -121,3 +125,26 @@ class GraphSorter:
                 self._sort(stream.source_node)
 
         self.sorted.append(node)
+
+
+class CommandBuilder:
+    def __init__(self, nodes: list[Node]):
+        self.nodes = nodes
+
+    def build_command(self):
+        inputs = []
+        filters = []
+        for node in self.nodes:
+            if node.type == NodeType.INPUT:
+                inputs.extend(["-i", node.filename])
+            if node.type == NodeType.FILTER:
+                input_streams = []
+                for stream in node.inputs:
+                    # input_streams.append(f"[{stream.source_node.label}_{stream.index}]")
+                    input_streams.append(stream.get_command_repr())
+                output_streams = [f"[{node.label}_{i}]" for i in range(
+                    len(node.output_streams))]
+                filters.append("".join(input_streams) +
+                               f" {node.filter_name} " + "".join(output_streams))
+        command = "ffmpeg " + " ".join(inputs) + " -filter_complex \" " + " ; ".join(filters) + " \""
+        return command
