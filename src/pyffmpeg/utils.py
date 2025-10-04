@@ -43,3 +43,40 @@ def preprocess_code(filename) -> str | None:
         return preprocessed_code
     else:
         return None
+
+
+def unify_names(all_names):
+    for i, names in enumerate(all_names):  # iterate through outer list
+        for j, name in enumerate(names):  # iterate through inner list
+            # modify the string and assign it back to the same position
+            all_names[i][j] = (
+                name.replace("(", "")
+                .replace(")", "")
+                .replace("/", "_")
+                .replace("|", "")
+            )
+
+
+def unify_keys(all_options):
+    for i, options_list in enumerate(all_options):
+        for j, d in enumerate(options_list):
+            new_dict = {}
+            for key, value in d.items():
+                # Replace hyphen with underscore in the key
+                new_key = key.replace("-", "_").replace(">", "_").replace("+", "_")
+                if new_key in [
+                    "pass",
+                    "and",
+                    "lambda",
+                    "class",
+                    "in",
+                    "or",
+                    "if",
+                    "raise",
+                    "as",
+                ]:
+                    new_key += "_"
+                if new_key[0].isdigit():
+                    new_key = "_" + new_key
+                new_dict[new_key] = value
+            all_options[i][j] = new_dict
