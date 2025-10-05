@@ -101,6 +101,11 @@ class Stream:
             "overlay", {"x": x, "y": y}, inputs=[self, overlay_stream]
         )[0]
 
+    def trim(self, start_frame: int, end_frame: int):
+        return self._apply_filter(
+            "trim", {"start_frame": start_frame, "end_frame": end_frame}
+        )[0]
+
     def output(self, filename: str, inputs: list["Stream"] = None):
         inputs = inputs + [self] if inputs else [self]
         output = OutputNode(filename, inputs)
