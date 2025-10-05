@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from pyffmpeg!")
+from pyffmpeg.utils import input

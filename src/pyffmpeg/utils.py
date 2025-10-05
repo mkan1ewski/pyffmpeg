@@ -1,6 +1,8 @@
 import re
 import subprocess
 
+from pyffmpeg.node import InputNode, Stream
+
 
 def extract_filenames(makefile: str = "Makefile") -> list[str]:
     """Extracts filenames defining filters from a Makefile."""
@@ -80,3 +82,7 @@ def unify_keys(all_options):
                     new_key = "_" + new_key
                 new_dict[new_key] = value
             all_options[i][j] = new_dict
+
+
+def input(path: str) -> Stream:
+    return InputNode(path).output_streams[0]
