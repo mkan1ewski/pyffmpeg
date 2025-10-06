@@ -42,6 +42,11 @@ class OutputNode(Node):
         self.inputs: list[Stream] = inputs
         self.filename: str = filename
 
+    def get_args(self):
+        sorter = GraphSorter(self)
+        command_builder = CommandBuilder(sorter.sort())
+        return command_builder.build_args()
+
 
 class FilterNode(ProcessableNode):
     """Nodes representing filter operations."""
@@ -109,8 +114,7 @@ class Stream:
     def output(self, filename: str, inputs: list["Stream"] = None):
         inputs = inputs + [self] if inputs else [self]
         output = OutputNode(filename, inputs)
-        sorter = GraphSorter(output)
-        return sorter.sort()
+        return output
 
 
 class GraphSorter:
@@ -139,30 +143,12 @@ class CommandBuilder:
     def __init__(self, nodes: list[Node]):
         self.nodes = nodes
 
-    def build_command(self):
-        inputs = []
-        filters = []
+    def build_args(self):
+        args = []
         for node in self.nodes:
-            if node.type == NodeType.INPUT:
-                inputs.extend(["-i", node.filename])
-            if node.type == NodeType.FILTER:
-                input_streams = []
-                for stream in node.inputs:
-                    # input_streams.append(f"[{stream.source_node.label}_{stream.index}]")
-                    input_streams.append(stream.get_command_repr())
-                output_streams = [
-                    f"[{node.label}_{i}]" for i in range(len(node.output_streams))
-                ]
-                filters.append(
-                    "".join(input_streams)
-                    + f" {node.filter_name} "
-                    + "".join(output_streams)
-                )
-        command = (
-            "ffmpeg "
-            + " ".join(inputs)
-            + ' -filter_complex " '
-            + " ; ".join(filters)
-            + ' "'
-        )
-        return command
+            if isinstance(node, InputNode):
+                args.extend(["-i", node.filename])
+            if isinstance(node, OutputNode):
+                args.append(node.filename)
+
+        return args
