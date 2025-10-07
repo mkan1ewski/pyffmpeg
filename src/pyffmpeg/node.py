@@ -1,5 +1,4 @@
 from enum import Enum, auto
-from itertools import count
 
 
 class NodeType(Enum):
@@ -19,19 +18,16 @@ class ProcessableNode(Node):
     def __init__(self, type: NodeType, num_output_streams: int = 1):
         super().__init__(type)
         self.output_streams: list[Stream] = [
-            Stream(self, i) for i in range(num_output_streams)
+            Stream(self) for i in range(num_output_streams)
         ]
 
 
 class InputNode(ProcessableNode):
     """Nodes representing input files."""
 
-    _id_generator = count()
-
     def __init__(self, filename: str):
         super().__init__(NodeType.INPUT)
         self.filename: str = filename
-        self.input_index = next(InputNode._id_generator)
 
 
 class OutputNode(Node):
@@ -51,8 +47,6 @@ class OutputNode(Node):
 class FilterNode(ProcessableNode):
     """Nodes representing filter operations."""
 
-    _label_generator = count()
-
     def __init__(
         self,
         filter_name: str,
@@ -64,22 +58,14 @@ class FilterNode(ProcessableNode):
         self.filter_name: str = filter_name
         self.params: dict = params
         self.inputs: list[Stream] = inputs
-        self.label = f"f{next(FilterNode._label_generator)}"
 
 
 class Stream:
     """Represents a single output stream from a node."""
 
-    def __init__(self, source_node: Node, index: int = 0):
+    def __init__(self, source_node: Node):
         self.source_node: Node = source_node
-        self.index: int = index
-
-    def get_command_repr(self) -> str:
-        return (
-            f"[{self.source_node.input_index}]"
-            if self.source_node.type == NodeType.INPUT
-            else f"[{self.source_node.label}_{self.index}]"
-        )
+        self.index: int = None
 
     def _apply_filter(
         self,
@@ -111,7 +97,7 @@ class Stream:
             "trim", {"start_frame": start_frame, "end_frame": end_frame}
         )[0]
 
-    def output(self, filename: str, inputs: list["Stream"] = None):
+    def output(self, filename: str, inputs: list["Stream"] = None) -> OutputNode:
         inputs = inputs + [self] if inputs else [self]
         output = OutputNode(filename, inputs)
         return output
@@ -122,6 +108,8 @@ class GraphSorter:
         self.start_node: Node = output
         self.visited: set[Node] = set()
         self.sorted: list[Node] = []
+        self.current_input_stream_index = 0
+        self.current_filter_stream_index = 0
 
     def sort(self) -> list[Node]:
         self._sort(self.start_node)
@@ -136,6 +124,14 @@ class GraphSorter:
             for stream in node.inputs:
                 self._sort(stream.source_node)
 
+            for stream in node.inputs:
+                if isinstance(stream.source_node, FilterNode):
+                    stream.index2 = f"s{self.current_filter_stream_index}"
+                    self.current_filter_stream_index += 1
+                if isinstance(stream.source_node, InputNode):
+                    stream.index2 = f"{self.current_input_stream_index}"
+                    self.current_input_stream_index += 1
+
         self.sorted.append(node)
 
 
@@ -148,6 +144,11 @@ class CommandBuilder:
         for node in self.nodes:
             if isinstance(node, InputNode):
                 args.extend(["-i", node.filename])
+            if isinstance(node, FilterNode):
+                input_streams = [f"[{input.index2}]" for input in node.inputs]
+                args.append(
+                    f"{''.join(input_streams)}{node.filter_name}{''.join([f'[{stream.index2}]' for stream in node.output_streams])};"
+                )
             if isinstance(node, OutputNode):
                 args.append(node.filename)
 
