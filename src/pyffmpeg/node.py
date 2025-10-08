@@ -115,6 +115,15 @@ class Stream:
         """Concatenate audio and video streams, joining them together one after the other"""
         return self._apply_filter("concat", {}, [self, *streams])[0]
 
+    def drawbox(
+        self, x: int, y: int, width: int, height: int, color: str, thickness: int = None
+    ):
+        """Draw a colored box on the input image"""
+        return self._apply_filter(
+            "drawbox",
+            {"x": x, "y": y, "width": width, "height": height, "thickness": thickness},
+        )[0]
+
     def output(self, filename: str, inputs: list["Stream"] = None) -> OutputNode:
         inputs = inputs + [self] if inputs else [self]
         output = OutputNode(filename, inputs)
