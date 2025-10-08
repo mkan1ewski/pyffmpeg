@@ -173,15 +173,27 @@ class CommandBuilder:
 
     def build_args(self):
         args = []
+        filters = []
+        outputs = []
+        filter_complex = False
         for node in self.nodes:
             if isinstance(node, InputNode):
                 args.extend(["-i", node.filename])
             if isinstance(node, FilterNode):
+                if not filter_complex:
+                    args.append("-filter_complex")
+                    filter_complex = True
                 input_streams = [f"[{input.index2}]" for input in node.inputs]
-                args.append(
-                    f"{''.join(input_streams)}{node.filter_name}{''.join([f'[{stream.index2}]' for stream in node.output_streams])};"
+                output_streams = [
+                    f"[{output.index2}]" for output in node.output_streams
+                ]
+                filters.append(
+                    f"{''.join(input_streams)}{node.filter_name}{''.join(output_streams)};"
                 )
             if isinstance(node, OutputNode):
-                args.append(node.filename)
+                outputs.append(node.filename)
+
+        args.append("".join(filters))
+        args.extend(outputs)
 
         return args
