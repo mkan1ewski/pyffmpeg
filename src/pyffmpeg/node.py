@@ -43,6 +43,9 @@ class OutputNode(Node):
         command_builder = CommandBuilder(sorter.sort())
         return command_builder.build_args()
 
+    def overwrite_output(self):
+        return self
+
 
 class FilterNode(ProcessableNode):
     """Nodes representing filter operations."""
@@ -140,6 +143,8 @@ class GraphSorter:
 
     def sort(self) -> list[Node]:
         self._sort(self.start_node)
+        type_order = {InputNode: 0, FilterNode: 1, OutputNode: 2}
+        self.sorted.sort(key=lambda x: type_order[type(x)])
         return self.sorted
 
     def _sort(self, node: Node):
