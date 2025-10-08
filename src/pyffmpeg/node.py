@@ -70,7 +70,7 @@ class Stream:
     def _apply_filter(
         self,
         filter_name: str,
-        params: dict,
+        params: dict = {},
         inputs: list["Stream"] = None,
         num_output_streams: int = 1,
     ) -> list["Stream"]:
@@ -96,6 +96,10 @@ class Stream:
         return self._apply_filter(
             "trim", {"start_frame": start_frame, "end_frame": end_frame}
         )[0]
+
+    def vflip(self):
+        """Flip the input video vertically"""
+        return self._apply_filter(filter_name="vflip")[0]
 
     def output(self, filename: str, inputs: list["Stream"] = None) -> OutputNode:
         inputs = inputs + [self] if inputs else [self]
