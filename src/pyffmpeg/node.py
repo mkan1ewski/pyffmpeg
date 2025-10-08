@@ -101,6 +101,10 @@ class Stream:
         """Flip the input video vertically"""
         return self._apply_filter(filter_name="vflip")[0]
 
+    def hflip(self):
+        """Flip the input video horizontally"""
+        return self._apply_filter(filter_name="hflip")[0]
+
     def crop(self, x: int, y: int, width: int, height: int):
         """Crop the input video to given dimensions"""
         return self._apply_filter(
