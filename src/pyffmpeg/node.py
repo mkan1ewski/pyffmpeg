@@ -101,6 +101,12 @@ class Stream:
         """Flip the input video vertically"""
         return self._apply_filter(filter_name="vflip")[0]
 
+    def crop(self, x: int, y: int, width: int, height: int):
+        """Crop the input video to given dimensions"""
+        return self._apply_filter(
+            "crop", {"x": x, "y": y, "width": width, "height": height}
+        )[0]
+
     def output(self, filename: str, inputs: list["Stream"] = None) -> OutputNode:
         inputs = inputs + [self] if inputs else [self]
         output = OutputNode(filename, inputs)
