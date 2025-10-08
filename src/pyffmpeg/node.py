@@ -107,6 +107,10 @@ class Stream:
             "crop", {"x": x, "y": y, "width": width, "height": height}
         )[0]
 
+    def concat(self, *streams: "Stream"):
+        """Concatenate audio and video streams, joining them together one after the other"""
+        return self._apply_filter("concat", {}, [self, *streams])[0]
+
     def output(self, filename: str, inputs: list["Stream"] = None) -> OutputNode:
         inputs = inputs + [self] if inputs else [self]
         output = OutputNode(filename, inputs)
