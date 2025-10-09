@@ -68,7 +68,14 @@ class FilterNode(ProcessableNode):
         input_streams = [f"[{input.index2}]" for input in self.inputs]
         output_streams = [f"[{output.index2}]" for output in self.output_streams]
 
-        return f"{''.join(input_streams)}{self.filter_name}{''.join(output_streams)};"
+        postional_arguments = [str(arg) for arg in self.positional_arguments]
+        named_arguments = [
+            f"{name}={value}" for name, value in sorted(self.named_arguments.items())
+        ]
+        all_arguments = [*postional_arguments, *named_arguments]
+        arguments_string = ":".join(all_arguments)
+
+        return f"{''.join(input_streams)}{self.filter_name}{f'=' if arguments_string else ''}{arguments_string}{''.join(output_streams)};"
 
 
 class Stream:
