@@ -152,8 +152,8 @@ class Stream:
         """Draw a colored box on the input image"""
         return self._apply_filter(
             "drawbox",
-            postional_arguments=[x, y, width, height],
-            named_arguments={"thickness": thickness},
+            postional_arguments=[x, y, width, height, color],
+            named_arguments={"t": thickness},
         )[0]
 
     def output(self, filename: str, inputs: list["Stream"] = None) -> OutputNode:
