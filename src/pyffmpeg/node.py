@@ -64,6 +64,12 @@ class FilterNode(ProcessableNode):
         self.named_arguments: dict = named_arguments
         self.inputs: list[Stream] = inputs
 
+    def get_args(self):
+        input_streams = [f"[{input.index2}]" for input in self.inputs]
+        output_streams = [f"[{output.index2}]" for output in self.output_streams]
+
+        return f"{''.join(input_streams)}{self.filter_name}{''.join(output_streams)};"
+
 
 class Stream:
     """Represents a single output stream from a node."""
@@ -195,13 +201,8 @@ class CommandBuilder:
                 if not filter_complex:
                     args.append("-filter_complex")
                     filter_complex = True
-                input_streams = [f"[{input.index2}]" for input in node.inputs]
-                output_streams = [
-                    f"[{output.index2}]" for output in node.output_streams
-                ]
-                filters.append(
-                    f"{''.join(input_streams)}{node.filter_name}{''.join(output_streams)};"
-                )
+
+                filters.append(node.get_args())
             if isinstance(node, OutputNode):
                 outputs.append(node.filename)
 
