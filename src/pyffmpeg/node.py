@@ -53,13 +53,15 @@ class FilterNode(ProcessableNode):
     def __init__(
         self,
         filter_name: str,
-        params: dict,
+        postional_arguments: list,
+        named_arguments: dict,
         inputs: list["Stream"],
         num_output_streams: int = 1,
     ):
         super().__init__(NodeType.FILTER, num_output_streams)
         self.filter_name: str = filter_name
-        self.params: dict = params
+        self.positional_arguments: list = postional_arguments
+        self.named_arguments: dict = named_arguments
         self.inputs: list[Stream] = inputs
 
 
@@ -73,31 +75,42 @@ class Stream:
     def _apply_filter(
         self,
         filter_name: str,
-        params: dict = {},
+        postional_arguments: list = [],
+        named_arguments: dict = {},
         inputs: list["Stream"] = None,
         num_output_streams: int = 1,
     ) -> list["Stream"]:
         """Creates a FilterNode and returns its output streams."""
-        node = FilterNode(filter_name, params, inputs or [self], num_output_streams)
+        node = FilterNode(
+            filter_name,
+            postional_arguments,
+            named_arguments,
+            inputs or [self],
+            num_output_streams,
+        )
         return node.output_streams
 
     def scale(self, height: int, width: int) -> "Stream":
         """Scales to width and height."""
-        return self._apply_filter("scale", {"height": height, "width": width})[0]
+        return self._apply_filter(
+            "scale", named_arguments={"height": height, "width": width}
+        )[0]
 
     def split(self, num_outputs: int = 2) -> list["Stream"]:
         """Split into multiple identical streams."""
-        return self._apply_filter("split", {}, num_output_streams=num_outputs)
+        return self._apply_filter(
+            "split", postional_arguments=[num_outputs], num_output_streams=num_outputs
+        )
 
     def overlay(self, overlay_stream: "Stream", x: int = 0, y: int = 0) -> "Stream":
         """Overlay another video stream on top of this one."""
         return self._apply_filter(
-            "overlay", {"x": x, "y": y}, inputs=[self, overlay_stream]
+            "overlay", postional_arguments=[x, y], inputs=[self, overlay_stream]
         )[0]
 
     def trim(self, start_frame: int, end_frame: int):
         return self._apply_filter(
-            "trim", {"start_frame": start_frame, "end_frame": end_frame}
+            "trim", named_arguments={"start_frame": start_frame, "end_frame": end_frame}
         )[0]
 
     def vflip(self):
@@ -110,13 +123,11 @@ class Stream:
 
     def crop(self, x: int, y: int, width: int, height: int):
         """Crop the input video to given dimensions"""
-        return self._apply_filter(
-            "crop", {"x": x, "y": y, "width": width, "height": height}
-        )[0]
+        return self._apply_filter("crop", postional_arguments=[width, height, x, y])[0]
 
     def concat(self, *streams: "Stream"):
         """Concatenate audio and video streams, joining them together one after the other"""
-        return self._apply_filter("concat", {}, [self, *streams])[0]
+        return self._apply_filter("concat", inputs=[self, *streams])[0]
 
     def drawbox(
         self, x: int, y: int, width: int, height: int, color: str, thickness: int = None
@@ -124,7 +135,8 @@ class Stream:
         """Draw a colored box on the input image"""
         return self._apply_filter(
             "drawbox",
-            {"x": x, "y": y, "width": width, "height": height, "thickness": thickness},
+            postional_arguments=[x, y, width, height],
+            named_arguments={"thickness": thickness},
         )[0]
 
     def output(self, filename: str, inputs: list["Stream"] = None) -> OutputNode:
