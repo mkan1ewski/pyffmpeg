@@ -174,6 +174,7 @@ class GraphSorter:
         self._sort(self.start_node)
         type_order = {InputNode: 0, FilterNode: 1, OutputNode: 2}
         self.sorted.sort(key=lambda x: type_order[type(x)])
+        self.label_streams()
         return self.sorted
 
     def _sort(self, node: Node):
@@ -185,15 +186,18 @@ class GraphSorter:
             for stream in node.inputs:
                 self._sort(stream.source_node)
 
-            for stream in node.inputs:
-                if isinstance(stream.source_node, FilterNode):
-                    stream.index2 = f"s{self.current_filter_stream_index}"
-                    self.current_filter_stream_index += 1
-                if isinstance(stream.source_node, InputNode):
+        self.sorted.append(node)
+
+    def label_streams(self):
+        for node in self.sorted:
+            if isinstance(node, InputNode):
+                for stream in node.output_streams:
                     stream.index2 = f"{self.current_input_stream_index}"
                     self.current_input_stream_index += 1
-
-        self.sorted.append(node)
+            if isinstance(node, FilterNode):
+                for stream in node.output_streams:
+                    stream.index2 = f"s{self.current_filter_stream_index}"
+                    self.current_filter_stream_index += 1
 
 
 class CommandBuilder:
