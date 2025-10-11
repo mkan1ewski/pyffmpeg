@@ -115,10 +115,24 @@ class Stream:
             "split", postional_arguments=[num_outputs], num_output_streams=num_outputs
         )
 
-    def overlay(self, overlay_stream: "Stream", x: int = 0, y: int = 0) -> "Stream":
+    def overlay(
+        self,
+        overlay_stream: "Stream",
+        x: int | None = None,
+        y: int | None = None,
+        eof_action: str = "repeat",
+    ) -> "Stream":
         """Overlay another video stream on top of this one."""
+        named_arguments = {"eof_action": eof_action}
+        if x:
+            named_arguments["x"] = x
+        if y:
+            named_arguments["y"] = y
+
         return self._apply_filter(
-            "overlay", postional_arguments=[x, y], inputs=[self, overlay_stream]
+            "overlay",
+            named_arguments=named_arguments,
+            inputs=[self, overlay_stream],
         )[0]
 
     def trim(self, start_frame: int, end_frame: int):
