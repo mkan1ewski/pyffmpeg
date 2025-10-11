@@ -66,8 +66,8 @@ class FilterNode(ProcessableNode):
 
     def get_command_string(self) -> str:
         """Builds a command string based on this filter"""
-        input_streams = [f"[{input.index2}]" for input in self.inputs]
-        output_streams = [f"[{output.index2}]" for output in self.output_streams]
+        input_streams = [f"[{input.index}]" for input in self.inputs]
+        output_streams = [f"[{output.index}]" for output in self.output_streams]
 
         postional_arguments = [str(arg) for arg in self.positional_arguments]
         named_arguments = [
@@ -207,11 +207,11 @@ class GraphSorter:
         for node in self.sorted:
             if isinstance(node, InputNode):
                 for stream in node.output_streams:
-                    stream.index2 = f"{self.current_input_stream_index}"
+                    stream.index = f"{self.current_input_stream_index}"
                     self.current_input_stream_index += 1
             if isinstance(node, FilterNode):
                 for stream in node.output_streams:
-                    stream.index2 = f"s{self.current_filter_stream_index}"
+                    stream.index = f"s{self.current_filter_stream_index}"
                     self.current_filter_stream_index += 1
 
 
