@@ -37,6 +37,7 @@ class OutputNode(Node):
         super().__init__(NodeType.OUTPUT)
         self.inputs: list[Stream] = inputs
         self.filename: str = filename
+        self.global_options: list[str] = []
 
     def get_output_mapping_args(self) -> list[str]:
         """Builds command args representing the output mapping from this output"""
@@ -46,12 +47,18 @@ class OutputNode(Node):
         args.append(self.filename)
         return args
 
+    def get_global_options(self) -> list[str]:
+        """Returns global options"""
+        return self.global_options
+
     def get_args(self):
         sorter = GraphSorter(self)
         command_builder = CommandBuilder(sorter.sort())
         return command_builder.build_args()
 
-    def overwrite_output(self):
+    def overwrite_output(self) -> "OutputNode":
+        """Adds global overwrite option"""
+        self.global_options.append("-y")
         return self
 
 
@@ -231,6 +238,7 @@ class CommandBuilder:
         args = []
         filters = []
         outputs = []
+        global_options = []
         filter_complex = False
         for node in self.nodes:
             if isinstance(node, InputNode):
@@ -243,8 +251,9 @@ class CommandBuilder:
                 filters.append(node.get_command_string())
             if isinstance(node, OutputNode):
                 outputs.extend(node.get_output_mapping_args())
+                global_options.extend(node.get_global_options())
 
         args.append(";".join(filters))
-        args.extend(outputs)
+        args.extend([*outputs, *global_options])
 
         return args
