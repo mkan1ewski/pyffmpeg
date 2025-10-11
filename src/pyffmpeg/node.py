@@ -38,6 +38,14 @@ class OutputNode(Node):
         self.inputs: list[Stream] = inputs
         self.filename: str = filename
 
+    def get_output_mapping_args(self) -> list[str]:
+        """Builds command args representing the output mapping from this output"""
+        args = []
+        for input in self.inputs:
+            args += ["-map", f"[{input.index}]"]
+        args.append(self.filename)
+        return args
+
     def get_args(self):
         sorter = GraphSorter(self)
         command_builder = CommandBuilder(sorter.sort())
@@ -234,7 +242,7 @@ class CommandBuilder:
 
                 filters.append(node.get_command_string())
             if isinstance(node, OutputNode):
-                outputs.append(node.filename)
+                outputs.extend(node.get_output_mapping_args())
 
         args.append(";".join(filters))
         args.extend(outputs)
