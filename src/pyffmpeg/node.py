@@ -75,7 +75,7 @@ class FilterNode(ProcessableNode):
         all_arguments = [*postional_arguments, *named_arguments]
         arguments_string = ":".join(all_arguments)
 
-        return f"{''.join(input_streams)}{self.filter_name}{f'=' if arguments_string else ''}{arguments_string}{''.join(output_streams)};"
+        return f"{''.join(input_streams)}{self.filter_name}{f'=' if arguments_string else ''}{arguments_string}{''.join(output_streams)}"
 
 
 class Stream:
@@ -235,7 +235,7 @@ class CommandBuilder:
             if isinstance(node, OutputNode):
                 outputs.append(node.filename)
 
-        args.append("".join(filters))
+        args.append(";".join(filters))
         args.extend(outputs)
 
         return args
