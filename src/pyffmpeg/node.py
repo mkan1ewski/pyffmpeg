@@ -64,7 +64,8 @@ class FilterNode(ProcessableNode):
         self.named_arguments: dict = named_arguments
         self.inputs: list[Stream] = inputs
 
-    def get_args(self):
+    def get_command_string(self) -> str:
+        """Builds a command string based on this filter"""
         input_streams = [f"[{input.index2}]" for input in self.inputs]
         output_streams = [f"[{output.index2}]" for output in self.output_streams]
 
@@ -231,7 +232,7 @@ class CommandBuilder:
                     args.append("-filter_complex")
                     filter_complex = True
 
-                filters.append(node.get_args())
+                filters.append(node.get_command_string())
             if isinstance(node, OutputNode):
                 outputs.append(node.filename)
 
