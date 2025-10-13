@@ -29,6 +29,12 @@ class InputNode(ProcessableNode):
         super().__init__(NodeType.INPUT)
         self.filename: str = filename
 
+    def __eq__(self, other: "InputNode"):
+        return self.filename == other.filename
+
+    def __hash__(self):
+        return hash(self.filename)
+
 
 class OutputNode(Node):
     """Nodes representing output files."""
@@ -61,6 +67,16 @@ class OutputNode(Node):
         self.global_options.append("-y")
         return self
 
+    def __eq__(self, other: "OutputNode"):
+        return (
+            self.filename == other.filename
+            and self.inputs == other.inputs
+            and self.global_options == other.global_options
+        )
+
+    def __hash__(self):
+        return hash((self.filename, tuple(self.inputs), tuple(self.global_options)))
+
 
 class FilterNode(ProcessableNode):
     """Nodes representing filter operations."""
@@ -78,6 +94,24 @@ class FilterNode(ProcessableNode):
         self.positional_arguments: list = postional_arguments
         self.named_arguments: dict = named_arguments
         self.inputs: list[Stream] = inputs
+
+    def __eq__(self, other: "ProcessableNode"):
+        return (
+            self.filter_name == other.filter_name
+            and self.positional_arguments == other.positional_arguments
+            and self.named_arguments == other.named_arguments
+            and self.inputs == other.inputs
+        )
+
+    def __hash__(self):
+        return hash(
+            (
+                self.filter_name,
+                tuple(self.positional_arguments),
+                frozenset(self.named_arguments.items()),
+                tuple(self.inputs),
+            )
+        )
 
     def get_command_string(self) -> str:
         """Builds a command string based on this filter"""
@@ -100,6 +134,12 @@ class Stream:
     def __init__(self, source_node: Node):
         self.source_node: Node = source_node
         self.index: int = None
+
+    def __eq__(self, other: "Stream"):
+        return self.source_node == other.source_node
+
+    def __hash__(self):
+        return hash(self.source_node)
 
     def _apply_filter(
         self,
