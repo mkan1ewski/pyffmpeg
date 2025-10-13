@@ -47,6 +47,8 @@ class OutputNode(Node):
 
     def get_output_mapping_args(self) -> list[str]:
         """Builds command args representing the output mapping from this output"""
+        if len(self.inputs) == 1 and isinstance(self.inputs[0].source_node, InputNode):
+            return [self.filename]
         args = []
         for input in self.inputs:
             args += ["-map", f"[{input.index}]"]
@@ -293,7 +295,8 @@ class CommandBuilder:
                 outputs.extend(node.get_output_mapping_args())
                 global_options.extend(node.get_global_options())
 
-        args.append(";".join(filters))
+        if filters:
+            args.append(";".join(filters))
         args.extend([*outputs, *global_options])
 
         return args
