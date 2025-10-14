@@ -39,17 +39,35 @@ class InputNode(ProcessableNode):
 class OutputNode(Node):
     """Nodes representing output files."""
 
-    def __init__(self, filename: str, inputs: list["Stream"]):
+    def __init__(
+        self,
+        filename: str,
+        inputs: list["Stream"],
+        output_options: dict[str, str | list[str]] = {},
+    ):
         super().__init__(NodeType.OUTPUT)
         self.inputs: list[Stream] = inputs
         self.filename: str = filename
+        self.output_options: dict[str, str | list[str]] = output_options
         self.global_options: list[str] = []
 
     def get_output_mapping_args(self) -> list[str]:
-        """Builds command args representing the output mapping from this output"""
-        if len(self.inputs) == 1 and isinstance(self.inputs[0].source_node, InputNode):
-            return [self.filename]
+        """Builds command args representing the output"""
+        """Generates args for output options"""
+        """Generates args for mapping streams to the output if neccessary"""
         args = []
+
+        for option_name, value in self.output_options.items():
+            if isinstance(value, list):
+                for single_value in value:
+                    args.extend((f"-{option_name}", single_value))
+            else:
+                args.extend((f"-{option_name}", value))
+
+        if len(self.inputs) == 1 and isinstance(self.inputs[0].source_node, InputNode):
+            args.append(self.filename)
+            return args
+
         for input in self.inputs:
             args.append("-map")
             args.append(
@@ -57,7 +75,9 @@ class OutputNode(Node):
                 if isinstance(input.source_node, FilterNode)
                 else input.index
             )
+
         args.append(self.filename)
+
         return args
 
     def get_global_options(self) -> list[str]:
@@ -233,7 +253,7 @@ class Stream:
             named_arguments={"t": thickness},
         )[0]
 
-    def output(self, *args) -> "OutputNode":
+    def output(self, *args, **kwargs) -> "OutputNode":
         streams = []
         filename = None
 
@@ -250,7 +270,7 @@ class Stream:
         if not filename:
             raise ValueError("No output filename provided to output()")
 
-        return OutputNode(filename, streams)
+        return OutputNode(filename, streams, output_options=kwargs)
 
 
 class GraphSorter:
