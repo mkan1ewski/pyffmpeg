@@ -51,7 +51,12 @@ class OutputNode(Node):
             return [self.filename]
         args = []
         for input in self.inputs:
-            args += ["-map", f"[{input.index}]"]
+            args.append("-map")
+            args.append(
+                f"[{input.index}]"
+                if isinstance(input.source_node, FilterNode)
+                else input.index
+            )
         args.append(self.filename)
         return args
 
@@ -228,10 +233,24 @@ class Stream:
             named_arguments={"t": thickness},
         )[0]
 
-    def output(self, filename: str, inputs: list["Stream"] = None) -> OutputNode:
-        inputs = inputs + [self] if inputs else [self]
-        output = OutputNode(filename, inputs)
-        return output
+    def output(self, *args) -> "OutputNode":
+        streams = []
+        filename = None
+
+        streams.append(self)
+
+        for arg in args:
+            if isinstance(arg, Stream):
+                streams.append(arg)
+            elif isinstance(arg, str):
+                filename = arg
+            else:
+                raise TypeError(f"Unexpected argument type: {type(arg)}")
+
+        if not filename:
+            raise ValueError("No output filename provided to output()")
+
+        return OutputNode(filename, streams)
 
 
 class GraphSorter:
