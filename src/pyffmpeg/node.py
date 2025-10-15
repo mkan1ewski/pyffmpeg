@@ -84,6 +84,11 @@ class OutputNode(Node):
         """Returns global options"""
         return self.global_options
 
+    def global_args(self, *args) -> "OutputNode":
+        """Adds global options"""
+        self.global_options.extend(args)
+        return self
+
     def get_args(self):
         sorter = GraphSorter(self)
         command_builder = CommandBuilder(sorter.sort())
@@ -95,11 +100,7 @@ class OutputNode(Node):
         return self
 
     def __eq__(self, other: "OutputNode"):
-        return (
-            self.filename == other.filename
-            and self.inputs == other.inputs
-            and self.global_options == other.global_options
-        )
+        return self.filename == other.filename and self.inputs == other.inputs
 
     def __hash__(self):
         return hash((self.filename, tuple(self.inputs), tuple(self.global_options)))
