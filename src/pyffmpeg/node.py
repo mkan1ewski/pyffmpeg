@@ -236,11 +236,12 @@ class Stream:
         """Crop the input video to given dimensions"""
         return self._apply_filter("crop", postional_arguments=[width, height, x, y])[0]
 
-    def concat(self, *streams: "Stream"):
+    def concat(self, *streams: "Stream", **kwargs):
         """Concatenate audio and video streams, joining them together one after the other"""
+        kwargs["n"] = len([self, *streams])
         return self._apply_filter(
             "concat",
-            named_arguments={"n": len([self, *streams])},
+            named_arguments=kwargs,
             inputs=[self, *streams],
         )[0]
 
