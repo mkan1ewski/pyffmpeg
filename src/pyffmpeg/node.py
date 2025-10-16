@@ -169,6 +169,14 @@ class Stream:
     def __hash__(self):
         return hash(self.source_node)
 
+    @property
+    def node(self):
+        """Returns the list of output streams produced by the filter node
+        that generated this stream."""
+        if not isinstance(self.source_node, FilterNode):
+            raise AttributeError(".node is only available on filter outputs")
+        return self.source_node.output_streams
+
     def _apply_filter(
         self,
         filter_name: str,
