@@ -162,12 +162,27 @@ class Stream:
     def __init__(self, source_node: Node):
         self.source_node: Node = source_node
         self.index: int = None
+        self.elemantary_streams: dict[str, TypedStream] = {}
 
     def __eq__(self, other: "Stream"):
         return self.source_node == other.source_node
 
     def __hash__(self):
         return hash(self.source_node)
+
+    @property
+    def audio(self) -> "TypedStream":
+        return self.elemantary_streams.setdefault("a", TypedStream("audio", self))
+
+    @property
+    def video(self) -> "TypedStream":
+        return self.elemantary_streams.setdefault("v", TypedStream("video", self))
+
+    def __getitem__(self, key: str) -> "TypedStream":
+        mapping = {"a": "audio", "v": "video"}
+        if key not in mapping:
+            raise KeyError(f"Invalid stream type: {key!r}. Expected 'a' or 'v'.")
+        return self.elemantary_streams.setdefault(key, TypedStream(mapping[key], self))
 
     @property
     def node(self):
@@ -287,6 +302,14 @@ class Stream:
         return OutputNode(filename, streams, output_options=kwargs)
 
 
+class TypedStream(Stream):
+    """Elementary stream representing specific type of media out of those contained within a Stream"""
+    def __init__(self, type: str, source_stream: Stream):
+        self.type = type
+        self.source_node = source_stream.source_node
+        self.index = None
+
+
 class GraphSorter:
     def __init__(self, output: Node):
         self.start_node: Node = output
@@ -318,11 +341,17 @@ class GraphSorter:
             if isinstance(node, InputNode):
                 for stream in node.output_streams:
                     stream.index = f"{self.current_input_stream_index}"
+                    self.label_elementary_streams(stream)
                     self.current_input_stream_index += 1
             if isinstance(node, FilterNode):
                 for stream in node.output_streams:
                     stream.index = f"s{self.current_filter_stream_index}"
+                    self.label_elementary_streams(stream)
                     self.current_filter_stream_index += 1
+
+    def label_elementary_streams(self, stream: Stream):
+        for type, elementary_stream in stream.elemantary_streams.items():
+            elementary_stream.index = f"{stream.index}:{type}"
 
 
 class CommandBuilder:
