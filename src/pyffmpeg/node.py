@@ -263,13 +263,18 @@ class Stream:
         """Concatenate audio and video streams, joining them together one after the other"""
         video_stream_count = kwargs.get("v", 1)
         audio_stream_count = kwargs.get("a", 0)
-        stream_count = video_stream_count + audio_stream_count
-        kwargs["n"] = int(len([self, *streams]) / stream_count)
+        output_stream_count = video_stream_count + audio_stream_count
+        input_stream_count = int(len([self, *streams]))
+        if (input_stream_count % output_stream_count) != 0:
+            raise ValueError(
+                f"Expected concat input streams to have length multiple of {output_stream_count} (v={video_stream_count}, a={audio_stream_count}); got {input_stream_count}"
+            )
+        kwargs["n"] = int(input_stream_count / output_stream_count)
         return self._apply_filter(
             "concat",
             named_arguments=kwargs,
             inputs=[self, *streams],
-            num_output_streams=(video_stream_count + audio_stream_count),
+            num_output_streams=output_stream_count,
         )[0]
 
     def drawbox(
@@ -304,6 +309,7 @@ class Stream:
 
 class TypedStream(Stream):
     """Elementary stream representing specific type of media out of those contained within a Stream"""
+
     def __init__(self, type: str, source_stream: Stream):
         self.type = type
         self.source_node = source_stream.source_node
