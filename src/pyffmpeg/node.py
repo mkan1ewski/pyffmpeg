@@ -246,11 +246,15 @@ class Stream:
 
     def concat(self, *streams: "Stream", **kwargs):
         """Concatenate audio and video streams, joining them together one after the other"""
-        kwargs["n"] = len([self, *streams])
+        video_stream_count = kwargs.get("v", 1)
+        audio_stream_count = kwargs.get("a", 0)
+        stream_count = video_stream_count + audio_stream_count
+        kwargs["n"] = int(len([self, *streams]) / stream_count)
         return self._apply_filter(
             "concat",
             named_arguments=kwargs,
             inputs=[self, *streams],
+            num_output_streams=(video_stream_count + audio_stream_count),
         )[0]
 
     def drawbox(
