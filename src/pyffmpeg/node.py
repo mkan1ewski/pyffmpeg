@@ -51,11 +51,24 @@ class OutputNode(Node):
         self.output_options: dict[str, str | list[str]] = output_options
         self.global_options: list[str] = []
 
+    def _normalize_output_options(self):
+        """Replaces keys names in output_options from human readable (passed by the user)"""
+        """to names existing in ffmpeg docs, prepares for later use to build command"""
+        """Casts option values to string"""
+        keys_names_mapping = {"video_bitrate": "b:v", "audio_bitrate": "b:a"}
+        self.output_options = {
+            keys_names_mapping.get(k, k): (
+                [str(x) for x in v] if isinstance(v, (list, tuple)) else str(v)
+            )
+            for k, v in self.output_options.items()
+        }
+
     def get_output_mapping_args(self) -> list[str]:
         """Builds command args representing the output"""
         """Generates args for output options"""
         """Generates args for mapping streams to the output if neccessary"""
         args = []
+        self._normalize_output_options()
 
         for option_name, value in self.output_options.items():
             if isinstance(value, list):
