@@ -230,6 +230,12 @@ class Stream:
             "split", postional_arguments=[num_outputs], num_output_streams=num_outputs
         )
 
+    def asplit(self, num_outputs: int = 2) -> list["Stream"]:
+        """Split into multiple identical audio streams."""
+        return self._apply_filter(
+            "asplit", postional_arguments=[num_outputs], num_output_streams=num_outputs
+        )
+
     def overlay(
         self,
         overlay_stream: "Stream",
