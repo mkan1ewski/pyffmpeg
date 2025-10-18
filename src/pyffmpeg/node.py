@@ -179,7 +179,11 @@ class Stream:
         return self.elemantary_streams.setdefault("v", TypedStream("video", self))
 
     def __getitem__(self, key: str) -> "TypedStream":
+        """Allows accessing elementary stream contained in this Stream"""
         mapping = {"a": "audio", "v": "video"}
+        if not isinstance(key, str) or len(key) != 1:
+            raise TypeError("Expected string index (e.g. 'a')")
+
         if key not in mapping:
             raise KeyError(f"Invalid stream type: {key!r}. Expected 'a' or 'v'.")
         return self.elemantary_streams.setdefault(key, TypedStream(mapping[key], self))
@@ -318,6 +322,11 @@ class TypedStream(Stream):
         self.type = type
         self.source_node = source_stream.source_node
         self.index = None
+
+    def __getitem__(self, _):
+        """Raises ValueError"""
+        mapping = {"audio": "a", "video": "v"}
+        raise ValueError(f"Stream already has a selector: {mapping[self.type]}")
 
 
 class GraphSorter:
