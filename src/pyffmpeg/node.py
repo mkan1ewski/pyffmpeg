@@ -210,6 +210,10 @@ class Stream:
         )
         return node.output_streams
 
+    def filter(self, filter_name: str, *args, **kwargs) -> "Stream":
+        """Custom filter with a single input and a single output"""
+        return self._apply_filter(filter_name, args, kwargs)[0]
+
     def scale(self, height: int, width: int) -> "Stream":
         """Scales to width and height."""
         return self._apply_filter(
