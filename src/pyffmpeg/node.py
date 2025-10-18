@@ -63,6 +63,15 @@ class OutputNode(Node):
             for k, v in self.output_options.items()
         }
 
+        if isinstance(self.output_options.get("video_size"), list):
+            try:
+                width, height = self.output_options["video_size"]
+            except ValueError:
+                raise ValueError(
+                    "video_size must contain exactly two elements: (width, height)"
+                )
+            self.output_options["video_size"] = f"{width}x{height}"
+
     def get_output_mapping_args(self) -> list[str]:
         """Builds command args representing the output"""
         """Generates args for output options"""
