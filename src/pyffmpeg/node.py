@@ -199,7 +199,7 @@ class Stream:
 
     def __init__(self, source_node: Node):
         self.source_node: Node = source_node
-        self.index: str = None
+        self.index: str
         self.elemantary_streams: dict[str, TypedStream] = {}
 
     def __eq__(self, other: object) -> bool:
@@ -241,7 +241,7 @@ class Stream:
         filter_name: str,
         postional_arguments: list = [],
         named_arguments: dict = {},
-        inputs: list["Stream"] = None,
+        inputs: list["Stream"] | None = None,
         num_output_streams: int = 1,
     ) -> list["Stream"]:
         """Creates a FilterNode and returns its output streams."""
@@ -332,7 +332,7 @@ class Stream:
         )[0]
 
     def drawbox(
-        self, x: int, y: int, width: int, height: int, color: str, thickness: int = None
+        self, x: int, y: int, width: int, height: int, color: str, thickness: int | None = None
     ):
         """Draw a colored box on the input image"""
         return self._apply_filter(
