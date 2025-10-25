@@ -82,7 +82,7 @@ class OutputNode(Node):
                 )
             self.output_options["video_size"] = f"{width}x{height}"
 
-    def get_output_mapping_args(self) -> list[str]:
+    def get_output_args(self, enforce_output_mapping) -> list[str]:
         """Builds command args representing the output"""
         """Generates args for output options"""
         """Generates args for mapping streams to the output if neccessary"""
@@ -96,7 +96,11 @@ class OutputNode(Node):
             else:
                 args.extend((f"-{option_name}", value))
 
-        if len(self.inputs) == 1 and isinstance(self.inputs[0].source_node, InputNode):
+        if (
+            len(self.inputs) == 1
+            and isinstance(self.inputs[0].source_node, InputNode)
+            and not enforce_output_mapping
+        ):
             args.append(self.filename)
             return args
 
@@ -444,7 +448,9 @@ class CommandBuilder:
         filters = []
         outputs = []
         global_options = []
-        filter_complex = False
+        filter_complex: bool = False
+        multi_input: bool = True if isinstance(self.nodes[1], InputNode) else False
+        enforce_output_mapping: bool = False
         for node in self.nodes:
             if isinstance(node, InputNode):
                 args.extend(["-i", node.filename])
@@ -455,8 +461,10 @@ class CommandBuilder:
 
                 filters.append(node.get_command_string())
             if isinstance(node, OutputNode):
-                outputs.extend(node.get_output_mapping_args())
+                outputs.extend(node.get_output_args(enforce_output_mapping))
                 global_options.extend(node.get_global_options())
+                if multi_input:
+                    enforce_output_mapping = True
 
         if filters:
             args.append(";".join(filters))
