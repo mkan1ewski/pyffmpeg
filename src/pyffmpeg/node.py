@@ -377,7 +377,7 @@ class TypedStream(Stream):
     def __init__(self, type: str, source_stream: Stream):
         self.type = type
         self.source_node = source_stream.source_node
-        self.index = None
+        self.index: str
 
     def __getitem__(self, _):
         """Raises ValueError"""
