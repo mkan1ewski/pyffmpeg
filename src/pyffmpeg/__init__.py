@@ -1,4 +1,4 @@
-from pyffmpeg.utils import input
+from pyffmpeg.utils import input, merge_outputs, get_args
 
 
 def __getattr__(name):

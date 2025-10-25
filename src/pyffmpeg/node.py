@@ -5,11 +5,18 @@ class NodeType(Enum):
     INPUT = auto()
     FILTER = auto()
     OUTPUT = auto()
+    MERGED_OUTPUT = auto()
 
 
 class Node:
     def __init__(self, type: NodeType):
         self.type: NodeType = type
+
+    def get_args(self) -> list[str]:
+        """Builds command arguments"""
+        sorter = GraphSorter(self)
+        command_builder = CommandBuilder(sorter.sort())
+        return command_builder.build_args()
 
 
 class ProcessableNode(Node):
@@ -111,11 +118,6 @@ class OutputNode(Node):
         self.global_options.extend(args)
         return self
 
-    def get_args(self):
-        sorter = GraphSorter(self)
-        command_builder = CommandBuilder(sorter.sort())
-        return command_builder.build_args()
-
     def overwrite_output(self) -> "OutputNode":
         """Adds global overwrite option"""
         self.global_options.append("-y")
@@ -126,6 +128,14 @@ class OutputNode(Node):
 
     def __hash__(self):
         return hash((self.filename, tuple(self.inputs), tuple(self.global_options)))
+
+
+class MergedOutputNode(Node):
+    """Node representing multiple outputs"""
+
+    def __init__(self, outputs: list[OutputNode]):
+        super().__init__(NodeType.MERGED_OUTPUT)
+        self.outputs = outputs
 
 
 class FilterNode(ProcessableNode):
@@ -380,6 +390,11 @@ class GraphSorter:
         if node.type in [NodeType.FILTER, NodeType.OUTPUT]:
             for stream in node.inputs:
                 self._sort(stream.source_node)
+
+        if node.type == NodeType.MERGED_OUTPUT:
+            for output in node.outputs:
+                self._sort(output)
+            return
 
         self.sorted.append(node)
 

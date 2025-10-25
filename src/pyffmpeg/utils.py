@@ -1,7 +1,14 @@
 import re
 import subprocess
 
-from pyffmpeg.node import InputNode, Stream
+from pyffmpeg.node import (
+    InputNode,
+    OutputNode,
+    Stream,
+    MergedOutputNode,
+    GraphSorter,
+    CommandBuilder,
+)
 
 
 def extract_filenames(makefile: str = "Makefile") -> list[str]:
@@ -86,3 +93,17 @@ def unify_keys(all_options):
 
 def input(path: str) -> Stream:
     return InputNode(path).output_streams[0]
+
+
+def merge_outputs(*outputs: OutputNode) -> MergedOutputNode:
+    """Creates multioutput object from many outputs"""
+    return MergedOutputNode(outputs)
+
+
+def get_args(output: OutputNode | list[OutputNode]) -> list[str]:
+    """Creates command arguments for the output or a list of outputs"""
+    if isinstance(output, list):
+        output = MergedOutputNode(outputs=reversed(output))
+    sorter = GraphSorter(output)
+    command_builder = CommandBuilder(sorter.sort())
+    return command_builder.build_args()
