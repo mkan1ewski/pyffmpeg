@@ -104,6 +104,7 @@ def test_node_repr():
         "dummy2.mp4", output.node.short_hash
     )
 
+
 @pytest.mark.skip(reason="internal implementation detail")
 def test_stream_repr():
     in_file = ffmpeg.input("dummy.mp4")
