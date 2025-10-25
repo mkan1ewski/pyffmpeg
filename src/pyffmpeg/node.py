@@ -1,4 +1,5 @@
 from enum import Enum, auto
+from typing import Sequence
 
 
 class NodeType(Enum):
@@ -137,9 +138,9 @@ class OutputNode(Node):
 class MergedOutputNode(Node):
     """Node representing multiple outputs"""
 
-    def __init__(self, outputs: list[OutputNode]):
+    def __init__(self, outputs: Sequence[OutputNode]):
         super().__init__(NodeType.MERGED_OUTPUT)
-        self.outputs = outputs
+        self.outputs: tuple = tuple(outputs)
 
 
 class FilterNode(ProcessableNode):

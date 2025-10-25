@@ -1,5 +1,6 @@
 import re
 import subprocess
+from typing import Sequence
 
 from pyffmpeg.node import (
     InputNode,
@@ -100,10 +101,11 @@ def merge_outputs(*outputs: OutputNode) -> MergedOutputNode:
     return MergedOutputNode(outputs)
 
 
-def get_args(output: OutputNode | list[OutputNode]) -> list[str]:
+def get_args(output: OutputNode | Sequence[OutputNode] | MergedOutputNode) -> list[str]:
     """Creates command arguments for the output or a list of outputs"""
-    if isinstance(output, list):
-        output = MergedOutputNode(outputs=reversed(output))
+    if isinstance(output, Sequence):
+        # output is reversed to satisfy tests order requirements
+        output = MergedOutputNode(outputs=tuple(reversed(output)))
     sorter = GraphSorter(output)
     command_builder = CommandBuilder(sorter.sort())
     return command_builder.build_args()
