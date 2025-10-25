@@ -36,7 +36,9 @@ class InputNode(ProcessableNode):
         super().__init__(NodeType.INPUT)
         self.filename: str = filename
 
-    def __eq__(self, other: "InputNode"):
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, InputNode):
+            return NotImplemented
         return self.filename == other.filename
 
     def __hash__(self):
@@ -123,7 +125,9 @@ class OutputNode(Node):
         self.global_options.append("-y")
         return self
 
-    def __eq__(self, other: "OutputNode"):
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, OutputNode):
+            return NotImplemented
         return self.filename == other.filename and self.inputs == other.inputs
 
     def __hash__(self):
@@ -155,7 +159,9 @@ class FilterNode(ProcessableNode):
         self.named_arguments: dict = named_arguments
         self.inputs: list[Stream] = inputs
 
-    def __eq__(self, other: "ProcessableNode"):
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, FilterNode):
+            return NotImplemented
         return (
             self.filter_name == other.filter_name
             and self.positional_arguments == other.positional_arguments
@@ -196,7 +202,9 @@ class Stream:
         self.index: int = None
         self.elemantary_streams: dict[str, TypedStream] = {}
 
-    def __eq__(self, other: "Stream"):
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Stream):
+            return NotImplemented
         return self.source_node == other.source_node
 
     def __hash__(self):
