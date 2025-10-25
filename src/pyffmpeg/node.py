@@ -306,19 +306,19 @@ class Stream:
             },
         )[0]
 
-    def vflip(self):
+    def vflip(self) -> "Stream":
         """Flip the input video vertically"""
         return self._apply_filter(filter_name="vflip")[0]
 
-    def hflip(self):
+    def hflip(self) -> "Stream":
         """Flip the input video horizontally"""
         return self._apply_filter(filter_name="hflip")[0]
 
-    def crop(self, x: int, y: int, width: int, height: int):
+    def crop(self, x: int, y: int, width: int, height: int) -> "Stream":
         """Crop the input video to given dimensions"""
         return self._apply_filter("crop", postional_arguments=(width, height, x, y))[0]
 
-    def concat(self, *streams: "Stream", **kwargs):
+    def concat(self, *streams: "Stream", **kwargs) -> "Stream":
         """Concatenate audio and video streams, joining them together one after the other"""
         video_stream_count = kwargs.get("v", 1)
         audio_stream_count = kwargs.get("a", 0)
@@ -344,7 +344,7 @@ class Stream:
         height: int,
         color: str,
         thickness: int | None = None,
-    ):
+    ) -> "Stream":
         """Draw a colored box on the input image"""
         return self._apply_filter(
             "drawbox",
@@ -401,7 +401,7 @@ class GraphSorter:
         self.label_streams()
         return self.sorted
 
-    def _sort(self, node: Node):
+    def _sort(self, node: Node) -> None:
         if node in self.visited:
             return
         self.visited.add(node)
@@ -417,7 +417,7 @@ class GraphSorter:
 
         self.sorted.append(node)
 
-    def label_streams(self):
+    def label_streams(self) -> None:
         for node in self.sorted:
             if isinstance(node, InputNode):
                 for stream in node.output_streams:
