@@ -85,7 +85,7 @@ class OutputNode(Node):
         """Builds command args representing the output"""
         """Generates args for output options"""
         """Generates args for mapping streams to the output if neccessary"""
-        args = []
+        args: list[str] = []
         self._normalize_output_options()
 
         for option_name, value in self.output_options.items():
@@ -199,7 +199,7 @@ class Stream:
 
     def __init__(self, source_node: Node):
         self.source_node: Node = source_node
-        self.index: int = None
+        self.index: str = None
         self.elemantary_streams: dict[str, TypedStream] = {}
 
     def __eq__(self, other: object) -> bool:
@@ -410,7 +410,7 @@ class GraphSorter:
         for node in self.sorted:
             if isinstance(node, InputNode):
                 for stream in node.output_streams:
-                    stream.index = f"{self.current_input_stream_index}"
+                    stream.index = str(self.current_input_stream_index)
                     self.label_elementary_streams(stream)
                     self.current_input_stream_index += 1
             if isinstance(node, FilterNode):
