@@ -387,8 +387,8 @@ class TypedStream(Stream):
 
 
 class GraphSorter:
-    def __init__(self, output: Node):
-        self.start_node: Node = output
+    def __init__(self, output: OutputNode | MergedOutputNode):
+        self.start_node: OutputNode | MergedOutputNode = output
         self.visited: set[Node] = set()
         self.sorted: list[Node] = []
         self.current_input_stream_index = 0
@@ -406,11 +406,11 @@ class GraphSorter:
             return
         self.visited.add(node)
 
-        if node.type in [NodeType.FILTER, NodeType.OUTPUT]:
+        if isinstance(node, (FilterNode, OutputNode)):
             for stream in node.inputs:
                 self._sort(stream.source_node)
 
-        if node.type == NodeType.MERGED_OUTPUT:
+        if isinstance(node, MergedOutputNode):
             for output in node.outputs:
                 self._sort(output)
             return
