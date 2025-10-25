@@ -240,7 +240,7 @@ class Stream:
         self,
         filter_name: str,
         postional_arguments: tuple = (),
-        named_arguments: dict = {},
+        named_arguments: dict[str, str] = {},
         inputs: list["Stream"] | None = None,
         num_output_streams: int = 1,
     ) -> list["Stream"]:
@@ -261,7 +261,7 @@ class Stream:
     def scale(self, height: int, width: int) -> "Stream":
         """Scales to width and height."""
         return self._apply_filter(
-            "scale", named_arguments={"height": height, "width": width}
+            "scale", named_arguments={"height": str(height), "width": str(width)}
         )[0]
 
     def split(self, num_outputs: int = 2) -> list["Stream"]:
@@ -286,9 +286,9 @@ class Stream:
         """Overlay another video stream on top of this one."""
         named_arguments = {"eof_action": eof_action}
         if x:
-            named_arguments["x"] = x
+            named_arguments["x"] = str(x)
         if y:
-            named_arguments["y"] = y
+            named_arguments["y"] = str(y)
 
         return self._apply_filter(
             "overlay",
@@ -298,7 +298,11 @@ class Stream:
 
     def trim(self, start_frame: int, end_frame: int):
         return self._apply_filter(
-            "trim", named_arguments={"start_frame": start_frame, "end_frame": end_frame}
+            "trim",
+            named_arguments={
+                "start_frame": str(start_frame),
+                "end_frame": str(end_frame),
+            },
         )[0]
 
     def vflip(self):
@@ -344,7 +348,7 @@ class Stream:
         return self._apply_filter(
             "drawbox",
             postional_arguments=(x, y, width, height, color),
-            named_arguments={"t": thickness},
+            named_arguments={"t": str(thickness)},
         )[0]
 
     def output(self, *args, **kwargs) -> "OutputNode":
