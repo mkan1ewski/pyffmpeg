@@ -148,14 +148,14 @@ class FilterNode(ProcessableNode):
     def __init__(
         self,
         filter_name: str,
-        postional_arguments: list,
+        postional_arguments: tuple,
         named_arguments: dict,
         inputs: list["Stream"],
         num_output_streams: int = 1,
     ):
         super().__init__(NodeType.FILTER, num_output_streams)
         self.filter_name: str = filter_name
-        self.positional_arguments: list = postional_arguments
+        self.positional_arguments: tuple = postional_arguments
         self.named_arguments: dict = named_arguments
         self.inputs: list[Stream] = inputs
 
@@ -173,7 +173,7 @@ class FilterNode(ProcessableNode):
         return hash(
             (
                 self.filter_name,
-                tuple(self.positional_arguments),
+                self.positional_arguments,
                 frozenset(self.named_arguments.items()),
                 tuple(self.inputs),
             )
@@ -184,7 +184,7 @@ class FilterNode(ProcessableNode):
         input_streams = [f"[{input.index}]" for input in self.inputs]
         output_streams = [f"[{output.index}]" for output in self.output_streams]
 
-        postional_arguments = [str(arg) for arg in self.positional_arguments]
+        postional_arguments = (str(arg) for arg in self.positional_arguments)
         named_arguments = [
             f"{name}={value}" for name, value in sorted(self.named_arguments.items())
         ]
@@ -239,7 +239,7 @@ class Stream:
     def _apply_filter(
         self,
         filter_name: str,
-        postional_arguments: list = [],
+        postional_arguments: tuple = (),
         named_arguments: dict = {},
         inputs: list["Stream"] | None = None,
         num_output_streams: int = 1,
@@ -267,13 +267,13 @@ class Stream:
     def split(self, num_outputs: int = 2) -> list["Stream"]:
         """Split into multiple identical streams."""
         return self._apply_filter(
-            "split", postional_arguments=[num_outputs], num_output_streams=num_outputs
+            "split", postional_arguments=(num_outputs,), num_output_streams=num_outputs
         )
 
     def asplit(self, num_outputs: int = 2) -> list["Stream"]:
         """Split into multiple identical audio streams."""
         return self._apply_filter(
-            "asplit", postional_arguments=[num_outputs], num_output_streams=num_outputs
+            "asplit", postional_arguments=(num_outputs,), num_output_streams=num_outputs
         )
 
     def overlay(
@@ -311,7 +311,7 @@ class Stream:
 
     def crop(self, x: int, y: int, width: int, height: int):
         """Crop the input video to given dimensions"""
-        return self._apply_filter("crop", postional_arguments=[width, height, x, y])[0]
+        return self._apply_filter("crop", postional_arguments=(width, height, x, y))[0]
 
     def concat(self, *streams: "Stream", **kwargs):
         """Concatenate audio and video streams, joining them together one after the other"""
@@ -332,12 +332,18 @@ class Stream:
         )[0]
 
     def drawbox(
-        self, x: int, y: int, width: int, height: int, color: str, thickness: int | None = None
+        self,
+        x: int,
+        y: int,
+        width: int,
+        height: int,
+        color: str,
+        thickness: int | None = None,
     ):
         """Draw a colored box on the input image"""
         return self._apply_filter(
             "drawbox",
-            postional_arguments=[x, y, width, height, color],
+            postional_arguments=(x, y, width, height, color),
             named_arguments={"t": thickness},
         )[0]
 
