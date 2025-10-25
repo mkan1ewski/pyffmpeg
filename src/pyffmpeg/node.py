@@ -42,7 +42,7 @@ class InputNode(ProcessableNode):
             return NotImplemented
         return self.filename == other.filename
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash(self.filename)
 
 
@@ -131,7 +131,7 @@ class OutputNode(Node):
             return NotImplemented
         return self.filename == other.filename and self.inputs == other.inputs
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash((self.filename, tuple(self.inputs), tuple(self.global_options)))
 
 
@@ -170,7 +170,7 @@ class FilterNode(ProcessableNode):
             and self.inputs == other.inputs
         )
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash(
             (
                 self.filter_name,
@@ -208,7 +208,7 @@ class Stream:
             return NotImplemented
         return self.source_node == other.source_node
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash(self.source_node)
 
     @property
@@ -439,8 +439,8 @@ class CommandBuilder:
     def __init__(self, nodes: list[Node]):
         self.nodes = nodes
 
-    def build_args(self):
-        args = []
+    def build_args(self) -> list[str]:
+        args: list[str] = []
         filters = []
         outputs = []
         global_options = []

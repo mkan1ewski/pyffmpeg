@@ -9,4 +9,3 @@ def __getattr__(name: str) -> Callable[..., Any]:
         return getattr(obj, name)(*args, **kwargs)
 
     return wrapper
-
