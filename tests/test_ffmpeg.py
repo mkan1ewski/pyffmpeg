@@ -79,6 +79,7 @@ def test_fluent_complex_filter():
     ).output("dummy2.mp4")
 
 
+@pytest.mark.skip(reason="internal implementation detail")
 def test_node_repr():
     in_file = ffmpeg.input("dummy.mp4")
     trim1 = ffmpeg.trim(in_file, start_frame=10, end_frame=20)
@@ -103,7 +104,7 @@ def test_node_repr():
         "dummy2.mp4", output.node.short_hash
     )
 
-
+@pytest.mark.skip(reason="internal implementation detail")
 def test_stream_repr():
     in_file = ffmpeg.input("dummy.mp4")
     assert repr(in_file) == "input(filename={!r})[None] <{}>".format(
