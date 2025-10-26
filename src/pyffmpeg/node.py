@@ -205,7 +205,7 @@ class Stream:
     def __init__(self, source_node: Node):
         self.source_node: Node = source_node
         self.index: str
-        self.elemantary_streams: dict[str, TypedStream] = {}
+        self.elemantary_streams: dict[str, TypedStream | IndexedStream] = {}
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Stream):
@@ -223,15 +223,24 @@ class Stream:
     def video(self) -> "TypedStream":
         return self.elemantary_streams.setdefault("v", TypedStream("video", self))
 
-    def __getitem__(self, key: str) -> "TypedStream":
+    def __getitem__(self, key: str) -> "TypedStream | IndexedStream":
         """Allows accessing elementary stream contained in this Stream"""
         mapping = {"a": "audio", "v": "video"}
         if not isinstance(key, str) or len(key) != 1:
             raise TypeError("Expected string index (e.g. 'a')")
 
-        if key not in mapping:
-            raise KeyError(f"Invalid stream type: {key!r}. Expected 'a' or 'v'.")
-        return self.elemantary_streams.setdefault(key, TypedStream(mapping[key], self))
+        if key in mapping:
+            stream_type = mapping[key]
+            return self.elemantary_streams.setdefault(
+                key, TypedStream(stream_type, self)
+            )
+
+        if key.isdigit():
+            return self.elemantary_streams.setdefault(key, IndexedStream(self))
+
+        raise KeyError(
+            f"Invalid stream key: {key!r}. Expected 'a', 'v', or a numeric index like '1'."
+        )
 
     @property
     def node(self):
@@ -388,6 +397,18 @@ class TypedStream(Stream):
         """Raises ValueError"""
         mapping = {"audio": "a", "video": "v"}
         raise ValueError(f"Stream already has a selector: {mapping[self.type]}")
+
+
+class IndexedStream(Stream):
+    """Elementary stream represented by index within the containing stream"""
+
+    def __init__(self, source_stream: Stream):
+        self.source_node = source_stream.source_node
+        self.label: str
+
+    def __getitem__(self, _):
+        """Raises ValueError"""
+        raise ValueError(f"Stream already has a selector")
 
 
 class GraphSorter:
