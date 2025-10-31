@@ -1,38 +1,10 @@
+from pyffmpeg._utils import (
+    escape_filter_option,
+    escape_filter_description,
+    escape_text_content,
+)
 from enum import Enum, auto
 from typing import Sequence
-
-
-def escape_ffmpeg_value(value: str, for_text=False) -> str:
-    """Escape a string value so it can be safely used inside FFmpeg filter arguments."""
-    # escaping for text parsing (for text-like args)
-    if for_text:
-        result = []
-        for ch in value:
-            if ch in {"'", "\\", "%"}:
-                result.append("\\" + ch)
-            else:
-                result.append(ch)
-            value = "".join(result)
-
-    # escaping filter option values
-    result = []
-    for ch in value:
-        if ch in {":", "=", "'", "\\"}:
-            result.append("\\" + ch)
-        else:
-            result.append(ch)
-    value = "".join(result)
-
-    # escaping filtergraph description
-    result = []
-    for ch in value:
-        if ch in {"[", "]", ",", ";", "'", "\\"}:
-            result.append("\\" + ch)
-        else:
-            result.append(ch)
-    value = "".join(result)
-
-    return value
 
 
 class NodeType(Enum):
@@ -224,7 +196,8 @@ class FilterNode(ProcessableNode):
 
         postional_arguments = (str(arg) for arg in self.positional_arguments)
         named_arguments = [
-            f"{name}={value}" for name, value in sorted(self.named_arguments.items())
+            f"{name}={escape_filter_description(escape_filter_option(value))}"
+            for name, value in sorted(self.named_arguments.items())
         ]
         all_arguments = [*postional_arguments, *named_arguments]
         arguments_string = ":".join(all_arguments)
@@ -399,11 +372,7 @@ class Stream:
         )[0]
 
     def drawtext(self, text: str, **kwargs) -> "Stream":
-        kwargs["text"] = escape_ffmpeg_value(text, for_text=True)
-        for k, v in kwargs.items():
-            if k != "text":
-                kwargs[k] = escape_ffmpeg_value(v)
-
+        kwargs["text"] = escape_text_content(text)
         return self._apply_filter("drawtext", named_arguments=kwargs)[0]
 
     def output(self, *args, **kwargs) -> "OutputNode":
