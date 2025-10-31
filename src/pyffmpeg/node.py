@@ -2,6 +2,39 @@ from enum import Enum, auto
 from typing import Sequence
 
 
+def escape_ffmpeg_value(value: str, for_text=False) -> str:
+    """Escape a string value so it can be safely used inside FFmpeg filter arguments."""
+    # escaping for text parsing (for text-like args)
+    if for_text:
+        result = []
+        for ch in value:
+            if ch in {"'", "\\", "%"}:
+                result.append("\\" + ch)
+            else:
+                result.append(ch)
+            value = "".join(result)
+
+    # escaping filter option values
+    result = []
+    for ch in value:
+        if ch in {":", "=", "'", "\\"}:
+            result.append("\\" + ch)
+        else:
+            result.append(ch)
+    value = "".join(result)
+
+    # escaping filtergraph description
+    result = []
+    for ch in value:
+        if ch in {"[", "]", ",", ";", "'", "\\"}:
+            result.append("\\" + ch)
+        else:
+            result.append(ch)
+    value = "".join(result)
+
+    return value
+
+
 class NodeType(Enum):
     INPUT = auto()
     FILTER = auto()
@@ -364,6 +397,14 @@ class Stream:
             postional_arguments=(x, y, width, height, color),
             named_arguments={"t": str(thickness)},
         )[0]
+
+    def drawtext(self, text: str, **kwargs) -> "Stream":
+        kwargs["text"] = escape_ffmpeg_value(text, for_text=True)
+        for k, v in kwargs.items():
+            if k != "text":
+                kwargs[k] = escape_ffmpeg_value(v)
+
+        return self._apply_filter("drawtext", named_arguments=kwargs)[0]
 
     def output(self, *args, **kwargs) -> "OutputNode":
         streams = []
