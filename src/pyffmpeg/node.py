@@ -24,6 +24,15 @@ class Node:
         command_builder = CommandBuilder(sorter.sort())
         return command_builder.build_args()
 
+    def compile(self, cmd: str = "ffmpeg") -> list[str]:
+        """Builds command line arguments for invoking ffmpeg"""
+        if isinstance(cmd, str):
+            cmd = [cmd]
+        elif not isinstance(cmd, list):
+            cmd = list(cmd)
+
+        return cmd + self.get_args()
+
 
 class ProcessableNode(Node):
     """Nodes that can be further processed with filters."""
