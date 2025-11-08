@@ -92,8 +92,10 @@ def unify_keys(all_options):
             all_options[i][j] = new_dict
 
 
-def input(path: str) -> Stream:
-    return InputNode(path).output_streams[0]
+def input(path: str, **kwargs) -> Stream:
+    """Creates input stream from a filename"""
+    """Accepts input options through kwargs"""
+    return InputNode(path, kwargs).output_streams[0]
 
 
 def merge_outputs(*outputs: OutputNode) -> MergedOutputNode:

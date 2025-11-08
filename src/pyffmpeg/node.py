@@ -38,9 +38,10 @@ class ProcessableNode(Node):
 class InputNode(ProcessableNode):
     """Nodes representing input files."""
 
-    def __init__(self, filename: str):
+    def __init__(self, filename: str, options: dict[str, str] = None):
         super().__init__(NodeType.INPUT)
         self.filename: str = filename
+        self.options: dict[str, str] = options
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, InputNode):
@@ -49,6 +50,14 @@ class InputNode(ProcessableNode):
 
     def __hash__(self) -> int:
         return hash(self.filename)
+
+    def get_input_args(self) -> list[str]:
+        """Returns command args for this input"""
+        args = []
+        for option_name, value in self.options.items():
+            args.extend([f"-{option_name}", str(value)])
+        args.extend(["-i", self.filename])
+        return args
 
 
 class OutputNode(Node):
@@ -484,7 +493,7 @@ class CommandBuilder:
         enforce_output_mapping: bool = False
         for node in self.nodes:
             if isinstance(node, InputNode):
-                args.extend(["-i", node.filename])
+                args.extend(node.get_input_args())
             if isinstance(node, FilterNode):
                 if not filter_complex:
                     args.append("-filter_complex")
