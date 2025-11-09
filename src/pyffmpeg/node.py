@@ -18,21 +18,6 @@ class Node:
     def __init__(self, type: NodeType):
         self.type: NodeType = type
 
-    def get_args(self) -> list[str]:
-        """Builds command arguments"""
-        sorter = GraphSorter(self)
-        command_builder = CommandBuilder(sorter.sort())
-        return command_builder.build_args()
-
-    def compile(self, cmd: str = "ffmpeg") -> list[str]:
-        """Builds command line arguments for invoking ffmpeg"""
-        if isinstance(cmd, str):
-            cmd = [cmd]
-        elif not isinstance(cmd, list):
-            cmd = list(cmd)
-
-        return cmd + self.get_args()
-
 
 class ProcessableNode(Node):
     """Nodes that can be further processed with filters."""
@@ -42,6 +27,65 @@ class ProcessableNode(Node):
         self.output_streams: list[Stream] = [
             Stream(self) for i in range(num_output_streams)
         ]
+
+
+class RunnableNode(Node):
+    def __init__(self, type):
+        super().__init__(type)
+        self.global_options: list[str] = []
+
+    def global_args(self, *args) -> "RunnableNode":
+        """Adds global options"""
+        self.global_options.extend(args)
+        return self
+
+    def overwrite_output(self) -> "RunnableNode":
+        """Adds global overwrite option"""
+        self.global_options.append("-y")
+        return self
+
+    def _compile_global_kwargs(self, options_dict: dict) -> list[str]:
+        """Converts kwargs to list"""
+        args = []
+        key_map = {
+            "overwrite_output": "y",
+            "log_level": "loglevel",
+            "quiet": "loglevel",
+        }
+        for key, value in options_dict.items():
+            if key == "quiet" and value is True:
+                args.extend(["-loglevel", "quiet"])
+                continue
+
+            flag_name = key_map.get(key, key)
+
+            if value is True:
+                # -y with overwrite_output=True
+                args.append(f"-{flag_name}")
+            elif value is not None and value is not False:
+                # handles for example log_level="error"
+                args.extend([f"-{flag_name}", str(value)])
+        return args
+
+    def get_args(self, overwrite_output=False, **global_options) -> list[str]:
+        """Builds command arguments"""
+        global_options["overwrite_output"] = overwrite_output
+        kwargs_args = self._compile_global_kwargs(global_options)
+        sorter = GraphSorter(self)
+        command_builder = CommandBuilder(
+            sorter.sort(), self.global_options + kwargs_args
+        )
+        return command_builder.build_args()
+
+    def compile(
+        self, cmd: str = "ffmpeg", overwrite_output: bool = False, **global_options
+    ) -> list[str]:
+        """Builds command line arguments for invoking ffmpeg"""
+        if isinstance(cmd, str):
+            cmd = [cmd]
+        elif not isinstance(cmd, list):
+            cmd = list(cmd)
+        return cmd + self.get_args(overwrite_output=overwrite_output, **global_options)
 
 
 class InputNode(ProcessableNode):
@@ -69,7 +113,7 @@ class InputNode(ProcessableNode):
         return args
 
 
-class OutputNode(Node):
+class OutputNode(RunnableNode):
     """Nodes representing output files."""
 
     def __init__(
@@ -82,7 +126,6 @@ class OutputNode(Node):
         self.inputs: list[Stream] = inputs
         self.filename: str = filename
         self.output_options: dict[str, str | list[str]] = output_options
-        self.global_options: list[str] = []
 
     def _normalize_output_options(self):
         """Replaces keys names in output_options from human readable (passed by the user)"""
@@ -139,30 +182,16 @@ class OutputNode(Node):
 
         return args
 
-    def get_global_options(self) -> list[str]:
-        """Returns global options"""
-        return self.global_options
-
-    def global_args(self, *args) -> "OutputNode":
-        """Adds global options"""
-        self.global_options.extend(args)
-        return self
-
-    def overwrite_output(self) -> "OutputNode":
-        """Adds global overwrite option"""
-        self.global_options.append("-y")
-        return self
-
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, OutputNode):
             return NotImplemented
         return self.filename == other.filename and self.inputs == other.inputs
 
     def __hash__(self) -> int:
-        return hash((self.filename, tuple(self.inputs), tuple(self.global_options)))
+        return hash((self.filename, tuple(self.inputs)))
 
 
-class MergedOutputNode(Node):
+class MergedOutputNode(RunnableNode):
     """Node representing multiple outputs"""
 
     def __init__(self, outputs: Sequence[OutputNode]):
@@ -440,8 +469,8 @@ class IndexedStream(Stream):
 
 
 class GraphSorter:
-    def __init__(self, output: OutputNode | MergedOutputNode):
-        self.start_node: OutputNode | MergedOutputNode = output
+    def __init__(self, output: RunnableNode):
+        self.start_node: RunnableNode = output
         self.visited: set[Node] = set()
         self.sorted: list[Node] = []
         self.current_input_stream_index = 0
@@ -489,14 +518,14 @@ class GraphSorter:
 
 
 class CommandBuilder:
-    def __init__(self, nodes: list[Node]):
-        self.nodes = nodes
+    def __init__(self, nodes: list[Node], global_options: list = []):
+        self.nodes: list[Node] = nodes
+        self.global_options: list[str] = global_options
 
     def build_args(self) -> list[str]:
         args: list[str] = []
         filters = []
         outputs = []
-        global_options = []
         filter_complex: bool = False
         multi_input: bool = True if isinstance(self.nodes[1], InputNode) else False
         enforce_output_mapping: bool = False
@@ -511,12 +540,13 @@ class CommandBuilder:
                 filters.append(node.get_command_string())
             if isinstance(node, OutputNode):
                 outputs.extend(node.get_output_args(enforce_output_mapping))
-                global_options.extend(node.get_global_options())
                 if multi_input:
                     enforce_output_mapping = True
 
         if filters:
             args.append(";".join(filters))
-        args.extend([*outputs, *global_options])
+        args.extend([*outputs])
+
+        args.extend(self.global_options)
 
         return args

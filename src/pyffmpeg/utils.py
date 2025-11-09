@@ -103,11 +103,16 @@ def merge_outputs(*outputs: OutputNode) -> MergedOutputNode:
     return MergedOutputNode(outputs)
 
 
-def get_args(output: OutputNode | Sequence[OutputNode] | MergedOutputNode) -> list[str]:
+def get_args(
+    output: OutputNode | Sequence[OutputNode] | MergedOutputNode, **global_options
+) -> list[str]:
     """Creates command arguments for the output or a list of outputs"""
     if isinstance(output, Sequence):
         # output is reversed to satisfy tests order requirements
         output = MergedOutputNode(outputs=tuple(reversed(output)))
     sorter = GraphSorter(output)
-    command_builder = CommandBuilder(sorter.sort())
+    command_builder = CommandBuilder(
+        sorter.sort(),
+        output.global_options + output._compile_global_kwargs(global_options),
+    )
     return command_builder.build_args()
