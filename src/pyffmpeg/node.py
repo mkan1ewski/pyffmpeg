@@ -97,12 +97,15 @@ class RunnableNode(Node):
         quiet: bool = False,
         overwrite_output: bool = False,
         cwd: str | None = None,
+        compile_function=None,
     ) -> tuple[bytes | None, bytes | None]:
         """Execute the ffmpeg command represented by a RunnableNode"""
         if not isinstance(self, RunnableNode):
             raise TypeError(f"Expected RunnableNode, got {type(self)}")
 
-        cmdline = self.compile(
+        compile_function = compile_function or self.compile
+        cmdline = compile_function(
+            self,
             cmd=cmd,
             overwrite_output=overwrite_output,
             quiet=quiet,
