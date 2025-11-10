@@ -241,7 +241,7 @@ class MergedOutputNode(RunnableNode):
 
     def __init__(self, outputs: Sequence[OutputNode]):
         super().__init__(NodeType.MERGED_OUTPUT)
-        self.outputs: tuple = tuple(outputs)
+        self.outputs: tuple[OutputNode] = tuple(outputs)
 
 
 class FilterNode(ProcessableNode):
@@ -250,7 +250,7 @@ class FilterNode(ProcessableNode):
     def __init__(
         self,
         filter_name: str,
-        postional_arguments: tuple,
+        postional_arguments: tuple[str],
         named_arguments: dict,
         inputs: list["Stream"],
         num_output_streams: int = 1,
