@@ -5,6 +5,7 @@ from pyffmpeg._utils import (
 )
 from enum import Enum, auto
 from typing import Sequence
+import subprocess
 
 
 class NodeType(Enum):
@@ -86,6 +87,40 @@ class RunnableNode(Node):
         elif not isinstance(cmd, list):
             cmd = list(cmd)
         return cmd + self.get_args(overwrite_output=overwrite_output, **global_options)
+
+    def run(
+        self,
+        cmd: str | list[str] = "ffmpeg",
+        capture_stdout: bool = False,
+        capture_stderr: bool = False,
+        input: bytes | None = None,
+        quiet: bool = False,
+        overwrite_output: bool = False,
+        cwd: str | None = None,
+    ) -> tuple[bytes | None, bytes | None]:
+        """Execute the ffmpeg command represented by a RunnableNode"""
+        if not isinstance(self, RunnableNode):
+            raise TypeError(f"Expected RunnableNode, got {type(self)}")
+
+        cmdline = self.compile(
+            cmd=cmd,
+            overwrite_output=overwrite_output,
+            quiet=quiet,
+        )
+
+        stdout = subprocess.PIPE if capture_stdout else None
+        stderr = subprocess.PIPE if capture_stderr else None
+
+        process = subprocess.run(
+            cmdline,
+            input=input,
+            stdout=stdout,
+            stderr=stderr,
+            cwd=cwd,
+            check=True,
+        )
+
+        return process.stdout, process.stderr
 
 
 class InputNode(ProcessableNode):
