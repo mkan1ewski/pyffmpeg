@@ -3,6 +3,7 @@ from pyffmpeg._utils import (
     escape_filter_description,
     escape_text_content,
 )
+from pyffmpeg.errors import Error
 from enum import Enum, auto
 from typing import Sequence
 import subprocess
@@ -114,16 +115,22 @@ class RunnableNode(Node):
         stdout = subprocess.PIPE if capture_stdout else None
         stderr = subprocess.PIPE if capture_stderr else None
 
-        process = subprocess.run(
-            cmdline,
-            input=input,
-            stdout=stdout,
-            stderr=stderr,
-            cwd=cwd,
-            check=True,
-        )
-
-        return process.stdout, process.stderr
+        try:
+            process = subprocess.run(
+                cmdline,
+                input=input,
+                stdout=stdout,
+                stderr=stderr,
+                cwd=cwd,
+                check=True,
+            )
+            return process.stdout, process.stderr
+        except subprocess.CalledProcessError as e:
+            raise Error(
+                "ffmpeg error (see stderr output for detail)",
+                stdout=e.stdout,
+                stderr=e.stderr,
+            )
 
 
 class InputNode(ProcessableNode):
