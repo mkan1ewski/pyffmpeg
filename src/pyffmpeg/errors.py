@@ -1,7 +1,12 @@
 class Error(Exception):
-    """Error running ffmpeg process"""
+    """Error raised when running an ffmpeg process"""
 
-    def __init__(self, message, stdout=None, stderr=None):
+    def __init__(
+        self,
+        message: str,
+        stdout: bytes | None = None,
+        stderr: bytes | None = None,
+    ) -> None:
         super().__init__(message)
-        self.stdout = stdout
-        self.stderr = stderr
+        self.stdout: bytes | None = stdout
+        self.stderr: bytes | None = stderr
