@@ -370,6 +370,19 @@ class Stream:
         """Custom filter with a single input and a single output"""
         return self._apply_filter(filter_name, args, kwargs)[0]
 
+    def filter_multi_output(
+        self, inputs: list["Stream"], filter_name: str, *args, **kwargs
+    ) -> "FilterMultiOutput":
+        """Creates a custom filter allowing dynamic creation of output streams"""
+        node = FilterNode(
+            filter_name=filter_name,
+            postional_arguments=args,
+            named_arguments=kwargs,
+            inputs=inputs,
+            num_output_streams=0,
+        )
+        return FilterMultiOutput(node)
+
     def scale(self, height: int, width: int) -> "Stream":
         """Scales to width and height."""
         return self._apply_filter(
@@ -595,3 +608,22 @@ class CommandBuilder:
         args.extend(self.global_options)
 
         return args
+
+
+class FilterMultiOutput:
+    """Filter node wrapper which allows creating arbitrary outputs for the filter node dynamically"""
+
+    def __init__(self, filter_node: FilterNode):
+        self.filter_node = filter_node
+        self.stream_cache: dict[str, Stream] = {}
+
+    def __getitem__(self, key: str | int) -> "Stream":
+        """Returns new or existing stream under label"""
+        label = str(key)
+        if label in self.stream_cache:
+            return self.stream_cache[label]
+
+        new_stream = Stream(self.filter_node)
+        self.filter_node.output_streams.append(new_stream)
+        self.stream_cache[label] = new_stream
+        return new_stream
