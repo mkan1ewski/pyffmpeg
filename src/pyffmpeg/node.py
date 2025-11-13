@@ -378,7 +378,7 @@ class Stream:
             filter_name=filter_name,
             postional_arguments=args,
             named_arguments=kwargs,
-            inputs=inputs,
+            inputs=[self, *inputs],
             num_output_streams=0,
         )
         return FilterMultiOutput(node)
