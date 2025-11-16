@@ -1,3 +1,4 @@
+import subprocess
 from pyffmpeg.node import RunnableNode
 
 
@@ -29,4 +30,32 @@ def run(
         overwrite_output=overwrite_output,
         cwd=cwd,
         compile_function=compile,
+    )
+
+
+def run_async(
+    node: RunnableNode,
+    cmd: str | list[str] = "ffmpeg",
+    pipe_stdin: bool = False,
+    pipe_stdout: bool = False,
+    pipe_stderr: bool = False,
+    input: bytes | None = None,
+    quiet: bool = False,
+    overwrite_output: bool = False,
+    cwd: str | None = None,
+) -> subprocess.Popen:
+    """Runs ffmpeg process asynchronously"""
+    args = compile(node, cmd, overwrite_output=overwrite_output)
+    stdin_stream = subprocess.PIPE if pipe_stdin else None
+    stdout_stream = subprocess.PIPE if pipe_stdout else None
+    stderr_stream = subprocess.PIPE if pipe_stderr else None
+    if quiet:
+        stderr_stream = subprocess.STDOUT
+        stdout_stream = subprocess.DEVNULL
+    return subprocess.Popen(
+        args,
+        stdin=stdin_stream,
+        stdout=stdout_stream,
+        stderr=stderr_stream,
+        cwd=cwd,
     )
