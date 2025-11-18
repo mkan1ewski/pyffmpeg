@@ -366,9 +366,13 @@ class Stream:
         )
         return node.output_streams
 
-    def filter(self, filter_name: str, *args, **kwargs) -> "Stream":
-        """Custom filter with a single input and a single output"""
-        return self._apply_filter(filter_name, args, kwargs)[0]
+    def filter(
+        self, filter_name: str, inputs: list["Stream"] = [], **kwargs
+    ) -> "Stream":
+        """Custom filter with single or many inputs and a single output"""
+        return self._apply_filter(
+            filter_name, named_arguments=kwargs, inputs=[self, *inputs]
+        )[0]
 
     def filter_multi_output(
         self, inputs: list["Stream"], filter_name: str, *args, **kwargs

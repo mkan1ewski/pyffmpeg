@@ -116,3 +116,9 @@ def get_args(
         output.global_options + output._compile_global_kwargs(global_options),
     )
     return command_builder.build_args()
+
+
+def filter(self, filter_name: str, inputs: list["Stream"], **kwargs) -> "Stream":
+    """Custom filter with single or many inputs and a single output"""
+    if inputs and isinstance(inputs[0], Stream):
+        return inputs[0].filter(filter_name, inputs, **kwargs)
