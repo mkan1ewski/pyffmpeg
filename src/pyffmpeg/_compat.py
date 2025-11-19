@@ -62,3 +62,19 @@ class StreamWrapper:
 
     def __getitem__(self, key: str) -> "StreamWrapper":
         return StreamWrapper(self.stream[key])
+
+    def filter(self, filter_name: str, *args, **kwargs) -> "StreamWrapper":
+        """Custom filter with a single input and a single output"""
+        return StreamWrapper(self.stream._apply_filter(filter_name, args, kwargs)[0])
+
+
+def filter(
+    stream_spec: list[StreamWrapper] | StreamWrapper, filter_name: str, *args, **kwargs
+) -> StreamWrapper:
+    if isinstance(stream_spec, StreamWrapper):
+        stream_spec = [stream_spec.stream]
+    if all(isinstance(s, StreamWrapper) for s in stream_spec):
+        stream_spec = [s.stream for s in stream_spec]
+    return StreamWrapper(
+        stream_spec[0]._apply_filter(filter_name, args, kwargs, inputs=stream_spec)[0]
+    )
