@@ -424,14 +424,8 @@ class Stream:
             inputs=[self, overlay_stream],
         )[0]
 
-    def trim(self, start_frame: int, end_frame: int):
-        return self._apply_filter(
-            "trim",
-            named_arguments={
-                "start_frame": str(start_frame),
-                "end_frame": str(end_frame),
-            },
-        )[0]
+    def trim(self, **kwargs) -> "Stream":
+        return self._apply_filter("trim", named_arguments=kwargs)[0]
 
     def vflip(self) -> "Stream":
         """Flip the input video vertically"""
