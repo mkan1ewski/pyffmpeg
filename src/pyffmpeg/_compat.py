@@ -51,6 +51,8 @@ class StreamWrapper:
                 return wrap_stream_input(wrap_stream_output(attr))
             if isinstance(attr, (TypedStream, IndexedStream)):
                 return StreamWrapper(attr)
+            if isinstance(attr, Sequence) and all(isinstance(x, Stream) for x in attr):
+                return [StreamWrapper(stream) for stream in attr]
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, StreamWrapper):
