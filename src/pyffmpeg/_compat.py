@@ -4,7 +4,13 @@ from typing import Any
 from pyffmpeg._run import run, run_async, compile
 from pyffmpeg.utils import input, merge_outputs, get_args
 import functools
-from pyffmpeg.node import Stream, TypedStream, IndexedStream
+from pyffmpeg.node import (
+    Stream,
+    TypedStream,
+    IndexedStream,
+    FilterNode,
+    FilterMultiOutput,
+)
 
 
 def __getattr__(name: str) -> Callable[..., Any]:
@@ -80,3 +86,20 @@ def filter(
     return StreamWrapper(
         stream_spec[0]._apply_filter(filter_name, args, kwargs, inputs=stream_spec)[0]
     )
+
+
+def filter_multi_output(
+    stream_spec: list[StreamWrapper] | StreamWrapper, filter_name: str, *args, **kwargs
+) -> StreamWrapper:
+    if isinstance(stream_spec, StreamWrapper):
+        stream_spec = [stream_spec.stream]
+    if all(isinstance(s, StreamWrapper) for s in stream_spec):
+        stream_spec = [s.stream for s in stream_spec]
+    node = FilterNode(
+        filter_name=filter_name,
+        postional_arguments=args,
+        named_arguments=kwargs,
+        inputs=stream_spec,
+        num_output_streams=0,
+    )
+    return FilterMultiOutput(node)
