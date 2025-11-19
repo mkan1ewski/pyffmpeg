@@ -3,6 +3,7 @@ import subprocess
 from typing import Sequence
 
 from pyffmpeg.node import (
+    FilterMultiOutput,
     InputNode,
     OutputNode,
     Stream,
@@ -122,3 +123,11 @@ def filter(self, filter_name: str, inputs: list["Stream"], **kwargs) -> "Stream"
     """Custom filter with single or many inputs and a single output"""
     if inputs and isinstance(inputs[0], Stream):
         return inputs[0].filter(filter_name, inputs, **kwargs)
+
+
+def filter_multi_output(
+    filter_name: str, inputs: list["Stream"] = [], **kwargs
+) -> FilterMultiOutput:
+    """Creates a custom filter allowing dynamic creation of output streams"""
+    if inputs and isinstance(inputs[0], Stream):
+        return inputs[0].filter_multi_output(filter_name, inputs, **kwargs)

@@ -375,12 +375,11 @@ class Stream:
         )[0]
 
     def filter_multi_output(
-        self, inputs: list["Stream"], filter_name: str, *args, **kwargs
+        self, filter_name: str, inputs: list["Stream"] = [], **kwargs
     ) -> "FilterMultiOutput":
         """Creates a custom filter allowing dynamic creation of output streams"""
         node = FilterNode(
             filter_name=filter_name,
-            postional_arguments=args,
             named_arguments=kwargs,
             inputs=[self, *inputs],
             num_output_streams=0,
