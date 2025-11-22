@@ -1,8 +1,10 @@
 from pyffmpeg import __getattr__ as __init__getattr
 from collections.abc import Callable, Sequence
 from typing import Any
-from pyffmpeg._run import run, run_async, compile
+from pyffmpeg._run import run, compile
 from pyffmpeg.utils import input, merge_outputs, get_args
+from pyffmpeg.probe import probe
+from pyffmpeg.errors import Error
 import functools
 from pyffmpeg.node import (
     Stream,

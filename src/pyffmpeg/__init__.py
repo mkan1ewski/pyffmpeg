@@ -1,8 +1,9 @@
 from pyffmpeg import _utils
 from pyffmpeg.utils import input, merge_outputs, get_args, filter
-from pyffmpeg._run import run, run_async, compile
+from pyffmpeg._run import run, compile
 from pyffmpeg.errors import Error
 from pyffmpeg.node import Stream, Node
+from pyffmpeg.probe import probe
 from collections.abc import Callable
 from typing import Any
 import inspect
