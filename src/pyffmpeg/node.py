@@ -213,7 +213,11 @@ class OutputNode(RunnableNode):
         """Replaces keys names in output_options from human readable (passed by the user)"""
         """to names existing in ffmpeg docs, prepares for later use to build command"""
         """Casts option values to string"""
-        keys_names_mapping = {"video_bitrate": "b:v", "audio_bitrate": "b:a"}
+        keys_names_mapping = {
+            "video_bitrate": "b:v",
+            "audio_bitrate": "b:a",
+            "format": "f",
+        }
         self.output_options = {
             keys_names_mapping.get(k, k): (
                 [str(x) for x in v] if isinstance(v, (list, tuple)) else str(v)
@@ -236,13 +240,9 @@ class OutputNode(RunnableNode):
         """Generates args for mapping streams to the output if neccessary"""
         args: list[str] = []
         self._normalize_output_options()
-
-        for option_name, value in self.output_options.items():
-            if isinstance(value, list):
-                for single_value in value:
-                    args.extend((f"-{option_name}", single_value))
-            else:
-                args.extend((f"-{option_name}", value))
+        options = self.output_options.copy()
+        format = options.pop("f", None)
+        args.extend(convert_kwargs_to_cmd_line_args(options, sort=False))
 
         if (
             len(self.inputs) == 1
@@ -259,6 +259,9 @@ class OutputNode(RunnableNode):
                 if isinstance(input.source_node, FilterNode)
                 else input.index
             )
+
+        if format:
+            args.extend(["-f", str(format)])
 
         args.append(self.filename)
 
