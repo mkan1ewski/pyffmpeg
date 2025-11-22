@@ -2,10 +2,11 @@ from pyffmpeg._utils import (
     escape_filter_option,
     escape_filter_description,
     escape_text_content,
+    convert_kwargs_to_cmd_line_args,
 )
 from pyffmpeg.errors import Error
 from enum import Enum, auto
-from typing import Sequence
+from typing import Any, Sequence
 import subprocess
 
 
@@ -163,10 +164,10 @@ class RunnableNode(Node):
 class InputNode(ProcessableNode):
     """Nodes representing input files."""
 
-    def __init__(self, filename: str, options: dict[str, str] = None):
+    def __init__(self, filename: str, options: dict[str, Any] = None):
         super().__init__(NodeType.INPUT)
         self.filename: str = filename
-        self.options: dict[str, str] = options
+        self.options: dict[str, Any] = options
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, InputNode):
@@ -178,10 +179,19 @@ class InputNode(ProcessableNode):
 
     def get_input_args(self) -> list[str]:
         """Returns command args for this input"""
+        options = self.options.copy()
         args = []
-        for option_name, value in self.options.items():
-            args.extend([f"-{option_name}", str(value)])
+
+        if format := options.pop("format", None):
+            args.extend(["-f", str(format)])
+        if video_size := options.pop("video_size", None):
+            if isinstance(video_size, (tuple, list)):
+                video_size = f"{video_size[0]}x{video_size[1]}"
+            args.extend(["-video_size", str(video_size)])
+
+        args.extend(convert_kwargs_to_cmd_line_args(options))
         args.extend(["-i", self.filename])
+
         return args
 
 
