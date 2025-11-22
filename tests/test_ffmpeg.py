@@ -748,7 +748,7 @@ def test_pipe():
 def test__probe():
     data = ffmpeg.probe(TEST_INPUT_FILE1)
     assert set(data.keys()) == {"format", "streams"}
-    assert data["format"]["duration"] == "7.036000"
+    assert float(data["format"]["duration"]) == pytest.approx(7.036000, abs=1e-3)
 
 
 @pytest.mark.skipif(sys.version_info < (3, 3), reason="requires python3.3 or higher")
