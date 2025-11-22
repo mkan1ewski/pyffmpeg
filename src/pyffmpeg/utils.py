@@ -1,6 +1,6 @@
 import re
 import subprocess
-from typing import Sequence
+from typing import Any, Iterable, Sequence
 
 from pyffmpeg.node import (
     FilterMultiOutput,
@@ -131,3 +131,21 @@ def filter_multi_output(
     """Creates a custom filter allowing dynamic creation of output streams"""
     if inputs and isinstance(inputs[0], Stream):
         return inputs[0].filter_multi_output(filter_name, inputs, **kwargs)
+
+
+def convert_kwargs_to_cmd_line_args(kwargs: dict[str, Any]) -> list[str]:
+    """
+    Converts kwargs to list of args.
+    """
+    args = []
+    for key, value in sorted(kwargs.items()):
+        if isinstance(value, Iterable) and not isinstance(value, (str, bytes)):
+            for v in value:
+                args.append(f"-{key}")
+                if v is not None:
+                    args.append(str(v))
+        else:
+            args.append(f"-{key}")
+            if value is not None:
+                args.append(str(value))
+    return args
