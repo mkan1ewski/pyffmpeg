@@ -29,12 +29,15 @@ def escape_text_content(text: str) -> str:
     return escape_chars(text, "\\%'")
 
 
-def convert_kwargs_to_cmd_line_args(kwargs: dict[str, Any]) -> list[str]:
+def convert_kwargs_to_cmd_line_args(
+    kwargs: dict[str, Any], sort: bool = True
+) -> list[str]:
     """
     Converts kwargs to list of args.
     """
     args = []
-    for key, value in sorted(kwargs.items()):
+    options = sorted(kwargs.items()) if sort else kwargs.items()
+    for key, value in options:
         if isinstance(value, Iterable) and not isinstance(value, (str, bytes)):
             for v in value:
                 args.append(f"-{key}")
@@ -45,6 +48,3 @@ def convert_kwargs_to_cmd_line_args(kwargs: dict[str, Any]) -> list[str]:
             if value is not None:
                 args.append(str(value))
     return args
-
-
-#
