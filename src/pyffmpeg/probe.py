@@ -2,7 +2,7 @@ import subprocess
 import json
 from typing import Any
 from pyffmpeg.errors import Error
-from pyffmpeg.utils import convert_kwargs_to_cmd_line_args
+from pyffmpeg._utils import convert_kwargs_to_cmd_line_args
 
 
 def probe(
