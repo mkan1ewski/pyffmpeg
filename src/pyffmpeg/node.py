@@ -185,7 +185,7 @@ class InputNode(ProcessableNode):
         if format := options.pop("format", None):
             args.extend(["-f", str(format)])
         if video_size := options.pop("video_size", None):
-            if isinstance(video_size, (tuple, list)):
+            if isinstance(video_size, (tuple, list)) and len(video_size) == 2:
                 video_size = f"{video_size[0]}x{video_size[1]}"
             args.extend(["-video_size", str(video_size)])
 
