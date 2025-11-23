@@ -21,6 +21,8 @@ class Parser:
         """Orchestrates the parsing process."""
         if filter_name := self.parse_filter_name():
             self.filter_data["filter_name"] = filter_name
+        if filter_description := self.parse_description():
+            self.filter_data["description"] = filter_description
         return self.filter_data
 
     def parse_filter_name(self) -> str | None:
@@ -36,3 +38,25 @@ class Parser:
             self.advance()
 
         return None
+
+    def parse_description(self) -> str | None:
+        """Gets filter description and skips to the next section"""
+        description = None
+
+        if self.line is not None and not self._is_section_header():
+            description = self.line.strip()
+            self.advance()
+
+        while self.line is not None:
+            if self._is_section_header():
+                break
+            self.advance()
+
+        return description
+
+    def _is_section_header(self) -> bool:
+        """Checks if the line starts a new section."""
+        if self.line is None:
+            return False
+        stripped = self.line.strip()
+        return stripped in ["Inputs:", "Outputs:"] or stripped.endswith("AVOptions:")
