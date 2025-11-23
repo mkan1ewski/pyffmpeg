@@ -21,6 +21,7 @@ class Parser:
         """Orchestrates the parsing process."""
         if filter_name := self.parse_filter_name():
             self.filter_data["filter_name"] = filter_name
+        return self.filter_data
 
     def parse_filter_name(self) -> str | None:
         """Scans the text for the 'Filter <name>' header"""
