@@ -46,6 +46,22 @@ def test_overlay_inputs():
     ]
 
 
-def test_scale_description():
+def test_scale_inputs():
     data = get_parsed_filter_data("scale")
     assert data.get("inputs") == [{"name": "default", "type": "video"}]
+
+
+def test_overlay_outputs():
+    data = get_parsed_filter_data("overlay")
+    assert data.get("outputs") == [{"name": "default", "type": "video"}]
+
+
+def test_scale_outputs():
+    data = get_parsed_filter_data("scale")
+    assert data.get("outputs") == [{"name": "default", "type": "video"}]
+
+
+def test_split_outputs():
+    data = get_parsed_filter_data("split")
+    print(data)
+    assert data.get("outputs") == None
