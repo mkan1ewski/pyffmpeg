@@ -23,6 +23,8 @@ class Parser:
             self.filter_data["filter_name"] = filter_name
         if filter_description := self.parse_description():
             self.filter_data["description"] = filter_description
+        if filter_inputs := self.parse_inputs():
+            self.filter_data["inputs"] = filter_inputs
         return self.filter_data
 
     def parse_filter_name(self) -> str | None:
@@ -53,6 +55,44 @@ class Parser:
             self.advance()
 
         return description
+
+    def parse_inputs(self) -> list[dict[str, str]]:
+        """Parses the Inputs section."""
+        inputs = []
+
+        if self.line is None or self.line.strip() != "Inputs:":
+            return inputs
+        self.advance()
+
+        while self.line is not None:
+            if self._is_section_header():
+                break
+
+            line = self.line.strip()
+            if line.startswith("#"):
+                if input_data := self._parse_stream_line():
+                    inputs.append(input_data)
+
+            self.advance()
+
+        return inputs
+
+    def _parse_stream_line(self) -> dict[str, str] | None:
+        """
+        Extracts name and type from line like: '#0: main (video)'
+        Returns: {'name': 'main', 'type': 'video'} or None
+        """
+        parts = self.line.split(":")
+        if len(parts) < 2:
+            return None
+
+        content = parts[1].strip()
+
+        if "(" in content and content.endswith(")"):
+            name_part, type_part = content.split("(", 1)
+            return {"name": name_part.strip(), "type": type_part.strip(")")}
+
+        return None
 
     def _is_section_header(self) -> bool:
         """Checks if the line starts a new section."""
