@@ -25,6 +25,8 @@ class Parser:
             self.filter_data["description"] = filter_description
         if filter_inputs := self.parse_inputs():
             self.filter_data["inputs"] = filter_inputs
+        if filter_outputs := self.parse_outputs():
+            self.filter_data["outputs"] = filter_outputs
         return self.filter_data
 
     def parse_filter_name(self) -> str | None:
@@ -76,6 +78,27 @@ class Parser:
             self.advance()
 
         return inputs
+
+    def parse_outputs(self) -> list[dict[str, str]]:
+        """Parses the Outputs section."""
+        outputs = []
+
+        if self.line is None or self.line.strip() != "Outputs:":
+            return outputs
+        self.advance()
+
+        while self.line is not None:
+            if self._is_section_header():
+                break
+
+            line = self.line.strip()
+            if line.startswith("#"):
+                if output_data := self._parse_stream_line():
+                    outputs.append(output_data)
+
+            self.advance()
+
+        return outputs
 
     def _parse_stream_line(self) -> dict[str, str] | None:
         """
