@@ -36,3 +36,16 @@ def test_scale_description():
         data.get("description")
         == "Scale the input video size and/or convert the image format."
     )
+
+
+def test_overlay_inputs():
+    data = get_parsed_filter_data("overlay")
+    assert data.get("inputs") == [
+        {"name": "main", "type": "video"},
+        {"name": "overlay", "type": "video"},
+    ]
+
+
+def test_scale_description():
+    data = get_parsed_filter_data("scale")
+    assert data.get("inputs") == [{"name": "default", "type": "video"}]
