@@ -105,7 +105,7 @@ class RunnableNode(Node):
         if not isinstance(self, RunnableNode):
             raise TypeError(f"Expected RunnableNode, got {type(self)}")
 
-        compile_function = compile_function or self.compile
+        compile_function = compile_function or self.__class__.compile
         cmdline = compile_function(
             self,
             cmd=cmd,
