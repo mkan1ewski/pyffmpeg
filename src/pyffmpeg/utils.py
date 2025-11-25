@@ -4,6 +4,7 @@ from typing import Sequence
 
 from pyffmpeg.node import (
     FilterMultiOutput,
+    FilterNode,
     InputNode,
     OutputNode,
     Stream,
@@ -133,8 +134,18 @@ def filter(
 
 
 def filter_multi_output(
-    filter_name: str, inputs: list["Stream"] = [], **kwargs
-) -> FilterMultiOutput:
-    """Creates a custom filter allowing dynamic creation of output streams"""
-    if inputs and isinstance(inputs[0], Stream):
-        return inputs[0].filter_multi_output(filter_name, inputs, **kwargs)
+    stream_or_streams_list: Stream | list[Stream], filter_name: str, *args, **kwargs
+) -> "FilterMultiOutput":
+    """Creates a custom filter allowing dynamic creation of output streams, accepts many inputs"""
+    if isinstance(stream_or_streams_list, (list, tuple)):
+        inputs = stream_or_streams_list
+    elif isinstance(stream_or_streams_list, Stream):
+        inputs = [stream_or_streams_list]
+    node = FilterNode(
+        filter_name=filter_name,
+        postional_arguments=args,
+        named_arguments=kwargs,
+        inputs=inputs,
+        num_output_streams=0,
+    )
+    return FilterMultiOutput(node)
