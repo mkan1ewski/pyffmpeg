@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 from builtins import bytes
 from builtins import range
 from builtins import str
-import pyffmpeg as ffmpeg
 import os
 import pytest
 import random
@@ -29,20 +28,20 @@ BOGUS_INPUT_FILE = os.path.join(SAMPLE_DATA_DIR, "bogus")
 subprocess.check_call(["ffmpeg", "-version"])
 
 
-def test_escape_chars():
-    assert ffmpeg._utils.escape_chars("a:b", ":") == r"a\:b"
-    assert ffmpeg._utils.escape_chars("a\\:b", ":\\") == "a\\\\\\:b"
+def test_escape_chars(ffmpeg_module):
+    assert ffmpeg_module._utils.escape_chars("a:b", ":") == r"a\:b"
+    assert ffmpeg_module._utils.escape_chars("a\\:b", ":\\") == "a\\\\\\:b"
     assert (
-        ffmpeg._utils.escape_chars("a:b,c[d]e%{}f'g'h\\i", "\\':,[]%")
+        ffmpeg_module._utils.escape_chars("a:b,c[d]e%{}f'g'h\\i", "\\':,[]%")
         == "a\\:b\\,c\\[d\\]e\\%{}f\\'g\\'h\\\\i"
     )
-    assert ffmpeg._utils.escape_chars(123, ":\\") == "123"
+    assert ffmpeg_module._utils.escape_chars(123, ":\\") == "123"
 
 
-def test_fluent_equality():
-    base1 = ffmpeg.input("dummy1.mp4")
-    base2 = ffmpeg.input("dummy1.mp4")
-    base3 = ffmpeg.input("dummy2.mp4")
+def test_fluent_equality(ffmpeg_module):
+    base1 = ffmpeg_module.input("dummy1.mp4")
+    base2 = ffmpeg_module.input("dummy1.mp4")
+    base3 = ffmpeg_module.input("dummy2.mp4")
     t1 = base1.trim(start_frame=10, end_frame=20)
     t2 = base1.trim(start_frame=10, end_frame=20)
     t3 = base1.trim(start_frame=10, end_frame=30)
@@ -54,25 +53,27 @@ def test_fluent_equality():
     assert t1 != t5
 
 
-def test_fluent_concat():
-    base = ffmpeg.input("dummy.mp4")
+def test_fluent_concat(ffmpeg_module):
+    base = ffmpeg_module.input("dummy.mp4")
     trimmed1 = base.trim(start_frame=10, end_frame=20)
     trimmed2 = base.trim(start_frame=30, end_frame=40)
     trimmed3 = base.trim(start_frame=50, end_frame=60)
-    concat1 = ffmpeg.concat(trimmed1, trimmed2, trimmed3)
-    concat2 = ffmpeg.concat(trimmed1, trimmed2, trimmed3)
-    concat3 = ffmpeg.concat(trimmed1, trimmed3, trimmed2)
+    concat1 = ffmpeg_module.concat(trimmed1, trimmed2, trimmed3)
+    concat2 = ffmpeg_module.concat(trimmed1, trimmed2, trimmed3)
+    concat3 = ffmpeg_module.concat(trimmed1, trimmed3, trimmed2)
     assert concat1 == concat2
     assert concat1 != concat3
 
 
-def test_fluent_output():
-    ffmpeg.input("dummy.mp4").trim(start_frame=10, end_frame=20).output("dummy2.mp4")
+def test_fluent_output(ffmpeg_module):
+    ffmpeg_module.input("dummy.mp4").trim(start_frame=10, end_frame=20).output(
+        "dummy2.mp4"
+    )
 
 
-def test_fluent_complex_filter():
-    in_file = ffmpeg.input("dummy.mp4")
-    return ffmpeg.concat(
+def test_fluent_complex_filter(ffmpeg_module):
+    in_file = ffmpeg_module.input("dummy.mp4")
+    return ffmpeg_module.concat(
         in_file.trim(start_frame=10, end_frame=20),
         in_file.trim(start_frame=30, end_frame=40),
         in_file.trim(start_frame=50, end_frame=60),
@@ -80,13 +81,13 @@ def test_fluent_complex_filter():
 
 
 @pytest.mark.skip(reason="internal implementation detail")
-def test_node_repr():
-    in_file = ffmpeg.input("dummy.mp4")
-    trim1 = ffmpeg.trim(in_file, start_frame=10, end_frame=20)
-    trim2 = ffmpeg.trim(in_file, start_frame=30, end_frame=40)
-    trim3 = ffmpeg.trim(in_file, start_frame=50, end_frame=60)
-    concatted = ffmpeg.concat(trim1, trim2, trim3)
-    output = ffmpeg.output(concatted, "dummy2.mp4")
+def test_node_repr(ffmpeg_module):
+    in_file = ffmpeg_module.input("dummy.mp4")
+    trim1 = ffmpeg_module.trim(in_file, start_frame=10, end_frame=20)
+    trim2 = ffmpeg_module.trim(in_file, start_frame=30, end_frame=40)
+    trim3 = ffmpeg_module.trim(in_file, start_frame=50, end_frame=60)
+    concatted = ffmpeg_module.concat(trim1, trim2, trim3)
+    output = ffmpeg_module.output(concatted, "dummy2.mp4")
     assert repr(in_file.node) == "input(filename={!r}) <{}>".format(
         "dummy.mp4", in_file.node.short_hash
     )
@@ -106,8 +107,8 @@ def test_node_repr():
 
 
 @pytest.mark.skip(reason="internal implementation detail")
-def test_stream_repr():
-    in_file = ffmpeg.input("dummy.mp4")
+def test_stream_repr(ffmpeg_module):
+    in_file = ffmpeg_module.input("dummy.mp4")
     assert repr(in_file) == "input(filename={!r})[None] <{}>".format(
         "dummy.mp4", in_file.node.short_hash
     )
@@ -119,8 +120,8 @@ def test_stream_repr():
     )
 
 
-def test_repeated_args():
-    out_file = ffmpeg.input("dummy.mp4").output(
+def test_repeated_args(ffmpeg_module):
+    out_file = ffmpeg_module.input("dummy.mp4").output(
         "dummy2.mp4", streamid=["0:0x101", "1:0x102"]
     )
     assert out_file.get_args() == [
@@ -134,14 +135,14 @@ def test_repeated_args():
     ]
 
 
-def test__get_args__simple():
-    out_file = ffmpeg.input("dummy.mp4").output("dummy2.mp4")
+def test__get_args__simple(ffmpeg_module):
+    out_file = ffmpeg_module.input("dummy.mp4").output("dummy2.mp4")
     assert out_file.get_args() == ["-i", "dummy.mp4", "dummy2.mp4"]
 
 
-def test_global_args():
+def test_global_args(ffmpeg_module):
     out_file = (
-        ffmpeg.input("dummy.mp4")
+        ffmpeg_module.input("dummy.mp4")
         .output("dummy2.mp4")
         .global_args("-progress", "someurl")
     )
@@ -154,19 +155,19 @@ def test_global_args():
     ]
 
 
-def _get_simple_example():
-    return ffmpeg.input(TEST_INPUT_FILE1).output(TEST_OUTPUT_FILE1)
+def _get_simple_example(ffmpeg_module):
+    return ffmpeg_module.input(TEST_INPUT_FILE1).output(TEST_OUTPUT_FILE1)
 
 
-def _get_complex_filter_example():
-    split = ffmpeg.input(TEST_INPUT_FILE1).vflip().split()
+def _get_complex_filter_example(ffmpeg_module):
+    split = ffmpeg_module.input(TEST_INPUT_FILE1).vflip().split()
     split0 = split[0]
     split1 = split[1]
 
-    overlay_file = ffmpeg.input(TEST_OVERLAY_FILE)
-    overlay_file = ffmpeg.crop(overlay_file, 10, 10, 158, 112)
+    overlay_file = ffmpeg_module.input(TEST_OVERLAY_FILE)
+    overlay_file = ffmpeg_module.crop(overlay_file, 10, 10, 158, 112)
     return (
-        ffmpeg.concat(
+        ffmpeg_module.concat(
             split0.trim(start_frame=10, end_frame=20),
             split1.trim(start_frame=30, end_frame=40),
         )
@@ -177,9 +178,9 @@ def _get_complex_filter_example():
     )
 
 
-def test__get_args__complex_filter():
-    out = _get_complex_filter_example()
-    args = ffmpeg.get_args(out)
+def test__get_args__complex_filter(ffmpeg_module):
+    out = _get_complex_filter_example(ffmpeg_module)
+    args = ffmpeg_module.get_args(out)
     assert args == [
         "-i",
         TEST_INPUT_FILE1,
@@ -202,10 +203,10 @@ def test__get_args__complex_filter():
     ]
 
 
-def test_combined_output():
-    i1 = ffmpeg.input(TEST_INPUT_FILE1)
-    i2 = ffmpeg.input(TEST_OVERLAY_FILE)
-    out = ffmpeg.output(i1, i2, TEST_OUTPUT_FILE1)
+def test_combined_output(ffmpeg_module):
+    i1 = ffmpeg_module.input(TEST_INPUT_FILE1)
+    i2 = ffmpeg_module.input(TEST_OVERLAY_FILE)
+    out = ffmpeg_module.output(i1, i2, TEST_OUTPUT_FILE1)
     assert out.get_args() == [
         "-i",
         TEST_INPUT_FILE1,
@@ -220,15 +221,15 @@ def test_combined_output():
 
 
 @pytest.mark.parametrize("use_shorthand", [True, False])
-def test_filter_with_selector(use_shorthand):
-    i = ffmpeg.input(TEST_INPUT_FILE1)
+def test_filter_with_selector(ffmpeg_module, use_shorthand):
+    i = ffmpeg_module.input(TEST_INPUT_FILE1)
     if use_shorthand:
         v1 = i.video.hflip()
         a1 = i.audio.filter("aecho", 0.8, 0.9, 1000, 0.3)
     else:
         v1 = i["v"].hflip()
         a1 = i["a"].filter("aecho", 0.8, 0.9, 1000, 0.3)
-    out = ffmpeg.output(a1, v1, TEST_OUTPUT_FILE1)
+    out = ffmpeg_module.output(a1, v1, TEST_OUTPUT_FILE1)
     assert out.get_args() == [
         "-i",
         TEST_INPUT_FILE1,
@@ -242,8 +243,8 @@ def test_filter_with_selector(use_shorthand):
     ]
 
 
-def test_get_item_with_bad_selectors():
-    input = ffmpeg.input(TEST_INPUT_FILE1)
+def test_get_item_with_bad_selectors(ffmpeg_module):
+    input = ffmpeg_module.input(TEST_INPUT_FILE1)
 
     with pytest.raises(ValueError) as excinfo:
         input["a"]["a"]
@@ -258,13 +259,13 @@ def test_get_item_with_bad_selectors():
     assert str(excinfo.value).startswith("Expected string index (e.g. 'a')")
 
 
-def _get_complex_filter_asplit_example():
-    split = ffmpeg.input(TEST_INPUT_FILE1).vflip().asplit()
+def _get_complex_filter_asplit_example(ffmpeg_module):
+    split = ffmpeg_module.input(TEST_INPUT_FILE1).vflip().asplit()
     split0 = split[0]
     split1 = split[1]
 
     return (
-        ffmpeg.concat(
+        ffmpeg_module.concat(
             split0.filter("atrim", start=10, end=20),
             split1.filter("atrim", start=30, end=40),
         )
@@ -273,10 +274,10 @@ def _get_complex_filter_asplit_example():
     )
 
 
-def test_filter_concat__video_only():
-    in1 = ffmpeg.input("in1.mp4")
-    in2 = ffmpeg.input("in2.mp4")
-    args = ffmpeg.concat(in1, in2).output("out.mp4").get_args()
+def test_filter_concat__video_only(ffmpeg_module):
+    in1 = ffmpeg_module.input("in1.mp4")
+    in2 = ffmpeg_module.input("in2.mp4")
+    args = ffmpeg_module.concat(in1, in2).output("out.mp4").get_args()
     assert args == [
         "-i",
         "in1.mp4",
@@ -290,10 +291,10 @@ def test_filter_concat__video_only():
     ]
 
 
-def test_filter_concat__audio_only():
-    in1 = ffmpeg.input("in1.mp4")
-    in2 = ffmpeg.input("in2.mp4")
-    args = ffmpeg.concat(in1, in2, v=0, a=1).output("out.mp4").get_args()
+def test_filter_concat__audio_only(ffmpeg_module):
+    in1 = ffmpeg_module.input("in1.mp4")
+    in2 = ffmpeg_module.input("in2.mp4")
+    args = ffmpeg_module.concat(in1, in2, v=0, a=1).output("out.mp4").get_args()
     assert args == [
         "-i",
         "in1.mp4",
@@ -307,11 +308,13 @@ def test_filter_concat__audio_only():
     ]
 
 
-def test_filter_concat__audio_video():
-    in1 = ffmpeg.input("in1.mp4")
-    in2 = ffmpeg.input("in2.mp4")
-    joined = ffmpeg.concat(in1.video, in1.audio, in2.hflip(), in2["a"], v=1, a=1).node
-    args = ffmpeg.output(joined[0], joined[1], "out.mp4").get_args()
+def test_filter_concat__audio_video(ffmpeg_module):
+    in1 = ffmpeg_module.input("in1.mp4")
+    in2 = ffmpeg_module.input("in2.mp4")
+    joined = ffmpeg_module.concat(
+        in1.video, in1.audio, in2.hflip(), in2["a"], v=1, a=1
+    ).node
+    args = ffmpeg_module.output(joined[0], joined[1], "out.mp4").get_args()
     assert args == [
         "-i",
         "in1.mp4",
@@ -327,19 +330,19 @@ def test_filter_concat__audio_video():
     ]
 
 
-def test_filter_concat__wrong_stream_count():
-    in1 = ffmpeg.input("in1.mp4")
-    in2 = ffmpeg.input("in2.mp4")
+def test_filter_concat__wrong_stream_count(ffmpeg_module):
+    in1 = ffmpeg_module.input("in1.mp4")
+    in2 = ffmpeg_module.input("in2.mp4")
     with pytest.raises(ValueError) as excinfo:
-        ffmpeg.concat(in1.video, in1.audio, in2.hflip(), v=1, a=1).node
+        ffmpeg_module.concat(in1.video, in1.audio, in2.hflip(), v=1, a=1).node
     assert (
         str(excinfo.value)
         == "Expected concat input streams to have length multiple of 2 (v=1, a=1); got 3"
     )
 
 
-def test_filter_asplit():
-    out = _get_complex_filter_asplit_example()
+def test_filter_asplit(ffmpeg_module):
+    out = _get_complex_filter_asplit_example(ffmpeg_module)
     args = out.get_args()
     assert args == [
         "-i",
@@ -359,9 +362,9 @@ def test_filter_asplit():
     ]
 
 
-def test__output__bitrate():
+def test__output__bitrate(ffmpeg_module):
     args = (
-        ffmpeg.input("in")
+        ffmpeg_module.input("in")
         .output("out", video_bitrate=1000, audio_bitrate=200)
         .get_args()
     )
@@ -369,12 +372,12 @@ def test__output__bitrate():
 
 
 @pytest.mark.parametrize("video_size", [(320, 240), "320x240"])
-def test__output__video_size(video_size):
-    args = ffmpeg.input("in").output("out", video_size=video_size).get_args()
+def test__output__video_size(ffmpeg_module, video_size):
+    args = ffmpeg_module.input("in").output("out", video_size=video_size).get_args()
     assert args == ["-i", "in", "-video_size", "320x240", "out"]
 
 
-def test_filter_normal_arg_escape():
+def test_filter_normal_arg_escape(ffmpeg_module):
     """Test string escaping of normal filter args (e.g. ``font`` param of ``drawtext``
     filter).
     """
@@ -384,7 +387,7 @@ def test_filter_normal_arg_escape():
         ``-filter_complex`` arg.
         """
         args = (
-            ffmpeg.input("in")
+            ffmpeg_module.input("in")
             .drawtext("test", font="a{}b".format(font))
             .output("out")
             .get_args()
@@ -417,7 +420,7 @@ def test_filter_normal_arg_escape():
         assert expected == actual
 
 
-def test_filter_text_arg_str_escape():
+def test_filter_text_arg_str_escape(ffmpeg_module):
     """Test string escaping of normal filter args (e.g. ``text`` param of ``drawtext``
     filter).
     """
@@ -426,7 +429,12 @@ def test_filter_text_arg_str_escape():
         """Build a command-line arg using drawtext ``text`` param and extract the
         ``-filter_complex`` arg.
         """
-        args = ffmpeg.input("in").drawtext("a{}b".format(text)).output("out").get_args()
+        args = (
+            ffmpeg_module.input("in")
+            .drawtext("a{}b".format(text))
+            .output("out")
+            .get_args()
+        )
         assert args[:3] == ["-i", "in", "-filter_complex"]
         assert args[4:] == ["-map", "[s0]", "out"]
         match = re.match(r"\[0\]drawtext=text=a((.|\n)*)b\[s0\]", args[3], re.MULTILINE)
@@ -451,15 +459,15 @@ def test_filter_text_arg_str_escape():
         assert expected == actual
 
 
-# def test_version():
+# def test_version(ffmpeg_module):
 #    subprocess.check_call(['ffmpeg', '-version'])
 
 
-def test__compile():
-    out_file = ffmpeg.input("dummy.mp4").output("dummy2.mp4")
+def test__compile(ffmpeg_module):
+    out_file = ffmpeg_module.input("dummy.mp4").output("dummy2.mp4")
     assert out_file.compile() == ["ffmpeg", "-i", "dummy.mp4", "dummy2.mp4"]
-    assert out_file.compile(cmd="ffmpeg.old") == [
-        "ffmpeg.old",
+    assert out_file.compile(cmd="ffmpeg_module.old") == [
+        "ffmpeg_module.old",
         "-i",
         "dummy.mp4",
         "dummy2.mp4",
@@ -470,11 +478,11 @@ def test__compile():
 @pytest.mark.parametrize("pipe_stdout", [True, False])
 @pytest.mark.parametrize("pipe_stderr", [True, False])
 @pytest.mark.parametrize("cwd", [None, "/tmp"])
-def test__run_async(mocker, pipe_stdin, pipe_stdout, pipe_stderr, cwd):
+def test__run_async(ffmpeg_module, mocker, pipe_stdin, pipe_stdout, pipe_stderr, cwd):
     process__mock = mock.Mock()
     popen__mock = mocker.patch.object(subprocess, "Popen", return_value=process__mock)
-    stream = _get_simple_example()
-    process = ffmpeg.run_async(
+    stream = _get_simple_example(ffmpeg_module)
+    process = ffmpeg_module.run_async(
         stream,
         pipe_stdin=pipe_stdin,
         pipe_stdout=pipe_stdout,
@@ -487,7 +495,7 @@ def test__run_async(mocker, pipe_stdin, pipe_stdout, pipe_stderr, cwd):
     expected_stdout = subprocess.PIPE if pipe_stdout else None
     expected_stderr = subprocess.PIPE if pipe_stderr else None
     (args,), kwargs = popen__mock.call_args
-    assert args == ffmpeg.compile(stream)
+    assert args == ffmpeg_module.compile(stream)
     assert kwargs == dict(
         stdin=expected_stdin,
         stdout=expected_stdout,
@@ -496,19 +504,19 @@ def test__run_async(mocker, pipe_stdin, pipe_stdout, pipe_stderr, cwd):
     )
 
 
-def test__run():
-    stream = _get_complex_filter_example()
-    out, err = ffmpeg.run(stream)
+def test__run(ffmpeg_module):
+    stream = _get_complex_filter_example(ffmpeg_module)
+    out, err = ffmpeg_module.run(stream)
     assert out is None
     assert err is None
 
 
 @pytest.mark.parametrize("capture_stdout", [True, False])
 @pytest.mark.parametrize("capture_stderr", [True, False])
-def test__run__capture_out(mocker, capture_stdout, capture_stderr):
-    mocker.patch.object(ffmpeg._run, "compile", return_value=["echo", "test"])
-    stream = _get_simple_example()
-    out, err = ffmpeg.run(
+def test__run__capture_out(ffmpeg_module, mocker, capture_stdout, capture_stderr):
+    mocker.patch.object(ffmpeg_module._run, "compile", return_value=["echo", "test"])
+    stream = _get_simple_example(ffmpeg_module)
+    out, err = ffmpeg_module.run(
         stream, capture_stdout=capture_stdout, capture_stderr=capture_stderr
     )
     if capture_stdout:
@@ -521,21 +529,21 @@ def test__run__capture_out(mocker, capture_stdout, capture_stderr):
         assert err is None
 
 
-def test__run__input_output(mocker):
-    mocker.patch.object(ffmpeg._run, "compile", return_value=["cat"])
-    stream = _get_simple_example()
-    out, err = ffmpeg.run(stream, input="test".encode(), capture_stdout=True)
+def test__run__input_output(ffmpeg_module, mocker):
+    mocker.patch.object(ffmpeg_module._run, "compile", return_value=["cat"])
+    stream = _get_simple_example(ffmpeg_module)
+    out, err = ffmpeg_module.run(stream, input="test".encode(), capture_stdout=True)
     assert out == "test".encode()
     assert err is None
 
 
 @pytest.mark.parametrize("capture_stdout", [True, False])
 @pytest.mark.parametrize("capture_stderr", [True, False])
-def test__run__error(mocker, capture_stdout, capture_stderr):
-    mocker.patch.object(ffmpeg._run, "compile", return_value=["ffmpeg"])
-    stream = _get_complex_filter_example()
-    with pytest.raises(ffmpeg.Error) as excinfo:
-        out, err = ffmpeg.run(
+def test__run__error(ffmpeg_module, mocker, capture_stdout, capture_stderr):
+    mocker.patch.object(ffmpeg_module._run, "compile", return_value=["ffmpeg"])
+    stream = _get_complex_filter_example(ffmpeg_module)
+    with pytest.raises(ffmpeg_module.Error) as excinfo:
+        out, err = ffmpeg_module.run(
             stream, capture_stdout=capture_stdout, capture_stderr=capture_stderr
         )
     assert str(excinfo.value) == "ffmpeg error (see stderr output for detail)"
@@ -551,27 +559,27 @@ def test__run__error(mocker, capture_stdout, capture_stderr):
         assert err is None
 
 
-def test__run__multi_output():
-    in_ = ffmpeg.input(TEST_INPUT_FILE1)
+def test__run__multi_output(ffmpeg_module):
+    in_ = ffmpeg_module.input(TEST_INPUT_FILE1)
     out1 = in_.output(TEST_OUTPUT_FILE1)
     out2 = in_.output(TEST_OUTPUT_FILE2)
-    ffmpeg.run([out1, out2], overwrite_output=True)
+    ffmpeg_module.run([out1, out2], overwrite_output=True)
 
 
-def test__run__dummy_cmd():
-    stream = _get_complex_filter_example()
-    ffmpeg.run(stream, cmd="true")
+def test__run__dummy_cmd(ffmpeg_module):
+    stream = _get_complex_filter_example(ffmpeg_module)
+    ffmpeg_module.run(stream, cmd="true")
 
 
-def test__run__dummy_cmd_list():
-    stream = _get_complex_filter_example()
-    ffmpeg.run(stream, cmd=["true", "ignored"])
+def test__run__dummy_cmd_list(ffmpeg_module):
+    stream = _get_complex_filter_example(ffmpeg_module)
+    ffmpeg_module.run(stream, cmd=["true", "ignored"])
 
 
-def test__filter__custom():
-    stream = ffmpeg.input("dummy.mp4")
-    stream = ffmpeg.filter(stream, "custom_filter", "a", "b", kwarg1="c")
-    stream = ffmpeg.output(stream, "dummy2.mp4")
+def test__filter__custom(ffmpeg_module):
+    stream = ffmpeg_module.input("dummy.mp4")
+    stream = ffmpeg_module.filter(stream, "custom_filter", "a", "b", kwarg1="c")
+    stream = ffmpeg_module.output(stream, "dummy2.mp4")
     assert stream.get_args() == [
         "-i",
         "dummy.mp4",
@@ -583,9 +591,9 @@ def test__filter__custom():
     ]
 
 
-def test__filter__custom_fluent():
+def test__filter__custom_fluent(ffmpeg_module):
     stream = (
-        ffmpeg.input("dummy.mp4")
+        ffmpeg_module.input("dummy.mp4")
         .filter("custom_filter", "a", "b", kwarg1="c")
         .output("dummy2.mp4")
     )
@@ -600,28 +608,33 @@ def test__filter__custom_fluent():
     ]
 
 
-def test__merge_outputs():
-    in_ = ffmpeg.input("in.mp4")
+def test__merge_outputs(ffmpeg_module):
+    in_ = ffmpeg_module.input("in.mp4")
     out1 = in_.output("out1.mp4")
     out2 = in_.output("out2.mp4")
-    assert ffmpeg.merge_outputs(out1, out2).get_args() == [
+    assert ffmpeg_module.merge_outputs(out1, out2).get_args() == [
         "-i",
         "in.mp4",
         "out1.mp4",
         "out2.mp4",
     ]
-    assert ffmpeg.get_args([out1, out2]) == ["-i", "in.mp4", "out2.mp4", "out1.mp4"]
+    assert ffmpeg_module.get_args([out1, out2]) == [
+        "-i",
+        "in.mp4",
+        "out2.mp4",
+        "out1.mp4",
+    ]
 
 
-def test__input__start_time():
-    assert ffmpeg.input("in", ss=10.5).output("out").get_args() == [
+def test__input__start_time(ffmpeg_module):
+    assert ffmpeg_module.input("in", ss=10.5).output("out").get_args() == [
         "-ss",
         "10.5",
         "-i",
         "in",
         "out",
     ]
-    assert ffmpeg.input("in", ss=0.0).output("out").get_args() == [
+    assert ffmpeg_module.input("in", ss=0.0).output("out").get_args() == [
         "-ss",
         "0.0",
         "-i",
@@ -630,11 +643,11 @@ def test__input__start_time():
     ]
 
 
-def test_multi_passthrough():
-    out1 = ffmpeg.input("in1.mp4").output("out1.mp4")
-    out2 = ffmpeg.input("in2.mp4").output("out2.mp4")
-    out = ffmpeg.merge_outputs(out1, out2)
-    assert ffmpeg.get_args(out) == [
+def test_multi_passthrough(ffmpeg_module):
+    out1 = ffmpeg_module.input("in1.mp4").output("out1.mp4")
+    out2 = ffmpeg_module.input("in2.mp4").output("out2.mp4")
+    out = ffmpeg_module.merge_outputs(out1, out2)
+    assert ffmpeg_module.get_args(out) == [
         "-i",
         "in1.mp4",
         "-i",
@@ -644,7 +657,7 @@ def test_multi_passthrough():
         "1",
         "out2.mp4",
     ]
-    assert ffmpeg.get_args([out1, out2]) == [
+    assert ffmpeg_module.get_args([out1, out2]) == [
         "-i",
         "in2.mp4",
         "-i",
@@ -656,9 +669,9 @@ def test_multi_passthrough():
     ]
 
 
-def test_passthrough_selectors():
-    i1 = ffmpeg.input(TEST_INPUT_FILE1)
-    args = ffmpeg.output(i1["1"], i1["2"], TEST_OUTPUT_FILE1).get_args()
+def test_passthrough_selectors(ffmpeg_module):
+    i1 = ffmpeg_module.input(TEST_INPUT_FILE1)
+    args = ffmpeg_module.output(i1["1"], i1["2"], TEST_OUTPUT_FILE1).get_args()
     assert args == [
         "-i",
         TEST_INPUT_FILE1,
@@ -670,9 +683,9 @@ def test_passthrough_selectors():
     ]
 
 
-def test_mixed_passthrough_selectors():
-    i1 = ffmpeg.input(TEST_INPUT_FILE1)
-    args = ffmpeg.output(i1["1"].hflip(), i1["2"], TEST_OUTPUT_FILE1).get_args()
+def test_mixed_passthrough_selectors(ffmpeg_module):
+    i1 = ffmpeg_module.input(TEST_INPUT_FILE1)
+    args = ffmpeg_module.output(i1["1"].hflip(), i1["2"], TEST_OUTPUT_FILE1).get_args()
     assert args == [
         "-i",
         TEST_INPUT_FILE1,
@@ -686,7 +699,7 @@ def test_mixed_passthrough_selectors():
     ]
 
 
-def test_pipe():
+def test_pipe(ffmpeg_module):
     width = 32
     height = 32
     frame_size = width * height * 3  # 3 bytes for rgb24
@@ -694,7 +707,7 @@ def test_pipe():
     start_frame = 2
 
     out = (
-        ffmpeg.input(
+        ffmpeg_module.input(
             "pipe:0",
             format="rawvideo",
             pixel_format="rgb24",
@@ -737,7 +750,8 @@ def test_pipe():
     in_data = bytes(
         bytearray([random.randint(0, 255) for _ in range(frame_size * frame_count)])
     )
-    p.stdin.write(in_data)  # note: this could block, in which case need to use threads
+    # note: this could block, in which case need to use threads
+    p.stdin.write(in_data)
     p.stdin.close()
 
     out_data = p.stdout.read()
@@ -745,28 +759,28 @@ def test_pipe():
     assert out_data == in_data[start_frame * frame_size :]
 
 
-def test__probe():
-    data = ffmpeg.probe(TEST_INPUT_FILE1)
+def test__probe(ffmpeg_module):
+    data = ffmpeg_module.probe(TEST_INPUT_FILE1)
     assert set(data.keys()) == {"format", "streams"}
     assert float(data["format"]["duration"]) == pytest.approx(7.036000, abs=1e-3)
 
 
 @pytest.mark.skipif(sys.version_info < (3, 3), reason="requires python3.3 or higher")
-def test__probe_timeout():
+def test__probe_timeout(ffmpeg_module):
     with pytest.raises(subprocess.TimeoutExpired) as excinfo:
-        ffmpeg.probe(TEST_INPUT_FILE1, timeout=0)
+        ffmpeg_module.probe(TEST_INPUT_FILE1, timeout=0)
     assert "timed out after 0 seconds" in str(excinfo.value)
 
 
-def test__probe__exception():
-    with pytest.raises(ffmpeg.Error) as excinfo:
-        ffmpeg.probe(BOGUS_INPUT_FILE)
+def test__probe__exception(ffmpeg_module):
+    with pytest.raises(ffmpeg_module.Error) as excinfo:
+        ffmpeg_module.probe(BOGUS_INPUT_FILE)
     assert str(excinfo.value) == "ffprobe error (see stderr output for detail)"
     assert "No such file or directory".encode() in excinfo.value.stderr
 
 
-def test__probe__extra_args():
-    data = ffmpeg.probe(TEST_INPUT_FILE1, show_frames=None)
+def test__probe__extra_args(ffmpeg_module):
+    data = ffmpeg_module.probe(TEST_INPUT_FILE1, show_frames=None)
     assert set(data.keys()) == {"format", "streams", "frames"}
 
 
@@ -786,7 +800,7 @@ def get_filter_complex_outputs(flt, name):
         return None
 
 
-def test__get_filter_complex_input():
+def test__get_filter_complex_input(ffmpeg_module):
     assert get_filter_complex_input("", "scale") is None
     assert get_filter_complex_input("scale", "scale") is None
     assert get_filter_complex_input("scale[s3][s4];etc", "scale") is None
@@ -795,7 +809,7 @@ def test__get_filter_complex_input():
     assert get_filter_complex_input("[s2]scale[s3][s4];etc", "scale") == "s2"
 
 
-def test__get_filter_complex_outputs():
+def test__get_filter_complex_outputs(ffmpeg_module):
     assert get_filter_complex_outputs("", "scale") is None
     assert get_filter_complex_outputs("scale", "scale") is None
     assert get_filter_complex_outputs("scalex[s0][s1]", "scale") is None
@@ -807,11 +821,11 @@ def test__get_filter_complex_outputs():
     assert get_filter_complex_outputs("y;[s5]scale[s1];x", "scale") == ["s1"]
 
 
-def test__multi_output_edge_label_order():
-    scale2ref = ffmpeg.filter_multi_output(
-        [ffmpeg.input("x"), ffmpeg.input("y")], "scale2ref"
+def test__multi_output_edge_label_order(ffmpeg_module):
+    scale2ref = ffmpeg_module.filter_multi_output(
+        [ffmpeg_module.input("x"), ffmpeg_module.input("y")], "scale2ref"
     )
-    out = ffmpeg.merge_outputs(
+    out = ffmpeg_module.merge_outputs(
         scale2ref[1].filter("scale").output("a"),
         scale2ref[10000].filter("hflip").output("b"),
     )
