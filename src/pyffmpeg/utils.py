@@ -119,10 +119,17 @@ def get_args(
     return command_builder.build_args()
 
 
-def filter(self, filter_name: str, inputs: list["Stream"], **kwargs) -> "Stream":
+def filter(
+    stream_or_streams_list: Stream | list[Stream], filter_name: str, *args, **kwargs
+) -> "Stream":
     """Custom filter with single or many inputs and a single output"""
-    if inputs and isinstance(inputs[0], Stream):
-        return inputs[0].filter(filter_name, inputs, **kwargs)
+    if isinstance(stream_or_streams_list, (list, tuple)):
+        if stream_or_streams_list and isinstance(stream_or_streams_list[0], Stream):
+            return stream_or_streams_list[0]._apply_filter(
+                filter_name, args, kwargs, stream_or_streams_list
+            )
+    if isinstance(stream_or_streams_list, Stream):
+        return stream_or_streams_list.filter(filter_name, *args, **kwargs)
 
 
 def filter_multi_output(
