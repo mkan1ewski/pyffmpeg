@@ -65,3 +65,33 @@ def test_split_outputs():
     data = get_parsed_filter_data("split")
     print(data)
     assert data.get("outputs") == None
+
+
+def test_overlay_option_block():
+    data = get_parsed_filter_data("overlay")
+    assert data["options"][0] == {
+        "name": "x",
+        "type": "string",
+        "description": "set the x expression",
+        "default": "0",
+        "choices": [],
+    }
+    assert data["options"][2] == {
+        "name": "eof_action",
+        "type": "int",
+        "description": "Action to take when encountering EOF from secondary input  (from 0 to 2)",
+        "default": "repeat",
+        "choices": [
+            {
+                "name": "repeat",
+                "value": "0",
+                "description": "Repeat the previous frame.",
+            },
+            {"name": "endall", "value": "1", "description": "End both streams."},
+            {
+                "name": "pass",
+                "value": "2",
+                "description": "Pass through the main input.",
+            },
+        ],
+    }
