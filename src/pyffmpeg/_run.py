@@ -1,5 +1,4 @@
-import subprocess
-from pyffmpeg.node import RunnableNode
+from pyffmpeg.node import RunnableNode, OutputNode, MergedOutputNode
 
 
 def compile(
@@ -12,7 +11,7 @@ def compile(
 
 
 def run(
-    node: RunnableNode,
+    node_or_node_list: RunnableNode | list[OutputNode],
     cmd: str | list[str] = "ffmpeg",
     capture_stdout: bool = False,
     capture_stderr: bool = False,
@@ -21,7 +20,12 @@ def run(
     overwrite_output: bool = False,
     cwd: str | None = None,
 ) -> tuple[bytes | None, bytes | None]:
-    return node.run(
+    """Executes ffmpeg command."""
+    if isinstance(node_or_node_list, (list, tuple)) and all(
+        [isinstance(n, OutputNode) for n in node_or_node_list]
+    ):
+        node_or_node_list = MergedOutputNode(node_or_node_list)
+    return node_or_node_list.run(
         cmd=cmd,
         capture_stdout=capture_stdout,
         capture_stderr=capture_stderr,
