@@ -1,3 +1,7 @@
+from typing import Any
+import re
+
+
 class Parser:
     """Parses text output from 'ffmpeg --help filter=...' command."""
 
@@ -27,6 +31,8 @@ class Parser:
             self.filter_data["inputs"] = filter_inputs
         if filter_outputs := self.parse_outputs():
             self.filter_data["outputs"] = filter_outputs
+        if options := self.parse_options_block():
+            self.filter_data["options"] = options
         return self.filter_data
 
     def parse_filter_name(self) -> str | None:
@@ -116,6 +122,74 @@ class Parser:
             return {"name": name_part.strip(), "type": type_part.strip(")")}
 
         return None
+
+    def parse_options_block(self) -> list[dict[str, Any]]:
+        """Parses one block of AVOptions"""
+        options = []
+        if self.line is None or not self.line.strip().endswith("AVOptions:"):
+            return options
+
+        self.advance()
+
+        while self.line is not None:
+            stripped = self.line.strip()
+
+            if self._is_section_header():
+                break
+            if not stripped:
+                self.advance()
+                continue
+
+            parts = stripped.split(maxsplit=3)
+            if len(parts) < 2:
+                self.advance()
+                continue
+
+            name = parts[0]
+            second_col = parts[1]
+            raw_description = parts[3] if len(parts) > 3 else None
+
+            if second_col.startswith("<") and second_col.endswith(">"):
+                option_type = second_col[1:-1]
+
+                description, default = self._extract_meta(raw_description)
+
+                options.append(
+                    {
+                        "name": name,
+                        "type": option_type,
+                        "description": description,
+                        "default": default,
+                        "choices": [],
+                    }
+                )
+
+            else:
+                if options:
+                    options[-1]["choices"].append(
+                        {
+                            "name": name,
+                            "value": second_col,
+                            "description": raw_description,
+                        }
+                    )
+                else:
+                    pass
+
+            self.advance()
+
+        return options
+
+    def _extract_meta(self, text: str) -> tuple[str, str | None]:
+        """Extracts description and default value."""
+        if not text or "(default " not in text:
+            return text, None
+
+        description_part, value_part = text.rsplit("(default ", 1)
+        raw_value = value_part.split(")", 1)[0]
+        default_val = raw_value.strip('"').strip()
+
+        return description_part.strip(), default_val
 
     def _is_section_header(self) -> bool:
         """Checks if the line starts a new section."""
