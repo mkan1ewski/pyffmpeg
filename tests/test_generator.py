@@ -15,6 +15,6 @@ def test_split_code_streams():
     assert "    def split(self)" in method_code
 
 
-def test_overlay_code():
+def test_overlay_code_streams():
     method_code = get_generated_method("overlay")
     assert "    def overlay(self, overlay: Stream)" in method_code
