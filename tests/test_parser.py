@@ -1,3 +1,4 @@
+from pprint import pprint
 import subprocess
 from typing import Any
 import pytest
@@ -93,5 +94,23 @@ def test_overlay_option_block():
                 "value": "2",
                 "description": "Pass through the main input.",
             },
+        ],
+    }
+
+
+def test_split_all_data():
+    data = get_parsed_filter_data("split")
+    assert data == {
+        "description": "Pass on the input to N video outputs.",
+        "filter_name": "split",
+        "inputs": [{"name": "default", "type": "video"}],
+        "options": [
+            {
+                "choices": [],
+                "default": "2",
+                "description": "set number of outputs (from 1 to INT_MAX)",
+                "name": "outputs",
+                "type": "int",
+            }
         ],
     }
