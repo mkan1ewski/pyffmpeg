@@ -25,6 +25,9 @@ def test_split_code_all_options():
     assert "    def split(self, outputs: int = 2) -> Stream:" in method_code
 
 
-def test_overlay_code_all_options():
+def test_overlay_code_some_options():
     method_code = get_generated_method("overlay")
-    assert "    def overlay(self, overlay: Stream)" in method_code
+    assert (
+        "    def overlay(self, overlay: Stream, x: str = \"0\", y: str = \"0\", eof_action: Literal['repeat', 'endall', 'pass'] | int = \"repeat\", eval: Literal['init', 'frame'] | int = \"frame\", shortest: bool = False"
+        in method_code
+    )
