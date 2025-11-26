@@ -196,4 +196,9 @@ class Parser:
         if self.line is None:
             return False
         stripped = self.line.strip()
-        return stripped in ["Inputs:", "Outputs:"] or stripped.endswith("AVOptions:")
+        return (
+            stripped in ["Inputs:", "Outputs:"]
+            or stripped.endswith("AVOptions:")
+            or stripped.startswith("Exiting with")
+            or stripped.startswith("This filter has support")
+        )
