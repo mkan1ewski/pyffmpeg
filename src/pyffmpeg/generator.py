@@ -1,5 +1,18 @@
 from typing import Any
 
+TYPE_MAPPING = {
+    "int": "int",
+    "float": "float",
+    "boolean": "bool",
+    "string": "str",
+    "video_rate": "str",
+    "image_size": "str",
+    "duration": "str",
+    "color": "str",
+    "rational": "str",
+    "flags": "str",
+}
+
 
 def sanitize_parameter_name(name: str) -> str:
     """Secures against Python keywords (ex: 'class', 'import') and hyphens."""
@@ -32,15 +45,17 @@ class CodeGenerator:
     def generate(self) -> str:
         """Generates full method code."""
 
-        stream_paramters = self._generate_stream_args()
-        all_parameters = ", ".join(["self"] + stream_paramters)
+        stream_parameters = self._generate_stream_parameters()
+        option_parameters = self._generate_option_parameters()
+
+        all_parameters = ", ".join(["self"] + stream_parameters + option_parameters)
 
         code = f"    def {self.name}({all_parameters}) -> Stream:\n"
         code += f'        """{self.description}"""\n'
 
         return code
 
-    def _generate_stream_args(self) -> list[str]:
+    def _generate_stream_parameters(self) -> list[str]:
         """Generates parameters for additional input streams."""
         parameters = []
         # Skipping first input because it is self
@@ -48,3 +63,49 @@ class CodeGenerator:
             sanitized_name = sanitize_parameter_name(input["name"])
             parameters.append(f"{sanitized_name}: Stream")
         return parameters
+
+    def _generate_option_parameters(self) -> list[str]:
+        """Generates parameters for options (x, y, eof_action)."""
+        parameters = []
+        for option in self.options:
+            name = sanitize_parameter_name(option["name"])
+            type_hint = self._get_type_hint(option)
+            default = self._get_default_value_repr(option)
+
+            parameters.append(f"{name}: {type_hint} = {default}")
+        return parameters
+
+    def _get_type_hint(self, option: dict) -> str:
+        """Creates a type hint."""
+        base_type = TYPE_MAPPING.get(option["type"], "str")
+
+        if option.get("choices"):
+            literals = [f"'{choice['name']}'" for choice in option["choices"]]
+            literal_str = f"Literal[{', '.join(literals)}]"
+
+            if base_type == "int":
+                return f"{literal_str} | int"
+            return literal_str
+
+        return base_type
+
+    def _get_default_value_repr(self, option: dict) -> str:
+        """Returns representation of default value in Python code"""
+        value = option.get("default")
+        option_type = option["type"]
+
+        if value is None:
+            return "None"
+
+        if option_type == "boolean":
+            return "True" if value == "true" else "False"
+
+        if option_type in ["string", "video_rate", "image_size", "color", "duration"]:
+            return f'"{value}"'
+
+        if option_type in ["int", "float"]:
+            if option.get("choices") and not value.replace(".", "", 1).isdigit():
+                return f'"{value}"'
+            return value
+
+        return f'"{value}"'
