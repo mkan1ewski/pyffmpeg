@@ -12,9 +12,19 @@ def get_generated_method(filter_name: str) -> str:
 
 def test_split_code_streams():
     method_code = get_generated_method("split")
-    assert "    def split(self)" in method_code
+    assert "    def split(self" in method_code
 
 
 def test_overlay_code_streams():
+    method_code = get_generated_method("overlay")
+    assert "    def overlay(self, overlay: Stream" in method_code
+
+
+def test_split_code_all_options():
+    method_code = get_generated_method("split")
+    assert "    def split(self, outputs: int = 2) -> Stream:" in method_code
+
+
+def test_overlay_code_all_options():
     method_code = get_generated_method("overlay")
     assert "    def overlay(self, overlay: Stream)" in method_code
