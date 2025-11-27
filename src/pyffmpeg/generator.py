@@ -1,3 +1,4 @@
+import textwrap
 from typing import Any
 
 TYPE_MAPPING = {
@@ -50,8 +51,11 @@ class CodeGenerator:
 
         all_parameters = ", ".join(["self"] + stream_parameters + option_parameters)
 
+        body = self._generate_body()
+
         code = f"    def {self.name}({all_parameters}) -> Stream:\n"
         code += f'        """{self.description}"""\n'
+        code += body
 
         return code
 
@@ -109,3 +113,27 @@ class CodeGenerator:
             return value
 
         return f'"{value}"'
+
+    def _generate_body(self) -> str:
+        """Generates body of the method."""
+        inputs_list = ["self"] + [sanitize_parameter_name(inp["name"]) for inp in self.inputs[1:]]
+        inputs_list_as_str = f"[{', '.join(inputs_list)}]"
+
+        named_arguments_entries = []
+        for option in self.options:
+            py_name = sanitize_parameter_name(option["name"])
+            ffmpeg_name = option["name"]
+            named_arguments_entries.append(f'"{ffmpeg_name}": {py_name},')
+
+        named_arguments_dict = "\n".join(named_arguments_entries)
+
+        raw_body = f"""
+return self._apply_filter(
+    filter_name="{self.name}",
+    inputs={inputs_list_as_str},
+    named_arguments={{
+{textwrap.indent(named_arguments_dict, 8 * " ")}
+    }}
+)[0]
+"""
+        return textwrap.indent(raw_body.strip(), 8 * " ")
