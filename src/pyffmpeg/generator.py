@@ -53,9 +53,11 @@ class CodeGenerator:
 
         body = self._generate_body()
 
-        code = f"    def {self.name}({all_parameters}) -> Stream:\n"
-        code += f'        """{self.description}"""\n'
-        code += body
+        return f"""
+    def {self.name}({all_parameters}) -> Stream:
+        \"\"\"{self.description}\"\"\"
+{body}
+"""
 
         return code
 
@@ -116,7 +118,9 @@ class CodeGenerator:
 
     def _generate_body(self) -> str:
         """Generates body of the method."""
-        inputs_list = ["self"] + [sanitize_parameter_name(inp["name"]) for inp in self.inputs[1:]]
+        inputs_list = ["self"] + [
+            sanitize_parameter_name(inp["name"]) for inp in self.inputs[1:]
+        ]
         inputs_list_as_str = f"[{', '.join(inputs_list)}]"
 
         named_arguments_entries = []
