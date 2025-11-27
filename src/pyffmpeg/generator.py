@@ -59,8 +59,6 @@ class CodeGenerator:
 {body}
 """
 
-        return code
-
     def _generate_stream_parameters(self) -> list[str]:
         """Generates parameters for additional input streams."""
         parameters = []
