@@ -61,6 +61,9 @@ class CodeGenerator:
 
     def _generate_stream_parameters(self) -> list[str]:
         """Generates parameters for additional input streams."""
+        if self.data.get("is_dynamic_inputs", False):
+            return ['*streams: "Stream"']
+
         parameters = []
         # Skipping first input because it is self
         for input in self.inputs[1:]:
@@ -116,10 +119,14 @@ class CodeGenerator:
 
     def _generate_body(self) -> str:
         """Generates body of the method."""
-        inputs_list = ["self"] + [
-            sanitize_parameter_name(inp["name"]) for inp in self.inputs[1:]
-        ]
-        inputs_list_as_str = f"[{', '.join(inputs_list)}]"
+        is_dynamic_inputs = self.data.get("is_dynamic_inputs", False)
+        if is_dynamic_inputs:
+            inputs_list_as_str = "[self, *streams]"
+        else:
+            inputs_list = ["self"] + [
+                sanitize_parameter_name(inp["name"]) for inp in self.inputs[1:]
+            ]
+            inputs_list_as_str = f"[{', '.join(inputs_list)}]"
 
         named_arguments_entries = []
         for option in self.options:
