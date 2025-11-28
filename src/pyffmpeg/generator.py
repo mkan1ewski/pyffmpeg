@@ -54,7 +54,7 @@ class CodeGenerator:
         body = self._generate_body()
 
         return f"""
-    def {self.name}({all_parameters}) -> Stream:
+    def {self.name}({all_parameters}) -> "Stream":
         \"\"\"{self.description}\"\"\"
 {body}
 """
@@ -65,7 +65,7 @@ class CodeGenerator:
         # Skipping first input because it is self
         for input in self.inputs[1:]:
             sanitized_name = sanitize_parameter_name(input["name"])
-            parameters.append(f"{sanitized_name}: Stream")
+            parameters.append(f'{sanitized_name}: "Stream"')
         return parameters
 
     def _generate_option_parameters(self) -> list[str]:
