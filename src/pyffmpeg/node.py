@@ -327,10 +327,20 @@ class FilterNode(ProcessableNode):
         output_streams = [f"[{output.index}]" for output in self.output_streams]
 
         postional_arguments = (str(arg) for arg in self.positional_arguments)
-        named_arguments = [
-            f"{name}={escape_filter_description(escape_filter_option(value))}"
-            for name, value in sorted(self.named_arguments.items())
-        ]
+
+        named_arguments = []
+        for name, value in sorted(self.named_arguments.items()):
+            if value is None:
+                continue
+
+            if value is True:
+                value = "true"
+            elif value is False:
+                value = "false"
+
+            val_escaped = escape_filter_description(escape_filter_option(value))
+            named_arguments.append(f"{name}={val_escaped}")
+
         all_arguments = [*postional_arguments, *named_arguments]
         arguments_string = ":".join(all_arguments)
 
