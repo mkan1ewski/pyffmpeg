@@ -204,7 +204,7 @@ class Parser:
             return text, None
 
         description_part, value_part = text.rsplit("(default ", 1)
-        raw_value = value_part.split(")", 1)[0]
+        raw_value = value_part.rsplit(")", 1)[0]
         default_val = raw_value.strip('"').strip()
 
         return description_part.strip(), default_val
