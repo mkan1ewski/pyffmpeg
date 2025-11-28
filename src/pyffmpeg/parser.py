@@ -67,9 +67,12 @@ class Parser:
     def parse_inputs(self) -> list[dict[str, str]]:
         """Parses the Inputs section."""
         inputs = []
+        found_dynamic_keyword = False
 
         if self.line is None or self.line.strip() != "Inputs:":
+            self.filter_data["is_dynamic_inputs"] = False
             return inputs
+
         self.advance()
 
         while self.line is not None:
@@ -77,11 +80,26 @@ class Parser:
                 break
 
             line = self.line.strip()
+
+            if "none (source filter)" in line:
+                self.advance()
+                continue
+
+            if "dynamic" in line.lower():
+                found_dynamic_keyword = True
+                self.advance()
+                continue
+
             if line.startswith("#"):
                 if input_data := self._parse_stream_line():
                     inputs.append(input_data)
 
             self.advance()
+
+        if len(inputs) > 0:
+            self.filter_data["is_dynamic_inputs"] = False
+        else:
+            self.filter_data["is_dynamic_inputs"] = found_dynamic_keyword
 
         return inputs
 
