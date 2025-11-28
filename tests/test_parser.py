@@ -104,6 +104,7 @@ def test_split_all_data():
         "description": "Pass on the input to N video outputs.",
         "filter_name": "split",
         "inputs": [{"name": "default", "type": "video"}],
+        "is_dynamic_inputs": False,
         "options": [
             {
                 "choices": [],
