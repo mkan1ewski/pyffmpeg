@@ -5,6 +5,7 @@ import keyword
 TYPE_MAPPING = {
     "int": "int",
     "float": "float",
+    "double": "float",
     "boolean": "bool",
     "string": "str",
     "video_rate": "str",
