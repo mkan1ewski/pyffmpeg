@@ -98,24 +98,36 @@ class CodeGenerator:
 
     def _get_default_value_repr(self, option: dict) -> str:
         """Returns representation of default value in Python code"""
-        value = option.get("default")
-        option_type = option["type"]
+        # value = option.get("default")
+        # option_type = option["type"]
 
-        if value is None:
-            return "None"
+        # if value is None:
+        #     return "None"
 
-        if option_type == "boolean":
-            return "True" if value == "true" else "False"
+        # C_CONSTANTS = {
+        #     "INT_MAX", "INT_MIN", "UINT32_MAX",
+        #     "INT64_MAX", "INT64_MIN", "I64_MIN", "I64_MAX",
+        #     "DBL_MAX", "DBL_MIN", "FLT_MAX", "FLT_MIN",
+        #     "NAN", "INFINITY"
+        # }
 
-        if option_type in ["string", "video_rate", "image_size", "color", "duration"]:
-            return f'"{value}"'
+        # # Jeśli wartość jest jedną z tych stałych -> ustawiamy None
+        # if value in C_CONSTANTS:
+        #     return "None"
 
-        if option_type in ["int", "float"]:
-            if option.get("choices") and not value.replace(".", "", 1).isdigit():
-                return f'"{value}"'
-            return value
+        # if option_type == "boolean":
+        #     return "True" if value == "true" else "False"
 
-        return f'"{value}"'
+        # if option_type in ["string", "video_rate", "image_size", "color", "duration"]:
+        #     return f'"{value}"'
+
+        # if option_type in ["int", "float"]:
+        #     if option.get("choices") and not value.replace(".", "", 1).isdigit():
+        #         return f'"{value}"'
+        #     return value
+
+        # return f'"{value}"'
+        return "None"
 
     def _generate_body(self) -> str:
         """Generates body of the method."""
