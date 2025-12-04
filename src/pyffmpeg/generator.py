@@ -16,7 +16,9 @@ TYPE_MAPPING = {
 
 
 def sanitize_parameter_name(name: str) -> str:
-    """Secures against Python keywords (ex: 'class', 'import') and hyphens."""
+    """Secures against Python keywords (ex: 'class', 'import') hyphens and digits."""
+    name = name.replace("-", "_")
+
     KEYWORDS = {
         "class",
         "import",
@@ -32,7 +34,11 @@ def sanitize_parameter_name(name: str) -> str:
     }
     if name in KEYWORDS:
         return f"{name}_"
-    return name.replace("-", "_")
+
+    if name and name[0].isdigit():
+        return f"_{name}"
+
+    return name
 
 
 class CodeGenerator:
