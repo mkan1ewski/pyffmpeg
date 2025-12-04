@@ -4,23 +4,38 @@ from pathlib import Path
 from pyffmpeg.parser import Parser
 from pyffmpeg.generator import CodeGenerator
 
-FILTERS = [
-    "scale",
-    "split",
-    "asplit",
-    "overlay",
-    "trim",
-    "vflip",
-    "hflip",
-    "crop",
-    "concat",
-    "drawbox",
-    "drawtext",
-    "format",
-    "fps",
-]
-
 OUTPUT_FILE = Path("src/pyffmpeg/generated_filters.py")
+
+
+def get_filters_to_process() -> list[str]:
+    """
+    Gets all filter names for processing from ffmpeg -filters.
+    Excludes sources and sinks.
+    """
+    try:
+        result = subprocess.run(["ffmpeg", "-filters"], capture_output=True, text=True)
+    except FileNotFoundError:
+        print("❌ Did not found ffmpeg")
+        return []
+
+    filters = set()
+
+    for line in result.stdout.splitlines():
+        parts = line.split()
+
+        if len(parts) < 3:
+            continue
+        name = parts[1]
+        io_specifier = parts[2]
+
+        if "->" not in io_specifier:
+            continue
+
+        # rejecting sources (|->...) and sinks (...->|)
+        if not io_specifier.startswith("|") and not io_specifier.endswith("|"):
+            filters.add(name)
+
+    return sorted(list(filters))
 
 
 def get_ffmpeg_help(filter_name: str) -> str:
@@ -55,8 +70,12 @@ def generate_file():
         f.write("    This class should be inherited by the Stream class.\n")
         f.write('    """\n')
 
+        filters = get_filters_to_process()
+        filters_count = len(filters)
+        print(f"     Found {filters_count} filters.")
+
         success_count = 0
-        for filter_name in FILTERS:
+        for filter_name in filters:
             print(f"    Parsing: {filter_name}...", end=" ")
 
             help_text = get_ffmpeg_help(filter_name)
@@ -78,7 +97,7 @@ def generate_file():
             except Exception as e:
                 print(f"❌ Error: {e}")
 
-    print(f"\n Finished. Generated {success_count}/{len(FILTERS)} methods.")
+    print(f"\n Finished. Generated {success_count}/{filters_count} methods.")
 
 
 if __name__ == "__main__":
