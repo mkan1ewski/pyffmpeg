@@ -137,7 +137,7 @@ class Parser:
 
         if "(" in content and content.endswith(")"):
             name_part, type_part = content.split("(", 1)
-            return {"name": name_part.strip(), "type": type_part.strip(")")}
+            return {"name": f"{name_part.strip()}_stream", "type": type_part.strip(")")}
 
         return None
 
