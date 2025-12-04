@@ -1,5 +1,6 @@
 import textwrap
 from typing import Any
+import keyword
 
 TYPE_MAPPING = {
     "int": "int",
@@ -19,20 +20,7 @@ def sanitize_parameter_name(name: str) -> str:
     """Secures against Python keywords (ex: 'class', 'import') hyphens and digits."""
     name = name.replace("-", "_")
 
-    KEYWORDS = {
-        "class",
-        "import",
-        "return",
-        "pass",
-        "from",
-        "global",
-        "with",
-        "async",
-        "await",
-        "def",
-        "lambda",
-    }
-    if name in KEYWORDS:
+    if keyword.iskeyword(name):
         return f"{name}_"
 
     if name and name[0].isdigit():
