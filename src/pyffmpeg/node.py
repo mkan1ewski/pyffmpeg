@@ -4,6 +4,7 @@ from pyffmpeg._utils import (
     escape_text_content,
     convert_kwargs_to_cmd_line_args,
 )
+from pyffmpeg.generated_filters import GeneratedFiltersMixin
 from pyffmpeg.errors import Error
 from enum import Enum, auto
 from typing import Any, Sequence
@@ -347,7 +348,7 @@ class FilterNode(ProcessableNode):
         return f"{''.join(input_streams)}{self.filter_name}{f'=' if arguments_string else ''}{arguments_string}{''.join(output_streams)}"
 
 
-class Stream:
+class Stream(GeneratedFiltersMixin):
     """Represents a single output stream from a node."""
 
     def __init__(self, source_node: Node):
