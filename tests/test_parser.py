@@ -65,7 +65,7 @@ def test_scale_outputs():
 def test_split_outputs():
     data = get_parsed_filter_data("split")
     print(data)
-    assert data.get("outputs") == None
+    assert data.get("outputs") == []
 
 
 def test_overlay_option_block():
@@ -104,7 +104,9 @@ def test_split_all_data():
         "description": "Pass on the input to N video outputs.",
         "filter_name": "split",
         "inputs": [{"name": "default_stream,", "type": "video"}],
+        "outputs": [],
         "is_dynamic_inputs": False,
+        "is_dynamic_outputs": True,
         "options": [
             {
                 "choices": [],
