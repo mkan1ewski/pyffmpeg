@@ -27,10 +27,8 @@ class Parser:
             self.filter_data["filter_name"] = filter_name
         if filter_description := self.parse_description():
             self.filter_data["description"] = filter_description
-        if filter_inputs := self.parse_inputs():
-            self.filter_data["inputs"] = filter_inputs
-        if filter_outputs := self.parse_outputs():
-            self.filter_data["outputs"] = filter_outputs
+        self.filter_data["inputs"] = self.parse_inputs()
+        self.filter_data["outputs"] = self.parse_outputs()
         if options := self.parse_options_block():
             self.filter_data["options"] = options
         return self.filter_data
