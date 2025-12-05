@@ -103,7 +103,7 @@ def test_split_all_data():
     assert data == {
         "description": "Pass on the input to N video outputs.",
         "filter_name": "split",
-        "inputs": [{"name": "default_stream,", "type": "video"}],
+        "inputs": [{"name": "default_stream", "type": "video"}],
         "outputs": [],
         "is_dynamic_inputs": False,
         "is_dynamic_outputs": True,
