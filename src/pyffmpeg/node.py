@@ -353,7 +353,7 @@ class Stream(GeneratedFiltersMixin):
 
     def __init__(self, source_node: Node):
         self.source_node: Node = source_node
-        self.index: str
+        self.index: str | None = None
         self.elemantary_streams: dict[str, TypedStream | IndexedStream] = {}
 
     def __eq__(self, other: object) -> bool:
@@ -460,7 +460,7 @@ class TypedStream(Stream):
     def __init__(self, type: str, source_stream: Stream):
         self.type = type
         self.source_node = source_stream.source_node
-        self.index: str
+        self.index: str | None = None
 
     def __getitem__(self, _):
         """Raises ValueError"""
@@ -474,6 +474,7 @@ class IndexedStream(Stream):
     def __init__(self, source_stream: Stream):
         self.source_node = source_stream.source_node
         self.label: str
+        self.index: str | None = None
 
     def __getitem__(self, _):
         """Raises ValueError"""
