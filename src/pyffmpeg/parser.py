@@ -104,6 +104,7 @@ class Parser:
     def parse_outputs(self) -> list[dict[str, str]]:
         """Parses the Outputs section."""
         outputs = []
+        found_dynamic_keyword = False
 
         if self.line is None or self.line.strip() != "Outputs:":
             return outputs
@@ -114,11 +115,27 @@ class Parser:
                 break
 
             line = self.line.strip()
+
+            if "none" in line.lower():
+                self.advance()
+                continue
+
+            if "dynamic" in line.lower():
+                found_dynamic_keyword = True
+                self.advance()
+                continue
+
+            line = self.line.strip()
             if line.startswith("#"):
                 if output_data := self._parse_stream_line():
                     outputs.append(output_data)
 
             self.advance()
+
+        if len(outputs) > 0:
+            self.filter_data["is_dynamic_outputs"] = False
+        else:
+            self.filter_data["is_dynamic_outputs"] = found_dynamic_keyword
 
         return outputs
 
