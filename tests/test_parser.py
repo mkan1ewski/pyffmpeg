@@ -120,12 +120,23 @@ def test_split_all_data():
     }
 
 
+def test_concat():
+    """an example of dynamic inputs filter (and dynamic outputs)"""
+    data = get_parsed_filter_data("concat")
+    assert data["inputs"] == []
+    assert data["is_dynamic_inputs"] == True
+
+    assert data["outputs"] == []
+    assert data["is_dynamic_outputs"] == True
+
+
 def test_sierpinski():
     """an example of source filter"""
     data = get_parsed_filter_data("sierpinski")
     assert data["inputs"] == []
     assert data["is_dynamic_inputs"] == False
     assert len(data["outputs"]) == 1
+
 
 def test_nullsink():
     """an example of sink filter"""
