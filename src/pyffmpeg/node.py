@@ -292,7 +292,7 @@ class FilterNode(ProcessableNode):
         self,
         filter_name: str,
         postional_arguments: tuple[str],
-        named_arguments: dict,
+        named_arguments: dict[str, Any],
         inputs: list["Stream"],
         num_output_streams: int = 1,
     ):
@@ -403,7 +403,7 @@ class Stream(GeneratedFiltersMixin):
         self,
         filter_name: str,
         postional_arguments: tuple = (),
-        named_arguments: dict[str, str] = {},
+        named_arguments: dict[str, Any] = {},
         inputs: list["Stream"] | None = None,
         num_output_streams: int = 1,
     ) -> list["Stream"]:
@@ -421,7 +421,7 @@ class Stream(GeneratedFiltersMixin):
         self,
         filter_name: str,
         postional_arguments: tuple = (),
-        named_arguments: dict[str, str] = {},
+        named_arguments: dict[str, Any] = {},
         inputs: list["Stream"] | None = None,
     ) -> "FilterMultiOutput":
         """Creates a FilterNode and returns FilterMultiOutput to allow dynamic outputs."""
