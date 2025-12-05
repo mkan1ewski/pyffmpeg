@@ -62,7 +62,7 @@ def generate_file():
         f.write("from typing import TYPE_CHECKING, Literal\n")
 
         f.write("if TYPE_CHECKING:\n")
-        f.write("    from pyffmpeg.node import Stream\n\n")
+        f.write("    from pyffmpeg.node import Stream, FilterMultiOutput\n\n")
 
         f.write("class GeneratedFiltersMixin:\n")
         f.write('    """\n')

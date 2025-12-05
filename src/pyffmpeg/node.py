@@ -417,6 +417,23 @@ class Stream(GeneratedFiltersMixin):
         )
         return node.output_streams
 
+    def _apply_dynamic_outputs_filter(
+        self,
+        filter_name: str,
+        postional_arguments: tuple = (),
+        named_arguments: dict[str, str] = {},
+        inputs: list["Stream"] | None = None,
+    ) -> "FilterMultiOutput":
+        """Creates a FilterNode and returns FilterMultiOutput to allow dynamic outputs."""
+        filter_node = FilterNode(
+            filter_name,
+            postional_arguments,
+            named_arguments,
+            inputs or [self],
+            num_output_streams=0,
+        )
+        return FilterMultiOutput(filter_node)
+
     def filter(self, filter_name: str, *args, **kwargs) -> "Stream":
         """Custom filter with a single input and a single output"""
         return self._apply_filter(filter_name, args, kwargs)[0]

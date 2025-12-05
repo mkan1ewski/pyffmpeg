@@ -3,7 +3,7 @@
 from typing import TYPE_CHECKING, Literal
 
 if TYPE_CHECKING:
-    from pyffmpeg.node import Stream
+    from pyffmpeg.node import Stream, FilterMultiOutput
 
 
 class GeneratedFiltersMixin:
@@ -309,9 +309,9 @@ class GeneratedFiltersMixin:
         level: float = None,
         gain: str = None,
         precision: Literal["auto", "float", "double"] | int = None,
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Split audio into per-bands streams."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="acrossover",
             inputs=[self],
             named_arguments={
@@ -321,7 +321,7 @@ class GeneratedFiltersMixin:
                 "gain": gain,
                 "precision": precision,
             },
-        )[0]
+        )
 
     def acrusher(
         self,
@@ -1170,9 +1170,9 @@ class GeneratedFiltersMixin:
         channel: int = None,
         size: str = None,
         rate: str = None,
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Apply Infinite Impulse Response filter with supplied coefficients."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="aiir",
             inputs=[self],
             named_arguments={
@@ -1198,7 +1198,7 @@ class GeneratedFiltersMixin:
                 "size": size,
                 "rate": rate,
             },
-        )[0]
+        )
 
     def aintegral(self) -> "Stream":
         """Compute integral of input audio."""
@@ -1433,9 +1433,9 @@ class GeneratedFiltersMixin:
         mgain: float = None,
         fscale: Literal["lin", "log"] | int = None,
         colors: str = None,
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Apply high-order audio parametric multi band equalizer."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="anequalizer",
             inputs=[self],
             named_arguments={
@@ -1446,7 +1446,7 @@ class GeneratedFiltersMixin:
                 "fscale": fscale,
                 "colors": colors,
             },
-        )[0]
+        )
 
     def anlmdn(
         self,
@@ -1587,9 +1587,9 @@ class GeneratedFiltersMixin:
         a: float = None,
         duration: str = None,
         d: str = None,
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Convert input audio to phase meter video output."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="aphasemeter",
             inputs=[self],
             named_arguments={
@@ -1610,7 +1610,7 @@ class GeneratedFiltersMixin:
                 "duration": duration,
                 "d": d,
             },
-        )[0]
+        )
 
     def aphaser(
         self,
@@ -1780,22 +1780,24 @@ class GeneratedFiltersMixin:
             filter_name="asdr", inputs=[self, input1_stream], named_arguments={}
         )[0]
 
-    def asegment(self, timestamps: str = None, samples: str = None) -> "Stream":
+    def asegment(
+        self, timestamps: str = None, samples: str = None
+    ) -> "FilterMultiOutput":
         """Segment audio stream."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="asegment",
             inputs=[self],
             named_arguments={
                 "timestamps": timestamps,
                 "samples": samples,
             },
-        )[0]
+        )
 
     def aselect(
         self, expr: str = None, e: str = None, outputs: int = None, n: int = None
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Select audio frames to pass in output."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="aselect",
             inputs=[self],
             named_arguments={
@@ -1804,7 +1806,7 @@ class GeneratedFiltersMixin:
                 "outputs": outputs,
                 "n": n,
             },
-        )[0]
+        )
 
     def asendcmd(
         self, commands: str = None, c: str = None, filename: str = None, f: str = None
@@ -2013,15 +2015,15 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def asplit(self, outputs: int = None) -> "Stream":
+    def asplit(self, outputs: int = None) -> "FilterMultiOutput":
         """Pass on the audio input to N audio outputs."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="asplit",
             inputs=[self],
             named_arguments={
                 "outputs": outputs,
             },
-        )[0]
+        )
 
     def ass(
         self,
@@ -2127,16 +2129,16 @@ class GeneratedFiltersMixin:
 
     def astreamselect(
         self, *streams: "Stream", inputs: int = None, map: str = None
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Select audio streams"""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="astreamselect",
             inputs=[self, *streams],
             named_arguments={
                 "inputs": inputs,
                 "map": map,
             },
-        )[0]
+        )
 
     def asubboost(
         self,
@@ -3137,16 +3139,16 @@ class GeneratedFiltersMixin:
 
     def channelsplit(
         self, channel_layout: str = None, channels: str = None
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Split audio into per-channel streams."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="channelsplit",
             inputs=[self],
             named_arguments={
                 "channel_layout": channel_layout,
                 "channels": channels,
             },
-        )[0]
+        )
 
     def chorus(
         self,
@@ -3858,9 +3860,9 @@ class GeneratedFiltersMixin:
         v: int = None,
         a: int = None,
         unsafe: bool = None,
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Concatenate audio and video streams."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="concat",
             inputs=[self, *streams],
             named_arguments={
@@ -3869,7 +3871,7 @@ class GeneratedFiltersMixin:
                 "a": a,
                 "unsafe": unsafe,
             },
-        )[0]
+        )
 
     def convolution(
         self,
@@ -4888,9 +4890,9 @@ class GeneratedFiltersMixin:
         lra_high: float = None,
         sample_peak: float = None,
         true_peak: float = None,
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """EBU R128 scanner."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="ebur128",
             inputs=[self],
             named_arguments={
@@ -4912,7 +4914,7 @@ class GeneratedFiltersMixin:
                 "sample_peak": sample_peak,
                 "true_peak": true_peak,
             },
-        )[0]
+        )
 
     def edgedetect(
         self,
@@ -5124,15 +5126,15 @@ class GeneratedFiltersMixin:
 
     def extractplanes(
         self, planes: Literal["y", "u", "v", "r", "g", "b", "a"] = None
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Extract planes as grayscale frames."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="extractplanes",
             inputs=[self],
             named_arguments={
                 "planes": planes,
             },
-        )[0]
+        )
 
     def extrastereo(self, m: float = None, c: bool = None) -> "Stream":
         """Increase difference between stereo audio channels."""
@@ -5189,7 +5191,7 @@ class GeneratedFiltersMixin:
         y: int = None,
         w: int = None,
         h: int = None,
-    ) -> "Stream":
+    ) -> list["Stream"]:
         """Apply feedback video filter."""
         return self._apply_filter(
             filter_name="feedback",
@@ -5200,7 +5202,8 @@ class GeneratedFiltersMixin:
                 "w": w,
                 "h": h,
             },
-        )[0]
+            num_output_streams=2,
+        )
 
     def fftdnoiz(
         self,
@@ -8550,7 +8553,7 @@ class GeneratedFiltersMixin:
         param0: float = None,
         param1: float = None,
         eval: Literal["init", "frame"] | int = None,
-    ) -> "Stream":
+    ) -> list["Stream"]:
         """Scale the input video size and/or convert the image format to the given reference."""
         return self._apply_filter(
             filter_name="scale2ref",
@@ -8585,7 +8588,8 @@ class GeneratedFiltersMixin:
                 "param1": param1,
                 "eval": eval,
             },
-        )[0]
+            num_output_streams=2,
+        )
 
     def scale_vt(
         self,
@@ -8664,22 +8668,24 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def segment(self, timestamps: str = None, frames: str = None) -> "Stream":
+    def segment(
+        self, timestamps: str = None, frames: str = None
+    ) -> "FilterMultiOutput":
         """Segment video stream."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="segment",
             inputs=[self],
             named_arguments={
                 "timestamps": timestamps,
                 "frames": frames,
             },
-        )[0]
+        )
 
     def select(
         self, expr: str = None, e: str = None, outputs: int = None, n: int = None
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Select video frames to pass in output."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="select",
             inputs=[self],
             named_arguments={
@@ -8688,7 +8694,7 @@ class GeneratedFiltersMixin:
                 "outputs": outputs,
                 "n": n,
             },
-        )[0]
+        )
 
     def selectivecolor(
         self,
@@ -9967,15 +9973,15 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def split(self, outputs: int = None) -> "Stream":
+    def split(self, outputs: int = None) -> "FilterMultiOutput":
         """Pass on the input to N video outputs."""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="split",
             inputs=[self],
             named_arguments={
                 "outputs": outputs,
             },
-        )[0]
+        )
 
     def spp(
         self,
@@ -10214,16 +10220,16 @@ class GeneratedFiltersMixin:
 
     def streamselect(
         self, *streams: "Stream", inputs: int = None, map: str = None
-    ) -> "Stream":
+    ) -> "FilterMultiOutput":
         """Select video streams"""
-        return self._apply_filter(
+        return self._apply_dynamic_outputs_filter(
             filter_name="streamselect",
             inputs=[self, *streams],
             named_arguments={
                 "inputs": inputs,
                 "map": map,
             },
-        )[0]
+        )
 
     def subtitles(
         self,
