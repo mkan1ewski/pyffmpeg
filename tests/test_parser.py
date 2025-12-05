@@ -99,6 +99,7 @@ def test_overlay_option_block():
 
 
 def test_split_all_data():
+    """an example of dynamic outputs filter"""
     data = get_parsed_filter_data("split")
     assert data == {
         "description": "Pass on the input to N video outputs.",
@@ -117,3 +118,18 @@ def test_split_all_data():
             }
         ],
     }
+
+
+def test_sierpinski():
+    """an example of source filter"""
+    data = get_parsed_filter_data("sierpinski")
+    assert data["inputs"] == []
+    assert data["is_dynamic_inputs"] == False
+    assert len(data["outputs"]) == 1
+
+def test_nullsink():
+    """an example of sink filter"""
+    data = get_parsed_filter_data("nullsink")
+    assert data["outputs"] == []
+    assert data["is_dynamic_outputs"] == False
+    assert len(data["inputs"]) == 1
