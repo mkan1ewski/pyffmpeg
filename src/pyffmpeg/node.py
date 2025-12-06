@@ -6,36 +6,25 @@ from pyffmpeg._utils import (
 )
 from pyffmpeg.generated_filters import GeneratedFiltersMixin
 from pyffmpeg.errors import Error
-from enum import Enum, auto
 from typing import Any, Sequence
 import subprocess
 
 
-class NodeType(Enum):
-    INPUT = auto()
-    FILTER = auto()
-    OUTPUT = auto()
-    MERGED_OUTPUT = auto()
-
-
 class Node:
-    def __init__(self, type: NodeType):
-        self.type: NodeType = type
+    """Abstract base class for all components in the FFmpeg processing graph."""
 
 
 class ProcessableNode(Node):
     """Nodes that can be further processed with filters."""
 
-    def __init__(self, type: NodeType, num_output_streams: int = 1):
-        super().__init__(type)
+    def __init__(self, num_output_streams: int = 1):
         self.output_streams: list[Stream] = [
             Stream(self) for i in range(num_output_streams)
         ]
 
 
 class RunnableNode(Node):
-    def __init__(self, type):
-        super().__init__(type)
+    def __init__(self):
         self.global_options: list[str] = []
 
     def global_args(self, *args) -> "RunnableNode":
@@ -166,7 +155,7 @@ class InputNode(ProcessableNode):
     """Nodes representing input files."""
 
     def __init__(self, filename: str, options: dict[str, Any] = None):
-        super().__init__(NodeType.INPUT)
+        super().__init__()
         self.filename: str = filename
         self.options: dict[str, Any] = options
 
@@ -205,7 +194,7 @@ class OutputNode(RunnableNode):
         inputs: list["Stream"],
         output_options: dict[str, str | list[str]] = {},
     ):
-        super().__init__(NodeType.OUTPUT)
+        super().__init__()
         self.inputs: list[Stream] = inputs
         self.filename: str = filename
         self.output_options: dict[str, str | list[str]] = output_options
@@ -281,7 +270,7 @@ class MergedOutputNode(RunnableNode):
     """Node representing multiple outputs"""
 
     def __init__(self, outputs: Sequence[OutputNode]):
-        super().__init__(NodeType.MERGED_OUTPUT)
+        super().__init__()
         self.outputs: tuple[OutputNode] = tuple(outputs)
 
 
@@ -296,7 +285,7 @@ class FilterNode(ProcessableNode):
         inputs: list["Stream"],
         num_output_streams: int = 1,
     ):
-        super().__init__(NodeType.FILTER, num_output_streams)
+        super().__init__(num_output_streams)
         self.filter_name: str = filter_name
         self.positional_arguments: tuple = postional_arguments
         self.named_arguments: dict = named_arguments
