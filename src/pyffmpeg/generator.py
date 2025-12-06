@@ -98,10 +98,10 @@ class CodeGenerator:
             literal_str = f"Literal[{', '.join(literals)}]"
 
             if base_type == "int":
-                return f"{literal_str} | int"
-            return literal_str
+                return f"{literal_str} | int | None"
+            return f"{literal_str} | None"
 
-        return base_type
+        return f"{base_type} | None"
 
     def _get_default_value_repr(self, option: dict) -> str:
         """Returns representation of default value in Python code"""

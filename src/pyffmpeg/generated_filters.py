@@ -14,21 +14,21 @@ class GeneratedFiltersMixin:
 
     def a3dscope(
         self,
-        rate: str = None,
-        r: str = None,
-        size: str = None,
-        s: str = None,
-        fov: float = None,
-        roll: float = None,
-        pitch: float = None,
-        yaw: float = None,
-        xzoom: float = None,
-        yzoom: float = None,
-        zzoom: float = None,
-        xpos: float = None,
-        ypos: float = None,
-        zpos: float = None,
-        length: int = None,
+        rate: str | None = None,
+        r: str | None = None,
+        size: str | None = None,
+        s: str | None = None,
+        fov: float | None = None,
+        roll: float | None = None,
+        pitch: float | None = None,
+        yaw: float | None = None,
+        xzoom: float | None = None,
+        yzoom: float | None = None,
+        zzoom: float | None = None,
+        xpos: float | None = None,
+        ypos: float | None = None,
+        zpos: float | None = None,
+        length: int | None = None,
     ) -> "Stream":
         """Convert input audio to 3d scope video output."""
         return self._apply_filter(
@@ -56,12 +56,12 @@ class GeneratedFiltersMixin:
     def aap(
         self,
         desired_stream: "Stream",
-        order: int = None,
-        projection: int = None,
-        mu: float = None,
-        delta: float = None,
-        out_mode: Literal["i", "d", "o", "n", "e"] | int = None,
-        precision: Literal["auto", "float", "double"] | int = None,
+        order: int | None = None,
+        projection: int | None = None,
+        mu: float | None = None,
+        delta: float | None = None,
+        out_mode: Literal["i", "d", "o", "n", "e"] | int | None = None,
+        precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
         """Apply Affine Projection algorithm to first audio stream."""
         return self._apply_filter(
@@ -77,7 +77,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def abench(self, action: Literal["start", "stop"] | int = None) -> "Stream":
+    def abench(self, action: Literal["start", "stop"] | int | None = None) -> "Stream":
         """Benchmark part of a filtergraph."""
         return self._apply_filter(
             filter_name="abench",
@@ -89,13 +89,13 @@ class GeneratedFiltersMixin:
 
     def abitscope(
         self,
-        rate: str = None,
-        r: str = None,
-        size: str = None,
-        s: str = None,
-        colors: str = None,
-        mode: Literal["bars", "trace"] | int = None,
-        m: Literal["bars", "trace"] | int = None,
+        rate: str | None = None,
+        r: str | None = None,
+        size: str | None = None,
+        s: str | None = None,
+        colors: str | None = None,
+        mode: Literal["bars", "trace"] | int | None = None,
+        m: Literal["bars", "trace"] | int | None = None,
     ) -> "Stream":
         """Convert input audio to audio bit scope video output."""
         return self._apply_filter(
@@ -114,18 +114,18 @@ class GeneratedFiltersMixin:
 
     def acompressor(
         self,
-        level_in: float = None,
-        mode: Literal["downward", "upward"] | int = None,
-        threshold: float = None,
-        ratio: float = None,
-        attack: float = None,
-        release: float = None,
-        makeup: float = None,
-        knee: float = None,
-        link: Literal["average", "maximum"] | int = None,
-        detection: Literal["peak", "rms"] | int = None,
-        level_sc: float = None,
-        mix: float = None,
+        level_in: float | None = None,
+        mode: Literal["downward", "upward"] | int | None = None,
+        threshold: float | None = None,
+        ratio: float | None = None,
+        attack: float | None = None,
+        release: float | None = None,
+        makeup: float | None = None,
+        knee: float | None = None,
+        link: Literal["average", "maximum"] | int | None = None,
+        detection: Literal["peak", "rms"] | int | None = None,
+        level_sc: float | None = None,
+        mix: float | None = None,
     ) -> "Stream":
         """Audio compressor."""
         return self._apply_filter(
@@ -147,7 +147,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def acontrast(self, contrast: float = None) -> "Stream":
+    def acontrast(self, contrast: float | None = None) -> "Stream":
         """Simple audio dynamic range compression/expansion filter."""
         return self._apply_filter(
             filter_name="acontrast",
@@ -166,12 +166,12 @@ class GeneratedFiltersMixin:
     def acrossfade(
         self,
         crossfade1_stream: "Stream",
-        nb_samples: str = None,
-        ns: str = None,
-        duration: str = None,
-        d: str = None,
-        overlap: bool = None,
-        o: bool = None,
+        nb_samples: str | None = None,
+        ns: str | None = None,
+        duration: str | None = None,
+        d: str | None = None,
+        overlap: bool | None = None,
+        o: bool | None = None,
         curve1: Literal[
             "nofade",
             "tri",
@@ -198,7 +198,8 @@ class GeneratedFiltersMixin:
             "qsin2",
             "hsin2",
         ]
-        | int = None,
+        | int
+        | None = None,
         c1: Literal[
             "nofade",
             "tri",
@@ -225,7 +226,8 @@ class GeneratedFiltersMixin:
             "qsin2",
             "hsin2",
         ]
-        | int = None,
+        | int
+        | None = None,
         curve2: Literal[
             "nofade",
             "tri",
@@ -252,7 +254,8 @@ class GeneratedFiltersMixin:
             "qsin2",
             "hsin2",
         ]
-        | int = None,
+        | int
+        | None = None,
         c2: Literal[
             "nofade",
             "tri",
@@ -279,7 +282,8 @@ class GeneratedFiltersMixin:
             "qsin2",
             "hsin2",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Cross fade two input audio streams."""
         return self._apply_filter(
@@ -301,14 +305,15 @@ class GeneratedFiltersMixin:
 
     def acrossover(
         self,
-        split: str = None,
+        split: str | None = None,
         order: Literal[
             "2nd", "4th", "6th", "8th", "10th", "12th", "14th", "16th", "18th", "20th"
         ]
-        | int = None,
-        level: float = None,
-        gain: str = None,
-        precision: Literal["auto", "float", "double"] | int = None,
+        | int
+        | None = None,
+        level: float | None = None,
+        gain: str | None = None,
+        precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "FilterMultiOutput":
         """Split audio into per-bands streams."""
         return self._apply_dynamic_outputs_filter(
@@ -325,17 +330,17 @@ class GeneratedFiltersMixin:
 
     def acrusher(
         self,
-        level_in: float = None,
-        level_out: float = None,
-        bits: float = None,
-        mix: float = None,
-        mode: Literal["lin", "log"] | int = None,
-        dc: float = None,
-        aa: float = None,
-        samples: float = None,
-        lfo: bool = None,
-        lforange: float = None,
-        lforate: float = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        bits: float | None = None,
+        mix: float | None = None,
+        mode: Literal["lin", "log"] | int | None = None,
+        dc: float | None = None,
+        aa: float | None = None,
+        samples: float | None = None,
+        lfo: bool | None = None,
+        lforange: float | None = None,
+        lforate: float | None = None,
     ) -> "Stream":
         """Reduce audio bit resolution."""
         return self._apply_filter(
@@ -357,7 +362,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def acue(
-        self, cue: str = None, preroll: str = None, buffer: str = None
+        self,
+        cue: str | None = None,
+        preroll: str | None = None,
+        buffer: str | None = None,
     ) -> "Stream":
         """Delay filtering to match a cue."""
         return self._apply_filter(
@@ -372,12 +380,12 @@ class GeneratedFiltersMixin:
 
     def addroi(
         self,
-        x: str = None,
-        y: str = None,
-        w: str = None,
-        h: str = None,
-        qoffset: str = None,
-        clear: bool = None,
+        x: str | None = None,
+        y: str | None = None,
+        w: str | None = None,
+        h: str | None = None,
+        qoffset: str | None = None,
+        clear: bool | None = None,
     ) -> "Stream":
         """Add region of interest to frame."""
         return self._apply_filter(
@@ -395,18 +403,18 @@ class GeneratedFiltersMixin:
 
     def adeclick(
         self,
-        window: float = None,
-        w: float = None,
-        overlap: float = None,
-        o: float = None,
-        arorder: float = None,
-        a: float = None,
-        threshold: float = None,
-        t: float = None,
-        burst: float = None,
-        b: float = None,
-        method: Literal["add", "a", "save", "s"] | int = None,
-        m: Literal["add", "a", "save", "s"] | int = None,
+        window: float | None = None,
+        w: float | None = None,
+        overlap: float | None = None,
+        o: float | None = None,
+        arorder: float | None = None,
+        a: float | None = None,
+        threshold: float | None = None,
+        t: float | None = None,
+        burst: float | None = None,
+        b: float | None = None,
+        method: Literal["add", "a", "save", "s"] | int | None = None,
+        m: Literal["add", "a", "save", "s"] | int | None = None,
     ) -> "Stream":
         """Remove impulsive noise from input audio."""
         return self._apply_filter(
@@ -430,18 +438,18 @@ class GeneratedFiltersMixin:
 
     def adeclip(
         self,
-        window: float = None,
-        w: float = None,
-        overlap: float = None,
-        o: float = None,
-        arorder: float = None,
-        a: float = None,
-        threshold: float = None,
-        t: float = None,
-        hsize: int = None,
-        n: int = None,
-        method: Literal["add", "a", "save", "s"] | int = None,
-        m: Literal["add", "a", "save", "s"] | int = None,
+        window: float | None = None,
+        w: float | None = None,
+        overlap: float | None = None,
+        o: float | None = None,
+        arorder: float | None = None,
+        a: float | None = None,
+        threshold: float | None = None,
+        t: float | None = None,
+        hsize: int | None = None,
+        n: int | None = None,
+        method: Literal["add", "a", "save", "s"] | int | None = None,
+        m: Literal["add", "a", "save", "s"] | int | None = None,
     ) -> "Stream":
         """Remove clipping from input audio."""
         return self._apply_filter(
@@ -463,7 +471,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def adecorrelate(self, stages: int = None, seed: str = None) -> "Stream":
+    def adecorrelate(
+        self, stages: int | None = None, seed: str | None = None
+    ) -> "Stream":
         """Apply decorrelation to input audio."""
         return self._apply_filter(
             filter_name="adecorrelate",
@@ -474,7 +484,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def adelay(self, delays: str = None, all: bool = None) -> "Stream":
+    def adelay(self, delays: str | None = None, all: bool | None = None) -> "Stream":
         """Delay one or more audio channels."""
         return self._apply_filter(
             filter_name="adelay",
@@ -487,8 +497,8 @@ class GeneratedFiltersMixin:
 
     def adenorm(
         self,
-        level: float = None,
-        type: Literal["dc", "ac", "square", "pulse"] | int = None,
+        level: float | None = None,
+        type: Literal["dc", "ac", "square", "pulse"] | int | None = None,
     ) -> "Stream":
         """Remedy denormals by adding extremely low-level noise."""
         return self._apply_filter(
@@ -508,23 +518,25 @@ class GeneratedFiltersMixin:
 
     def adrawgraph(
         self,
-        m1: str = None,
-        fg1: str = None,
-        m2: str = None,
-        fg2: str = None,
-        m3: str = None,
-        fg3: str = None,
-        m4: str = None,
-        fg4: str = None,
-        bg: str = None,
-        min: float = None,
-        max: float = None,
-        mode: Literal["bar", "dot", "line"] | int = None,
-        slide: Literal["frame", "replace", "scroll", "rscroll", "picture"] | int = None,
-        size: str = None,
-        s: str = None,
-        rate: str = None,
-        r: str = None,
+        m1: str | None = None,
+        fg1: str | None = None,
+        m2: str | None = None,
+        fg2: str | None = None,
+        m3: str | None = None,
+        fg3: str | None = None,
+        m4: str | None = None,
+        fg4: str | None = None,
+        bg: str | None = None,
+        min: float | None = None,
+        max: float | None = None,
+        mode: Literal["bar", "dot", "line"] | int | None = None,
+        slide: Literal["frame", "replace", "scroll", "rscroll", "picture"]
+        | int
+        | None = None,
+        size: str | None = None,
+        s: str | None = None,
+        rate: str | None = None,
+        r: str | None = None,
     ) -> "Stream":
         """Draw a graph using input audio metadata."""
         return self._apply_filter(
@@ -553,10 +565,10 @@ class GeneratedFiltersMixin:
 
     def adrc(
         self,
-        transfer: str = None,
-        attack: float = None,
-        release: float = None,
-        channels: str = None,
+        transfer: str | None = None,
+        attack: float | None = None,
+        release: float | None = None,
+        channels: str | None = None,
     ) -> "Stream":
         """Audio Spectral Dynamic Range Controller."""
         return self._apply_filter(
@@ -572,22 +584,23 @@ class GeneratedFiltersMixin:
 
     def adynamicequalizer(
         self,
-        threshold: float = None,
-        dfrequency: float = None,
-        dqfactor: float = None,
-        tfrequency: float = None,
-        tqfactor: float = None,
-        attack: float = None,
-        release: float = None,
-        ratio: float = None,
-        makeup: float = None,
-        range: float = None,
+        threshold: float | None = None,
+        dfrequency: float | None = None,
+        dqfactor: float | None = None,
+        tfrequency: float | None = None,
+        tqfactor: float | None = None,
+        attack: float | None = None,
+        release: float | None = None,
+        ratio: float | None = None,
+        makeup: float | None = None,
+        range: float | None = None,
         mode: Literal["listen", "cutbelow", "cutabove", "boostbelow", "boostabove"]
-        | int = None,
-        dftype: Literal["bandpass", "lowpass", "highpass", "peak"] | int = None,
-        tftype: Literal["bell", "lowshelf", "highshelf"] | int = None,
-        auto: Literal["disabled", "off", "on", "adaptive"] | int = None,
-        precision: Literal["auto", "float", "double"] | int = None,
+        | int
+        | None = None,
+        dftype: Literal["bandpass", "lowpass", "highpass", "peak"] | int | None = None,
+        tftype: Literal["bell", "lowshelf", "highshelf"] | int | None = None,
+        auto: Literal["disabled", "off", "on", "adaptive"] | int | None = None,
+        precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
         """Apply Dynamic Equalization of input audio."""
         return self._apply_filter(
@@ -613,7 +626,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def adynamicsmooth(
-        self, sensitivity: float = None, basefreq: float = None
+        self, sensitivity: float | None = None, basefreq: float | None = None
     ) -> "Stream":
         """Apply Dynamic Smoothing of input audio."""
         return self._apply_filter(
@@ -627,10 +640,10 @@ class GeneratedFiltersMixin:
 
     def aecho(
         self,
-        in_gain: float = None,
-        out_gain: float = None,
-        delays: str = None,
-        decays: str = None,
+        in_gain: float | None = None,
+        out_gain: float | None = None,
+        delays: str | None = None,
+        decays: str | None = None,
     ) -> "Stream":
         """Add echoing to the audio."""
         return self._apply_filter(
@@ -646,11 +659,12 @@ class GeneratedFiltersMixin:
 
     def aemphasis(
         self,
-        level_in: float = None,
-        level_out: float = None,
-        mode: Literal["reproduction", "production"] | int = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        mode: Literal["reproduction", "production"] | int | None = None,
         type: Literal["col", "emi", "bsi", "riaa", "cd", "50fm", "75fm", "50kf", "75kf"]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Audio emphasis."""
         return self._apply_filter(
@@ -665,7 +679,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def aeval(
-        self, exprs: str = None, channel_layout: str = None, c: str = None
+        self,
+        exprs: str | None = None,
+        channel_layout: str | None = None,
+        c: str | None = None,
     ) -> "Stream":
         """Filter audio signal according to a specified expression."""
         return self._apply_filter(
@@ -680,14 +697,14 @@ class GeneratedFiltersMixin:
 
     def aexciter(
         self,
-        level_in: float = None,
-        level_out: float = None,
-        amount: float = None,
-        drive: float = None,
-        blend: float = None,
-        freq: float = None,
-        ceil: float = None,
-        listen: bool = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        amount: float | None = None,
+        drive: float | None = None,
+        blend: float | None = None,
+        freq: float | None = None,
+        ceil: float | None = None,
+        listen: bool | None = None,
     ) -> "Stream":
         """Enhance high frequency part of audio."""
         return self._apply_filter(
@@ -707,16 +724,16 @@ class GeneratedFiltersMixin:
 
     def afade(
         self,
-        type: Literal["in", "out"] | int = None,
-        t: Literal["in", "out"] | int = None,
-        start_sample: str = None,
-        ss: str = None,
-        nb_samples: str = None,
-        ns: str = None,
-        start_time: str = None,
-        st: str = None,
-        duration: str = None,
-        d: str = None,
+        type: Literal["in", "out"] | int | None = None,
+        t: Literal["in", "out"] | int | None = None,
+        start_sample: str | None = None,
+        ss: str | None = None,
+        nb_samples: str | None = None,
+        ns: str | None = None,
+        start_time: str | None = None,
+        st: str | None = None,
+        duration: str | None = None,
+        d: str | None = None,
         curve: Literal[
             "nofade",
             "tri",
@@ -743,7 +760,8 @@ class GeneratedFiltersMixin:
             "qsin2",
             "hsin2",
         ]
-        | int = None,
+        | int
+        | None = None,
         c: Literal[
             "nofade",
             "tri",
@@ -770,9 +788,10 @@ class GeneratedFiltersMixin:
             "qsin2",
             "hsin2",
         ]
-        | int = None,
-        silence: float = None,
-        unity: float = None,
+        | int
+        | None = None,
+        silence: float | None = None,
+        unity: float | None = None,
     ) -> "Stream":
         """Fade in/out input audio."""
         return self._apply_filter(
@@ -798,36 +817,42 @@ class GeneratedFiltersMixin:
 
     def afftdn(
         self,
-        noise_reduction: float = None,
-        nr: float = None,
-        noise_floor: float = None,
-        nf: float = None,
+        noise_reduction: float | None = None,
+        nr: float | None = None,
+        noise_floor: float | None = None,
+        nf: float | None = None,
         noise_type: Literal["white", "w", "vinyl", "v", "shellac", "s", "custom", "c"]
-        | int = None,
+        | int
+        | None = None,
         nt: Literal["white", "w", "vinyl", "v", "shellac", "s", "custom", "c"]
-        | int = None,
-        band_noise: str = None,
-        bn: str = None,
-        residual_floor: float = None,
-        rf: float = None,
-        track_noise: bool = None,
-        tn: bool = None,
-        track_residual: bool = None,
-        tr: bool = None,
-        output_mode: Literal["input", "i", "output", "o", "noise", "n"] | int = None,
-        om: Literal["input", "i", "output", "o", "noise", "n"] | int = None,
-        adaptivity: float = None,
-        ad: float = None,
-        floor_offset: float = None,
-        fo: float = None,
-        noise_link: Literal["none", "min", "max", "average"] | int = None,
-        nl: Literal["none", "min", "max", "average"] | int = None,
-        band_multiplier: float = None,
-        bm: float = None,
-        sample_noise: Literal["none", "start", "begin", "stop", "end"] | int = None,
-        sn: Literal["none", "start", "begin", "stop", "end"] | int = None,
-        gain_smooth: int = None,
-        gs: int = None,
+        | int
+        | None = None,
+        band_noise: str | None = None,
+        bn: str | None = None,
+        residual_floor: float | None = None,
+        rf: float | None = None,
+        track_noise: bool | None = None,
+        tn: bool | None = None,
+        track_residual: bool | None = None,
+        tr: bool | None = None,
+        output_mode: Literal["input", "i", "output", "o", "noise", "n"]
+        | int
+        | None = None,
+        om: Literal["input", "i", "output", "o", "noise", "n"] | int | None = None,
+        adaptivity: float | None = None,
+        ad: float | None = None,
+        floor_offset: float | None = None,
+        fo: float | None = None,
+        noise_link: Literal["none", "min", "max", "average"] | int | None = None,
+        nl: Literal["none", "min", "max", "average"] | int | None = None,
+        band_multiplier: float | None = None,
+        bm: float | None = None,
+        sample_noise: Literal["none", "start", "begin", "stop", "end"]
+        | int
+        | None = None,
+        sn: Literal["none", "start", "begin", "stop", "end"] | int | None = None,
+        gain_smooth: int | None = None,
+        gs: int | None = None,
     ) -> "Stream":
         """Denoise audio samples using FFT."""
         return self._apply_filter(
@@ -867,9 +892,9 @@ class GeneratedFiltersMixin:
 
     def afftfilt(
         self,
-        real: str = None,
-        imag: str = None,
-        win_size: int = None,
+        real: str | None = None,
+        imag: str | None = None,
+        win_size: int | None = None,
         win_func: Literal[
             "rect",
             "bartlett",
@@ -894,8 +919,9 @@ class GeneratedFiltersMixin:
             "bohman",
             "kaiser",
         ]
-        | int = None,
-        overlap: float = None,
+        | int
+        | None = None,
+        overlap: float | None = None,
     ) -> "Stream":
         """Apply arbitrary expressions to samples in frequency domain."""
         return self._apply_filter(
@@ -913,25 +939,25 @@ class GeneratedFiltersMixin:
     def afir(
         self,
         *streams: "Stream",
-        dry: float = None,
-        wet: float = None,
-        length: float = None,
-        gtype: Literal["none", "peak", "dc", "gn", "ac", "rms"] | int = None,
-        irnorm: float = None,
-        irlink: bool = None,
-        irgain: float = None,
-        irfmt: Literal["mono", "input"] | int = None,
-        maxir: float = None,
-        response: bool = None,
-        channel: int = None,
-        size: str = None,
-        rate: str = None,
-        minp: int = None,
-        maxp: int = None,
-        nbirs: int = None,
-        ir: int = None,
-        precision: Literal["auto", "float", "double"] | int = None,
-        irload: Literal["init", "access"] | int = None,
+        dry: float | None = None,
+        wet: float | None = None,
+        length: float | None = None,
+        gtype: Literal["none", "peak", "dc", "gn", "ac", "rms"] | int | None = None,
+        irnorm: float | None = None,
+        irlink: bool | None = None,
+        irgain: float | None = None,
+        irfmt: Literal["mono", "input"] | int | None = None,
+        maxir: float | None = None,
+        response: bool | None = None,
+        channel: int | None = None,
+        size: str | None = None,
+        rate: str | None = None,
+        minp: int | None = None,
+        maxp: int | None = None,
+        nbirs: int | None = None,
+        ir: int | None = None,
+        precision: Literal["auto", "float", "double"] | int | None = None,
+        irload: Literal["init", "access"] | int | None = None,
     ) -> "Stream":
         """Apply Finite Impulse Response filter with supplied coefficients in additional stream(s)."""
         return self._apply_filter(
@@ -967,7 +993,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def afreqshift(
-        self, shift: float = None, level: float = None, order: int = None
+        self,
+        shift: float | None = None,
+        level: float | None = None,
+        order: int | None = None,
     ) -> "Stream":
         """Apply frequency shifting to input audio."""
         return self._apply_filter(
@@ -982,15 +1011,16 @@ class GeneratedFiltersMixin:
 
     def afwtdn(
         self,
-        sigma: float = None,
-        levels: int = None,
+        sigma: float | None = None,
+        levels: int | None = None,
         wavet: Literal["sym2", "sym4", "rbior68", "deb10", "sym10", "coif5", "bl3"]
-        | int = None,
-        percent: float = None,
-        profile: bool = None,
-        adaptive: bool = None,
-        samples: int = None,
-        softness: float = None,
+        | int
+        | None = None,
+        percent: float | None = None,
+        profile: bool | None = None,
+        adaptive: bool | None = None,
+        samples: int | None = None,
+        softness: float | None = None,
     ) -> "Stream":
         """Denoise audio stream using Wavelets."""
         return self._apply_filter(
@@ -1010,18 +1040,18 @@ class GeneratedFiltersMixin:
 
     def agate(
         self,
-        level_in: float = None,
-        mode: Literal["downward", "upward"] | int = None,
-        range: float = None,
-        threshold: float = None,
-        ratio: float = None,
-        attack: float = None,
-        release: float = None,
-        makeup: float = None,
-        knee: float = None,
-        detection: Literal["peak", "rms"] | int = None,
-        link: Literal["average", "maximum"] | int = None,
-        level_sc: float = None,
+        level_in: float | None = None,
+        mode: Literal["downward", "upward"] | int | None = None,
+        range: float | None = None,
+        threshold: float | None = None,
+        ratio: float | None = None,
+        attack: float | None = None,
+        release: float | None = None,
+        makeup: float | None = None,
+        knee: float | None = None,
+        detection: Literal["peak", "rms"] | int | None = None,
+        link: Literal["average", "maximum"] | int | None = None,
+        level_sc: float | None = None,
     ) -> "Stream":
         """Audio gate."""
         return self._apply_filter(
@@ -1045,12 +1075,12 @@ class GeneratedFiltersMixin:
 
     def agraphmonitor(
         self,
-        size: str = None,
-        s: str = None,
-        opacity: float = None,
-        o: float = None,
-        mode: Literal["full", "compact", "nozero", "noeof", "nodisabled"] = None,
-        m: Literal["full", "compact", "nozero", "noeof", "nodisabled"] = None,
+        size: str | None = None,
+        s: str | None = None,
+        opacity: float | None = None,
+        o: float | None = None,
+        mode: Literal["full", "compact", "nozero", "noeof", "nodisabled"] | None = None,
+        m: Literal["full", "compact", "nozero", "noeof", "nodisabled"] | None = None,
         flags: Literal[
             "none",
             "all",
@@ -1071,7 +1101,8 @@ class GeneratedFiltersMixin:
             "sample_count_out",
             "sample_count_delta",
             "disabled",
-        ] = None,
+        ]
+        | None = None,
         f: Literal[
             "none",
             "all",
@@ -1092,9 +1123,10 @@ class GeneratedFiltersMixin:
             "sample_count_out",
             "sample_count_delta",
             "disabled",
-        ] = None,
-        rate: str = None,
-        r: str = None,
+        ]
+        | None = None,
+        rate: str | None = None,
+        r: str | None = None,
     ) -> "Stream":
         """Show various filtergraph stats."""
         return self._apply_filter(
@@ -1116,17 +1148,17 @@ class GeneratedFiltersMixin:
 
     def ahistogram(
         self,
-        dmode: Literal["single", "separate"] | int = None,
-        rate: str = None,
-        r: str = None,
-        size: str = None,
-        s: str = None,
-        scale: Literal["log", "sqrt", "cbrt", "lin", "rlog"] | int = None,
-        ascale: Literal["log", "lin"] | int = None,
-        acount: int = None,
-        rheight: float = None,
-        slide: Literal["replace", "scroll"] | int = None,
-        hmode: Literal["abs", "sign"] | int = None,
+        dmode: Literal["single", "separate"] | int | None = None,
+        rate: str | None = None,
+        r: str | None = None,
+        size: str | None = None,
+        s: str | None = None,
+        scale: Literal["log", "sqrt", "cbrt", "lin", "rlog"] | int | None = None,
+        ascale: Literal["log", "lin"] | int | None = None,
+        acount: int | None = None,
+        rheight: float | None = None,
+        slide: Literal["replace", "scroll"] | int | None = None,
+        hmode: Literal["abs", "sign"] | int | None = None,
     ) -> "Stream":
         """Convert input audio to histogram video output."""
         return self._apply_filter(
@@ -1149,27 +1181,27 @@ class GeneratedFiltersMixin:
 
     def aiir(
         self,
-        zeros: str = None,
-        z: str = None,
-        poles: str = None,
-        p: str = None,
-        gains: str = None,
-        k: str = None,
-        dry: float = None,
-        wet: float = None,
-        format: Literal["ll", "sf", "tf", "zp", "pr", "pd", "sp"] | int = None,
-        f: Literal["ll", "sf", "tf", "zp", "pr", "pd", "sp"] | int = None,
-        process: Literal["d", "s", "p"] | int = None,
-        r: Literal["d", "s", "p"] | int = None,
-        precision: Literal["dbl", "flt", "i32", "i16"] | int = None,
-        e: Literal["dbl", "flt", "i32", "i16"] | int = None,
-        normalize: bool = None,
-        n: bool = None,
-        mix: float = None,
-        response: bool = None,
-        channel: int = None,
-        size: str = None,
-        rate: str = None,
+        zeros: str | None = None,
+        z: str | None = None,
+        poles: str | None = None,
+        p: str | None = None,
+        gains: str | None = None,
+        k: str | None = None,
+        dry: float | None = None,
+        wet: float | None = None,
+        format: Literal["ll", "sf", "tf", "zp", "pr", "pd", "sp"] | int | None = None,
+        f: Literal["ll", "sf", "tf", "zp", "pr", "pd", "sp"] | int | None = None,
+        process: Literal["d", "s", "p"] | int | None = None,
+        r: Literal["d", "s", "p"] | int | None = None,
+        precision: Literal["dbl", "flt", "i32", "i16"] | int | None = None,
+        e: Literal["dbl", "flt", "i32", "i16"] | int | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
+        mix: float | None = None,
+        response: bool | None = None,
+        channel: int | None = None,
+        size: str | None = None,
+        rate: str | None = None,
     ) -> "FilterMultiOutput":
         """Apply Infinite Impulse Response filter with supplied coefficients."""
         return self._apply_dynamic_outputs_filter(
@@ -1209,9 +1241,9 @@ class GeneratedFiltersMixin:
     def ainterleave(
         self,
         *streams: "Stream",
-        nb_inputs: int = None,
-        n: int = None,
-        duration: Literal["longest", "shortest", "first"] | int = None,
+        nb_inputs: int | None = None,
+        n: int | None = None,
+        duration: Literal["longest", "shortest", "first"] | int | None = None,
     ) -> "Stream":
         """Temporally interleave audio inputs."""
         return self._apply_filter(
@@ -1232,15 +1264,15 @@ class GeneratedFiltersMixin:
 
     def alimiter(
         self,
-        level_in: float = None,
-        level_out: float = None,
-        limit: float = None,
-        attack: float = None,
-        release: float = None,
-        asc: bool = None,
-        asc_level: float = None,
-        level: bool = None,
-        latency: bool = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        limit: float | None = None,
+        attack: float | None = None,
+        release: float | None = None,
+        asc: bool | None = None,
+        asc_level: float | None = None,
+        level: bool | None = None,
+        latency: bool | None = None,
     ) -> "Stream":
         """Audio lookahead limiter."""
         return self._apply_filter(
@@ -1261,25 +1293,28 @@ class GeneratedFiltersMixin:
 
     def allpass(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
-        order: int = None,
-        o: int = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
+        order: int | None = None,
+        o: int | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
     ) -> "Stream":
         """Apply a two-pole all-pass filter."""
         return self._apply_filter(
@@ -1308,7 +1343,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def aloop(
-        self, loop: int = None, size: str = None, start: str = None, time: str = None
+        self,
+        loop: int | None = None,
+        size: str | None = None,
+        start: str | None = None,
+        time: str | None = None,
     ) -> "Stream":
         """Loop audio samples."""
         return self._apply_filter(
@@ -1334,7 +1373,7 @@ class GeneratedFiltersMixin:
             filter_name="alphamerge", inputs=[self, alpha_stream], named_arguments={}
         )[0]
 
-    def amerge(self, *streams: "Stream", inputs: int = None) -> "Stream":
+    def amerge(self, *streams: "Stream", inputs: int | None = None) -> "Stream":
         """Merge two or more audio streams into a single multi-channel stream."""
         return self._apply_filter(
             filter_name="amerge",
@@ -1346,16 +1385,17 @@ class GeneratedFiltersMixin:
 
     def ametadata(
         self,
-        mode: Literal["select", "add", "modify", "delete", "print"] | int = None,
-        key: str = None,
-        value: str = None,
+        mode: Literal["select", "add", "modify", "delete", "print"] | int | None = None,
+        key: str | None = None,
+        value: str | None = None,
         function: Literal[
             "same_str", "starts_with", "less", "equal", "greater", "expr", "ends_with"
         ]
-        | int = None,
-        expr: str = None,
-        file: str = None,
-        direct: bool = None,
+        | int
+        | None = None,
+        expr: str | None = None,
+        file: str | None = None,
+        direct: bool | None = None,
     ) -> "Stream":
         """Manipulate audio frame metadata."""
         return self._apply_filter(
@@ -1375,11 +1415,11 @@ class GeneratedFiltersMixin:
     def amix(
         self,
         *streams: "Stream",
-        inputs: int = None,
-        duration: Literal["longest", "shortest", "first"] | int = None,
-        dropout_transition: float = None,
-        weights: str = None,
-        normalize: bool = None,
+        inputs: int | None = None,
+        duration: Literal["longest", "shortest", "first"] | int | None = None,
+        dropout_transition: float | None = None,
+        weights: str | None = None,
+        normalize: bool | None = None,
     ) -> "Stream":
         """Audio mixing."""
         return self._apply_filter(
@@ -1396,13 +1436,13 @@ class GeneratedFiltersMixin:
 
     def amplify(
         self,
-        radius: int = None,
-        factor: float = None,
-        threshold: float = None,
-        tolerance: float = None,
-        low: float = None,
-        high: float = None,
-        planes: str = None,
+        radius: int | None = None,
+        factor: float | None = None,
+        threshold: float | None = None,
+        tolerance: float | None = None,
+        low: float | None = None,
+        high: float | None = None,
+        planes: str | None = None,
     ) -> "Stream":
         """Amplify changes between successive video frames."""
         return self._apply_filter(
@@ -1427,12 +1467,12 @@ class GeneratedFiltersMixin:
 
     def anequalizer(
         self,
-        params: str = None,
-        curves: bool = None,
-        size: str = None,
-        mgain: float = None,
-        fscale: Literal["lin", "log"] | int = None,
-        colors: str = None,
+        params: str | None = None,
+        curves: bool | None = None,
+        size: str | None = None,
+        mgain: float | None = None,
+        fscale: Literal["lin", "log"] | int | None = None,
+        colors: str | None = None,
     ) -> "FilterMultiOutput":
         """Apply high-order audio parametric multi band equalizer."""
         return self._apply_dynamic_outputs_filter(
@@ -1450,16 +1490,16 @@ class GeneratedFiltersMixin:
 
     def anlmdn(
         self,
-        strength: float = None,
-        s: float = None,
-        patch: str = None,
-        p: str = None,
-        research: str = None,
-        r: str = None,
-        output: Literal["i", "o", "n"] | int = None,
-        o: Literal["i", "o", "n"] | int = None,
-        smooth: float = None,
-        m: float = None,
+        strength: float | None = None,
+        s: float | None = None,
+        patch: str | None = None,
+        p: str | None = None,
+        research: str | None = None,
+        r: str | None = None,
+        output: Literal["i", "o", "n"] | int | None = None,
+        o: Literal["i", "o", "n"] | int | None = None,
+        smooth: float | None = None,
+        m: float | None = None,
     ) -> "Stream":
         """Reduce broadband noise from stream using Non-Local Means."""
         return self._apply_filter(
@@ -1482,12 +1522,12 @@ class GeneratedFiltersMixin:
     def anlmf(
         self,
         desired_stream: "Stream",
-        order: int = None,
-        mu: float = None,
-        eps: float = None,
-        leakage: float = None,
-        out_mode: Literal["i", "d", "o", "n", "e"] | int = None,
-        precision: Literal["auto", "float", "double"] | int = None,
+        order: int | None = None,
+        mu: float | None = None,
+        eps: float | None = None,
+        leakage: float | None = None,
+        out_mode: Literal["i", "d", "o", "n", "e"] | int | None = None,
+        precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
         """Apply Normalized Least-Mean-Fourth algorithm to first audio stream."""
         return self._apply_filter(
@@ -1506,12 +1546,12 @@ class GeneratedFiltersMixin:
     def anlms(
         self,
         desired_stream: "Stream",
-        order: int = None,
-        mu: float = None,
-        eps: float = None,
-        leakage: float = None,
-        out_mode: Literal["i", "d", "o", "n", "e"] | int = None,
-        precision: Literal["auto", "float", "double"] | int = None,
+        order: int | None = None,
+        mu: float | None = None,
+        eps: float | None = None,
+        leakage: float | None = None,
+        out_mode: Literal["i", "d", "o", "n", "e"] | int | None = None,
+        precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
         """Apply Normalized Least-Mean-Squares algorithm to first audio stream."""
         return self._apply_filter(
@@ -1535,11 +1575,11 @@ class GeneratedFiltersMixin:
 
     def apad(
         self,
-        packet_size: int = None,
-        pad_len: str = None,
-        whole_len: str = None,
-        pad_dur: str = None,
-        whole_dur: str = None,
+        packet_size: int | None = None,
+        pad_len: str | None = None,
+        whole_len: str | None = None,
+        pad_dur: str | None = None,
+        whole_dur: str | None = None,
     ) -> "Stream":
         """Pad audio with silence."""
         return self._apply_filter(
@@ -1556,8 +1596,8 @@ class GeneratedFiltersMixin:
 
     def aperms(
         self,
-        mode: Literal["none", "ro", "rw", "toggle", "random"] | int = None,
-        seed: str = None,
+        mode: Literal["none", "ro", "rw", "toggle", "random"] | int | None = None,
+        seed: str | None = None,
     ) -> "Stream":
         """Set permissions for the output audio frame."""
         return self._apply_filter(
@@ -1571,22 +1611,22 @@ class GeneratedFiltersMixin:
 
     def aphasemeter(
         self,
-        rate: str = None,
-        r: str = None,
-        size: str = None,
-        s: str = None,
-        rc: int = None,
-        gc: int = None,
-        bc: int = None,
-        mpc: str = None,
-        video: bool = None,
-        phasing: bool = None,
-        tolerance: float = None,
-        t: float = None,
-        angle: float = None,
-        a: float = None,
-        duration: str = None,
-        d: str = None,
+        rate: str | None = None,
+        r: str | None = None,
+        size: str | None = None,
+        s: str | None = None,
+        rc: int | None = None,
+        gc: int | None = None,
+        bc: int | None = None,
+        mpc: str | None = None,
+        video: bool | None = None,
+        phasing: bool | None = None,
+        tolerance: float | None = None,
+        t: float | None = None,
+        angle: float | None = None,
+        a: float | None = None,
+        duration: str | None = None,
+        d: str | None = None,
     ) -> "FilterMultiOutput":
         """Convert input audio to phase meter video output."""
         return self._apply_dynamic_outputs_filter(
@@ -1614,12 +1654,12 @@ class GeneratedFiltersMixin:
 
     def aphaser(
         self,
-        in_gain: float = None,
-        out_gain: float = None,
-        delay: float = None,
-        decay: float = None,
-        speed: float = None,
-        type: Literal["triangular", "t", "sinusoidal", "s"] | int = None,
+        in_gain: float | None = None,
+        out_gain: float | None = None,
+        delay: float | None = None,
+        decay: float | None = None,
+        speed: float | None = None,
+        type: Literal["triangular", "t", "sinusoidal", "s"] | int | None = None,
     ) -> "Stream":
         """Add a phasing effect to the audio."""
         return self._apply_filter(
@@ -1636,7 +1676,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def aphaseshift(
-        self, shift: float = None, level: float = None, order: int = None
+        self,
+        shift: float | None = None,
+        level: float | None = None,
+        order: int | None = None,
     ) -> "Stream":
         """Apply phase shifting to input audio."""
         return self._apply_filter(
@@ -1657,13 +1700,13 @@ class GeneratedFiltersMixin:
 
     def apsyclip(
         self,
-        level_in: float = None,
-        level_out: float = None,
-        clip: float = None,
-        diff: bool = None,
-        adaptive: float = None,
-        iterations: int = None,
-        level: bool = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        clip: float | None = None,
+        diff: bool | None = None,
+        adaptive: float | None = None,
+        iterations: int | None = None,
+        level: bool | None = None,
     ) -> "Stream":
         """Audio Psychoacoustic Clipper."""
         return self._apply_filter(
@@ -1682,17 +1725,19 @@ class GeneratedFiltersMixin:
 
     def apulsator(
         self,
-        level_in: float = None,
-        level_out: float = None,
-        mode: Literal["sine", "triangle", "square", "sawup", "sawdown"] | int = None,
-        amount: float = None,
-        offset_l: float = None,
-        offset_r: float = None,
-        width: float = None,
-        timing: Literal["bpm", "ms", "hz"] | int = None,
-        bpm: float = None,
-        ms: int = None,
-        hz: float = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        mode: Literal["sine", "triangle", "square", "sawup", "sawdown"]
+        | int
+        | None = None,
+        amount: float | None = None,
+        offset_l: float | None = None,
+        offset_r: float | None = None,
+        width: float | None = None,
+        timing: Literal["bpm", "ms", "hz"] | int | None = None,
+        bpm: float | None = None,
+        ms: int | None = None,
+        hz: float | None = None,
     ) -> "Stream":
         """Audio pulsator."""
         return self._apply_filter(
@@ -1713,7 +1758,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def arealtime(self, limit: str = None, speed: float = None) -> "Stream":
+    def arealtime(
+        self, limit: str | None = None, speed: float | None = None
+    ) -> "Stream":
         """Slow down filtering to match realtime."""
         return self._apply_filter(
             filter_name="arealtime",
@@ -1724,7 +1771,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def aresample(self, sample_rate: int = None) -> "Stream":
+    def aresample(self, sample_rate: int | None = None) -> "Stream":
         """Resample audio data."""
         return self._apply_filter(
             filter_name="aresample",
@@ -1743,11 +1790,11 @@ class GeneratedFiltersMixin:
     def arls(
         self,
         desired_stream: "Stream",
-        order: int = None,
-        lambda_: float = None,
-        delta: float = None,
-        out_mode: Literal["i", "d", "o", "n", "e"] | int = None,
-        precision: Literal["auto", "float", "double"] | int = None,
+        order: int | None = None,
+        lambda_: float | None = None,
+        delta: float | None = None,
+        out_mode: Literal["i", "d", "o", "n", "e"] | int | None = None,
+        precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
         """Apply Recursive Least Squares algorithm to first audio stream."""
         return self._apply_filter(
@@ -1762,7 +1809,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def arnndn(self, model: str = None, m: str = None, mix: float = None) -> "Stream":
+    def arnndn(
+        self, model: str | None = None, m: str | None = None, mix: float | None = None
+    ) -> "Stream":
         """Reduce noise from speech using Recurrent Neural Networks."""
         return self._apply_filter(
             filter_name="arnndn",
@@ -1781,7 +1830,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def asegment(
-        self, timestamps: str = None, samples: str = None
+        self, timestamps: str | None = None, samples: str | None = None
     ) -> "FilterMultiOutput":
         """Segment audio stream."""
         return self._apply_dynamic_outputs_filter(
@@ -1794,7 +1843,11 @@ class GeneratedFiltersMixin:
         )
 
     def aselect(
-        self, expr: str = None, e: str = None, outputs: int = None, n: int = None
+        self,
+        expr: str | None = None,
+        e: str | None = None,
+        outputs: int | None = None,
+        n: int | None = None,
     ) -> "FilterMultiOutput":
         """Select audio frames to pass in output."""
         return self._apply_dynamic_outputs_filter(
@@ -1809,7 +1862,11 @@ class GeneratedFiltersMixin:
         )
 
     def asendcmd(
-        self, commands: str = None, c: str = None, filename: str = None, f: str = None
+        self,
+        commands: str | None = None,
+        c: str | None = None,
+        filename: str | None = None,
+        f: str | None = None,
     ) -> "Stream":
         """Send commands to filters."""
         return self._apply_filter(
@@ -1825,10 +1882,10 @@ class GeneratedFiltersMixin:
 
     def asetnsamples(
         self,
-        nb_out_samples: int = None,
-        n: int = None,
-        pad: bool = None,
-        p: bool = None,
+        nb_out_samples: int | None = None,
+        n: int | None = None,
+        pad: bool | None = None,
+        p: bool | None = None,
     ) -> "Stream":
         """Set the number of samples for each output audio frames."""
         return self._apply_filter(
@@ -1842,7 +1899,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def asetpts(self, expr: str = None) -> "Stream":
+    def asetpts(self, expr: str | None = None) -> "Stream":
         """Set PTS for the output audio frame."""
         return self._apply_filter(
             filter_name="asetpts",
@@ -1852,7 +1909,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def asetrate(self, sample_rate: int = None, r: int = None) -> "Stream":
+    def asetrate(
+        self, sample_rate: int | None = None, r: int | None = None
+    ) -> "Stream":
         """Change the sample rate without altering the data."""
         return self._apply_filter(
             filter_name="asetrate",
@@ -1863,7 +1922,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def asettb(self, expr: str = None, tb: str = None) -> "Stream":
+    def asettb(self, expr: str | None = None, tb: str | None = None) -> "Stream":
         """Set timebase for the audio output link."""
         return self._apply_filter(
             filter_name="asettb",
@@ -1882,7 +1941,7 @@ class GeneratedFiltersMixin:
 
     def asidedata(
         self,
-        mode: Literal["select", "delete"] | int = None,
+        mode: Literal["select", "delete"] | int | None = None,
         type: Literal[
             "PANSCAN",
             "A53_CC",
@@ -1914,7 +1973,8 @@ class GeneratedFiltersMixin:
             "AMBIENT_VIEWING_ENVIRONMENT",
             "VIDEO_HINT",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Manipulate audio frame side data."""
         return self._apply_filter(
@@ -1937,11 +1997,12 @@ class GeneratedFiltersMixin:
         type: Literal[
             "hard", "tanh", "atan", "cubic", "exp", "alg", "quintic", "sin", "erf"
         ]
-        | int = None,
-        threshold: float = None,
-        output: float = None,
-        param: float = None,
-        oversample: int = None,
+        | int
+        | None = None,
+        threshold: float | None = None,
+        output: float | None = None,
+        param: float | None = None,
+        oversample: int | None = None,
     ) -> "Stream":
         """Audio Soft Clipper."""
         return self._apply_filter(
@@ -1958,7 +2019,7 @@ class GeneratedFiltersMixin:
 
     def aspectralstats(
         self,
-        win_size: int = None,
+        win_size: int | None = None,
         win_func: Literal[
             "rect",
             "bartlett",
@@ -1983,8 +2044,9 @@ class GeneratedFiltersMixin:
             "bohman",
             "kaiser",
         ]
-        | int = None,
-        overlap: float = None,
+        | int
+        | None = None,
+        overlap: float | None = None,
         measure: Literal[
             "none",
             "all",
@@ -2001,7 +2063,8 @@ class GeneratedFiltersMixin:
             "slope",
             "decrease",
             "rolloff",
-        ] = None,
+        ]
+        | None = None,
     ) -> "Stream":
         """Show frequency domain statistics about audio frames."""
         return self._apply_filter(
@@ -2015,7 +2078,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def asplit(self, outputs: int = None) -> "FilterMultiOutput":
+    def asplit(self, outputs: int | None = None) -> "FilterMultiOutput":
         """Pass on the audio input to N audio outputs."""
         return self._apply_dynamic_outputs_filter(
             filter_name="asplit",
@@ -2027,12 +2090,12 @@ class GeneratedFiltersMixin:
 
     def ass(
         self,
-        filename: str = None,
-        f: str = None,
-        original_size: str = None,
-        fontsdir: str = None,
-        alpha: bool = None,
-        shaping: Literal["auto", "simple", "complex"] | int = None,
+        filename: str | None = None,
+        f: str | None = None,
+        original_size: str | None = None,
+        fontsdir: str | None = None,
+        alpha: bool | None = None,
+        shaping: Literal["auto", "simple", "complex"] | int | None = None,
     ) -> "Stream":
         """Render ASS subtitles onto input video using the libass library."""
         return self._apply_filter(
@@ -2050,9 +2113,9 @@ class GeneratedFiltersMixin:
 
     def astats(
         self,
-        length: float = None,
-        metadata: bool = None,
-        reset: int = None,
+        length: float | None = None,
+        metadata: bool | None = None,
+        reset: int | None = None,
         measure_perchannel: Literal[
             "none",
             "all",
@@ -2082,7 +2145,8 @@ class GeneratedFiltersMixin:
             "Zero_crossings",
             "Zero_crossings_rate",
             "Abs_Peak_count",
-        ] = None,
+        ]
+        | None = None,
         measure_overall: Literal[
             "none",
             "all",
@@ -2112,7 +2176,8 @@ class GeneratedFiltersMixin:
             "Zero_crossings",
             "Zero_crossings_rate",
             "Abs_Peak_count",
-        ] = None,
+        ]
+        | None = None,
     ) -> "Stream":
         """Show time domain statistics about audio frames."""
         return self._apply_filter(
@@ -2128,7 +2193,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def astreamselect(
-        self, *streams: "Stream", inputs: int = None, map: str = None
+        self, *streams: "Stream", inputs: int | None = None, map: str | None = None
     ) -> "FilterMultiOutput":
         """Select audio streams"""
         return self._apply_dynamic_outputs_filter(
@@ -2142,15 +2207,15 @@ class GeneratedFiltersMixin:
 
     def asubboost(
         self,
-        dry: float = None,
-        wet: float = None,
-        boost: float = None,
-        decay: float = None,
-        feedback: float = None,
-        cutoff: float = None,
-        slope: float = None,
-        delay: float = None,
-        channels: str = None,
+        dry: float | None = None,
+        wet: float | None = None,
+        boost: float | None = None,
+        decay: float | None = None,
+        feedback: float | None = None,
+        cutoff: float | None = None,
+        slope: float | None = None,
+        delay: float | None = None,
+        channels: str | None = None,
     ) -> "Stream":
         """Boost subwoofer frequencies."""
         return self._apply_filter(
@@ -2170,7 +2235,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def asubcut(
-        self, cutoff: float = None, order: int = None, level: float = None
+        self,
+        cutoff: float | None = None,
+        order: int | None = None,
+        level: float | None = None,
     ) -> "Stream":
         """Cut subwoofer frequencies."""
         return self._apply_filter(
@@ -2184,7 +2252,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def asupercut(
-        self, cutoff: float = None, order: int = None, level: float = None
+        self,
+        cutoff: float | None = None,
+        order: int | None = None,
+        level: float | None = None,
     ) -> "Stream":
         """Cut super frequencies."""
         return self._apply_filter(
@@ -2199,10 +2270,10 @@ class GeneratedFiltersMixin:
 
     def asuperpass(
         self,
-        centerf: float = None,
-        order: int = None,
-        qfactor: float = None,
-        level: float = None,
+        centerf: float | None = None,
+        order: int | None = None,
+        qfactor: float | None = None,
+        level: float | None = None,
     ) -> "Stream":
         """Apply high order Butterworth band-pass filter."""
         return self._apply_filter(
@@ -2218,10 +2289,10 @@ class GeneratedFiltersMixin:
 
     def asuperstop(
         self,
-        centerf: float = None,
-        order: int = None,
-        qfactor: float = None,
-        level: float = None,
+        centerf: float | None = None,
+        order: int | None = None,
+        qfactor: float | None = None,
+        level: float | None = None,
     ) -> "Stream":
         """Apply high order Butterworth band-stop filter."""
         return self._apply_filter(
@@ -2237,18 +2308,18 @@ class GeneratedFiltersMixin:
 
     def atadenoise(
         self,
-        _0a: float = None,
-        _0b: float = None,
-        _1a: float = None,
-        _1b: float = None,
-        _2a: float = None,
-        _2b: float = None,
-        s: int = None,
-        p: str = None,
-        a: Literal["p", "s"] | int = None,
-        _0s: float = None,
-        _1s: float = None,
-        _2s: float = None,
+        _0a: float | None = None,
+        _0b: float | None = None,
+        _1a: float | None = None,
+        _1b: float | None = None,
+        _2a: float | None = None,
+        _2b: float | None = None,
+        s: int | None = None,
+        p: str | None = None,
+        a: Literal["p", "s"] | int | None = None,
+        _0s: float | None = None,
+        _1s: float | None = None,
+        _2s: float | None = None,
     ) -> "Stream":
         """Apply an Adaptive Temporal Averaging Denoiser."""
         return self._apply_filter(
@@ -2270,7 +2341,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def atempo(self, tempo: float = None) -> "Stream":
+    def atempo(self, tempo: float | None = None) -> "Stream":
         """Adjust audio tempo."""
         return self._apply_filter(
             filter_name="atempo",
@@ -2282,11 +2353,11 @@ class GeneratedFiltersMixin:
 
     def atilt(
         self,
-        freq: float = None,
-        slope: float = None,
-        width: float = None,
-        order: int = None,
-        level: float = None,
+        freq: float | None = None,
+        slope: float | None = None,
+        width: float | None = None,
+        order: int | None = None,
+        level: float | None = None,
     ) -> "Stream":
         """Apply spectral tilt to audio."""
         return self._apply_filter(
@@ -2303,16 +2374,16 @@ class GeneratedFiltersMixin:
 
     def atrim(
         self,
-        start: str = None,
-        starti: str = None,
-        end: str = None,
-        endi: str = None,
-        start_pts: str = None,
-        end_pts: str = None,
-        duration: str = None,
-        durationi: str = None,
-        start_sample: str = None,
-        end_sample: str = None,
+        start: str | None = None,
+        starti: str | None = None,
+        end: str | None = None,
+        endi: str | None = None,
+        start_pts: str | None = None,
+        end_pts: str | None = None,
+        duration: str | None = None,
+        durationi: str | None = None,
+        start_sample: str | None = None,
+        end_sample: str | None = None,
     ) -> "Stream":
         """Pick one continuous section from the input, drop the rest."""
         return self._apply_filter(
@@ -2334,25 +2405,25 @@ class GeneratedFiltersMixin:
 
     def avectorscope(
         self,
-        mode: Literal["lissajous", "lissajous_xy", "polar"] | int = None,
-        m: Literal["lissajous", "lissajous_xy", "polar"] | int = None,
-        rate: str = None,
-        r: str = None,
-        size: str = None,
-        s: str = None,
-        rc: int = None,
-        gc: int = None,
-        bc: int = None,
-        ac: int = None,
-        rf: int = None,
-        gf: int = None,
-        bf: int = None,
-        af: int = None,
-        zoom: float = None,
-        draw: Literal["dot", "line", "aaline"] | int = None,
-        scale: Literal["lin", "sqrt", "cbrt", "log"] | int = None,
-        swap: bool = None,
-        mirror: Literal["none", "x", "y", "xy"] | int = None,
+        mode: Literal["lissajous", "lissajous_xy", "polar"] | int | None = None,
+        m: Literal["lissajous", "lissajous_xy", "polar"] | int | None = None,
+        rate: str | None = None,
+        r: str | None = None,
+        size: str | None = None,
+        s: str | None = None,
+        rc: int | None = None,
+        gc: int | None = None,
+        bc: int | None = None,
+        ac: int | None = None,
+        rf: int | None = None,
+        gf: int | None = None,
+        bf: int | None = None,
+        af: int | None = None,
+        zoom: float | None = None,
+        draw: Literal["dot", "line", "aaline"] | int | None = None,
+        scale: Literal["lin", "sqrt", "cbrt", "log"] | int | None = None,
+        swap: bool | None = None,
+        mirror: Literal["none", "x", "y", "xy"] | int | None = None,
     ) -> "Stream":
         """Convert input audio to vectorscope video output."""
         return self._apply_filter(
@@ -2382,7 +2453,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def avgblur(
-        self, sizeX: int = None, planes: int = None, sizeY: int = None
+        self,
+        sizeX: int | None = None,
+        planes: int | None = None,
+        sizeY: int | None = None,
     ) -> "Stream":
         """Apply Average Blur filter."""
         return self._apply_filter(
@@ -2398,8 +2472,8 @@ class GeneratedFiltersMixin:
     def axcorrelate(
         self,
         axcorrelate1_stream: "Stream",
-        size: int = None,
-        algo: Literal["slow", "fast", "best"] | int = None,
+        size: int | None = None,
+        algo: Literal["slow", "fast", "best"] | int | None = None,
     ) -> "Stream":
         """Cross-correlate two audio streams."""
         return self._apply_filter(
@@ -2411,7 +2485,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def azmq(self, bind_address: str = None, b: str = None) -> "Stream":
+    def azmq(self, bind_address: str | None = None, b: str | None = None) -> "Stream":
         """Receive commands through ZMQ and broker them to filters."""
         return self._apply_filter(
             filter_name="azmq",
@@ -2423,7 +2497,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def backgroundkey(
-        self, threshold: float = None, similarity: float = None, blend: float = None
+        self,
+        threshold: float | None = None,
+        similarity: float | None = None,
+        blend: float | None = None,
     ) -> "Stream":
         """Turns a static background into transparency."""
         return self._apply_filter(
@@ -2438,26 +2515,29 @@ class GeneratedFiltersMixin:
 
     def bandpass(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        csg: bool = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        csg: bool | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Apply a two-pole Butterworth band-pass filter."""
         return self._apply_filter(
@@ -2488,25 +2568,28 @@ class GeneratedFiltersMixin:
 
     def bandreject(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Apply a two-pole Butterworth band-reject filter."""
         return self._apply_filter(
@@ -2536,29 +2619,32 @@ class GeneratedFiltersMixin:
 
     def bass(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        gain: float = None,
-        g: float = None,
-        poles: int = None,
-        p: int = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        gain: float | None = None,
+        g: float | None = None,
+        poles: int | None = None,
+        p: int | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Boost or cut lower frequencies."""
         return self._apply_filter(
@@ -2590,7 +2676,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def bbox(self, min_val: int = None) -> "Stream":
+    def bbox(self, min_val: int | None = None) -> "Stream":
         """Compute bounding box for each frame."""
         return self._apply_filter(
             filter_name="bbox",
@@ -2600,7 +2686,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def bench(self, action: Literal["start", "stop"] | int = None) -> "Stream":
+    def bench(self, action: Literal["start", "stop"] | int | None = None) -> "Stream":
         """Benchmark part of a filtergraph."""
         return self._apply_filter(
             filter_name="bench",
@@ -2611,7 +2697,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def bilateral(
-        self, sigmaS: float = None, sigmaR: float = None, planes: int = None
+        self,
+        sigmaS: float | None = None,
+        sigmaR: float | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Apply Bilateral filter."""
         return self._apply_filter(
@@ -2626,25 +2715,28 @@ class GeneratedFiltersMixin:
 
     def biquad(
         self,
-        a0: float = None,
-        a1: float = None,
-        a2: float = None,
-        b0: float = None,
-        b1: float = None,
-        b2: float = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        a0: float | None = None,
+        a1: float | None = None,
+        a2: float | None = None,
+        b0: float | None = None,
+        b1: float | None = None,
+        b2: float | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Apply a biquad IIR filter with the given coefficients."""
         return self._apply_filter(
@@ -2672,7 +2764,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def bitplanenoise(self, bitplane: int = None, filter: bool = None) -> "Stream":
+    def bitplanenoise(
+        self, bitplane: int | None = None, filter: bool | None = None
+    ) -> "Stream":
         """Measure bit plane noise."""
         return self._apply_filter(
             filter_name="bitplanenoise",
@@ -2685,13 +2779,13 @@ class GeneratedFiltersMixin:
 
     def blackdetect(
         self,
-        d: float = None,
-        black_min_duration: float = None,
-        picture_black_ratio_th: float = None,
-        pic_th: float = None,
-        pixel_black_th: float = None,
-        pix_th: float = None,
-        alpha: bool = None,
+        d: float | None = None,
+        black_min_duration: float | None = None,
+        picture_black_ratio_th: float | None = None,
+        pic_th: float | None = None,
+        pixel_black_th: float | None = None,
+        pix_th: float | None = None,
+        alpha: bool | None = None,
     ) -> "Stream":
         """Detect video intervals that are (almost) black."""
         return self._apply_filter(
@@ -2709,7 +2803,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def blackframe(
-        self, amount: int = None, threshold: int = None, thresh: int = None
+        self,
+        amount: int | None = None,
+        threshold: int | None = None,
+        thresh: int | None = None,
     ) -> "Stream":
         """Detect frames that are (almost) black."""
         return self._apply_filter(
@@ -2769,7 +2866,8 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
+        | int
+        | None = None,
         c1_mode: Literal[
             "addition",
             "addition128",
@@ -2814,7 +2912,8 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
+        | int
+        | None = None,
         c2_mode: Literal[
             "addition",
             "addition128",
@@ -2859,7 +2958,8 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
+        | int
+        | None = None,
         c3_mode: Literal[
             "addition",
             "addition128",
@@ -2904,7 +3004,8 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
+        | int
+        | None = None,
         all_mode: Literal[
             "addition",
             "addition128",
@@ -2949,17 +3050,18 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
-        c0_expr: str = None,
-        c1_expr: str = None,
-        c2_expr: str = None,
-        c3_expr: str = None,
-        all_expr: str = None,
-        c0_opacity: float = None,
-        c1_opacity: float = None,
-        c2_opacity: float = None,
-        c3_opacity: float = None,
-        all_opacity: float = None,
+        | int
+        | None = None,
+        c0_expr: str | None = None,
+        c1_expr: str | None = None,
+        c2_expr: str | None = None,
+        c3_expr: str | None = None,
+        all_expr: str | None = None,
+        c0_opacity: float | None = None,
+        c1_opacity: float | None = None,
+        c2_opacity: float | None = None,
+        c3_opacity: float | None = None,
+        all_opacity: float | None = None,
     ) -> "Stream":
         """Blend two video frames into each other."""
         return self._apply_filter(
@@ -2985,7 +3087,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def blockdetect(
-        self, period_min: int = None, period_max: int = None, planes: int = None
+        self,
+        period_min: int | None = None,
+        period_max: int | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Blockdetect filter."""
         return self._apply_filter(
@@ -3000,13 +3105,13 @@ class GeneratedFiltersMixin:
 
     def blurdetect(
         self,
-        high: float = None,
-        low: float = None,
-        radius: int = None,
-        block_pct: int = None,
-        block_width: int = None,
-        block_height: int = None,
-        planes: int = None,
+        high: float | None = None,
+        low: float | None = None,
+        radius: int | None = None,
+        block_pct: int | None = None,
+        block_width: int | None = None,
+        block_height: int | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Blurdetect filter."""
         return self._apply_filter(
@@ -3026,17 +3131,17 @@ class GeneratedFiltersMixin:
     def bm3d(
         self,
         *streams: "Stream",
-        sigma: float = None,
-        block: int = None,
-        bstep: int = None,
-        group: int = None,
-        range: int = None,
-        mstep: int = None,
-        thmse: float = None,
-        hdthr: float = None,
-        estim: Literal["basic", "final"] | int = None,
-        ref: bool = None,
-        planes: int = None,
+        sigma: float | None = None,
+        block: int | None = None,
+        bstep: int | None = None,
+        group: int | None = None,
+        range: int | None = None,
+        mstep: int | None = None,
+        thmse: float | None = None,
+        hdthr: float | None = None,
+        estim: Literal["basic", "final"] | int | None = None,
+        ref: bool | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Block-Matching 3D denoiser."""
         return self._apply_filter(
@@ -3059,18 +3164,18 @@ class GeneratedFiltersMixin:
 
     def boxblur(
         self,
-        luma_radius: str = None,
-        lr: str = None,
-        luma_power: int = None,
-        lp: int = None,
-        chroma_radius: str = None,
-        cr: str = None,
-        chroma_power: int = None,
-        cp: int = None,
-        alpha_radius: str = None,
-        ar: str = None,
-        alpha_power: int = None,
-        ap: int = None,
+        luma_radius: str | None = None,
+        lr: str | None = None,
+        luma_power: int | None = None,
+        lp: int | None = None,
+        chroma_radius: str | None = None,
+        cr: str | None = None,
+        chroma_power: int | None = None,
+        cp: int | None = None,
+        alpha_radius: str | None = None,
+        ar: str | None = None,
+        alpha_power: int | None = None,
+        ap: int | None = None,
     ) -> "Stream":
         """Blur the input."""
         return self._apply_filter(
@@ -3094,9 +3199,9 @@ class GeneratedFiltersMixin:
 
     def bwdif(
         self,
-        mode: Literal["send_frame", "send_field"] | int = None,
-        parity: Literal["tff", "bff", "auto"] | int = None,
-        deint: Literal["all", "interlaced"] | int = None,
+        mode: Literal["send_frame", "send_field"] | int | None = None,
+        parity: Literal["tff", "bff", "auto"] | int | None = None,
+        deint: Literal["all", "interlaced"] | int | None = None,
     ) -> "Stream":
         """Deinterlace the input image."""
         return self._apply_filter(
@@ -3109,7 +3214,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def cas(self, strength: float = None, planes: str = None) -> "Stream":
+    def cas(self, strength: float | None = None, planes: str | None = None) -> "Stream":
         """Contrast Adaptive Sharpen."""
         return self._apply_filter(
             filter_name="cas",
@@ -3126,7 +3231,9 @@ class GeneratedFiltersMixin:
             filter_name="ccrepack", inputs=[self], named_arguments={}
         )[0]
 
-    def channelmap(self, map: str = None, channel_layout: str = None) -> "Stream":
+    def channelmap(
+        self, map: str | None = None, channel_layout: str | None = None
+    ) -> "Stream":
         """Remap audio channels."""
         return self._apply_filter(
             filter_name="channelmap",
@@ -3138,7 +3245,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def channelsplit(
-        self, channel_layout: str = None, channels: str = None
+        self, channel_layout: str | None = None, channels: str | None = None
     ) -> "FilterMultiOutput":
         """Split audio into per-channel streams."""
         return self._apply_dynamic_outputs_filter(
@@ -3152,12 +3259,12 @@ class GeneratedFiltersMixin:
 
     def chorus(
         self,
-        in_gain: float = None,
-        out_gain: float = None,
-        delays: str = None,
-        decays: str = None,
-        speeds: str = None,
-        depths: str = None,
+        in_gain: float | None = None,
+        out_gain: float | None = None,
+        delays: str | None = None,
+        decays: str | None = None,
+        speeds: str | None = None,
+        depths: str | None = None,
     ) -> "Stream":
         """Add a chorus effect to the audio."""
         return self._apply_filter(
@@ -3175,10 +3282,10 @@ class GeneratedFiltersMixin:
 
     def chromahold(
         self,
-        color: str = None,
-        similarity: float = None,
-        blend: float = None,
-        yuv: bool = None,
+        color: str | None = None,
+        similarity: float | None = None,
+        blend: float | None = None,
+        yuv: bool | None = None,
     ) -> "Stream":
         """Turns a certain color range into gray."""
         return self._apply_filter(
@@ -3194,10 +3301,10 @@ class GeneratedFiltersMixin:
 
     def chromakey(
         self,
-        color: str = None,
-        similarity: float = None,
-        blend: float = None,
-        yuv: bool = None,
+        color: str | None = None,
+        similarity: float | None = None,
+        blend: float | None = None,
+        yuv: bool | None = None,
     ) -> "Stream":
         """Turns a certain color into transparency. Operates on YUV colors."""
         return self._apply_filter(
@@ -3213,15 +3320,15 @@ class GeneratedFiltersMixin:
 
     def chromanr(
         self,
-        thres: float = None,
-        sizew: int = None,
-        sizeh: int = None,
-        stepw: int = None,
-        steph: int = None,
-        threy: float = None,
-        threu: float = None,
-        threv: float = None,
-        distance: Literal["manhattan", "euclidean"] | int = None,
+        thres: float | None = None,
+        sizew: int | None = None,
+        sizeh: int | None = None,
+        stepw: int | None = None,
+        steph: int | None = None,
+        threy: float | None = None,
+        threu: float | None = None,
+        threv: float | None = None,
+        distance: Literal["manhattan", "euclidean"] | int | None = None,
     ) -> "Stream":
         """Reduce chrominance noise."""
         return self._apply_filter(
@@ -3242,11 +3349,11 @@ class GeneratedFiltersMixin:
 
     def chromashift(
         self,
-        cbh: int = None,
-        cbv: int = None,
-        crh: int = None,
-        crv: int = None,
-        edge: Literal["smear", "wrap"] | int = None,
+        cbh: int | None = None,
+        cbv: int | None = None,
+        crh: int | None = None,
+        crv: int | None = None,
+        edge: Literal["smear", "wrap"] | int | None = None,
     ) -> "Stream":
         """Shift chroma."""
         return self._apply_filter(
@@ -3279,8 +3386,9 @@ class GeneratedFiltersMixin:
             "rec2020",
             "dcip3",
         ]
-        | int = None,
-        cie: Literal["xyy", "ucs", "luv"] | int = None,
+        | int
+        | None = None,
+        cie: Literal["xyy", "ucs", "luv"] | int | None = None,
         gamuts: Literal[
             "ntsc",
             "470m",
@@ -3296,16 +3404,17 @@ class GeneratedFiltersMixin:
             "uhdtv",
             "rec2020",
             "dcip3",
-        ] = None,
-        size: int = None,
-        s: int = None,
-        intensity: float = None,
-        i: float = None,
-        contrast: float = None,
-        corrgamma: bool = None,
-        showwhite: bool = None,
-        gamma: float = None,
-        fill: bool = None,
+        ]
+        | None = None,
+        size: int | None = None,
+        s: int | None = None,
+        intensity: float | None = None,
+        i: float | None = None,
+        contrast: float | None = None,
+        corrgamma: bool | None = None,
+        showwhite: bool | None = None,
+        gamma: float | None = None,
+        fill: bool | None = None,
     ) -> "Stream":
         """Video CIE scope."""
         return self._apply_filter(
@@ -3329,13 +3438,13 @@ class GeneratedFiltersMixin:
 
     def codecview(
         self,
-        mv: Literal["pf", "bf", "bb"] = None,
-        qp: bool = None,
-        mv_type: Literal["fp", "bp"] = None,
-        mvt: Literal["fp", "bp"] = None,
-        frame_type: Literal["if", "pf", "bf"] = None,
-        ft: Literal["if", "pf", "bf"] = None,
-        block: bool = None,
+        mv: Literal["pf", "bf", "bb"] | None = None,
+        qp: bool | None = None,
+        mv_type: Literal["fp", "bp"] | None = None,
+        mvt: Literal["fp", "bp"] | None = None,
+        frame_type: Literal["if", "pf", "bf"] | None = None,
+        ft: Literal["if", "pf", "bf"] | None = None,
+        block: bool | None = None,
     ) -> "Stream":
         """Visualize information about some codecs."""
         return self._apply_filter(
@@ -3354,16 +3463,16 @@ class GeneratedFiltersMixin:
 
     def colorbalance(
         self,
-        rs: float = None,
-        gs: float = None,
-        bs: float = None,
-        rm: float = None,
-        gm: float = None,
-        bm: float = None,
-        rh: float = None,
-        gh: float = None,
-        bh: float = None,
-        pl: bool = None,
+        rs: float | None = None,
+        gs: float | None = None,
+        bs: float | None = None,
+        rm: float | None = None,
+        gm: float | None = None,
+        bm: float | None = None,
+        rh: float | None = None,
+        gh: float | None = None,
+        bh: float | None = None,
+        pl: bool | None = None,
     ) -> "Stream":
         """Adjust the color balance."""
         return self._apply_filter(
@@ -3385,24 +3494,26 @@ class GeneratedFiltersMixin:
 
     def colorchannelmixer(
         self,
-        rr: float = None,
-        rg: float = None,
-        rb: float = None,
-        ra: float = None,
-        gr: float = None,
-        gg: float = None,
-        gb: float = None,
-        ga: float = None,
-        br: float = None,
-        bg: float = None,
-        bb: float = None,
-        ba: float = None,
-        ar: float = None,
-        ag: float = None,
-        ab: float = None,
-        aa: float = None,
-        pc: Literal["none", "lum", "max", "avg", "sum", "nrm", "pwr"] | int = None,
-        pa: float = None,
+        rr: float | None = None,
+        rg: float | None = None,
+        rb: float | None = None,
+        ra: float | None = None,
+        gr: float | None = None,
+        gg: float | None = None,
+        gb: float | None = None,
+        ga: float | None = None,
+        br: float | None = None,
+        bg: float | None = None,
+        bb: float | None = None,
+        ba: float | None = None,
+        ar: float | None = None,
+        ag: float | None = None,
+        ab: float | None = None,
+        aa: float | None = None,
+        pc: Literal["none", "lum", "max", "avg", "sum", "nrm", "pwr"]
+        | int
+        | None = None,
+        pa: float | None = None,
     ) -> "Stream":
         """Adjust colors by mixing color channels."""
         return self._apply_filter(
@@ -3432,13 +3543,13 @@ class GeneratedFiltersMixin:
 
     def colorcontrast(
         self,
-        rc: float = None,
-        gm: float = None,
-        by: float = None,
-        rcw: float = None,
-        gmw: float = None,
-        byw: float = None,
-        pl: float = None,
+        rc: float | None = None,
+        gm: float | None = None,
+        by: float | None = None,
+        rcw: float | None = None,
+        gmw: float | None = None,
+        byw: float | None = None,
+        pl: float | None = None,
     ) -> "Stream":
         """Adjust color contrast between RGB components."""
         return self._apply_filter(
@@ -3457,12 +3568,12 @@ class GeneratedFiltersMixin:
 
     def colorcorrect(
         self,
-        rl: float = None,
-        bl: float = None,
-        rh: float = None,
-        bh: float = None,
-        saturation: float = None,
-        analyze: Literal["manual", "average", "minmax", "median"] | int = None,
+        rl: float | None = None,
+        bl: float | None = None,
+        rh: float | None = None,
+        bh: float | None = None,
+        saturation: float | None = None,
+        analyze: Literal["manual", "average", "minmax", "median"] | int | None = None,
     ) -> "Stream":
         """Adjust color white balance selectively for blacks and whites."""
         return self._apply_filter(
@@ -3479,7 +3590,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def colordetect(
-        self, mode: Literal["color_range", "alpha_mode", "all"] = None
+        self, mode: Literal["color_range", "alpha_mode", "all"] | None = None
     ) -> "Stream":
         """Detect video color properties."""
         return self._apply_filter(
@@ -3491,7 +3602,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def colorhold(
-        self, color: str = None, similarity: float = None, blend: float = None
+        self,
+        color: str | None = None,
+        similarity: float | None = None,
+        blend: float | None = None,
     ) -> "Stream":
         """Turns a certain color range into gray. Operates on RGB colors."""
         return self._apply_filter(
@@ -3506,10 +3620,10 @@ class GeneratedFiltersMixin:
 
     def colorize(
         self,
-        hue: float = None,
-        saturation: float = None,
-        lightness: float = None,
-        mix: float = None,
+        hue: float | None = None,
+        saturation: float | None = None,
+        lightness: float | None = None,
+        mix: float | None = None,
     ) -> "Stream":
         """Overlay a solid color on the video stream."""
         return self._apply_filter(
@@ -3524,7 +3638,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def colorkey(
-        self, color: str = None, similarity: float = None, blend: float = None
+        self,
+        color: str | None = None,
+        similarity: float | None = None,
+        blend: float | None = None,
     ) -> "Stream":
         """Turns a certain color into transparency. Operates on RGB colors."""
         return self._apply_filter(
@@ -3539,24 +3656,25 @@ class GeneratedFiltersMixin:
 
     def colorlevels(
         self,
-        rimin: float = None,
-        gimin: float = None,
-        bimin: float = None,
-        aimin: float = None,
-        rimax: float = None,
-        gimax: float = None,
-        bimax: float = None,
-        aimax: float = None,
-        romin: float = None,
-        gomin: float = None,
-        bomin: float = None,
-        aomin: float = None,
-        romax: float = None,
-        gomax: float = None,
-        bomax: float = None,
-        aomax: float = None,
+        rimin: float | None = None,
+        gimin: float | None = None,
+        bimin: float | None = None,
+        aimin: float | None = None,
+        rimax: float | None = None,
+        gimax: float | None = None,
+        bimax: float | None = None,
+        aimax: float | None = None,
+        romin: float | None = None,
+        gomin: float | None = None,
+        bomin: float | None = None,
+        aomin: float | None = None,
+        romax: float | None = None,
+        gomax: float | None = None,
+        bomax: float | None = None,
+        aomax: float | None = None,
         preserve: Literal["none", "lum", "max", "avg", "sum", "nrm", "pwr"]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Adjust the color levels."""
         return self._apply_filter(
@@ -3587,10 +3705,10 @@ class GeneratedFiltersMixin:
         self,
         source_stream: "Stream",
         target_stream: "Stream",
-        patch_size: str = None,
-        nb_patches: int = None,
-        type: Literal["relative", "absolute"] | int = None,
-        kernel: Literal["euclidean", "weuclidean"] | int = None,
+        patch_size: str | None = None,
+        nb_patches: int | None = None,
+        type: Literal["relative", "absolute"] | int | None = None,
+        kernel: Literal["euclidean", "weuclidean"] | int | None = None,
     ) -> "Stream":
         """Apply custom Color Maps to video stream."""
         return self._apply_filter(
@@ -3616,7 +3734,8 @@ class GeneratedFiltersMixin:
             "smpte240m",
             "bt2020",
         ]
-        | int = None,
+        | int
+        | None = None,
         dst: Literal[
             "bt709",
             "fcc",
@@ -3627,7 +3746,8 @@ class GeneratedFiltersMixin:
             "smpte240m",
             "bt2020",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Convert color matrix."""
         return self._apply_filter(
@@ -3651,7 +3771,8 @@ class GeneratedFiltersMixin:
             "smpte240m",
             "bt2020",
         ]
-        | int = None,
+        | int
+        | None = None,
         space: Literal[
             "bt709",
             "fcc",
@@ -3663,8 +3784,9 @@ class GeneratedFiltersMixin:
             "bt2020nc",
             "bt2020ncl",
         ]
-        | int = None,
-        range: Literal["tv", "mpeg", "pc", "jpeg"] | int = None,
+        | int
+        | None = None,
+        range: Literal["tv", "mpeg", "pc", "jpeg"] | int | None = None,
         primaries: Literal[
             "bt709",
             "bt470m",
@@ -3679,7 +3801,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         trc: Literal[
             "bt709",
             "bt470m",
@@ -3696,7 +3819,8 @@ class GeneratedFiltersMixin:
             "bt2020-10",
             "bt2020-12",
         ]
-        | int = None,
+        | int
+        | None = None,
         format: Literal[
             "yuv420p",
             "yuv420p10",
@@ -3708,10 +3832,11 @@ class GeneratedFiltersMixin:
             "yuv444p10",
             "yuv444p12",
         ]
-        | int = None,
-        fast: bool = None,
-        dither: Literal["none", "fsb"] | int = None,
-        wpadapt: Literal["bradford", "vonkries", "identity"] | int = None,
+        | int
+        | None = None,
+        fast: bool | None = None,
+        dither: Literal["none", "fsb"] | int | None = None,
+        wpadapt: Literal["bradford", "vonkries", "identity"] | int | None = None,
         iall: Literal[
             "bt470m",
             "bt470bg",
@@ -3722,7 +3847,8 @@ class GeneratedFiltersMixin:
             "smpte240m",
             "bt2020",
         ]
-        | int = None,
+        | int
+        | None = None,
         ispace: Literal[
             "bt709",
             "fcc",
@@ -3734,8 +3860,9 @@ class GeneratedFiltersMixin:
             "bt2020nc",
             "bt2020ncl",
         ]
-        | int = None,
-        irange: Literal["tv", "mpeg", "pc", "jpeg"] | int = None,
+        | int
+        | None = None,
+        irange: Literal["tv", "mpeg", "pc", "jpeg"] | int | None = None,
         iprimaries: Literal[
             "bt709",
             "bt470m",
@@ -3750,7 +3877,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         itrc: Literal[
             "bt709",
             "bt470m",
@@ -3767,7 +3895,8 @@ class GeneratedFiltersMixin:
             "bt2020-10",
             "bt2020-12",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Convert between colorspaces."""
         return self._apply_filter(
@@ -3792,7 +3921,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def colortemperature(
-        self, temperature: float = None, mix: float = None, pl: float = None
+        self,
+        temperature: float | None = None,
+        mix: float | None = None,
+        pl: float | None = None,
     ) -> "Stream":
         """Adjust color temperature of video."""
         return self._apply_filter(
@@ -3807,13 +3939,13 @@ class GeneratedFiltersMixin:
 
     def compand(
         self,
-        attacks: str = None,
-        decays: str = None,
-        points: str = None,
-        soft_knee: float = None,
-        gain: float = None,
-        volume: float = None,
-        delay: float = None,
+        attacks: str | None = None,
+        decays: str | None = None,
+        points: str | None = None,
+        soft_knee: float | None = None,
+        gain: float | None = None,
+        volume: float | None = None,
+        delay: float | None = None,
     ) -> "Stream":
         """Compress or expand audio dynamic range."""
         return self._apply_filter(
@@ -3832,12 +3964,12 @@ class GeneratedFiltersMixin:
 
     def compensationdelay(
         self,
-        mm: int = None,
-        cm: int = None,
-        m: int = None,
-        dry: float = None,
-        wet: float = None,
-        temp: int = None,
+        mm: int | None = None,
+        cm: int | None = None,
+        m: int | None = None,
+        dry: float | None = None,
+        wet: float | None = None,
+        temp: int | None = None,
     ) -> "Stream":
         """Audio Compensation Delay Line."""
         return self._apply_filter(
@@ -3856,10 +3988,10 @@ class GeneratedFiltersMixin:
     def concat(
         self,
         *streams: "Stream",
-        n: int = None,
-        v: int = None,
-        a: int = None,
-        unsafe: bool = None,
+        n: int | None = None,
+        v: int | None = None,
+        a: int | None = None,
+        unsafe: bool | None = None,
     ) -> "FilterMultiOutput":
         """Concatenate audio and video streams."""
         return self._apply_dynamic_outputs_filter(
@@ -3875,22 +4007,22 @@ class GeneratedFiltersMixin:
 
     def convolution(
         self,
-        _0m: str = None,
-        _1m: str = None,
-        _2m: str = None,
-        _3m: str = None,
-        _0rdiv: float = None,
-        _1rdiv: float = None,
-        _2rdiv: float = None,
-        _3rdiv: float = None,
-        _0bias: float = None,
-        _1bias: float = None,
-        _2bias: float = None,
-        _3bias: float = None,
-        _0mode: Literal["square", "row", "column"] | int = None,
-        _1mode: Literal["square", "row", "column"] | int = None,
-        _2mode: Literal["square", "row", "column"] | int = None,
-        _3mode: Literal["square", "row", "column"] | int = None,
+        _0m: str | None = None,
+        _1m: str | None = None,
+        _2m: str | None = None,
+        _3m: str | None = None,
+        _0rdiv: float | None = None,
+        _1rdiv: float | None = None,
+        _2rdiv: float | None = None,
+        _3rdiv: float | None = None,
+        _0bias: float | None = None,
+        _1bias: float | None = None,
+        _2bias: float | None = None,
+        _3bias: float | None = None,
+        _0mode: Literal["square", "row", "column"] | int | None = None,
+        _1mode: Literal["square", "row", "column"] | int | None = None,
+        _2mode: Literal["square", "row", "column"] | int | None = None,
+        _3mode: Literal["square", "row", "column"] | int | None = None,
     ) -> "Stream":
         """Apply convolution filter."""
         return self._apply_filter(
@@ -3919,9 +4051,9 @@ class GeneratedFiltersMixin:
     def convolve(
         self,
         impulse_stream: "Stream",
-        planes: int = None,
-        impulse: Literal["first", "all"] | int = None,
-        noise: float = None,
+        planes: int | None = None,
+        impulse: Literal["first", "all"] | int | None = None,
+        noise: float | None = None,
     ) -> "Stream":
         """Convolve first video stream with second video stream."""
         return self._apply_filter(
@@ -3942,10 +4074,10 @@ class GeneratedFiltersMixin:
 
     def coreimage(
         self,
-        list_filters: bool = None,
-        list_generators: bool = None,
-        filter: str = None,
-        output_rect: str = None,
+        list_filters: bool | None = None,
+        list_generators: bool | None = None,
+        filter: str | None = None,
+        output_rect: str | None = None,
     ) -> "Stream":
         """Video filtering using CoreImage API."""
         return self._apply_filter(
@@ -3966,7 +4098,9 @@ class GeneratedFiltersMixin:
         )[0]
 
     def cover_rect(
-        self, cover: str = None, mode: Literal["cover", "blur"] | int = None
+        self,
+        cover: str | None = None,
+        mode: Literal["cover", "blur"] | int | None = None,
     ) -> "Stream":
         """Find and cover a user specified object."""
         return self._apply_filter(
@@ -3980,14 +4114,14 @@ class GeneratedFiltersMixin:
 
     def crop(
         self,
-        out_w: str = None,
-        w: str = None,
-        out_h: str = None,
-        h: str = None,
-        x: str = None,
-        y: str = None,
-        keep_aspect: bool = None,
-        exact: bool = None,
+        out_w: str | None = None,
+        w: str | None = None,
+        out_h: str | None = None,
+        h: str | None = None,
+        x: str | None = None,
+        y: str | None = None,
+        keep_aspect: bool | None = None,
+        exact: bool | None = None,
     ) -> "Stream":
         """Crop the input video."""
         return self._apply_filter(
@@ -4007,16 +4141,16 @@ class GeneratedFiltersMixin:
 
     def cropdetect(
         self,
-        limit: float = None,
-        round: int = None,
-        reset: int = None,
-        skip: int = None,
-        reset_count: int = None,
-        max_outliers: int = None,
-        mode: Literal["black", "mvedges"] | int = None,
-        high: float = None,
-        low: float = None,
-        mv_threshold: int = None,
+        limit: float | None = None,
+        round: int | None = None,
+        reset: int | None = None,
+        skip: int | None = None,
+        reset_count: int | None = None,
+        max_outliers: int | None = None,
+        mode: Literal["black", "mvedges"] | int | None = None,
+        high: float | None = None,
+        low: float | None = None,
+        mv_threshold: int | None = None,
     ) -> "Stream":
         """Auto-detect crop size."""
         return self._apply_filter(
@@ -4038,12 +4172,12 @@ class GeneratedFiltersMixin:
 
     def crossfeed(
         self,
-        strength: float = None,
-        range: float = None,
-        slope: float = None,
-        level_in: float = None,
-        level_out: float = None,
-        block_size: int = None,
+        strength: float | None = None,
+        range: float | None = None,
+        slope: float | None = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        block_size: int | None = None,
     ) -> "Stream":
         """Apply headphone crossfeed filter."""
         return self._apply_filter(
@@ -4059,7 +4193,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def crystalizer(self, i: float = None, c: bool = None) -> "Stream":
+    def crystalizer(self, i: float | None = None, c: bool | None = None) -> "Stream":
         """Simple audio noise sharpening filter."""
         return self._apply_filter(
             filter_name="crystalizer",
@@ -4070,7 +4204,12 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def cue(self, cue: str = None, preroll: str = None, buffer: str = None) -> "Stream":
+    def cue(
+        self,
+        cue: str | None = None,
+        preroll: str | None = None,
+        buffer: str | None = None,
+    ) -> "Stream":
         """Delay filtering to match a cue."""
         return self._apply_filter(
             filter_name="cue",
@@ -4097,19 +4236,20 @@ class GeneratedFiltersMixin:
             "strong_contrast",
             "vintage",
         ]
-        | int = None,
-        master: str = None,
-        m: str = None,
-        red: str = None,
-        r: str = None,
-        green: str = None,
-        g: str = None,
-        blue: str = None,
-        b: str = None,
-        all: str = None,
-        psfile: str = None,
-        plot: str = None,
-        interp: Literal["natural", "pchip"] | int = None,
+        | int
+        | None = None,
+        master: str | None = None,
+        m: str | None = None,
+        red: str | None = None,
+        r: str | None = None,
+        green: str | None = None,
+        g: str | None = None,
+        blue: str | None = None,
+        b: str | None = None,
+        all: str | None = None,
+        psfile: str | None = None,
+        plot: str | None = None,
+        interp: Literal["natural", "pchip"] | int | None = None,
     ) -> "Stream":
         """Adjust components curves."""
         return self._apply_filter(
@@ -4134,15 +4274,15 @@ class GeneratedFiltersMixin:
 
     def datascope(
         self,
-        size: str = None,
-        s: str = None,
-        x: int = None,
-        y: int = None,
-        mode: Literal["mono", "color", "color2"] | int = None,
-        axis: bool = None,
-        opacity: float = None,
-        format: Literal["hex", "dec"] | int = None,
-        components: int = None,
+        size: str | None = None,
+        s: str | None = None,
+        x: int | None = None,
+        y: int | None = None,
+        mode: Literal["mono", "color", "color2"] | int | None = None,
+        axis: bool | None = None,
+        opacity: float | None = None,
+        format: Literal["hex", "dec"] | int | None = None,
+        components: int | None = None,
     ) -> "Stream":
         """Video data analysis."""
         return self._apply_filter(
@@ -4162,7 +4302,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def dblur(
-        self, angle: float = None, radius: float = None, planes: int = None
+        self,
+        angle: float | None = None,
+        radius: float | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Apply Directional Blur filter."""
         return self._apply_filter(
@@ -4175,7 +4318,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def dcshift(self, shift: float = None, limitergain: float = None) -> "Stream":
+    def dcshift(
+        self, shift: float | None = None, limitergain: float | None = None
+    ) -> "Stream":
         """Apply a DC shift to the audio."""
         return self._apply_filter(
             filter_name="dcshift",
@@ -4188,12 +4333,12 @@ class GeneratedFiltersMixin:
 
     def dctdnoiz(
         self,
-        sigma: float = None,
-        s: float = None,
-        overlap: int = None,
-        expr: str = None,
-        e: str = None,
-        n: int = None,
+        sigma: float | None = None,
+        s: float | None = None,
+        overlap: int | None = None,
+        expr: str | None = None,
+        e: str | None = None,
+        n: int | None = None,
     ) -> "Stream":
         """Denoise frames using 2D DCT."""
         return self._apply_filter(
@@ -4211,18 +4356,18 @@ class GeneratedFiltersMixin:
 
     def deband(
         self,
-        _1thr: float = None,
-        _2thr: float = None,
-        _3thr: float = None,
-        _4thr: float = None,
-        range: int = None,
-        r: int = None,
-        direction: float = None,
-        d: float = None,
-        blur: bool = None,
-        b: bool = None,
-        coupling: bool = None,
-        c: bool = None,
+        _1thr: float | None = None,
+        _2thr: float | None = None,
+        _3thr: float | None = None,
+        _4thr: float | None = None,
+        range: int | None = None,
+        r: int | None = None,
+        direction: float | None = None,
+        d: float | None = None,
+        blur: bool | None = None,
+        b: bool | None = None,
+        coupling: bool | None = None,
+        c: bool | None = None,
     ) -> "Stream":
         """Debands video."""
         return self._apply_filter(
@@ -4246,13 +4391,13 @@ class GeneratedFiltersMixin:
 
     def deblock(
         self,
-        filter: Literal["weak", "strong"] | int = None,
-        block: int = None,
-        alpha: float = None,
-        beta: float = None,
-        gamma: float = None,
-        delta: float = None,
-        planes: int = None,
+        filter: Literal["weak", "strong"] | int | None = None,
+        block: int | None = None,
+        alpha: float | None = None,
+        beta: float | None = None,
+        gamma: float | None = None,
+        delta: float | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Deblock video."""
         return self._apply_filter(
@@ -4272,14 +4417,14 @@ class GeneratedFiltersMixin:
     def decimate(
         self,
         *streams: "Stream",
-        cycle: int = None,
-        dupthresh: float = None,
-        scthresh: float = None,
-        blockx: int = None,
-        blocky: int = None,
-        ppsrc: bool = None,
-        chroma: bool = None,
-        mixed: bool = None,
+        cycle: int | None = None,
+        dupthresh: float | None = None,
+        scthresh: float | None = None,
+        blockx: int | None = None,
+        blocky: int | None = None,
+        ppsrc: bool | None = None,
+        chroma: bool | None = None,
+        mixed: bool | None = None,
     ) -> "Stream":
         """Decimate frames (post field matching filter)."""
         return self._apply_filter(
@@ -4300,9 +4445,9 @@ class GeneratedFiltersMixin:
     def deconvolve(
         self,
         impulse_stream: "Stream",
-        planes: int = None,
-        impulse: Literal["first", "all"] | int = None,
-        noise: float = None,
+        planes: int | None = None,
+        impulse: Literal["first", "all"] | int | None = None,
+        noise: float | None = None,
     ) -> "Stream":
         """Deconvolve first video stream with second video stream."""
         return self._apply_filter(
@@ -4317,11 +4462,11 @@ class GeneratedFiltersMixin:
 
     def dedot(
         self,
-        m: Literal["dotcrawl", "rainbows"] = None,
-        lt: float = None,
-        tl: float = None,
-        tc: float = None,
-        ct: float = None,
+        m: Literal["dotcrawl", "rainbows"] | None = None,
+        lt: float | None = None,
+        tl: float | None = None,
+        tc: float | None = None,
+        ct: float | None = None,
     ) -> "Stream":
         """Reduce cross-luminance and cross-color."""
         return self._apply_filter(
@@ -4338,10 +4483,10 @@ class GeneratedFiltersMixin:
 
     def deesser(
         self,
-        i: float = None,
-        m: float = None,
-        f: float = None,
-        s: Literal["i", "o", "e"] | int = None,
+        i: float | None = None,
+        m: float | None = None,
+        f: float | None = None,
+        s: Literal["i", "o", "e"] | int | None = None,
     ) -> "Stream":
         """Apply de-essing to the audio."""
         return self._apply_filter(
@@ -4357,10 +4502,10 @@ class GeneratedFiltersMixin:
 
     def deflate(
         self,
-        threshold0: int = None,
-        threshold1: int = None,
-        threshold2: int = None,
-        threshold3: int = None,
+        threshold0: int | None = None,
+        threshold1: int | None = None,
+        threshold2: int | None = None,
+        threshold3: int | None = None,
     ) -> "Stream":
         """Apply deflate effect."""
         return self._apply_filter(
@@ -4376,11 +4521,11 @@ class GeneratedFiltersMixin:
 
     def deflicker(
         self,
-        size: int = None,
-        s: int = None,
-        mode: Literal["am", "gm", "hm", "qm", "cm", "pm", "median"] | int = None,
-        m: Literal["am", "gm", "hm", "qm", "cm", "pm", "median"] | int = None,
-        bypass: bool = None,
+        size: int | None = None,
+        s: int | None = None,
+        mode: Literal["am", "gm", "hm", "qm", "cm", "pm", "median"] | int | None = None,
+        m: Literal["am", "gm", "hm", "qm", "cm", "pm", "median"] | int | None = None,
+        bypass: bool | None = None,
     ) -> "Stream":
         """Remove temporal frame luminance variations."""
         return self._apply_filter(
@@ -4395,7 +4540,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def dejudder(self, cycle: int = None) -> "Stream":
+    def dejudder(self, cycle: int | None = None) -> "Stream":
         """Remove judder produced by pullup."""
         return self._apply_filter(
             filter_name="dejudder",
@@ -4407,11 +4552,11 @@ class GeneratedFiltersMixin:
 
     def delogo(
         self,
-        x: str = None,
-        y: str = None,
-        w: str = None,
-        h: str = None,
-        show: bool = None,
+        x: str | None = None,
+        y: str | None = None,
+        w: str | None = None,
+        h: str | None = None,
+        show: bool | None = None,
     ) -> "Stream":
         """Remove logo from input video."""
         return self._apply_filter(
@@ -4428,18 +4573,18 @@ class GeneratedFiltersMixin:
 
     def deshake(
         self,
-        x: int = None,
-        y: int = None,
-        w: int = None,
-        h: int = None,
-        rx: int = None,
-        ry: int = None,
-        edge: Literal["blank", "original", "clamp", "mirror"] | int = None,
-        blocksize: int = None,
-        contrast: int = None,
-        search: Literal["exhaustive", "less"] | int = None,
-        filename: str = None,
-        opencl: bool = None,
+        x: int | None = None,
+        y: int | None = None,
+        w: int | None = None,
+        h: int | None = None,
+        rx: int | None = None,
+        ry: int | None = None,
+        edge: Literal["blank", "original", "clamp", "mirror"] | int | None = None,
+        blocksize: int | None = None,
+        contrast: int | None = None,
+        search: Literal["exhaustive", "less"] | int | None = None,
+        filename: str | None = None,
+        opencl: bool | None = None,
     ) -> "Stream":
         """Stabilize shaky video."""
         return self._apply_filter(
@@ -4463,14 +4608,14 @@ class GeneratedFiltersMixin:
 
     def despill(
         self,
-        type: Literal["green", "blue"] | int = None,
-        mix: float = None,
-        expand: float = None,
-        red: float = None,
-        green: float = None,
-        blue: float = None,
-        brightness: float = None,
-        alpha: bool = None,
+        type: Literal["green", "blue"] | int | None = None,
+        mix: float | None = None,
+        expand: float | None = None,
+        red: float | None = None,
+        green: float | None = None,
+        blue: float | None = None,
+        brightness: float | None = None,
+        alpha: bool | None = None,
     ) -> "Stream":
         """Despill video."""
         return self._apply_filter(
@@ -4490,9 +4635,9 @@ class GeneratedFiltersMixin:
 
     def detelecine(
         self,
-        first_field: Literal["top", "t", "bottom", "b"] | int = None,
-        pattern: str = None,
-        start_frame: int = None,
+        first_field: Literal["top", "t", "bottom", "b"] | int | None = None,
+        pattern: str | None = None,
+        start_frame: int | None = None,
     ) -> "Stream":
         """Apply an inverse telecine pattern."""
         return self._apply_filter(
@@ -4506,7 +4651,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def dialoguenhance(
-        self, original: float = None, enhance: float = None, voice: float = None
+        self,
+        original: float | None = None,
+        enhance: float | None = None,
+        voice: float | None = None,
     ) -> "Stream":
         """Audio Dialogue Enhancement."""
         return self._apply_filter(
@@ -4521,11 +4669,11 @@ class GeneratedFiltersMixin:
 
     def dilation(
         self,
-        coordinates: int = None,
-        threshold0: int = None,
-        threshold1: int = None,
-        threshold2: int = None,
-        threshold3: int = None,
+        coordinates: int | None = None,
+        threshold0: int | None = None,
+        threshold1: int | None = None,
+        threshold2: int | None = None,
+        threshold3: int | None = None,
     ) -> "Stream":
         """Apply dilation effect."""
         return self._apply_filter(
@@ -4544,7 +4692,7 @@ class GeneratedFiltersMixin:
         self,
         xmap_stream: "Stream",
         ymap_stream: "Stream",
-        edge: Literal["blank", "smear", "wrap", "mirror"] | int = None,
+        edge: Literal["blank", "smear", "wrap", "mirror"] | int | None = None,
     ) -> "Stream":
         """Displace pixels."""
         return self._apply_filter(
@@ -4556,7 +4704,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def doubleweave(
-        self, first_field: Literal["top", "t", "bottom", "b"] | int = None
+        self, first_field: Literal["top", "t", "bottom", "b"] | int | None = None
     ) -> "Stream":
         """Weave input video fields into double number of frames."""
         return self._apply_filter(
@@ -4569,18 +4717,18 @@ class GeneratedFiltersMixin:
 
     def drawbox(
         self,
-        x: str = None,
-        y: str = None,
-        width: str = None,
-        w: str = None,
-        height: str = None,
-        h: str = None,
-        color: str = None,
-        c: str = None,
-        thickness: str = None,
-        t: str = None,
-        replace: bool = None,
-        box_source: str = None,
+        x: str | None = None,
+        y: str | None = None,
+        width: str | None = None,
+        w: str | None = None,
+        height: str | None = None,
+        h: str | None = None,
+        color: str | None = None,
+        c: str | None = None,
+        thickness: str | None = None,
+        t: str | None = None,
+        replace: bool | None = None,
+        box_source: str | None = None,
     ) -> "Stream":
         """Draw a colored box on the input video."""
         return self._apply_filter(
@@ -4604,23 +4752,25 @@ class GeneratedFiltersMixin:
 
     def drawgraph(
         self,
-        m1: str = None,
-        fg1: str = None,
-        m2: str = None,
-        fg2: str = None,
-        m3: str = None,
-        fg3: str = None,
-        m4: str = None,
-        fg4: str = None,
-        bg: str = None,
-        min: float = None,
-        max: float = None,
-        mode: Literal["bar", "dot", "line"] | int = None,
-        slide: Literal["frame", "replace", "scroll", "rscroll", "picture"] | int = None,
-        size: str = None,
-        s: str = None,
-        rate: str = None,
-        r: str = None,
+        m1: str | None = None,
+        fg1: str | None = None,
+        m2: str | None = None,
+        fg2: str | None = None,
+        m3: str | None = None,
+        fg3: str | None = None,
+        m4: str | None = None,
+        fg4: str | None = None,
+        bg: str | None = None,
+        min: float | None = None,
+        max: float | None = None,
+        mode: Literal["bar", "dot", "line"] | int | None = None,
+        slide: Literal["frame", "replace", "scroll", "rscroll", "picture"]
+        | int
+        | None = None,
+        size: str | None = None,
+        s: str | None = None,
+        rate: str | None = None,
+        r: str | None = None,
     ) -> "Stream":
         """Draw a graph using input video metadata."""
         return self._apply_filter(
@@ -4649,17 +4799,17 @@ class GeneratedFiltersMixin:
 
     def drawgrid(
         self,
-        x: str = None,
-        y: str = None,
-        width: str = None,
-        w: str = None,
-        height: str = None,
-        h: str = None,
-        color: str = None,
-        c: str = None,
-        thickness: str = None,
-        t: str = None,
-        replace: bool = None,
+        x: str | None = None,
+        y: str | None = None,
+        width: str | None = None,
+        w: str | None = None,
+        height: str | None = None,
+        h: str | None = None,
+        color: str | None = None,
+        c: str | None = None,
+        thickness: str | None = None,
+        t: str | None = None,
+        replace: bool | None = None,
     ) -> "Stream":
         """Draw a colored grid on the input video."""
         return self._apply_filter(
@@ -4682,18 +4832,18 @@ class GeneratedFiltersMixin:
 
     def drawtext(
         self,
-        fontfile: str = None,
-        text: str = None,
-        textfile: str = None,
-        fontcolor: str = None,
-        fontcolor_expr: str = None,
-        boxcolor: str = None,
-        bordercolor: str = None,
-        shadowcolor: str = None,
-        box: bool = None,
-        boxborderw: str = None,
-        line_spacing: int = None,
-        fontsize: str = None,
+        fontfile: str | None = None,
+        text: str | None = None,
+        textfile: str | None = None,
+        fontcolor: str | None = None,
+        fontcolor_expr: str | None = None,
+        boxcolor: str | None = None,
+        bordercolor: str | None = None,
+        shadowcolor: str | None = None,
+        box: bool | None = None,
+        boxborderw: str | None = None,
+        line_spacing: int | None = None,
+        fontsize: str | None = None,
         text_align: Literal[
             "left",
             "L",
@@ -4707,29 +4857,30 @@ class GeneratedFiltersMixin:
             "B",
             "middle",
             "M",
-        ] = None,
-        x: str = None,
-        y: str = None,
-        boxw: int = None,
-        boxh: int = None,
-        shadowx: int = None,
-        shadowy: int = None,
-        borderw: int = None,
-        tabsize: int = None,
-        basetime: str = None,
-        font: str = None,
-        expansion: Literal["none", "normal", "strftime"] | int = None,
-        y_align: Literal["text", "baseline", "font"] | int = None,
-        timecode: str = None,
-        tc24hmax: bool = None,
-        timecode_rate: str = None,
-        r: str = None,
-        rate: str = None,
-        reload: int = None,
-        alpha: str = None,
-        fix_bounds: bool = None,
-        start_number: int = None,
-        text_source: str = None,
+        ]
+        | None = None,
+        x: str | None = None,
+        y: str | None = None,
+        boxw: int | None = None,
+        boxh: int | None = None,
+        shadowx: int | None = None,
+        shadowy: int | None = None,
+        borderw: int | None = None,
+        tabsize: int | None = None,
+        basetime: str | None = None,
+        font: str | None = None,
+        expansion: Literal["none", "normal", "strftime"] | int | None = None,
+        y_align: Literal["text", "baseline", "font"] | int | None = None,
+        timecode: str | None = None,
+        tc24hmax: bool | None = None,
+        timecode_rate: str | None = None,
+        r: str | None = None,
+        rate: str | None = None,
+        reload: int | None = None,
+        alpha: str | None = None,
+        fix_bounds: bool | None = None,
+        start_number: int | None = None,
+        text_source: str | None = None,
         ft_load_flags: Literal[
             "default",
             "no_scale",
@@ -4746,7 +4897,8 @@ class GeneratedFiltersMixin:
             "monochrome",
             "linear_design",
             "no_autohint",
-        ] = None,
+        ]
+        | None = None,
     ) -> "Stream":
         """Draw text on top of video frames using libfreetype library."""
         return self._apply_filter(
@@ -4792,7 +4944,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def drmeter(self, length: float = None) -> "Stream":
+    def drmeter(self, length: float | None = None) -> "Stream":
         """Measure audio dynamic range."""
         return self._apply_filter(
             filter_name="drmeter",
@@ -4804,32 +4956,32 @@ class GeneratedFiltersMixin:
 
     def dynaudnorm(
         self,
-        framelen: int = None,
-        f: int = None,
-        gausssize: int = None,
-        g: int = None,
-        peak: float = None,
-        p: float = None,
-        maxgain: float = None,
-        m: float = None,
-        targetrms: float = None,
-        r: float = None,
-        coupling: bool = None,
-        n: bool = None,
-        correctdc: bool = None,
-        c: bool = None,
-        altboundary: bool = None,
-        b: bool = None,
-        compress: float = None,
-        s: float = None,
-        threshold: float = None,
-        t: float = None,
-        channels: str = None,
-        h: str = None,
-        overlap: float = None,
-        o: float = None,
-        curve: str = None,
-        v: str = None,
+        framelen: int | None = None,
+        f: int | None = None,
+        gausssize: int | None = None,
+        g: int | None = None,
+        peak: float | None = None,
+        p: float | None = None,
+        maxgain: float | None = None,
+        m: float | None = None,
+        targetrms: float | None = None,
+        r: float | None = None,
+        coupling: bool | None = None,
+        n: bool | None = None,
+        correctdc: bool | None = None,
+        c: bool | None = None,
+        altboundary: bool | None = None,
+        b: bool | None = None,
+        compress: float | None = None,
+        s: float | None = None,
+        threshold: float | None = None,
+        t: float | None = None,
+        channels: str | None = None,
+        h: str | None = None,
+        overlap: float | None = None,
+        o: float | None = None,
+        curve: str | None = None,
+        v: str | None = None,
     ) -> "Stream":
         """Dynamic Audio Normalizer."""
         return self._apply_filter(
@@ -4873,23 +5025,23 @@ class GeneratedFiltersMixin:
 
     def ebur128(
         self,
-        video: bool = None,
-        size: str = None,
-        meter: int = None,
-        framelog: Literal["quiet", "info", "verbose"] | int = None,
-        metadata: bool = None,
-        peak: Literal["none", "sample", "true"] = None,
-        dualmono: bool = None,
-        panlaw: float = None,
-        target: int = None,
-        gauge: Literal["momentary", "m", "shortterm", "s"] | int = None,
-        scale: Literal["absolute", "LUFS", "relative", "LU"] | int = None,
-        integrated: float = None,
-        range: float = None,
-        lra_low: float = None,
-        lra_high: float = None,
-        sample_peak: float = None,
-        true_peak: float = None,
+        video: bool | None = None,
+        size: str | None = None,
+        meter: int | None = None,
+        framelog: Literal["quiet", "info", "verbose"] | int | None = None,
+        metadata: bool | None = None,
+        peak: Literal["none", "sample", "true"] | None = None,
+        dualmono: bool | None = None,
+        panlaw: float | None = None,
+        target: int | None = None,
+        gauge: Literal["momentary", "m", "shortterm", "s"] | int | None = None,
+        scale: Literal["absolute", "LUFS", "relative", "LU"] | int | None = None,
+        integrated: float | None = None,
+        range: float | None = None,
+        lra_low: float | None = None,
+        lra_high: float | None = None,
+        sample_peak: float | None = None,
+        true_peak: float | None = None,
     ) -> "FilterMultiOutput":
         """EBU R128 scanner."""
         return self._apply_dynamic_outputs_filter(
@@ -4918,10 +5070,10 @@ class GeneratedFiltersMixin:
 
     def edgedetect(
         self,
-        high: float = None,
-        low: float = None,
-        mode: Literal["wires", "colormix", "canny"] | int = None,
-        planes: Literal["y", "u", "v", "r", "g", "b"] = None,
+        high: float | None = None,
+        low: float | None = None,
+        mode: Literal["wires", "colormix", "canny"] | int | None = None,
+        planes: Literal["y", "u", "v", "r", "g", "b"] | None = None,
     ) -> "Stream":
         """Detect and draw edge."""
         return self._apply_filter(
@@ -4937,14 +5089,14 @@ class GeneratedFiltersMixin:
 
     def elbg(
         self,
-        codebook_length: int = None,
-        l: int = None,
-        nb_steps: int = None,
-        n: int = None,
-        seed: str = None,
-        s: str = None,
-        pal8: bool = None,
-        use_alpha: bool = None,
+        codebook_length: int | None = None,
+        l: int | None = None,
+        nb_steps: int | None = None,
+        n: int | None = None,
+        seed: str | None = None,
+        s: str | None = None,
+        pal8: bool | None = None,
+        use_alpha: bool | None = None,
     ) -> "Stream":
         """Apply posterize effect, using the ELBG algorithm."""
         return self._apply_filter(
@@ -4962,7 +5114,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def entropy(self, mode: Literal["normal", "diff"] | int = None) -> "Stream":
+    def entropy(self, mode: Literal["normal", "diff"] | int | None = None) -> "Stream":
         """Measure video frames entropy."""
         return self._apply_filter(
             filter_name="entropy",
@@ -4972,7 +5124,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def epx(self, n: int = None) -> "Stream":
+    def epx(self, n: int | None = None) -> "Stream":
         """Scale the input using EPX algorithm."""
         return self._apply_filter(
             filter_name="epx",
@@ -4984,15 +5136,15 @@ class GeneratedFiltersMixin:
 
     def eq(
         self,
-        contrast: str = None,
-        brightness: str = None,
-        saturation: str = None,
-        gamma: str = None,
-        gamma_r: str = None,
-        gamma_g: str = None,
-        gamma_b: str = None,
-        gamma_weight: str = None,
-        eval: Literal["init", "frame"] | int = None,
+        contrast: str | None = None,
+        brightness: str | None = None,
+        saturation: str | None = None,
+        gamma: str | None = None,
+        gamma_r: str | None = None,
+        gamma_g: str | None = None,
+        gamma_b: str | None = None,
+        gamma_weight: str | None = None,
+        eval: Literal["init", "frame"] | int | None = None,
     ) -> "Stream":
         """Adjust brightness, contrast, gamma, and saturation."""
         return self._apply_filter(
@@ -5013,27 +5165,30 @@ class GeneratedFiltersMixin:
 
     def equalizer(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        gain: float = None,
-        g: float = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        gain: float | None = None,
+        g: float | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Apply two-pole peaking equalization (EQ) filter."""
         return self._apply_filter(
@@ -5065,11 +5220,11 @@ class GeneratedFiltersMixin:
 
     def erosion(
         self,
-        coordinates: int = None,
-        threshold0: int = None,
-        threshold1: int = None,
-        threshold2: int = None,
-        threshold3: int = None,
+        coordinates: int | None = None,
+        threshold0: int | None = None,
+        threshold1: int | None = None,
+        threshold2: int | None = None,
+        threshold3: int | None = None,
     ) -> "Stream":
         """Apply erosion effect."""
         return self._apply_filter(
@@ -5086,15 +5241,15 @@ class GeneratedFiltersMixin:
 
     def estdif(
         self,
-        mode: Literal["frame", "field"] | int = None,
-        parity: Literal["tff", "bff", "auto"] | int = None,
-        deint: Literal["all", "interlaced"] | int = None,
-        rslope: int = None,
-        redge: int = None,
-        ecost: int = None,
-        mcost: int = None,
-        dcost: int = None,
-        interp: Literal["2p", "4p", "6p"] | int = None,
+        mode: Literal["frame", "field"] | int | None = None,
+        parity: Literal["tff", "bff", "auto"] | int | None = None,
+        deint: Literal["all", "interlaced"] | int | None = None,
+        rslope: int | None = None,
+        redge: int | None = None,
+        ecost: int | None = None,
+        mcost: int | None = None,
+        dcost: int | None = None,
+        interp: Literal["2p", "4p", "6p"] | int | None = None,
     ) -> "Stream":
         """Apply Edge Slope Tracing deinterlace."""
         return self._apply_filter(
@@ -5113,7 +5268,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def exposure(self, exposure: float = None, black: float = None) -> "Stream":
+    def exposure(
+        self, exposure: float | None = None, black: float | None = None
+    ) -> "Stream":
         """Adjust exposure of the video stream."""
         return self._apply_filter(
             filter_name="exposure",
@@ -5125,7 +5282,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def extractplanes(
-        self, planes: Literal["y", "u", "v", "r", "g", "b", "a"] = None
+        self, planes: Literal["y", "u", "v", "r", "g", "b", "a"] | None = None
     ) -> "FilterMultiOutput":
         """Extract planes as grayscale frames."""
         return self._apply_dynamic_outputs_filter(
@@ -5136,7 +5293,7 @@ class GeneratedFiltersMixin:
             },
         )
 
-    def extrastereo(self, m: float = None, c: bool = None) -> "Stream":
+    def extrastereo(self, m: float | None = None, c: bool | None = None) -> "Stream":
         """Increase difference between stereo audio channels."""
         return self._apply_filter(
             filter_name="extrastereo",
@@ -5149,19 +5306,19 @@ class GeneratedFiltersMixin:
 
     def fade(
         self,
-        type: Literal["in", "out"] | int = None,
-        t: Literal["in", "out"] | int = None,
-        start_frame: int = None,
-        s: int = None,
-        nb_frames: int = None,
-        n: int = None,
-        alpha: bool = None,
-        start_time: str = None,
-        st: str = None,
-        duration: str = None,
-        d: str = None,
-        color: str = None,
-        c: str = None,
+        type: Literal["in", "out"] | int | None = None,
+        t: Literal["in", "out"] | int | None = None,
+        start_frame: int | None = None,
+        s: int | None = None,
+        nb_frames: int | None = None,
+        n: int | None = None,
+        alpha: bool | None = None,
+        start_time: str | None = None,
+        st: str | None = None,
+        duration: str | None = None,
+        d: str | None = None,
+        color: str | None = None,
+        c: str | None = None,
     ) -> "Stream":
         """Fade in/out input video."""
         return self._apply_filter(
@@ -5187,10 +5344,10 @@ class GeneratedFiltersMixin:
     def feedback(
         self,
         feedin_stream: "Stream",
-        x: int = None,
-        y: int = None,
-        w: int = None,
-        h: int = None,
+        x: int | None = None,
+        y: int | None = None,
+        w: int | None = None,
+        h: int | None = None,
     ) -> list["Stream"]:
         """Apply feedback video filter."""
         return self._apply_filter(
@@ -5207,14 +5364,14 @@ class GeneratedFiltersMixin:
 
     def fftdnoiz(
         self,
-        sigma: float = None,
-        amount: float = None,
-        block: int = None,
-        overlap: float = None,
-        method: Literal["wiener", "hard"] | int = None,
-        prev: int = None,
-        next: int = None,
-        planes: int = None,
+        sigma: float | None = None,
+        amount: float | None = None,
+        block: int | None = None,
+        overlap: float | None = None,
+        method: Literal["wiener", "hard"] | int | None = None,
+        prev: int | None = None,
+        next: int | None = None,
+        planes: int | None = None,
         window: Literal[
             "rect",
             "bartlett",
@@ -5239,7 +5396,8 @@ class GeneratedFiltersMixin:
             "bohman",
             "kaiser",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Denoise frames using 3D FFT."""
         return self._apply_filter(
@@ -5260,13 +5418,13 @@ class GeneratedFiltersMixin:
 
     def fftfilt(
         self,
-        dc_Y: int = None,
-        dc_U: int = None,
-        dc_V: int = None,
-        weight_Y: str = None,
-        weight_U: str = None,
-        weight_V: str = None,
-        eval: Literal["init", "frame"] | int = None,
+        dc_Y: int | None = None,
+        dc_U: int | None = None,
+        dc_V: int | None = None,
+        weight_Y: str | None = None,
+        weight_U: str | None = None,
+        weight_V: str | None = None,
+        eval: Literal["init", "frame"] | int | None = None,
     ) -> "Stream":
         """Apply arbitrary expressions to pixels in frequency domain."""
         return self._apply_filter(
@@ -5283,7 +5441,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def field(self, type: Literal["top", "bottom"] | int = None) -> "Stream":
+    def field(self, type: Literal["top", "bottom"] | int | None = None) -> "Stream":
         """Extract a field from the input video."""
         return self._apply_filter(
             filter_name="field",
@@ -5295,8 +5453,8 @@ class GeneratedFiltersMixin:
 
     def fieldhint(
         self,
-        hint: str = None,
-        mode: Literal["absolute", "relative", "pattern"] | int = None,
+        hint: str | None = None,
+        mode: Literal["absolute", "relative", "pattern"] | int | None = None,
     ) -> "Stream":
         """Field matching using hints."""
         return self._apply_filter(
@@ -5311,21 +5469,23 @@ class GeneratedFiltersMixin:
     def fieldmatch(
         self,
         *streams: "Stream",
-        order: Literal["auto", "bff", "tff"] | int = None,
-        mode: Literal["pc", "pc_n", "pc_u", "pc_n_ub", "pcn", "pcn_ub"] | int = None,
-        ppsrc: bool = None,
-        field: Literal["auto", "bottom", "top"] | int = None,
-        mchroma: bool = None,
-        y0: int = None,
-        y1: int = None,
-        scthresh: float = None,
-        combmatch: Literal["none", "sc", "full"] | int = None,
-        combdbg: Literal["none", "pcn", "pcnub"] | int = None,
-        cthresh: int = None,
-        chroma: bool = None,
-        blockx: int = None,
-        blocky: int = None,
-        combpel: int = None,
+        order: Literal["auto", "bff", "tff"] | int | None = None,
+        mode: Literal["pc", "pc_n", "pc_u", "pc_n_ub", "pcn", "pcn_ub"]
+        | int
+        | None = None,
+        ppsrc: bool | None = None,
+        field: Literal["auto", "bottom", "top"] | int | None = None,
+        mchroma: bool | None = None,
+        y0: int | None = None,
+        y1: int | None = None,
+        scthresh: float | None = None,
+        combmatch: Literal["none", "sc", "full"] | int | None = None,
+        combdbg: Literal["none", "pcn", "pcnub"] | int | None = None,
+        cthresh: int | None = None,
+        chroma: bool | None = None,
+        blockx: int | None = None,
+        blocky: int | None = None,
+        combpel: int | None = None,
     ) -> "Stream":
         """Field matching for inverse telecine."""
         return self._apply_filter(
@@ -5350,7 +5510,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def fieldorder(self, order: Literal["bff", "tff"] | int = None) -> "Stream":
+    def fieldorder(self, order: Literal["bff", "tff"] | int | None = None) -> "Stream":
         """Set the field order."""
         return self._apply_filter(
             filter_name="fieldorder",
@@ -5362,13 +5522,14 @@ class GeneratedFiltersMixin:
 
     def fillborders(
         self,
-        left: int = None,
-        right: int = None,
-        top: int = None,
-        bottom: int = None,
+        left: int | None = None,
+        right: int | None = None,
+        top: int | None = None,
+        bottom: int | None = None,
         mode: Literal["smear", "mirror", "fixed", "reflect", "wrap", "fade", "margins"]
-        | int = None,
-        color: str = None,
+        | int
+        | None = None,
+        color: str | None = None,
     ) -> "Stream":
         """Fill borders of the input video."""
         return self._apply_filter(
@@ -5386,14 +5547,14 @@ class GeneratedFiltersMixin:
 
     def find_rect(
         self,
-        object: str = None,
-        threshold: float = None,
-        mipmaps: int = None,
-        xmin: int = None,
-        ymin: int = None,
-        xmax: int = None,
-        ymax: int = None,
-        discard: bool = None,
+        object: str | None = None,
+        threshold: float | None = None,
+        mipmaps: int | None = None,
+        xmin: int | None = None,
+        ymin: int | None = None,
+        xmax: int | None = None,
+        ymax: int | None = None,
+        discard: bool | None = None,
     ) -> "Stream":
         """Find a user specified object."""
         return self._apply_filter(
@@ -5413,10 +5574,10 @@ class GeneratedFiltersMixin:
 
     def firequalizer(
         self,
-        gain: str = None,
-        gain_entry: str = None,
-        delay: float = None,
-        accuracy: float = None,
+        gain: str | None = None,
+        gain_entry: str | None = None,
+        delay: float | None = None,
+        accuracy: float | None = None,
         wfunc: Literal[
             "rectangular",
             "hann",
@@ -5429,15 +5590,16 @@ class GeneratedFiltersMixin:
             "bharris",
             "tukey",
         ]
-        | int = None,
-        fixed: bool = None,
-        multi: bool = None,
-        zero_phase: bool = None,
-        scale: Literal["linlin", "linlog", "loglin", "loglog"] | int = None,
-        dumpfile: str = None,
-        dumpscale: Literal["linlin", "linlog", "loglin", "loglog"] | int = None,
-        fft2: bool = None,
-        min_phase: bool = None,
+        | int
+        | None = None,
+        fixed: bool | None = None,
+        multi: bool | None = None,
+        zero_phase: bool | None = None,
+        scale: Literal["linlin", "linlog", "loglin", "loglog"] | int | None = None,
+        dumpfile: str | None = None,
+        dumpscale: Literal["linlin", "linlog", "loglin", "loglog"] | int | None = None,
+        fft2: bool | None = None,
+        min_phase: bool | None = None,
     ) -> "Stream":
         """Finite Impulse Response Equalizer."""
         return self._apply_filter(
@@ -5462,14 +5624,14 @@ class GeneratedFiltersMixin:
 
     def flanger(
         self,
-        delay: float = None,
-        depth: float = None,
-        regen: float = None,
-        width: float = None,
-        speed: float = None,
-        shape: Literal["triangular", "t", "sinusoidal", "s"] | int = None,
-        phase: float = None,
-        interp: Literal["linear", "quadratic"] | int = None,
+        delay: float | None = None,
+        depth: float | None = None,
+        regen: float | None = None,
+        width: float | None = None,
+        speed: float | None = None,
+        shape: Literal["triangular", "t", "sinusoidal", "s"] | int | None = None,
+        phase: float | None = None,
+        interp: Literal["linear", "quadratic"] | int | None = None,
     ) -> "Stream":
         """Apply a flanging effect to the audio."""
         return self._apply_filter(
@@ -5489,16 +5651,16 @@ class GeneratedFiltersMixin:
 
     def floodfill(
         self,
-        x: int = None,
-        y: int = None,
-        s0: int = None,
-        s1: int = None,
-        s2: int = None,
-        s3: int = None,
-        d0: int = None,
-        d1: int = None,
-        d2: int = None,
-        d3: int = None,
+        x: int | None = None,
+        y: int | None = None,
+        s0: int | None = None,
+        s1: int | None = None,
+        s2: int | None = None,
+        s3: int | None = None,
+        d0: int | None = None,
+        d1: int | None = None,
+        d2: int | None = None,
+        d3: int | None = None,
     ) -> "Stream":
         """Fill area with same color with another color."""
         return self._apply_filter(
@@ -5519,7 +5681,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def format(
-        self, pix_fmts: str = None, color_spaces: str = None, color_ranges: str = None
+        self,
+        pix_fmts: str | None = None,
+        color_spaces: str | None = None,
+        color_ranges: str | None = None,
     ) -> "Stream":
         """Convert the input video to one of the specified pixel formats."""
         return self._apply_filter(
@@ -5534,10 +5699,10 @@ class GeneratedFiltersMixin:
 
     def fps(
         self,
-        fps: str = None,
-        start_time: float = None,
-        round: Literal["zero", "inf", "down", "up", "near"] | int = None,
-        eof_action: Literal["round", "pass"] | int = None,
+        fps: str | None = None,
+        start_time: float | None = None,
+        round: Literal["zero", "inf", "down", "up", "near"] | int | None = None,
+        eof_action: Literal["round", "pass"] | int | None = None,
     ) -> "Stream":
         """Force constant framerate."""
         return self._apply_filter(
@@ -5554,7 +5719,9 @@ class GeneratedFiltersMixin:
     def framepack(
         self,
         right_stream: "Stream",
-        format: Literal["sbs", "tab", "frameseq", "lines", "columns"] | int = None,
+        format: Literal["sbs", "tab", "frameseq", "lines", "columns"]
+        | int
+        | None = None,
     ) -> "Stream":
         """Generate a frame packed stereoscopic video."""
         return self._apply_filter(
@@ -5567,11 +5734,11 @@ class GeneratedFiltersMixin:
 
     def framerate(
         self,
-        fps: str = None,
-        interp_start: int = None,
-        interp_end: int = None,
-        scene: float = None,
-        flags: Literal["scene_change_detect", "scd"] = None,
+        fps: str | None = None,
+        interp_start: int | None = None,
+        interp_end: int | None = None,
+        scene: float | None = None,
+        flags: Literal["scene_change_detect", "scd"] | None = None,
     ) -> "Stream":
         """Upsamples or downsamples progressive source between specified frame rates."""
         return self._apply_filter(
@@ -5586,7 +5753,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def framestep(self, step: int = None) -> "Stream":
+    def framestep(self, step: int | None = None) -> "Stream":
         """Select one frame every N frames."""
         return self._apply_filter(
             filter_name="framestep",
@@ -5597,7 +5764,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def freezedetect(
-        self, n: float = None, noise: float = None, d: str = None, duration: str = None
+        self,
+        n: float | None = None,
+        noise: float | None = None,
+        d: str | None = None,
+        duration: str | None = None,
     ) -> "Stream":
         """Detects frozen video input."""
         return self._apply_filter(
@@ -5614,9 +5785,9 @@ class GeneratedFiltersMixin:
     def freezeframes(
         self,
         replace_stream: "Stream",
-        first: str = None,
-        last: str = None,
-        replace: str = None,
+        first: str | None = None,
+        last: str | None = None,
+        replace: str | None = None,
     ) -> "Stream":
         """Freeze video frames."""
         return self._apply_filter(
@@ -5629,7 +5800,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def frei0r(self, filter_name: str = None, filter_params: str = None) -> "Stream":
+    def frei0r(
+        self, filter_name: str | None = None, filter_params: str | None = None
+    ) -> "Stream":
         """Apply a frei0r effect."""
         return self._apply_filter(
             filter_name="frei0r",
@@ -5642,10 +5815,10 @@ class GeneratedFiltersMixin:
 
     def fspp(
         self,
-        quality: int = None,
-        qp: int = None,
-        strength: int = None,
-        use_bframe_qp: bool = None,
+        quality: int | None = None,
+        qp: int | None = None,
+        strength: int | None = None,
+        use_bframe_qp: bool | None = None,
     ) -> "Stream":
         """Apply Fast Simple Post-processing filter."""
         return self._apply_filter(
@@ -5659,7 +5832,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def fsync(self, file: str = None, f: str = None) -> "Stream":
+    def fsync(self, file: str | None = None, f: str | None = None) -> "Stream":
         """Synchronize video frames from external source."""
         return self._apply_filter(
             filter_name="fsync",
@@ -5672,10 +5845,10 @@ class GeneratedFiltersMixin:
 
     def gblur(
         self,
-        sigma: float = None,
-        steps: int = None,
-        planes: int = None,
-        sigmaV: float = None,
+        sigma: float | None = None,
+        steps: int | None = None,
+        planes: int | None = None,
+        sigmaV: float | None = None,
     ) -> "Stream":
         """Apply Gaussian Blur filter."""
         return self._apply_filter(
@@ -5691,22 +5864,22 @@ class GeneratedFiltersMixin:
 
     def geq(
         self,
-        lum_expr: str = None,
-        lum: str = None,
-        cb_expr: str = None,
-        cb: str = None,
-        cr_expr: str = None,
-        cr: str = None,
-        alpha_expr: str = None,
-        a: str = None,
-        red_expr: str = None,
-        r: str = None,
-        green_expr: str = None,
-        g: str = None,
-        blue_expr: str = None,
-        b: str = None,
-        interpolation: Literal["nearest", "n", "bilinear", "b"] | int = None,
-        i: Literal["nearest", "n", "bilinear", "b"] | int = None,
+        lum_expr: str | None = None,
+        lum: str | None = None,
+        cb_expr: str | None = None,
+        cb: str | None = None,
+        cr_expr: str | None = None,
+        cr: str | None = None,
+        alpha_expr: str | None = None,
+        a: str | None = None,
+        red_expr: str | None = None,
+        r: str | None = None,
+        green_expr: str | None = None,
+        g: str | None = None,
+        blue_expr: str | None = None,
+        b: str | None = None,
+        interpolation: Literal["nearest", "n", "bilinear", "b"] | int | None = None,
+        i: Literal["nearest", "n", "bilinear", "b"] | int | None = None,
     ) -> "Stream":
         """Apply generic equation to each pixel."""
         return self._apply_filter(
@@ -5732,7 +5905,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def gradfun(self, strength: float = None, radius: int = None) -> "Stream":
+    def gradfun(
+        self, strength: float | None = None, radius: int | None = None
+    ) -> "Stream":
         """Debands video quickly using gradients."""
         return self._apply_filter(
             filter_name="gradfun",
@@ -5745,12 +5920,12 @@ class GeneratedFiltersMixin:
 
     def graphmonitor(
         self,
-        size: str = None,
-        s: str = None,
-        opacity: float = None,
-        o: float = None,
-        mode: Literal["full", "compact", "nozero", "noeof", "nodisabled"] = None,
-        m: Literal["full", "compact", "nozero", "noeof", "nodisabled"] = None,
+        size: str | None = None,
+        s: str | None = None,
+        opacity: float | None = None,
+        o: float | None = None,
+        mode: Literal["full", "compact", "nozero", "noeof", "nodisabled"] | None = None,
+        m: Literal["full", "compact", "nozero", "noeof", "nodisabled"] | None = None,
         flags: Literal[
             "none",
             "all",
@@ -5771,7 +5946,8 @@ class GeneratedFiltersMixin:
             "sample_count_out",
             "sample_count_delta",
             "disabled",
-        ] = None,
+        ]
+        | None = None,
         f: Literal[
             "none",
             "all",
@@ -5792,9 +5968,10 @@ class GeneratedFiltersMixin:
             "sample_count_out",
             "sample_count_delta",
             "disabled",
-        ] = None,
-        rate: str = None,
-        r: str = None,
+        ]
+        | None = None,
+        rate: str | None = None,
+        r: str | None = None,
     ) -> "Stream":
         """Show various filtergraph stats."""
         return self._apply_filter(
@@ -5821,7 +5998,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def greyedge(
-        self, difford: int = None, minknorm: int = None, sigma: float = None
+        self,
+        difford: int | None = None,
+        minknorm: int | None = None,
+        sigma: float | None = None,
     ) -> "Stream":
         """Estimates scene illumination by grey edge assumption."""
         return self._apply_filter(
@@ -5837,12 +6017,12 @@ class GeneratedFiltersMixin:
     def guided(
         self,
         *streams: "Stream",
-        radius: int = None,
-        eps: float = None,
-        mode: Literal["basic", "fast"] | int = None,
-        sub: int = None,
-        guidance: Literal["off", "on"] | int = None,
-        planes: int = None,
+        radius: int | None = None,
+        eps: float | None = None,
+        mode: Literal["basic", "fast"] | int | None = None,
+        sub: int | None = None,
+        guidance: Literal["off", "on"] | int | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Apply Guided filter."""
         return self._apply_filter(
@@ -5860,19 +6040,19 @@ class GeneratedFiltersMixin:
 
     def haas(
         self,
-        level_in: float = None,
-        level_out: float = None,
-        side_gain: float = None,
-        middle_source: Literal["left", "right", "mid", "side"] | int = None,
-        middle_phase: bool = None,
-        left_delay: float = None,
-        left_balance: float = None,
-        left_gain: float = None,
-        left_phase: bool = None,
-        right_delay: float = None,
-        right_balance: float = None,
-        right_gain: float = None,
-        right_phase: bool = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        side_gain: float | None = None,
+        middle_source: Literal["left", "right", "mid", "side"] | int | None = None,
+        middle_phase: bool | None = None,
+        left_delay: float | None = None,
+        left_balance: float | None = None,
+        left_gain: float | None = None,
+        left_phase: bool | None = None,
+        right_delay: float | None = None,
+        right_balance: float | None = None,
+        right_gain: float | None = None,
+        right_phase: bool | None = None,
     ) -> "Stream":
         """Apply Haas Stereo Enhancer."""
         return self._apply_filter(
@@ -5898,9 +6078,10 @@ class GeneratedFiltersMixin:
     def haldclut(
         self,
         clut_stream: "Stream",
-        clut: Literal["first", "all"] | int = None,
+        clut: Literal["first", "all"] | int | None = None,
         interp: Literal["nearest", "trilinear", "tetrahedral", "pyramid", "prism"]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Adjust colors using a Hald CLUT."""
         return self._apply_filter(
@@ -5914,12 +6095,12 @@ class GeneratedFiltersMixin:
 
     def hdcd(
         self,
-        disable_autoconvert: bool = None,
-        process_stereo: bool = None,
-        cdt_ms: int = None,
-        force_pe: bool = None,
-        analyze_mode: Literal["off", "lle", "pe", "cdt", "tgm"] | int = None,
-        bits_per_sample: Literal["16", "20", "24"] | int = None,
+        disable_autoconvert: bool | None = None,
+        process_stereo: bool | None = None,
+        cdt_ms: int | None = None,
+        force_pe: bool | None = None,
+        analyze_mode: Literal["off", "lle", "pe", "cdt", "tgm"] | int | None = None,
+        bits_per_sample: Literal["16", "20", "24"] | int | None = None,
     ) -> "Stream":
         """Apply High Definition Compatible Digital (HDCD) decoding."""
         return self._apply_filter(
@@ -5938,12 +6119,12 @@ class GeneratedFiltersMixin:
     def headphone(
         self,
         *streams: "Stream",
-        map: str = None,
-        gain: float = None,
-        lfe: float = None,
-        type: Literal["time", "freq"] | int = None,
-        size: int = None,
-        hrir: Literal["stereo", "multich"] | int = None,
+        map: str | None = None,
+        gain: float | None = None,
+        lfe: float | None = None,
+        type: Literal["time", "freq"] | int | None = None,
+        size: int | None = None,
+        hrir: Literal["stereo", "multich"] | int | None = None,
     ) -> "Stream":
         """Apply headphone binaural spatialization with HRTFs in additional streams."""
         return self._apply_filter(
@@ -5967,27 +6148,30 @@ class GeneratedFiltersMixin:
 
     def highpass(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        poles: int = None,
-        p: int = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        poles: int | None = None,
+        p: int | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Apply a high-pass filter with 3dB point frequency."""
         return self._apply_filter(
@@ -6019,29 +6203,32 @@ class GeneratedFiltersMixin:
 
     def highshelf(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        gain: float = None,
-        g: float = None,
-        poles: int = None,
-        p: int = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        gain: float | None = None,
+        g: float | None = None,
+        poles: int | None = None,
+        p: int | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Apply a high shelf filter."""
         return self._apply_filter(
@@ -6075,9 +6262,9 @@ class GeneratedFiltersMixin:
 
     def histeq(
         self,
-        strength: float = None,
-        intensity: float = None,
-        antibanding: Literal["none", "weak", "strong"] | int = None,
+        strength: float | None = None,
+        intensity: float | None = None,
+        antibanding: Literal["none", "weak", "strong"] | int | None = None,
     ) -> "Stream":
         """Apply global color histogram equalization."""
         return self._apply_filter(
@@ -6092,18 +6279,18 @@ class GeneratedFiltersMixin:
 
     def histogram(
         self,
-        level_height: int = None,
-        scale_height: int = None,
-        display_mode: Literal["overlay", "parade", "stack"] | int = None,
-        d: Literal["overlay", "parade", "stack"] | int = None,
-        levels_mode: Literal["linear", "logarithmic"] | int = None,
-        m: Literal["linear", "logarithmic"] | int = None,
-        components: int = None,
-        c: int = None,
-        fgopacity: float = None,
-        f: float = None,
-        bgopacity: float = None,
-        b: float = None,
+        level_height: int | None = None,
+        scale_height: int | None = None,
+        display_mode: Literal["overlay", "parade", "stack"] | int | None = None,
+        d: Literal["overlay", "parade", "stack"] | int | None = None,
+        levels_mode: Literal["linear", "logarithmic"] | int | None = None,
+        m: Literal["linear", "logarithmic"] | int | None = None,
+        components: int | None = None,
+        c: int | None = None,
+        fgopacity: float | None = None,
+        f: float | None = None,
+        bgopacity: float | None = None,
+        b: float | None = None,
         colors_mode: Literal[
             "whiteonblack",
             "blackonwhite",
@@ -6116,7 +6303,8 @@ class GeneratedFiltersMixin:
             "whiteoncolor",
             "grayoncolor",
         ]
-        | int = None,
+        | int
+        | None = None,
         l: Literal[
             "whiteonblack",
             "blackonwhite",
@@ -6129,7 +6317,8 @@ class GeneratedFiltersMixin:
             "whiteoncolor",
             "grayoncolor",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Compute and draw a histogram."""
         return self._apply_filter(
@@ -6155,10 +6344,10 @@ class GeneratedFiltersMixin:
 
     def hqdn3d(
         self,
-        luma_spatial: float = None,
-        chroma_spatial: float = None,
-        luma_tmp: float = None,
-        chroma_tmp: float = None,
+        luma_spatial: float | None = None,
+        chroma_spatial: float | None = None,
+        luma_tmp: float | None = None,
+        chroma_tmp: float | None = None,
     ) -> "Stream":
         """Apply a High Quality 3D Denoiser."""
         return self._apply_filter(
@@ -6172,7 +6361,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def hqx(self, n: int = None) -> "Stream":
+    def hqx(self, n: int | None = None) -> "Stream":
         """Scale the input by 2, 3 or 4 using the hq*x magnification algorithm."""
         return self._apply_filter(
             filter_name="hqx",
@@ -6183,7 +6372,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def hstack(
-        self, *streams: "Stream", inputs: int = None, shortest: bool = None
+        self,
+        *streams: "Stream",
+        inputs: int | None = None,
+        shortest: bool | None = None,
     ) -> "Stream":
         """Stack video inputs horizontally."""
         return self._apply_filter(
@@ -6197,11 +6389,11 @@ class GeneratedFiltersMixin:
 
     def hsvhold(
         self,
-        hue: float = None,
-        sat: float = None,
-        val: float = None,
-        similarity: float = None,
-        blend: float = None,
+        hue: float | None = None,
+        sat: float | None = None,
+        val: float | None = None,
+        similarity: float | None = None,
+        blend: float | None = None,
     ) -> "Stream":
         """Turns a certain HSV range into gray."""
         return self._apply_filter(
@@ -6218,11 +6410,11 @@ class GeneratedFiltersMixin:
 
     def hsvkey(
         self,
-        hue: float = None,
-        sat: float = None,
-        val: float = None,
-        similarity: float = None,
-        blend: float = None,
+        hue: float | None = None,
+        sat: float | None = None,
+        val: float | None = None,
+        similarity: float | None = None,
+        blend: float | None = None,
     ) -> "Stream":
         """Turns a certain HSV range into transparency. Operates on YUV colors."""
         return self._apply_filter(
@@ -6238,7 +6430,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def hue(
-        self, h: str = None, s: str = None, H: str = None, b: str = None
+        self,
+        h: str | None = None,
+        s: str | None = None,
+        H: str | None = None,
+        b: str | None = None,
     ) -> "Stream":
         """Adjust the hue and saturation of the input video."""
         return self._apply_filter(
@@ -6254,15 +6450,15 @@ class GeneratedFiltersMixin:
 
     def huesaturation(
         self,
-        hue: float = None,
-        saturation: float = None,
-        intensity: float = None,
-        colors: Literal["r", "y", "g", "c", "b", "m", "a"] = None,
-        strength: float = None,
-        rw: float = None,
-        gw: float = None,
-        bw: float = None,
-        lightness: bool = None,
+        hue: float | None = None,
+        saturation: float | None = None,
+        intensity: float | None = None,
+        colors: Literal["r", "y", "g", "c", "b", "m", "a"] | None = None,
+        strength: float | None = None,
+        rw: float | None = None,
+        gw: float | None = None,
+        bw: float | None = None,
+        lightness: bool | None = None,
     ) -> "Stream":
         """Apply hue-saturation-intensity adjustments."""
         return self._apply_filter(
@@ -6289,9 +6485,9 @@ class GeneratedFiltersMixin:
 
     def hwmap(
         self,
-        mode: Literal["read", "write", "overwrite", "direct"] = None,
-        derive_device: str = None,
-        reverse: int = None,
+        mode: Literal["read", "write", "overwrite", "direct"] | None = None,
+        derive_device: str | None = None,
+        reverse: int | None = None,
     ) -> "Stream":
         """Map hardware frames"""
         return self._apply_filter(
@@ -6304,7 +6500,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def hwupload(self, derive_device: str = None) -> "Stream":
+    def hwupload(self, derive_device: str | None = None) -> "Stream":
         """Upload a normal frame to a hardware frame"""
         return self._apply_filter(
             filter_name="hwupload",
@@ -6315,7 +6511,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def hysteresis(
-        self, alt_stream: "Stream", planes: int = None, threshold: int = None
+        self,
+        alt_stream: "Stream",
+        planes: int | None = None,
+        threshold: int | None = None,
     ) -> "Stream":
         """Grow first stream into second stream by connecting components."""
         return self._apply_filter(
@@ -6335,11 +6534,11 @@ class GeneratedFiltersMixin:
 
     def idet(
         self,
-        intl_thres: float = None,
-        prog_thres: float = None,
-        rep_thres: float = None,
-        half_life: float = None,
-        analyze_interlaced_flag: int = None,
+        intl_thres: float | None = None,
+        prog_thres: float | None = None,
+        rep_thres: float | None = None,
+        half_life: float | None = None,
+        analyze_interlaced_flag: int | None = None,
     ) -> "Stream":
         """Interlace detect Filter."""
         return self._apply_filter(
@@ -6356,20 +6555,24 @@ class GeneratedFiltersMixin:
 
     def il(
         self,
-        luma_mode: Literal["none", "interleave", "i", "deinterleave", "d"] | int = None,
-        l: Literal["none", "interleave", "i", "deinterleave", "d"] | int = None,
+        luma_mode: Literal["none", "interleave", "i", "deinterleave", "d"]
+        | int
+        | None = None,
+        l: Literal["none", "interleave", "i", "deinterleave", "d"] | int | None = None,
         chroma_mode: Literal["none", "interleave", "i", "deinterleave", "d"]
-        | int = None,
-        c: Literal["none", "interleave", "i", "deinterleave", "d"] | int = None,
+        | int
+        | None = None,
+        c: Literal["none", "interleave", "i", "deinterleave", "d"] | int | None = None,
         alpha_mode: Literal["none", "interleave", "i", "deinterleave", "d"]
-        | int = None,
-        a: Literal["none", "interleave", "i", "deinterleave", "d"] | int = None,
-        luma_swap: bool = None,
-        ls: bool = None,
-        chroma_swap: bool = None,
-        cs: bool = None,
-        alpha_swap: bool = None,
-        as_: bool = None,
+        | int
+        | None = None,
+        a: Literal["none", "interleave", "i", "deinterleave", "d"] | int | None = None,
+        luma_swap: bool | None = None,
+        ls: bool | None = None,
+        chroma_swap: bool | None = None,
+        cs: bool | None = None,
+        alpha_swap: bool | None = None,
+        as_: bool | None = None,
     ) -> "Stream":
         """Deinterleave or interleave fields."""
         return self._apply_filter(
@@ -6393,10 +6596,10 @@ class GeneratedFiltersMixin:
 
     def inflate(
         self,
-        threshold0: int = None,
-        threshold1: int = None,
-        threshold2: int = None,
-        threshold3: int = None,
+        threshold0: int | None = None,
+        threshold1: int | None = None,
+        threshold2: int | None = None,
+        threshold3: int | None = None,
     ) -> "Stream":
         """Apply inflate effect."""
         return self._apply_filter(
@@ -6412,8 +6615,8 @@ class GeneratedFiltersMixin:
 
     def interlace(
         self,
-        scan: Literal["tff", "bff"] | int = None,
-        lowpass: Literal["off", "linear", "complex"] | int = None,
+        scan: Literal["tff", "bff"] | int | None = None,
+        lowpass: Literal["off", "linear", "complex"] | int | None = None,
     ) -> "Stream":
         """Convert progressive video into interlaced."""
         return self._apply_filter(
@@ -6428,9 +6631,9 @@ class GeneratedFiltersMixin:
     def interleave(
         self,
         *streams: "Stream",
-        nb_inputs: int = None,
-        n: int = None,
-        duration: Literal["longest", "shortest", "first"] | int = None,
+        nb_inputs: int | None = None,
+        n: int | None = None,
+        duration: Literal["longest", "shortest", "first"] | int | None = None,
     ) -> "Stream":
         """Temporally interleave video inputs."""
         return self._apply_filter(
@@ -6446,9 +6649,9 @@ class GeneratedFiltersMixin:
     def join(
         self,
         *streams: "Stream",
-        inputs: int = None,
-        channel_layout: str = None,
-        map: str = None,
+        inputs: int | None = None,
+        channel_layout: str | None = None,
+        map: str | None = None,
     ) -> "Stream":
         """Join multiple audio streams into multi-channel output."""
         return self._apply_filter(
@@ -6463,11 +6666,11 @@ class GeneratedFiltersMixin:
 
     def kerndeint(
         self,
-        thresh: int = None,
-        map: bool = None,
-        order: bool = None,
-        sharp: bool = None,
-        twoway: bool = None,
+        thresh: int | None = None,
+        map: bool | None = None,
+        order: bool | None = None,
+        sharp: bool | None = None,
+        twoway: bool | None = None,
     ) -> "Stream":
         """Apply kernel deinterlacing to the input."""
         return self._apply_filter(
@@ -6483,7 +6686,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def kirsch(
-        self, planes: int = None, scale: float = None, delta: float = None
+        self,
+        planes: int | None = None,
+        scale: float | None = None,
+        delta: float | None = None,
     ) -> "Stream":
         """Apply kirsch operator."""
         return self._apply_filter(
@@ -6496,7 +6702,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def lagfun(self, decay: float = None, planes: str = None) -> "Stream":
+    def lagfun(self, decay: float | None = None, planes: str | None = None) -> "Stream":
         """Slowly update darker pixels."""
         return self._apply_filter(
             filter_name="lagfun",
@@ -6515,12 +6721,12 @@ class GeneratedFiltersMixin:
 
     def lenscorrection(
         self,
-        cx: float = None,
-        cy: float = None,
-        k1: float = None,
-        k2: float = None,
-        i: Literal["nearest", "bilinear"] | int = None,
-        fc: str = None,
+        cx: float | None = None,
+        cy: float | None = None,
+        k1: float | None = None,
+        k2: float | None = None,
+        i: Literal["nearest", "bilinear"] | int | None = None,
+        fc: str | None = None,
     ) -> "Stream":
         """Rectify the image by correcting for lens distortion."""
         return self._apply_filter(
@@ -6539,13 +6745,13 @@ class GeneratedFiltersMixin:
     def libvmaf(
         self,
         reference_stream: "Stream",
-        log_path: str = None,
-        log_fmt: str = None,
-        pool: str = None,
-        n_threads: int = None,
-        n_subsample: int = None,
-        model: str = None,
-        feature: str = None,
+        log_path: str | None = None,
+        log_fmt: str | None = None,
+        pool: str | None = None,
+        n_threads: int | None = None,
+        n_subsample: int | None = None,
+        model: str | None = None,
+        feature: str | None = None,
     ) -> "Stream":
         """Calculate the VMAF between two video streams."""
         return self._apply_filter(
@@ -6565,10 +6771,10 @@ class GeneratedFiltersMixin:
     def limitdiff(
         self,
         *streams: "Stream",
-        threshold: float = None,
-        elasticity: float = None,
-        reference: bool = None,
-        planes: int = None,
+        threshold: float | None = None,
+        elasticity: float | None = None,
+        reference: bool | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Apply filtering with limiting difference."""
         return self._apply_filter(
@@ -6582,7 +6788,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def limiter(self, min: int = None, max: int = None, planes: int = None) -> "Stream":
+    def limiter(
+        self, min: int | None = None, max: int | None = None, planes: int | None = None
+    ) -> "Stream":
         """Limit pixels components to the specified range."""
         return self._apply_filter(
             filter_name="limiter",
@@ -6595,7 +6803,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def loop(
-        self, loop: int = None, size: str = None, start: str = None, time: str = None
+        self,
+        loop: int | None = None,
+        size: str | None = None,
+        start: str | None = None,
+        time: str | None = None,
     ) -> "Stream":
         """Loop video frames."""
         return self._apply_filter(
@@ -6611,23 +6823,23 @@ class GeneratedFiltersMixin:
 
     def loudnorm(
         self,
-        I: float = None,
-        i: float = None,
-        LRA: float = None,
-        lra: float = None,
-        TP: float = None,
-        tp: float = None,
-        measured_I: float = None,
-        measured_i: float = None,
-        measured_LRA: float = None,
-        measured_lra: float = None,
-        measured_TP: float = None,
-        measured_tp: float = None,
-        measured_thresh: float = None,
-        offset: float = None,
-        linear: bool = None,
-        dual_mono: bool = None,
-        print_format: Literal["none", "json", "summary"] | int = None,
+        I: float | None = None,
+        i: float | None = None,
+        LRA: float | None = None,
+        lra: float | None = None,
+        TP: float | None = None,
+        tp: float | None = None,
+        measured_I: float | None = None,
+        measured_i: float | None = None,
+        measured_LRA: float | None = None,
+        measured_lra: float | None = None,
+        measured_TP: float | None = None,
+        measured_tp: float | None = None,
+        measured_thresh: float | None = None,
+        offset: float | None = None,
+        linear: bool | None = None,
+        dual_mono: bool | None = None,
+        print_format: Literal["none", "json", "summary"] | int | None = None,
     ) -> "Stream":
         """EBU R128 loudness normalization"""
         return self._apply_filter(
@@ -6656,27 +6868,30 @@ class GeneratedFiltersMixin:
 
     def lowpass(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        poles: int = None,
-        p: int = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        poles: int | None = None,
+        p: int | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Apply a low-pass filter with 3dB point frequency."""
         return self._apply_filter(
@@ -6708,29 +6923,32 @@ class GeneratedFiltersMixin:
 
     def lowshelf(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        gain: float = None,
-        g: float = None,
-        poles: int = None,
-        p: int = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        gain: float | None = None,
+        g: float | None = None,
+        poles: int | None = None,
+        p: int | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Apply a low shelf filter."""
         return self._apply_filter(
@@ -6763,7 +6981,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def lumakey(
-        self, threshold: float = None, tolerance: float = None, softness: float = None
+        self,
+        threshold: float | None = None,
+        tolerance: float | None = None,
+        softness: float | None = None,
     ) -> "Stream":
         """Turns a certain luma into transparency."""
         return self._apply_filter(
@@ -6778,17 +6999,17 @@ class GeneratedFiltersMixin:
 
     def lut(
         self,
-        c0: str = None,
-        c1: str = None,
-        c2: str = None,
-        c3: str = None,
-        y: str = None,
-        u: str = None,
-        v: str = None,
-        r: str = None,
-        g: str = None,
-        b: str = None,
-        a: str = None,
+        c0: str | None = None,
+        c1: str | None = None,
+        c2: str | None = None,
+        c3: str | None = None,
+        y: str | None = None,
+        u: str | None = None,
+        v: str | None = None,
+        r: str | None = None,
+        g: str | None = None,
+        b: str | None = None,
+        a: str | None = None,
     ) -> "Stream":
         """Compute and apply a lookup table to the RGB/YUV input video."""
         return self._apply_filter(
@@ -6811,8 +7032,10 @@ class GeneratedFiltersMixin:
 
     def lut1d(
         self,
-        file: str = None,
-        interp: Literal["nearest", "linear", "cosine", "cubic", "spline"] | int = None,
+        file: str | None = None,
+        interp: Literal["nearest", "linear", "cosine", "cubic", "spline"]
+        | int
+        | None = None,
     ) -> "Stream":
         """Adjust colors using a 1D LUT."""
         return self._apply_filter(
@@ -6827,11 +7050,11 @@ class GeneratedFiltersMixin:
     def lut2(
         self,
         srcy_stream: "Stream",
-        c0: str = None,
-        c1: str = None,
-        c2: str = None,
-        c3: str = None,
-        d: int = None,
+        c0: str | None = None,
+        c1: str | None = None,
+        c2: str | None = None,
+        c3: str | None = None,
+        d: int | None = None,
     ) -> "Stream":
         """Compute and apply a lookup table from two video inputs."""
         return self._apply_filter(
@@ -6848,10 +7071,11 @@ class GeneratedFiltersMixin:
 
     def lut3d(
         self,
-        file: str = None,
-        clut: Literal["first", "all"] | int = None,
+        file: str | None = None,
+        clut: Literal["first", "all"] | int | None = None,
         interp: Literal["nearest", "trilinear", "tetrahedral", "pyramid", "prism"]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Adjust colors using a 3D LUT."""
         return self._apply_filter(
@@ -6866,17 +7090,17 @@ class GeneratedFiltersMixin:
 
     def lutrgb(
         self,
-        c0: str = None,
-        c1: str = None,
-        c2: str = None,
-        c3: str = None,
-        y: str = None,
-        u: str = None,
-        v: str = None,
-        r: str = None,
-        g: str = None,
-        b: str = None,
-        a: str = None,
+        c0: str | None = None,
+        c1: str | None = None,
+        c2: str | None = None,
+        c3: str | None = None,
+        y: str | None = None,
+        u: str | None = None,
+        v: str | None = None,
+        r: str | None = None,
+        g: str | None = None,
+        b: str | None = None,
+        a: str | None = None,
     ) -> "Stream":
         """Compute and apply a lookup table to the RGB input video."""
         return self._apply_filter(
@@ -6899,17 +7123,17 @@ class GeneratedFiltersMixin:
 
     def lutyuv(
         self,
-        c0: str = None,
-        c1: str = None,
-        c2: str = None,
-        c3: str = None,
-        y: str = None,
-        u: str = None,
-        v: str = None,
-        r: str = None,
-        g: str = None,
-        b: str = None,
-        a: str = None,
+        c0: str | None = None,
+        c1: str | None = None,
+        c2: str | None = None,
+        c3: str | None = None,
+        y: str | None = None,
+        u: str | None = None,
+        v: str | None = None,
+        r: str | None = None,
+        g: str | None = None,
+        b: str | None = None,
+        a: str | None = None,
     ) -> "Stream":
         """Compute and apply a lookup table to the YUV input video."""
         return self._apply_filter(
@@ -6934,9 +7158,9 @@ class GeneratedFiltersMixin:
         self,
         dark_stream: "Stream",
         bright_stream: "Stream",
-        undershoot: int = None,
-        overshoot: int = None,
-        planes: int = None,
+        undershoot: int | None = None,
+        overshoot: int | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Clamp first stream with second stream and third stream."""
         return self._apply_filter(
@@ -6950,7 +7174,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def maskedmax(
-        self, filter1_stream: "Stream", filter2_stream: "Stream", planes: int = None
+        self,
+        filter1_stream: "Stream",
+        filter2_stream: "Stream",
+        planes: int | None = None,
     ) -> "Stream":
         """Apply filtering with maximum difference of two streams."""
         return self._apply_filter(
@@ -6962,7 +7189,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def maskedmerge(
-        self, overlay_stream: "Stream", mask_stream: "Stream", planes: int = None
+        self, overlay_stream: "Stream", mask_stream: "Stream", planes: int | None = None
     ) -> "Stream":
         """Merge first stream with second stream using third stream as mask."""
         return self._apply_filter(
@@ -6974,7 +7201,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def maskedmin(
-        self, filter1_stream: "Stream", filter2_stream: "Stream", planes: int = None
+        self,
+        filter1_stream: "Stream",
+        filter2_stream: "Stream",
+        planes: int | None = None,
     ) -> "Stream":
         """Apply filtering with minimum difference of two streams."""
         return self._apply_filter(
@@ -6988,9 +7218,9 @@ class GeneratedFiltersMixin:
     def maskedthreshold(
         self,
         reference_stream: "Stream",
-        threshold: int = None,
-        planes: int = None,
-        mode: Literal["abs", "diff"] | int = None,
+        threshold: int | None = None,
+        planes: int | None = None,
+        mode: Literal["abs", "diff"] | int | None = None,
     ) -> "Stream":
         """Pick pixels comparing absolute difference of two streams with threshold."""
         return self._apply_filter(
@@ -7005,11 +7235,11 @@ class GeneratedFiltersMixin:
 
     def maskfun(
         self,
-        low: int = None,
-        high: int = None,
-        planes: int = None,
-        fill: int = None,
-        sum: int = None,
+        low: int | None = None,
+        high: int | None = None,
+        planes: int | None = None,
+        fill: int | None = None,
+        sum: int | None = None,
     ) -> "Stream":
         """Create Mask."""
         return self._apply_filter(
@@ -7026,9 +7256,9 @@ class GeneratedFiltersMixin:
 
     def mcdeint(
         self,
-        mode: Literal["fast", "medium", "slow", "extra_slow"] | int = None,
-        parity: Literal["tff", "bff"] | int = None,
-        qp: int = None,
+        mode: Literal["fast", "medium", "slow", "extra_slow"] | int | None = None,
+        parity: Literal["tff", "bff"] | int | None = None,
+        qp: int | None = None,
     ) -> "Stream":
         """Apply motion compensating deinterlacing."""
         return self._apply_filter(
@@ -7041,7 +7271,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def mcompand(self, args: str = None) -> "Stream":
+    def mcompand(self, args: str | None = None) -> "Stream":
         """Multiband Compress or expand audio dynamic range."""
         return self._apply_filter(
             filter_name="mcompand",
@@ -7053,10 +7283,10 @@ class GeneratedFiltersMixin:
 
     def median(
         self,
-        radius: int = None,
-        planes: int = None,
-        radiusV: int = None,
-        percentile: float = None,
+        radius: int | None = None,
+        planes: int | None = None,
+        radiusV: int | None = None,
+        percentile: float | None = None,
     ) -> "Stream":
         """Apply Median filter."""
         return self._apply_filter(
@@ -7073,16 +7303,16 @@ class GeneratedFiltersMixin:
     def mergeplanes(
         self,
         *streams: "Stream",
-        mapping: int = None,
-        format: str = None,
-        map0s: int = None,
-        map0p: int = None,
-        map1s: int = None,
-        map1p: int = None,
-        map2s: int = None,
-        map2p: int = None,
-        map3s: int = None,
-        map3p: int = None,
+        mapping: int | None = None,
+        format: str | None = None,
+        map0s: int | None = None,
+        map0p: int | None = None,
+        map1s: int | None = None,
+        map1p: int | None = None,
+        map2s: int | None = None,
+        map2p: int | None = None,
+        map3s: int | None = None,
+        map3p: int | None = None,
     ) -> "Stream":
         """Merge planes."""
         return self._apply_filter(
@@ -7107,9 +7337,10 @@ class GeneratedFiltersMixin:
         method: Literal[
             "esa", "tss", "tdls", "ntss", "fss", "ds", "hexbs", "epzs", "umh"
         ]
-        | int = None,
-        mb_size: int = None,
-        search_param: int = None,
+        | int
+        | None = None,
+        mb_size: int | None = None,
+        search_param: int | None = None,
     ) -> "Stream":
         """Generate motion vectors."""
         return self._apply_filter(
@@ -7124,16 +7355,17 @@ class GeneratedFiltersMixin:
 
     def metadata(
         self,
-        mode: Literal["select", "add", "modify", "delete", "print"] | int = None,
-        key: str = None,
-        value: str = None,
+        mode: Literal["select", "add", "modify", "delete", "print"] | int | None = None,
+        key: str | None = None,
+        value: str | None = None,
         function: Literal[
             "same_str", "starts_with", "less", "equal", "greater", "expr", "ends_with"
         ]
-        | int = None,
-        expr: str = None,
-        file: str = None,
-        direct: bool = None,
+        | int
+        | None = None,
+        expr: str | None = None,
+        file: str | None = None,
+        direct: bool | None = None,
     ) -> "Stream":
         """Manipulate video frame metadata."""
         return self._apply_filter(
@@ -7150,7 +7382,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def midequalizer(self, in1_stream: "Stream", planes: int = None) -> "Stream":
+    def midequalizer(self, in1_stream: "Stream", planes: int | None = None) -> "Stream":
         """Apply Midway Equalization."""
         return self._apply_filter(
             filter_name="midequalizer",
@@ -7162,17 +7394,18 @@ class GeneratedFiltersMixin:
 
     def minterpolate(
         self,
-        fps: str = None,
-        mi_mode: Literal["dup", "blend", "mci"] | int = None,
-        mc_mode: Literal["obmc", "aobmc"] | int = None,
-        me_mode: Literal["bidir", "bilat"] | int = None,
+        fps: str | None = None,
+        mi_mode: Literal["dup", "blend", "mci"] | int | None = None,
+        mc_mode: Literal["obmc", "aobmc"] | int | None = None,
+        me_mode: Literal["bidir", "bilat"] | int | None = None,
         me: Literal["esa", "tss", "tdls", "ntss", "fss", "ds", "hexbs", "epzs", "umh"]
-        | int = None,
-        mb_size: int = None,
-        search_param: int = None,
-        vsbmc: int = None,
-        scd: Literal["none", "fdiff"] | int = None,
-        scd_threshold: float = None,
+        | int
+        | None = None,
+        mb_size: int | None = None,
+        search_param: int | None = None,
+        vsbmc: int | None = None,
+        scd: Literal["none", "fdiff"] | int | None = None,
+        scd_threshold: float | None = None,
     ) -> "Stream":
         """Frame rate conversion using Motion Interpolation."""
         return self._apply_filter(
@@ -7195,11 +7428,11 @@ class GeneratedFiltersMixin:
     def mix(
         self,
         *streams: "Stream",
-        inputs: int = None,
-        weights: str = None,
-        scale: float = None,
-        planes: str = None,
-        duration: Literal["longest", "shortest", "first"] | int = None,
+        inputs: int | None = None,
+        weights: str | None = None,
+        scale: float | None = None,
+        planes: str | None = None,
+        duration: Literal["longest", "shortest", "first"] | int | None = None,
     ) -> "Stream":
         """Mix video inputs."""
         return self._apply_filter(
@@ -7215,7 +7448,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def monochrome(
-        self, cb: float = None, cr: float = None, size: float = None, high: float = None
+        self,
+        cb: float | None = None,
+        cr: float | None = None,
+        size: float | None = None,
+        high: float | None = None,
     ) -> "Stream":
         """Convert video to gray using custom color filter."""
         return self._apply_filter(
@@ -7235,9 +7472,10 @@ class GeneratedFiltersMixin:
         mode: Literal[
             "erode", "dilate", "open", "close", "gradient", "tophat", "blackhat"
         ]
-        | int = None,
-        planes: int = None,
-        structure: Literal["first", "all"] | int = None,
+        | int
+        | None = None,
+        planes: int | None = None,
+        structure: Literal["first", "all"] | int | None = None,
     ) -> "Stream":
         """Apply Morphological filter."""
         return self._apply_filter(
@@ -7252,11 +7490,11 @@ class GeneratedFiltersMixin:
 
     def mpdecimate(
         self,
-        max: int = None,
-        keep: int = None,
-        hi: int = None,
-        lo: int = None,
-        frac: float = None,
+        max: int | None = None,
+        keep: int | None = None,
+        hi: int | None = None,
+        lo: int | None = None,
+        frac: float | None = None,
     ) -> "Stream":
         """Remove near-duplicate frames."""
         return self._apply_filter(
@@ -7280,9 +7518,9 @@ class GeneratedFiltersMixin:
     def multiply(
         self,
         factor_stream: "Stream",
-        scale: float = None,
-        offset: float = None,
-        planes: str = None,
+        scale: float | None = None,
+        offset: float | None = None,
+        planes: str | None = None,
     ) -> "Stream":
         """Multiply first video stream with second video stream."""
         return self._apply_filter(
@@ -7297,8 +7535,8 @@ class GeneratedFiltersMixin:
 
     def negate(
         self,
-        components: Literal["y", "u", "v", "r", "g", "b", "a"] = None,
-        negate_alpha: bool = None,
+        components: Literal["y", "u", "v", "r", "g", "b", "a"] | None = None,
+        negate_alpha: bool | None = None,
     ) -> "Stream":
         """Negate input video."""
         return self._apply_filter(
@@ -7312,11 +7550,11 @@ class GeneratedFiltersMixin:
 
     def nlmeans(
         self,
-        s: float = None,
-        p: int = None,
-        pc: int = None,
-        r: int = None,
-        rc: int = None,
+        s: float | None = None,
+        p: int | None = None,
+        pc: int | None = None,
+        r: int | None = None,
+        rc: int | None = None,
     ) -> "Stream":
         """Non-local means denoiser."""
         return self._apply_filter(
@@ -7333,16 +7571,17 @@ class GeneratedFiltersMixin:
 
     def nnedi(
         self,
-        weights: str = None,
-        deint: Literal["all", "interlaced"] | int = None,
-        field: Literal["af", "a", "t", "b", "tf", "bf"] | int = None,
-        planes: int = None,
+        weights: str | None = None,
+        deint: Literal["all", "interlaced"] | int | None = None,
+        field: Literal["af", "a", "t", "b", "tf", "bf"] | int | None = None,
+        planes: int | None = None,
         nsize: Literal["s8x6", "s16x6", "s32x6", "s48x6", "s8x4", "s16x4", "s32x4"]
-        | int = None,
-        nns: Literal["n16", "n32", "n64", "n128", "n256"] | int = None,
-        qual: Literal["fast", "slow"] | int = None,
-        etype: Literal["a", "abs", "s", "mse"] | int = None,
-        pscrn: Literal["none", "original", "new", "new2", "new3"] | int = None,
+        | int
+        | None = None,
+        nns: Literal["n16", "n32", "n64", "n128", "n256"] | int | None = None,
+        qual: Literal["fast", "slow"] | int | None = None,
+        etype: Literal["a", "abs", "s", "mse"] | int | None = None,
+        pscrn: Literal["none", "original", "new", "new2", "new3"] | int | None = None,
     ) -> "Stream":
         """Apply neural network edge directed interpolation intra-only deinterlacer."""
         return self._apply_filter(
@@ -7362,7 +7601,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def noformat(
-        self, pix_fmts: str = None, color_spaces: str = None, color_ranges: str = None
+        self,
+        pix_fmts: str | None = None,
+        color_spaces: str | None = None,
+        color_ranges: str | None = None,
     ) -> "Stream":
         """Force libavfilter not to use any of the specified pixel formats for the input to the next filter."""
         return self._apply_filter(
@@ -7377,31 +7619,31 @@ class GeneratedFiltersMixin:
 
     def noise(
         self,
-        all_seed: int = None,
-        all_strength: int = None,
-        alls: int = None,
-        all_flags: Literal["a", "p", "t", "u"] = None,
-        allf: Literal["a", "p", "t", "u"] = None,
-        c0_seed: int = None,
-        c0_strength: int = None,
-        c0s: int = None,
-        c0_flags: Literal["a", "p", "t", "u"] = None,
-        c0f: Literal["a", "p", "t", "u"] = None,
-        c1_seed: int = None,
-        c1_strength: int = None,
-        c1s: int = None,
-        c1_flags: Literal["a", "p", "t", "u"] = None,
-        c1f: Literal["a", "p", "t", "u"] = None,
-        c2_seed: int = None,
-        c2_strength: int = None,
-        c2s: int = None,
-        c2_flags: Literal["a", "p", "t", "u"] = None,
-        c2f: Literal["a", "p", "t", "u"] = None,
-        c3_seed: int = None,
-        c3_strength: int = None,
-        c3s: int = None,
-        c3_flags: Literal["a", "p", "t", "u"] = None,
-        c3f: Literal["a", "p", "t", "u"] = None,
+        all_seed: int | None = None,
+        all_strength: int | None = None,
+        alls: int | None = None,
+        all_flags: Literal["a", "p", "t", "u"] | None = None,
+        allf: Literal["a", "p", "t", "u"] | None = None,
+        c0_seed: int | None = None,
+        c0_strength: int | None = None,
+        c0s: int | None = None,
+        c0_flags: Literal["a", "p", "t", "u"] | None = None,
+        c0f: Literal["a", "p", "t", "u"] | None = None,
+        c1_seed: int | None = None,
+        c1_strength: int | None = None,
+        c1s: int | None = None,
+        c1_flags: Literal["a", "p", "t", "u"] | None = None,
+        c1f: Literal["a", "p", "t", "u"] | None = None,
+        c2_seed: int | None = None,
+        c2_strength: int | None = None,
+        c2s: int | None = None,
+        c2_flags: Literal["a", "p", "t", "u"] | None = None,
+        c2f: Literal["a", "p", "t", "u"] | None = None,
+        c3_seed: int | None = None,
+        c3_strength: int | None = None,
+        c3s: int | None = None,
+        c3_flags: Literal["a", "p", "t", "u"] | None = None,
+        c3f: Literal["a", "p", "t", "u"] | None = None,
     ) -> "Stream":
         """Add noise."""
         return self._apply_filter(
@@ -7438,11 +7680,11 @@ class GeneratedFiltersMixin:
 
     def normalize(
         self,
-        blackpt: str = None,
-        whitept: str = None,
-        smoothing: int = None,
-        independence: float = None,
-        strength: float = None,
+        blackpt: str | None = None,
+        whitept: str | None = None,
+        smoothing: int | None = None,
+        independence: float | None = None,
+        strength: float | None = None,
     ) -> "Stream":
         """Normalize RGB video."""
         return self._apply_filter(
@@ -7465,10 +7707,10 @@ class GeneratedFiltersMixin:
 
     def ocr(
         self,
-        datapath: str = None,
-        language: str = None,
-        whitelist: str = None,
-        blacklist: str = None,
+        datapath: str | None = None,
+        language: str | None = None,
+        whitelist: str | None = None,
+        blacklist: str | None = None,
     ) -> "Stream":
         """Optical Character Recognition."""
         return self._apply_filter(
@@ -7484,19 +7726,19 @@ class GeneratedFiltersMixin:
 
     def oscilloscope(
         self,
-        x: float = None,
-        y: float = None,
-        s: float = None,
-        t: float = None,
-        o: float = None,
-        tx: float = None,
-        ty: float = None,
-        tw: float = None,
-        th: float = None,
-        c: int = None,
-        g: bool = None,
-        st: bool = None,
-        sc: bool = None,
+        x: float | None = None,
+        y: float | None = None,
+        s: float | None = None,
+        t: float | None = None,
+        o: float | None = None,
+        tx: float | None = None,
+        ty: float | None = None,
+        tw: float | None = None,
+        th: float | None = None,
+        c: int | None = None,
+        g: bool | None = None,
+        st: bool | None = None,
+        sc: bool | None = None,
     ) -> "Stream":
         """2D Video Oscilloscope."""
         return self._apply_filter(
@@ -7522,11 +7764,11 @@ class GeneratedFiltersMixin:
     def overlay(
         self,
         overlay_stream: "Stream",
-        x: str = None,
-        y: str = None,
-        eof_action: Literal["repeat", "endall", "pass"] | int = None,
-        eval: Literal["init", "frame"] | int = None,
-        shortest: bool = None,
+        x: str | None = None,
+        y: str | None = None,
+        eof_action: Literal["repeat", "endall", "pass"] | int | None = None,
+        eval: Literal["init", "frame"] | int | None = None,
+        shortest: bool | None = None,
         format: Literal[
             "yuv420",
             "yuv420p10",
@@ -7538,9 +7780,10 @@ class GeneratedFiltersMixin:
             "gbrp",
             "auto",
         ]
-        | int = None,
-        repeatlast: bool = None,
-        alpha: Literal["straight", "premultiplied"] | int = None,
+        | int
+        | None = None,
+        repeatlast: bool | None = None,
+        alpha: Literal["straight", "premultiplied"] | int | None = None,
     ) -> "Stream":
         """Overlay a video source on top of the input."""
         return self._apply_filter(
@@ -7560,11 +7803,11 @@ class GeneratedFiltersMixin:
 
     def owdenoise(
         self,
-        depth: int = None,
-        luma_strength: float = None,
-        ls: float = None,
-        chroma_strength: float = None,
-        cs: float = None,
+        depth: int | None = None,
+        luma_strength: float | None = None,
+        ls: float | None = None,
+        chroma_strength: float | None = None,
+        cs: float | None = None,
     ) -> "Stream":
         """Denoise using wavelets."""
         return self._apply_filter(
@@ -7581,15 +7824,15 @@ class GeneratedFiltersMixin:
 
     def pad(
         self,
-        width: str = None,
-        w: str = None,
-        height: str = None,
-        h: str = None,
-        x: str = None,
-        y: str = None,
-        color: str = None,
-        eval: Literal["init", "frame"] | int = None,
-        aspect: str = None,
+        width: str | None = None,
+        w: str | None = None,
+        height: str | None = None,
+        h: str | None = None,
+        x: str | None = None,
+        y: str | None = None,
+        color: str | None = None,
+        eval: Literal["init", "frame"] | int | None = None,
+        aspect: str | None = None,
     ) -> "Stream":
         """Pad the input video."""
         return self._apply_filter(
@@ -7610,10 +7853,10 @@ class GeneratedFiltersMixin:
 
     def palettegen(
         self,
-        max_colors: int = None,
-        reserve_transparent: bool = None,
-        transparency_color: str = None,
-        stats_mode: Literal["full", "diff", "single"] | int = None,
+        max_colors: int | None = None,
+        reserve_transparent: bool | None = None,
+        transparency_color: str | None = None,
+        stats_mode: Literal["full", "diff", "single"] | int | None = None,
     ) -> "Stream":
         """Find the optimal palette for a given stream."""
         return self._apply_filter(
@@ -7640,12 +7883,13 @@ class GeneratedFiltersMixin:
             "burkes",
             "atkinson",
         ]
-        | int = None,
-        bayer_scale: int = None,
-        diff_mode: Literal["rectangle"] | int = None,
-        new: bool = None,
-        alpha_threshold: int = None,
-        debug_kdtree: str = None,
+        | int
+        | None = None,
+        bayer_scale: int | None = None,
+        diff_mode: Literal["rectangle"] | int | None = None,
+        new: bool | None = None,
+        alpha_threshold: int | None = None,
+        debug_kdtree: str | None = None,
     ) -> "Stream":
         """Use a palette to downsample an input video stream."""
         return self._apply_filter(
@@ -7661,7 +7905,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def pan(self, args: str = None) -> "Stream":
+    def pan(self, args: str | None = None) -> "Stream":
         """Remix channels with coefficients (panning)."""
         return self._apply_filter(
             filter_name="pan",
@@ -7673,8 +7917,8 @@ class GeneratedFiltersMixin:
 
     def perms(
         self,
-        mode: Literal["none", "ro", "rw", "toggle", "random"] | int = None,
-        seed: str = None,
+        mode: Literal["none", "ro", "rw", "toggle", "random"] | int | None = None,
+        seed: str | None = None,
     ) -> "Stream":
         """Set permissions for the output video frame."""
         return self._apply_filter(
@@ -7688,17 +7932,17 @@ class GeneratedFiltersMixin:
 
     def perspective(
         self,
-        x0: str = None,
-        y0: str = None,
-        x1: str = None,
-        y1: str = None,
-        x2: str = None,
-        y2: str = None,
-        x3: str = None,
-        y3: str = None,
-        interpolation: Literal["linear", "cubic"] | int = None,
-        sense: Literal["source", "destination"] | int = None,
-        eval: Literal["init", "frame"] | int = None,
+        x0: str | None = None,
+        y0: str | None = None,
+        x1: str | None = None,
+        y1: str | None = None,
+        x2: str | None = None,
+        y2: str | None = None,
+        x3: str | None = None,
+        y3: str | None = None,
+        interpolation: Literal["linear", "cubic"] | int | None = None,
+        sense: Literal["source", "destination"] | int | None = None,
+        eval: Literal["init", "frame"] | int | None = None,
     ) -> "Stream":
         """Correct the perspective of video."""
         return self._apply_filter(
@@ -7720,7 +7964,8 @@ class GeneratedFiltersMixin:
         )[0]
 
     def phase(
-        self, mode: Literal["p", "t", "b", "T", "B", "u", "U", "a", "A"] | int = None
+        self,
+        mode: Literal["p", "t", "b", "T", "B", "u", "U", "a", "A"] | int | None = None,
     ) -> "Stream":
         """Phase shift fields."""
         return self._apply_filter(
@@ -7733,12 +7978,12 @@ class GeneratedFiltersMixin:
 
     def photosensitivity(
         self,
-        frames: int = None,
-        f: int = None,
-        threshold: float = None,
-        t: float = None,
-        skip: int = None,
-        bypass: bool = None,
+        frames: int | None = None,
+        f: int | None = None,
+        threshold: float | None = None,
+        t: float | None = None,
+        skip: int | None = None,
+        bypass: bool | None = None,
     ) -> "Stream":
         """Filter out photosensitive epilepsy seizure-inducing flashes."""
         return self._apply_filter(
@@ -7762,14 +8007,14 @@ class GeneratedFiltersMixin:
 
     def pixelize(
         self,
-        width: int = None,
-        w: int = None,
-        height: int = None,
-        h: int = None,
-        mode: Literal["avg", "min", "max"] | int = None,
-        m: Literal["avg", "min", "max"] | int = None,
-        planes: str = None,
-        p: str = None,
+        width: int | None = None,
+        w: int | None = None,
+        height: int | None = None,
+        h: int | None = None,
+        mode: Literal["avg", "min", "max"] | int | None = None,
+        m: Literal["avg", "min", "max"] | int | None = None,
+        planes: str | None = None,
+        p: str | None = None,
     ) -> "Stream":
         """Pixelize video."""
         return self._apply_filter(
@@ -7789,13 +8034,13 @@ class GeneratedFiltersMixin:
 
     def pixscope(
         self,
-        x: float = None,
-        y: float = None,
-        w: int = None,
-        h: int = None,
-        o: float = None,
-        wx: float = None,
-        wy: float = None,
+        x: float | None = None,
+        y: float | None = None,
+        w: int | None = None,
+        h: int | None = None,
+        o: float | None = None,
+        wx: float | None = None,
+        wy: float | None = None,
     ) -> "Stream":
         """Pixel data analysis."""
         return self._apply_filter(
@@ -7813,7 +8058,9 @@ class GeneratedFiltersMixin:
         )[0]
 
     def pp7(
-        self, qp: int = None, mode: Literal["hard", "soft", "medium"] | int = None
+        self,
+        qp: int | None = None,
+        mode: Literal["hard", "soft", "medium"] | int | None = None,
     ) -> "Stream":
         """Apply Postprocessing 7 filter."""
         return self._apply_filter(
@@ -7826,7 +8073,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def premultiply(
-        self, *streams: "Stream", planes: int = None, inplace: bool = None
+        self, *streams: "Stream", planes: int | None = None, inplace: bool | None = None
     ) -> "Stream":
         """PreMultiply first stream with first plane of second stream."""
         return self._apply_filter(
@@ -7839,7 +8086,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def prewitt(
-        self, planes: int = None, scale: float = None, delta: float = None
+        self,
+        planes: int | None = None,
+        scale: float | None = None,
+        delta: float | None = None,
     ) -> "Stream":
         """Apply prewitt operator."""
         return self._apply_filter(
@@ -7854,12 +8104,12 @@ class GeneratedFiltersMixin:
 
     def pseudocolor(
         self,
-        c0: str = None,
-        c1: str = None,
-        c2: str = None,
-        c3: str = None,
-        index: int = None,
-        i: int = None,
+        c0: str | None = None,
+        c1: str | None = None,
+        c2: str | None = None,
+        c3: str | None = None,
+        index: int | None = None,
+        i: int | None = None,
         preset: Literal[
             "none",
             "magma",
@@ -7884,7 +8134,8 @@ class GeneratedFiltersMixin:
             "green",
             "helix",
         ]
-        | int = None,
+        | int
+        | None = None,
         p: Literal[
             "none",
             "magma",
@@ -7909,8 +8160,9 @@ class GeneratedFiltersMixin:
             "green",
             "helix",
         ]
-        | int = None,
-        opacity: float = None,
+        | int
+        | None = None,
+        opacity: float | None = None,
     ) -> "Stream":
         """Make pseudocolored video frames."""
         return self._apply_filter(
@@ -7932,10 +8184,10 @@ class GeneratedFiltersMixin:
     def psnr(
         self,
         reference_stream: "Stream",
-        stats_file: str = None,
-        f: str = None,
-        stats_version: int = None,
-        output_max: bool = None,
+        stats_file: str | None = None,
+        f: str | None = None,
+        stats_version: int | None = None,
+        output_max: bool | None = None,
     ) -> "Stream":
         """Calculate the PSNR between two video streams."""
         return self._apply_filter(
@@ -7951,12 +8203,12 @@ class GeneratedFiltersMixin:
 
     def pullup(
         self,
-        jl: int = None,
-        jr: int = None,
-        jt: int = None,
-        jb: int = None,
-        sb: bool = None,
-        mp: Literal["y", "u", "v"] | int = None,
+        jl: int | None = None,
+        jr: int | None = None,
+        jt: int | None = None,
+        jb: int | None = None,
+        sb: bool | None = None,
+        mp: Literal["y", "u", "v"] | int | None = None,
     ) -> "Stream":
         """Pullup from field sequence to frames."""
         return self._apply_filter(
@@ -7972,7 +8224,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def qp(self, qp: str = None) -> "Stream":
+    def qp(self, qp: str | None = None) -> "Stream":
         """Change video quantization parameters."""
         return self._apply_filter(
             filter_name="qp",
@@ -7982,7 +8234,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def random(self, frames: int = None, seed: str = None) -> "Stream":
+    def random(self, frames: int | None = None, seed: str | None = None) -> "Stream":
         """Return random frames."""
         return self._apply_filter(
             filter_name="random",
@@ -7995,11 +8247,11 @@ class GeneratedFiltersMixin:
 
     def readeia608(
         self,
-        scan_min: int = None,
-        scan_max: int = None,
-        spw: float = None,
-        chp: bool = None,
-        lp: bool = None,
+        scan_min: int | None = None,
+        scan_max: int | None = None,
+        spw: float | None = None,
+        chp: bool | None = None,
+        lp: bool | None = None,
     ) -> "Stream":
         """Read EIA-608 Closed Caption codes from input video and write them to frame metadata."""
         return self._apply_filter(
@@ -8015,7 +8267,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def readvitc(
-        self, scan_max: int = None, thr_b: float = None, thr_w: float = None
+        self,
+        scan_max: int | None = None,
+        thr_b: float | None = None,
+        thr_w: float | None = None,
     ) -> "Stream":
         """Read vertical interval timecode and write it to frame metadata."""
         return self._apply_filter(
@@ -8028,7 +8283,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def realtime(self, limit: str = None, speed: float = None) -> "Stream":
+    def realtime(
+        self, limit: str | None = None, speed: float | None = None
+    ) -> "Stream":
         """Slow down filtering to match realtime."""
         return self._apply_filter(
             filter_name="realtime",
@@ -8043,8 +8300,8 @@ class GeneratedFiltersMixin:
         self,
         xmap_stream: "Stream",
         ymap_stream: "Stream",
-        format: Literal["color", "gray"] | int = None,
-        fill: str = None,
+        format: Literal["color", "gray"] | int | None = None,
+        fill: str | None = None,
     ) -> "Stream":
         """Remap pixels."""
         return self._apply_filter(
@@ -8057,7 +8314,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def removegrain(
-        self, m0: int = None, m1: int = None, m2: int = None, m3: int = None
+        self,
+        m0: int | None = None,
+        m1: int | None = None,
+        m2: int | None = None,
+        m3: int | None = None,
     ) -> "Stream":
         """Remove grain."""
         return self._apply_filter(
@@ -8071,7 +8332,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def removelogo(self, filename: str = None, f: str = None) -> "Stream":
+    def removelogo(self, filename: str | None = None, f: str | None = None) -> "Stream":
         """Remove a TV logo based on a mask image."""
         return self._apply_filter(
             filter_name="removelogo",
@@ -8089,7 +8350,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def replaygain(
-        self, track_gain: float = None, track_peak: float = None
+        self, track_gain: float | None = None, track_peak: float | None = None
     ) -> "Stream":
         """ReplayGain scanner."""
         return self._apply_filter(
@@ -8109,15 +8370,15 @@ class GeneratedFiltersMixin:
 
     def rgbashift(
         self,
-        rh: int = None,
-        rv: int = None,
-        gh: int = None,
-        gv: int = None,
-        bh: int = None,
-        bv: int = None,
-        ah: int = None,
-        av: int = None,
-        edge: Literal["smear", "wrap"] | int = None,
+        rh: int | None = None,
+        rv: int | None = None,
+        gh: int | None = None,
+        gv: int | None = None,
+        bh: int | None = None,
+        bv: int | None = None,
+        ah: int | None = None,
+        av: int | None = None,
+        edge: Literal["smear", "wrap"] | int | None = None,
     ) -> "Stream":
         """Shift RGBA."""
         return self._apply_filter(
@@ -8137,7 +8398,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def roberts(
-        self, planes: int = None, scale: float = None, delta: float = None
+        self,
+        planes: int | None = None,
+        scale: float | None = None,
+        delta: float | None = None,
     ) -> "Stream":
         """Apply roberts cross operator."""
         return self._apply_filter(
@@ -8152,15 +8416,15 @@ class GeneratedFiltersMixin:
 
     def rotate(
         self,
-        angle: str = None,
-        a: str = None,
-        out_w: str = None,
-        ow: str = None,
-        out_h: str = None,
-        oh: str = None,
-        fillcolor: str = None,
-        c: str = None,
-        bilinear: bool = None,
+        angle: str | None = None,
+        a: str | None = None,
+        out_w: str | None = None,
+        ow: str | None = None,
+        out_h: str | None = None,
+        oh: str | None = None,
+        fillcolor: str | None = None,
+        c: str | None = None,
+        bilinear: bool | None = None,
     ) -> "Stream":
         """Rotate the input image."""
         return self._apply_filter(
@@ -8181,16 +8445,16 @@ class GeneratedFiltersMixin:
 
     def rubberband(
         self,
-        tempo: float = None,
-        pitch: float = None,
-        transients: Literal["crisp", "mixed", "smooth"] | int = None,
-        detector: Literal["compound", "percussive", "soft"] | int = None,
-        phase: Literal["laminar", "independent"] | int = None,
-        window: Literal["standard", "short", "long"] | int = None,
-        smoothing: Literal["off", "on"] | int = None,
-        formant: Literal["shifted", "preserved"] | int = None,
-        pitchq: Literal["quality", "speed", "consistency"] | int = None,
-        channels: Literal["apart", "together"] | int = None,
+        tempo: float | None = None,
+        pitch: float | None = None,
+        transients: Literal["crisp", "mixed", "smooth"] | int | None = None,
+        detector: Literal["compound", "percussive", "soft"] | int | None = None,
+        phase: Literal["laminar", "independent"] | int | None = None,
+        window: Literal["standard", "short", "long"] | int | None = None,
+        smoothing: Literal["off", "on"] | int | None = None,
+        formant: Literal["shifted", "preserved"] | int | None = None,
+        pitchq: Literal["quality", "speed", "consistency"] | int | None = None,
+        channels: Literal["apart", "together"] | int | None = None,
     ) -> "Stream":
         """Apply time-stretching and pitch-shifting."""
         return self._apply_filter(
@@ -8212,18 +8476,18 @@ class GeneratedFiltersMixin:
 
     def sab(
         self,
-        luma_radius: float = None,
-        lr: float = None,
-        luma_pre_filter_radius: float = None,
-        lpfr: float = None,
-        luma_strength: float = None,
-        ls: float = None,
-        chroma_radius: float = None,
-        cr: float = None,
-        chroma_pre_filter_radius: float = None,
-        cpfr: float = None,
-        chroma_strength: float = None,
-        cs: float = None,
+        luma_radius: float | None = None,
+        lr: float | None = None,
+        luma_pre_filter_radius: float | None = None,
+        lpfr: float | None = None,
+        luma_strength: float | None = None,
+        ls: float | None = None,
+        chroma_radius: float | None = None,
+        cr: float | None = None,
+        chroma_pre_filter_radius: float | None = None,
+        cpfr: float | None = None,
+        chroma_strength: float | None = None,
+        cs: float | None = None,
     ) -> "Stream":
         """Apply shape adaptive blur."""
         return self._apply_filter(
@@ -8247,30 +8511,34 @@ class GeneratedFiltersMixin:
 
     def scale(
         self,
-        w: str = None,
-        width: str = None,
-        h: str = None,
-        height: str = None,
-        flags: str = None,
-        interl: bool = None,
-        size: str = None,
-        s: str = None,
+        w: str | None = None,
+        width: str | None = None,
+        h: str | None = None,
+        height: str | None = None,
+        flags: str | None = None,
+        interl: bool | None = None,
+        size: str | None = None,
+        s: str | None = None,
         in_color_matrix: Literal[
             "auto", "bt601", "bt470", "smpte170m", "bt709", "fcc", "smpte240m", "bt2020"
         ]
-        | int = None,
+        | int
+        | None = None,
         out_color_matrix: Literal[
             "auto", "bt601", "bt470", "smpte170m", "bt709", "fcc", "smpte240m", "bt2020"
         ]
-        | int = None,
+        | int
+        | None = None,
         in_range: Literal[
             "auto", "unknown", "full", "limited", "jpeg", "mpeg", "tv", "pc"
         ]
-        | int = None,
+        | int
+        | None = None,
         out_range: Literal[
             "auto", "unknown", "full", "limited", "jpeg", "mpeg", "tv", "pc"
         ]
-        | int = None,
+        | int
+        | None = None,
         in_chroma_loc: Literal[
             "auto",
             "unknown",
@@ -8281,7 +8549,8 @@ class GeneratedFiltersMixin:
             "bottomleft",
             "bottom",
         ]
-        | int = None,
+        | int
+        | None = None,
         out_chroma_loc: Literal[
             "auto",
             "unknown",
@@ -8292,7 +8561,8 @@ class GeneratedFiltersMixin:
             "bottomleft",
             "bottom",
         ]
-        | int = None,
+        | int
+        | None = None,
         in_primaries: Literal[
             "auto",
             "bt709",
@@ -8308,7 +8578,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         out_primaries: Literal[
             "auto",
             "bt709",
@@ -8324,7 +8595,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         in_transfer: Literal[
             "auto",
             "bt709",
@@ -8346,7 +8618,8 @@ class GeneratedFiltersMixin:
             "smpte428",
             "arib-std-b67",
         ]
-        | int = None,
+        | int
+        | None = None,
         out_transfer: Literal[
             "auto",
             "bt709",
@@ -8368,18 +8641,20 @@ class GeneratedFiltersMixin:
             "smpte428",
             "arib-std-b67",
         ]
-        | int = None,
-        in_v_chr_pos: int = None,
-        in_h_chr_pos: int = None,
-        out_v_chr_pos: int = None,
-        out_h_chr_pos: int = None,
+        | int
+        | None = None,
+        in_v_chr_pos: int | None = None,
+        in_h_chr_pos: int | None = None,
+        out_v_chr_pos: int | None = None,
+        out_h_chr_pos: int | None = None,
         force_original_aspect_ratio: Literal["disable", "decrease", "increase"]
-        | int = None,
-        force_divisible_by: int = None,
-        reset_sar: bool = None,
-        param0: float = None,
-        param1: float = None,
-        eval: Literal["init", "frame"] | int = None,
+        | int
+        | None = None,
+        force_divisible_by: int | None = None,
+        reset_sar: bool | None = None,
+        param0: float | None = None,
+        param1: float | None = None,
+        eval: Literal["init", "frame"] | int | None = None,
     ) -> "Stream":
         """Scale the input video size and/or convert the image format."""
         return self._apply_filter(
@@ -8420,30 +8695,34 @@ class GeneratedFiltersMixin:
     def scale2ref(
         self,
         ref_stream: "Stream",
-        w: str = None,
-        width: str = None,
-        h: str = None,
-        height: str = None,
-        flags: str = None,
-        interl: bool = None,
-        size: str = None,
-        s: str = None,
+        w: str | None = None,
+        width: str | None = None,
+        h: str | None = None,
+        height: str | None = None,
+        flags: str | None = None,
+        interl: bool | None = None,
+        size: str | None = None,
+        s: str | None = None,
         in_color_matrix: Literal[
             "auto", "bt601", "bt470", "smpte170m", "bt709", "fcc", "smpte240m", "bt2020"
         ]
-        | int = None,
+        | int
+        | None = None,
         out_color_matrix: Literal[
             "auto", "bt601", "bt470", "smpte170m", "bt709", "fcc", "smpte240m", "bt2020"
         ]
-        | int = None,
+        | int
+        | None = None,
         in_range: Literal[
             "auto", "unknown", "full", "limited", "jpeg", "mpeg", "tv", "pc"
         ]
-        | int = None,
+        | int
+        | None = None,
         out_range: Literal[
             "auto", "unknown", "full", "limited", "jpeg", "mpeg", "tv", "pc"
         ]
-        | int = None,
+        | int
+        | None = None,
         in_chroma_loc: Literal[
             "auto",
             "unknown",
@@ -8454,7 +8733,8 @@ class GeneratedFiltersMixin:
             "bottomleft",
             "bottom",
         ]
-        | int = None,
+        | int
+        | None = None,
         out_chroma_loc: Literal[
             "auto",
             "unknown",
@@ -8465,7 +8745,8 @@ class GeneratedFiltersMixin:
             "bottomleft",
             "bottom",
         ]
-        | int = None,
+        | int
+        | None = None,
         in_primaries: Literal[
             "auto",
             "bt709",
@@ -8481,7 +8762,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         out_primaries: Literal[
             "auto",
             "bt709",
@@ -8497,7 +8779,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         in_transfer: Literal[
             "auto",
             "bt709",
@@ -8519,7 +8802,8 @@ class GeneratedFiltersMixin:
             "smpte428",
             "arib-std-b67",
         ]
-        | int = None,
+        | int
+        | None = None,
         out_transfer: Literal[
             "auto",
             "bt709",
@@ -8541,18 +8825,20 @@ class GeneratedFiltersMixin:
             "smpte428",
             "arib-std-b67",
         ]
-        | int = None,
-        in_v_chr_pos: int = None,
-        in_h_chr_pos: int = None,
-        out_v_chr_pos: int = None,
-        out_h_chr_pos: int = None,
+        | int
+        | None = None,
+        in_v_chr_pos: int | None = None,
+        in_h_chr_pos: int | None = None,
+        out_v_chr_pos: int | None = None,
+        out_h_chr_pos: int | None = None,
         force_original_aspect_ratio: Literal["disable", "decrease", "increase"]
-        | int = None,
-        force_divisible_by: int = None,
-        reset_sar: bool = None,
-        param0: float = None,
-        param1: float = None,
-        eval: Literal["init", "frame"] | int = None,
+        | int
+        | None = None,
+        force_divisible_by: int | None = None,
+        reset_sar: bool | None = None,
+        param0: float | None = None,
+        param1: float | None = None,
+        eval: Literal["init", "frame"] | int | None = None,
     ) -> list["Stream"]:
         """Scale the input video size and/or convert the image format to the given reference."""
         return self._apply_filter(
@@ -8593,11 +8879,11 @@ class GeneratedFiltersMixin:
 
     def scale_vt(
         self,
-        w: str = None,
-        h: str = None,
-        color_matrix: str = None,
-        color_primaries: str = None,
-        color_transfer: str = None,
+        w: str | None = None,
+        h: str | None = None,
+        color_matrix: str | None = None,
+        color_primaries: str | None = None,
+        color_transfer: str | None = None,
     ) -> "Stream":
         """Scale Videotoolbox frames"""
         return self._apply_filter(
@@ -8614,10 +8900,10 @@ class GeneratedFiltersMixin:
 
     def scdet(
         self,
-        threshold: float = None,
-        t: float = None,
-        sc_pass: bool = None,
-        s: bool = None,
+        threshold: float | None = None,
+        t: float | None = None,
+        sc_pass: bool | None = None,
+        s: bool | None = None,
     ) -> "Stream":
         """Detect video scene change"""
         return self._apply_filter(
@@ -8632,7 +8918,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def scharr(
-        self, planes: int = None, scale: float = None, delta: float = None
+        self,
+        planes: int | None = None,
+        scale: float | None = None,
+        delta: float | None = None,
     ) -> "Stream":
         """Apply scharr operator."""
         return self._apply_filter(
@@ -8647,12 +8936,12 @@ class GeneratedFiltersMixin:
 
     def scroll(
         self,
-        horizontal: float = None,
-        h: float = None,
-        vertical: float = None,
-        v: float = None,
-        hpos: float = None,
-        vpos: float = None,
+        horizontal: float | None = None,
+        h: float | None = None,
+        vertical: float | None = None,
+        v: float | None = None,
+        hpos: float | None = None,
+        vpos: float | None = None,
     ) -> "Stream":
         """Scroll input video."""
         return self._apply_filter(
@@ -8669,7 +8958,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def segment(
-        self, timestamps: str = None, frames: str = None
+        self, timestamps: str | None = None, frames: str | None = None
     ) -> "FilterMultiOutput":
         """Segment video stream."""
         return self._apply_dynamic_outputs_filter(
@@ -8682,7 +8971,11 @@ class GeneratedFiltersMixin:
         )
 
     def select(
-        self, expr: str = None, e: str = None, outputs: int = None, n: int = None
+        self,
+        expr: str | None = None,
+        e: str | None = None,
+        outputs: int | None = None,
+        n: int | None = None,
     ) -> "FilterMultiOutput":
         """Select video frames to pass in output."""
         return self._apply_dynamic_outputs_filter(
@@ -8698,17 +8991,17 @@ class GeneratedFiltersMixin:
 
     def selectivecolor(
         self,
-        correction_method: Literal["absolute", "relative"] | int = None,
-        reds: str = None,
-        yellows: str = None,
-        greens: str = None,
-        cyans: str = None,
-        blues: str = None,
-        magentas: str = None,
-        whites: str = None,
-        neutrals: str = None,
-        blacks: str = None,
-        psfile: str = None,
+        correction_method: Literal["absolute", "relative"] | int | None = None,
+        reds: str | None = None,
+        yellows: str | None = None,
+        greens: str | None = None,
+        cyans: str | None = None,
+        blues: str | None = None,
+        magentas: str | None = None,
+        whites: str | None = None,
+        neutrals: str | None = None,
+        blacks: str | None = None,
+        psfile: str | None = None,
     ) -> "Stream":
         """Apply CMYK adjustments to specific color ranges."""
         return self._apply_filter(
@@ -8730,7 +9023,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def sendcmd(
-        self, commands: str = None, c: str = None, filename: str = None, f: str = None
+        self,
+        commands: str | None = None,
+        c: str | None = None,
+        filename: str | None = None,
+        f: str | None = None,
     ) -> "Stream":
         """Send commands to filters."""
         return self._apply_filter(
@@ -8751,7 +9048,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def setdar(
-        self, dar: str = None, ratio: str = None, r: str = None, max: int = None
+        self,
+        dar: str | None = None,
+        ratio: str | None = None,
+        r: str | None = None,
+        max: int | None = None,
     ) -> "Stream":
         """Set the frame display aspect ratio."""
         return self._apply_filter(
@@ -8766,7 +9067,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def setfield(
-        self, mode: Literal["auto", "bff", "tff", "prog"] | int = None
+        self, mode: Literal["auto", "bff", "tff", "prog"] | int | None = None
     ) -> "Stream":
         """Force field for the output video frame."""
         return self._apply_filter(
@@ -8779,7 +9080,7 @@ class GeneratedFiltersMixin:
 
     def setparams(
         self,
-        field_mode: Literal["auto", "bff", "tff", "prog"] | int = None,
+        field_mode: Literal["auto", "bff", "tff", "prog"] | int | None = None,
         range: Literal[
             "auto",
             "unspecified",
@@ -8791,7 +9092,8 @@ class GeneratedFiltersMixin:
             "pc",
             "jpeg",
         ]
-        | int = None,
+        | int
+        | None = None,
         color_primaries: Literal[
             "auto",
             "bt709",
@@ -8808,7 +9110,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         color_trc: Literal[
             "auto",
             "bt709",
@@ -8829,7 +9132,8 @@ class GeneratedFiltersMixin:
             "smpte428",
             "arib-std-b67",
         ]
-        | int = None,
+        | int
+        | None = None,
         colorspace: Literal[
             "auto",
             "gbr",
@@ -8850,7 +9154,8 @@ class GeneratedFiltersMixin:
             "ictcp",
             "ipt-c2",
         ]
-        | int = None,
+        | int
+        | None = None,
         chroma_location: Literal[
             "auto",
             "unspecified",
@@ -8862,7 +9167,8 @@ class GeneratedFiltersMixin:
             "bottomleft",
             "bottom",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Force field, or color property for the output video frame."""
         return self._apply_filter(
@@ -8878,7 +9184,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def setpts(self, expr: str = None, strip_fps: bool = None) -> "Stream":
+    def setpts(
+        self, expr: str | None = None, strip_fps: bool | None = None
+    ) -> "Stream":
         """Set PTS for the output video frame."""
         return self._apply_filter(
             filter_name="setpts",
@@ -8902,7 +9210,8 @@ class GeneratedFiltersMixin:
             "pc",
             "jpeg",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Force color range for the output video frame."""
         return self._apply_filter(
@@ -8914,7 +9223,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def setsar(
-        self, sar: str = None, ratio: str = None, r: str = None, max: int = None
+        self,
+        sar: str | None = None,
+        ratio: str | None = None,
+        r: str | None = None,
+        max: int | None = None,
     ) -> "Stream":
         """Set the pixel sample aspect ratio."""
         return self._apply_filter(
@@ -8928,7 +9241,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def settb(self, expr: str = None, tb: str = None) -> "Stream":
+    def settb(self, expr: str | None = None, tb: str | None = None) -> "Stream":
         """Set timebase for the video output link."""
         return self._apply_filter(
             filter_name="settb",
@@ -8941,11 +9254,11 @@ class GeneratedFiltersMixin:
 
     def shear(
         self,
-        shx: float = None,
-        shy: float = None,
-        fillcolor: str = None,
-        c: str = None,
-        interp: Literal["nearest", "bilinear"] | int = None,
+        shx: float | None = None,
+        shy: float | None = None,
+        fillcolor: str | None = None,
+        c: str | None = None,
+        interp: Literal["nearest", "bilinear"] | int | None = None,
     ) -> "Stream":
         """Shear transform the input image."""
         return self._apply_filter(
@@ -8962,39 +9275,39 @@ class GeneratedFiltersMixin:
 
     def showcqt(
         self,
-        size: str = None,
-        s: str = None,
-        fps: str = None,
-        rate: str = None,
-        r: str = None,
-        bar_h: int = None,
-        axis_h: int = None,
-        sono_h: int = None,
-        fullhd: bool = None,
-        sono_v: str = None,
-        volume: str = None,
-        bar_v: str = None,
-        volume2: str = None,
-        sono_g: float = None,
-        gamma: float = None,
-        bar_g: float = None,
-        gamma2: float = None,
-        bar_t: float = None,
-        timeclamp: float = None,
-        tc: float = None,
-        attack: float = None,
-        basefreq: float = None,
-        endfreq: float = None,
-        coeffclamp: float = None,
-        tlength: str = None,
-        count: int = None,
-        fcount: int = None,
-        fontfile: str = None,
-        font: str = None,
-        fontcolor: str = None,
-        axisfile: str = None,
-        axis: bool = None,
-        text: bool = None,
+        size: str | None = None,
+        s: str | None = None,
+        fps: str | None = None,
+        rate: str | None = None,
+        r: str | None = None,
+        bar_h: int | None = None,
+        axis_h: int | None = None,
+        sono_h: int | None = None,
+        fullhd: bool | None = None,
+        sono_v: str | None = None,
+        volume: str | None = None,
+        bar_v: str | None = None,
+        volume2: str | None = None,
+        sono_g: float | None = None,
+        gamma: float | None = None,
+        bar_g: float | None = None,
+        gamma2: float | None = None,
+        bar_t: float | None = None,
+        timeclamp: float | None = None,
+        tc: float | None = None,
+        attack: float | None = None,
+        basefreq: float | None = None,
+        endfreq: float | None = None,
+        coeffclamp: float | None = None,
+        tlength: str | None = None,
+        count: int | None = None,
+        fcount: int | None = None,
+        fontfile: str | None = None,
+        font: str | None = None,
+        fontcolor: str | None = None,
+        axisfile: str | None = None,
+        axis: bool | None = None,
+        text: bool | None = None,
         csp: Literal[
             "unspecified",
             "bt709",
@@ -9004,8 +9317,9 @@ class GeneratedFiltersMixin:
             "smpte240m",
             "bt2020ncl",
         ]
-        | int = None,
-        cscheme: str = None,
+        | int
+        | None = None,
+        cscheme: str | None = None,
     ) -> "Stream":
         """Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output."""
         return self._apply_filter(
@@ -9052,28 +9366,30 @@ class GeneratedFiltersMixin:
 
     def showcwt(
         self,
-        size: str = None,
-        s: str = None,
-        rate: str = None,
-        r: str = None,
+        size: str | None = None,
+        s: str | None = None,
+        rate: str | None = None,
+        r: str | None = None,
         scale: Literal[
             "linear", "log", "bark", "mel", "erbs", "sqrt", "cbrt", "qdrt", "fm"
         ]
-        | int = None,
-        iscale: Literal["linear", "log", "sqrt", "cbrt", "qdrt"] | int = None,
-        min: float = None,
-        max: float = None,
-        imin: float = None,
-        imax: float = None,
-        logb: float = None,
-        deviation: float = None,
-        pps: int = None,
+        | int
+        | None = None,
+        iscale: Literal["linear", "log", "sqrt", "cbrt", "qdrt"] | int | None = None,
+        min: float | None = None,
+        max: float | None = None,
+        imin: float | None = None,
+        imax: float | None = None,
+        logb: float | None = None,
+        deviation: float | None = None,
+        pps: int | None = None,
         mode: Literal["magnitude", "phase", "magphase", "channel", "stereo"]
-        | int = None,
-        slide: Literal["replace", "scroll", "frame"] | int = None,
-        direction: Literal["lr", "rl", "ud", "du"] | int = None,
-        bar: float = None,
-        rotation: float = None,
+        | int
+        | None = None,
+        slide: Literal["replace", "scroll", "frame"] | int | None = None,
+        direction: Literal["lr", "rl", "ud", "du"] | int | None = None,
+        bar: float | None = None,
+        rotation: float | None = None,
     ) -> "Stream":
         """Convert input audio to a CWT (Continuous Wavelet Transform) spectrum video output."""
         return self._apply_filter(
@@ -9103,14 +9419,14 @@ class GeneratedFiltersMixin:
 
     def showfreqs(
         self,
-        size: str = None,
-        s: str = None,
-        rate: str = None,
-        r: str = None,
-        mode: Literal["line", "bar", "dot"] | int = None,
-        ascale: Literal["lin", "sqrt", "cbrt", "log"] | int = None,
-        fscale: Literal["lin", "log", "rlog"] | int = None,
-        win_size: int = None,
+        size: str | None = None,
+        s: str | None = None,
+        rate: str | None = None,
+        r: str | None = None,
+        mode: Literal["line", "bar", "dot"] | int | None = None,
+        ascale: Literal["lin", "sqrt", "cbrt", "log"] | int | None = None,
+        fscale: Literal["lin", "log", "rlog"] | int | None = None,
+        win_size: int | None = None,
         win_func: Literal[
             "rect",
             "bartlett",
@@ -9135,14 +9451,15 @@ class GeneratedFiltersMixin:
             "bohman",
             "kaiser",
         ]
-        | int = None,
-        overlap: float = None,
-        averaging: int = None,
-        colors: str = None,
-        cmode: Literal["combined", "separate"] | int = None,
-        minamp: float = None,
-        data: Literal["magnitude", "phase", "delay"] | int = None,
-        channels: str = None,
+        | int
+        | None = None,
+        overlap: float | None = None,
+        averaging: int | None = None,
+        colors: str | None = None,
+        cmode: Literal["combined", "separate"] | int | None = None,
+        minamp: float | None = None,
+        data: Literal["magnitude", "phase", "delay"] | int | None = None,
+        channels: str | None = None,
     ) -> "Stream":
         """Convert input audio to a frequencies video output."""
         return self._apply_filter(
@@ -9169,7 +9486,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def showinfo(
-        self, checksum: bool = None, udu_sei_as_ascii: bool = None
+        self, checksum: bool | None = None, udu_sei_as_ascii: bool | None = None
     ) -> "Stream":
         """Show textual information for each video frame."""
         return self._apply_filter(
@@ -9181,7 +9498,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def showpalette(self, s: int = None) -> "Stream":
+    def showpalette(self, s: int | None = None) -> "Stream":
         """Display frame palette."""
         return self._apply_filter(
             filter_name="showpalette",
@@ -9193,9 +9510,9 @@ class GeneratedFiltersMixin:
 
     def showspatial(
         self,
-        size: str = None,
-        s: str = None,
-        win_size: int = None,
+        size: str | None = None,
+        s: str | None = None,
+        win_size: int | None = None,
         win_func: Literal[
             "rect",
             "bartlett",
@@ -9220,9 +9537,10 @@ class GeneratedFiltersMixin:
             "bohman",
             "kaiser",
         ]
-        | int = None,
-        rate: str = None,
-        r: str = None,
+        | int
+        | None = None,
+        rate: str | None = None,
+        r: str | None = None,
     ) -> "Stream":
         """Convert input audio to a spatial video output."""
         return self._apply_filter(
@@ -9240,11 +9558,12 @@ class GeneratedFiltersMixin:
 
     def showspectrum(
         self,
-        size: str = None,
-        s: str = None,
+        size: str | None = None,
+        s: str | None = None,
         slide: Literal["replace", "scroll", "fullframe", "rscroll", "lreplace"]
-        | int = None,
-        mode: Literal["combined", "separate"] | int = None,
+        | int
+        | None = None,
+        mode: Literal["combined", "separate"] | int | None = None,
         color: Literal[
             "channel",
             "intensity",
@@ -9262,10 +9581,13 @@ class GeneratedFiltersMixin:
             "cividis",
             "terrain",
         ]
-        | int = None,
-        scale: Literal["lin", "sqrt", "cbrt", "log", "4thrt", "5thrt"] | int = None,
-        fscale: Literal["lin", "log"] | int = None,
-        saturation: float = None,
+        | int
+        | None = None,
+        scale: Literal["lin", "sqrt", "cbrt", "log", "4thrt", "5thrt"]
+        | int
+        | None = None,
+        fscale: Literal["lin", "log"] | int | None = None,
+        saturation: float | None = None,
         win_func: Literal[
             "rect",
             "bartlett",
@@ -9290,19 +9612,20 @@ class GeneratedFiltersMixin:
             "bohman",
             "kaiser",
         ]
-        | int = None,
-        orientation: Literal["vertical", "horizontal"] | int = None,
-        overlap: float = None,
-        gain: float = None,
-        data: Literal["magnitude", "phase", "uphase"] | int = None,
-        rotation: float = None,
-        start: int = None,
-        stop: int = None,
-        fps: str = None,
-        legend: bool = None,
-        drange: float = None,
-        limit: float = None,
-        opacity: float = None,
+        | int
+        | None = None,
+        orientation: Literal["vertical", "horizontal"] | int | None = None,
+        overlap: float | None = None,
+        gain: float | None = None,
+        data: Literal["magnitude", "phase", "uphase"] | int | None = None,
+        rotation: float | None = None,
+        start: int | None = None,
+        stop: int | None = None,
+        fps: str | None = None,
+        legend: bool | None = None,
+        drange: float | None = None,
+        limit: float | None = None,
+        opacity: float | None = None,
     ) -> "Stream":
         """Convert input audio to a spectrum video output."""
         return self._apply_filter(
@@ -9335,9 +9658,9 @@ class GeneratedFiltersMixin:
 
     def showspectrumpic(
         self,
-        size: str = None,
-        s: str = None,
-        mode: Literal["combined", "separate"] | int = None,
+        size: str | None = None,
+        s: str | None = None,
+        mode: Literal["combined", "separate"] | int | None = None,
         color: Literal[
             "channel",
             "intensity",
@@ -9355,10 +9678,13 @@ class GeneratedFiltersMixin:
             "cividis",
             "terrain",
         ]
-        | int = None,
-        scale: Literal["lin", "sqrt", "cbrt", "log", "4thrt", "5thrt"] | int = None,
-        fscale: Literal["lin", "log"] | int = None,
-        saturation: float = None,
+        | int
+        | None = None,
+        scale: Literal["lin", "sqrt", "cbrt", "log", "4thrt", "5thrt"]
+        | int
+        | None = None,
+        fscale: Literal["lin", "log"] | int | None = None,
+        saturation: float | None = None,
         win_func: Literal[
             "rect",
             "bartlett",
@@ -9383,16 +9709,17 @@ class GeneratedFiltersMixin:
             "bohman",
             "kaiser",
         ]
-        | int = None,
-        orientation: Literal["vertical", "horizontal"] | int = None,
-        gain: float = None,
-        legend: bool = None,
-        rotation: float = None,
-        start: int = None,
-        stop: int = None,
-        drange: float = None,
-        limit: float = None,
-        opacity: float = None,
+        | int
+        | None = None,
+        orientation: Literal["vertical", "horizontal"] | int | None = None,
+        gain: float | None = None,
+        legend: bool | None = None,
+        rotation: float | None = None,
+        start: int | None = None,
+        stop: int | None = None,
+        drange: float | None = None,
+        limit: float | None = None,
+        opacity: float | None = None,
     ) -> "Stream":
         """Convert input audio to a spectrum video output single picture."""
         return self._apply_filter(
@@ -9421,22 +9748,22 @@ class GeneratedFiltersMixin:
 
     def showvolume(
         self,
-        rate: str = None,
-        r: str = None,
-        b: int = None,
-        w: int = None,
-        h: int = None,
-        f: float = None,
-        c: str = None,
-        t: bool = None,
-        v: bool = None,
-        dm: float = None,
-        dmc: str = None,
-        o: Literal["h", "v"] | int = None,
-        s: int = None,
-        p: float = None,
-        m: Literal["p", "r"] | int = None,
-        ds: Literal["lin", "log"] | int = None,
+        rate: str | None = None,
+        r: str | None = None,
+        b: int | None = None,
+        w: int | None = None,
+        h: int | None = None,
+        f: float | None = None,
+        c: str | None = None,
+        t: bool | None = None,
+        v: bool | None = None,
+        dm: float | None = None,
+        dmc: str | None = None,
+        o: Literal["h", "v"] | int | None = None,
+        s: int | None = None,
+        p: float | None = None,
+        m: Literal["p", "r"] | int | None = None,
+        ds: Literal["lin", "log"] | int | None = None,
     ) -> "Stream":
         """Convert input audio volume to video output."""
         return self._apply_filter(
@@ -9464,16 +9791,16 @@ class GeneratedFiltersMixin:
 
     def showwaves(
         self,
-        size: str = None,
-        s: str = None,
-        mode: Literal["point", "line", "p2p", "cline"] | int = None,
-        n: str = None,
-        rate: str = None,
-        r: str = None,
-        split_channels: bool = None,
-        colors: str = None,
-        scale: Literal["lin", "log", "sqrt", "cbrt"] | int = None,
-        draw: Literal["scale", "full"] | int = None,
+        size: str | None = None,
+        s: str | None = None,
+        mode: Literal["point", "line", "p2p", "cline"] | int | None = None,
+        n: str | None = None,
+        rate: str | None = None,
+        r: str | None = None,
+        split_channels: bool | None = None,
+        colors: str | None = None,
+        scale: Literal["lin", "log", "sqrt", "cbrt"] | int | None = None,
+        draw: Literal["scale", "full"] | int | None = None,
     ) -> "Stream":
         """Convert input audio to a video output."""
         return self._apply_filter(
@@ -9495,13 +9822,13 @@ class GeneratedFiltersMixin:
 
     def showwavespic(
         self,
-        size: str = None,
-        s: str = None,
-        split_channels: bool = None,
-        colors: str = None,
-        scale: Literal["lin", "log", "sqrt", "cbrt"] | int = None,
-        draw: Literal["scale", "full"] | int = None,
-        filter: Literal["average", "peak"] | int = None,
+        size: str | None = None,
+        s: str | None = None,
+        split_channels: bool | None = None,
+        colors: str | None = None,
+        scale: Literal["lin", "log", "sqrt", "cbrt"] | int | None = None,
+        draw: Literal["scale", "full"] | int | None = None,
+        filter: Literal["average", "peak"] | int | None = None,
     ) -> "Stream":
         """Convert input audio to a video output single picture."""
         return self._apply_filter(
@@ -9518,7 +9845,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def shuffleframes(self, mapping: str = None) -> "Stream":
+    def shuffleframes(self, mapping: str | None = None) -> "Stream":
         """Shuffle video frames."""
         return self._apply_filter(
             filter_name="shuffleframes",
@@ -9530,16 +9857,16 @@ class GeneratedFiltersMixin:
 
     def shufflepixels(
         self,
-        direction: Literal["forward", "inverse"] | int = None,
-        d: Literal["forward", "inverse"] | int = None,
-        mode: Literal["horizontal", "vertical", "block"] | int = None,
-        m: Literal["horizontal", "vertical", "block"] | int = None,
-        width: int = None,
-        w: int = None,
-        height: int = None,
-        h: int = None,
-        seed: str = None,
-        s: str = None,
+        direction: Literal["forward", "inverse"] | int | None = None,
+        d: Literal["forward", "inverse"] | int | None = None,
+        mode: Literal["horizontal", "vertical", "block"] | int | None = None,
+        m: Literal["horizontal", "vertical", "block"] | int | None = None,
+        width: int | None = None,
+        w: int | None = None,
+        height: int | None = None,
+        h: int | None = None,
+        seed: str | None = None,
+        s: str | None = None,
     ) -> "Stream":
         """Shuffle video pixels."""
         return self._apply_filter(
@@ -9560,7 +9887,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def shuffleplanes(
-        self, map0: int = None, map1: int = None, map2: int = None, map3: int = None
+        self,
+        map0: int | None = None,
+        map1: int | None = None,
+        map2: int | None = None,
+        map3: int | None = None,
     ) -> "Stream":
         """Shuffle video planes."""
         return self._apply_filter(
@@ -9577,18 +9908,18 @@ class GeneratedFiltersMixin:
     def sidechaincompress(
         self,
         sidechain_stream: "Stream",
-        level_in: float = None,
-        mode: Literal["downward", "upward"] | int = None,
-        threshold: float = None,
-        ratio: float = None,
-        attack: float = None,
-        release: float = None,
-        makeup: float = None,
-        knee: float = None,
-        link: Literal["average", "maximum"] | int = None,
-        detection: Literal["peak", "rms"] | int = None,
-        level_sc: float = None,
-        mix: float = None,
+        level_in: float | None = None,
+        mode: Literal["downward", "upward"] | int | None = None,
+        threshold: float | None = None,
+        ratio: float | None = None,
+        attack: float | None = None,
+        release: float | None = None,
+        makeup: float | None = None,
+        knee: float | None = None,
+        link: Literal["average", "maximum"] | int | None = None,
+        detection: Literal["peak", "rms"] | int | None = None,
+        level_sc: float | None = None,
+        mix: float | None = None,
     ) -> "Stream":
         """Sidechain compressor."""
         return self._apply_filter(
@@ -9613,18 +9944,18 @@ class GeneratedFiltersMixin:
     def sidechaingate(
         self,
         sidechain_stream: "Stream",
-        level_in: float = None,
-        mode: Literal["downward", "upward"] | int = None,
-        range: float = None,
-        threshold: float = None,
-        ratio: float = None,
-        attack: float = None,
-        release: float = None,
-        makeup: float = None,
-        knee: float = None,
-        detection: Literal["peak", "rms"] | int = None,
-        link: Literal["average", "maximum"] | int = None,
-        level_sc: float = None,
+        level_in: float | None = None,
+        mode: Literal["downward", "upward"] | int | None = None,
+        range: float | None = None,
+        threshold: float | None = None,
+        ratio: float | None = None,
+        attack: float | None = None,
+        release: float | None = None,
+        makeup: float | None = None,
+        knee: float | None = None,
+        detection: Literal["peak", "rms"] | int | None = None,
+        link: Literal["average", "maximum"] | int | None = None,
+        level_sc: float | None = None,
     ) -> "Stream":
         """Audio sidechain gate."""
         return self._apply_filter(
@@ -9648,7 +9979,7 @@ class GeneratedFiltersMixin:
 
     def sidedata(
         self,
-        mode: Literal["select", "delete"] | int = None,
+        mode: Literal["select", "delete"] | int | None = None,
         type: Literal[
             "PANSCAN",
             "A53_CC",
@@ -9680,7 +10011,8 @@ class GeneratedFiltersMixin:
             "AMBIENT_VIEWING_ENVIRONMENT",
             "VIDEO_HINT",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Manipulate video frame side data."""
         return self._apply_filter(
@@ -9694,10 +10026,10 @@ class GeneratedFiltersMixin:
 
     def signalstats(
         self,
-        stat: Literal["tout", "vrep", "brng"] = None,
-        out: Literal["tout", "vrep", "brng"] | int = None,
-        c: str = None,
-        color: str = None,
+        stat: Literal["tout", "vrep", "brng"] | None = None,
+        out: Literal["tout", "vrep", "brng"] | int | None = None,
+        c: str | None = None,
+        color: str | None = None,
     ) -> "Stream":
         """Generate statistics from video analysis."""
         return self._apply_filter(
@@ -9714,15 +10046,15 @@ class GeneratedFiltersMixin:
     def signature(
         self,
         *streams: "Stream",
-        detectmode: Literal["off", "full", "fast"] | int = None,
-        nb_inputs: int = None,
-        filename: str = None,
-        format: Literal["binary", "xml"] | int = None,
-        th_d: int = None,
-        th_dc: int = None,
-        th_xh: int = None,
-        th_di: int = None,
-        th_it: float = None,
+        detectmode: Literal["off", "full", "fast"] | int | None = None,
+        nb_inputs: int | None = None,
+        filename: str | None = None,
+        format: Literal["binary", "xml"] | int | None = None,
+        th_d: int | None = None,
+        th_dc: int | None = None,
+        th_xh: int | None = None,
+        th_di: int | None = None,
+        th_it: float | None = None,
     ) -> "Stream":
         """Calculate the MPEG-7 video signature"""
         return self._apply_filter(
@@ -9743,12 +10075,12 @@ class GeneratedFiltersMixin:
 
     def silencedetect(
         self,
-        n: float = None,
-        noise: float = None,
-        d: str = None,
-        duration: str = None,
-        mono: bool = None,
-        m: bool = None,
+        n: float | None = None,
+        noise: float | None = None,
+        d: str | None = None,
+        duration: str | None = None,
+        mono: bool | None = None,
+        m: bool | None = None,
     ) -> "Stream":
         """Detect silence."""
         return self._apply_filter(
@@ -9766,19 +10098,21 @@ class GeneratedFiltersMixin:
 
     def silenceremove(
         self,
-        start_periods: int = None,
-        start_duration: str = None,
-        start_threshold: float = None,
-        start_silence: str = None,
-        start_mode: Literal["any", "all"] | int = None,
-        stop_periods: int = None,
-        stop_duration: str = None,
-        stop_threshold: float = None,
-        stop_silence: str = None,
-        stop_mode: Literal["any", "all"] | int = None,
-        detection: Literal["avg", "rms", "peak", "median", "ptp", "dev"] | int = None,
-        window: str = None,
-        timestamp: Literal["write", "copy"] | int = None,
+        start_periods: int | None = None,
+        start_duration: str | None = None,
+        start_threshold: float | None = None,
+        start_silence: str | None = None,
+        start_mode: Literal["any", "all"] | int | None = None,
+        stop_periods: int | None = None,
+        stop_duration: str | None = None,
+        stop_threshold: float | None = None,
+        stop_silence: str | None = None,
+        stop_mode: Literal["any", "all"] | int | None = None,
+        detection: Literal["avg", "rms", "peak", "median", "ptp", "dev"]
+        | int
+        | None = None,
+        window: str | None = None,
+        timestamp: Literal["write", "copy"] | int | None = None,
     ) -> "Stream":
         """Remove silence."""
         return self._apply_filter(
@@ -9801,7 +10135,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def siti(self, print_summary: bool = None) -> "Stream":
+    def siti(self, print_summary: bool | None = None) -> "Stream":
         """Calculate spatial information (SI) and temporal information (TI)."""
         return self._apply_filter(
             filter_name="siti",
@@ -9813,24 +10147,24 @@ class GeneratedFiltersMixin:
 
     def smartblur(
         self,
-        luma_radius: float = None,
-        lr: float = None,
-        luma_strength: float = None,
-        ls: float = None,
-        luma_threshold: int = None,
-        lt: int = None,
-        chroma_radius: float = None,
-        cr: float = None,
-        chroma_strength: float = None,
-        cs: float = None,
-        chroma_threshold: int = None,
-        ct: int = None,
-        alpha_radius: float = None,
-        ar: float = None,
-        alpha_strength: float = None,
-        as_: float = None,
-        alpha_threshold: int = None,
-        at: int = None,
+        luma_radius: float | None = None,
+        lr: float | None = None,
+        luma_strength: float | None = None,
+        ls: float | None = None,
+        luma_threshold: int | None = None,
+        lt: int | None = None,
+        chroma_radius: float | None = None,
+        cr: float | None = None,
+        chroma_strength: float | None = None,
+        cs: float | None = None,
+        chroma_threshold: int | None = None,
+        ct: int | None = None,
+        alpha_radius: float | None = None,
+        ar: float | None = None,
+        alpha_strength: float | None = None,
+        as_: float | None = None,
+        alpha_threshold: int | None = None,
+        at: int | None = None,
     ) -> "Stream":
         """Blur the input video without impacting the outlines."""
         return self._apply_filter(
@@ -9859,7 +10193,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def sobel(
-        self, planes: int = None, scale: float = None, delta: float = None
+        self,
+        planes: int | None = None,
+        scale: float | None = None,
+        delta: float | None = None,
     ) -> "Stream":
         """Apply sobel operator."""
         return self._apply_filter(
@@ -9875,10 +10212,10 @@ class GeneratedFiltersMixin:
     def spectrumsynth(
         self,
         phase_stream: "Stream",
-        sample_rate: int = None,
-        channels: int = None,
-        scale: Literal["lin", "log"] | int = None,
-        slide: Literal["replace", "scroll", "fullframe", "rscroll"] | int = None,
+        sample_rate: int | None = None,
+        channels: int | None = None,
+        scale: Literal["lin", "log"] | int | None = None,
+        slide: Literal["replace", "scroll", "fullframe", "rscroll"] | int | None = None,
         win_func: Literal[
             "rect",
             "bartlett",
@@ -9903,9 +10240,10 @@ class GeneratedFiltersMixin:
             "bohman",
             "kaiser",
         ]
-        | int = None,
-        overlap: float = None,
-        orientation: Literal["vertical", "horizontal"] | int = None,
+        | int
+        | None = None,
+        overlap: float | None = None,
+        orientation: Literal["vertical", "horizontal"] | int | None = None,
     ) -> "Stream":
         """Convert input spectrum videos to audio output."""
         return self._apply_filter(
@@ -9924,26 +10262,26 @@ class GeneratedFiltersMixin:
 
     def speechnorm(
         self,
-        peak: float = None,
-        p: float = None,
-        expansion: float = None,
-        e: float = None,
-        compression: float = None,
-        c: float = None,
-        threshold: float = None,
-        t: float = None,
-        raise_: float = None,
-        r: float = None,
-        fall: float = None,
-        f: float = None,
-        channels: str = None,
-        h: str = None,
-        invert: bool = None,
-        i: bool = None,
-        link: bool = None,
-        l: bool = None,
-        rms: float = None,
-        m: float = None,
+        peak: float | None = None,
+        p: float | None = None,
+        expansion: float | None = None,
+        e: float | None = None,
+        compression: float | None = None,
+        c: float | None = None,
+        threshold: float | None = None,
+        t: float | None = None,
+        raise_: float | None = None,
+        r: float | None = None,
+        fall: float | None = None,
+        f: float | None = None,
+        channels: str | None = None,
+        h: str | None = None,
+        invert: bool | None = None,
+        i: bool | None = None,
+        link: bool | None = None,
+        l: bool | None = None,
+        rms: float | None = None,
+        m: float | None = None,
     ) -> "Stream":
         """Speech Normalizer."""
         return self._apply_filter(
@@ -9973,7 +10311,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def split(self, outputs: int = None) -> "FilterMultiOutput":
+    def split(self, outputs: int | None = None) -> "FilterMultiOutput":
         """Pass on the input to N video outputs."""
         return self._apply_dynamic_outputs_filter(
             filter_name="split",
@@ -9985,10 +10323,10 @@ class GeneratedFiltersMixin:
 
     def spp(
         self,
-        quality: int = None,
-        qp: int = None,
-        mode: Literal["hard", "soft"] | int = None,
-        use_bframe_qp: bool = None,
+        quality: int | None = None,
+        qp: int | None = None,
+        mode: Literal["hard", "soft"] | int | None = None,
+        use_bframe_qp: bool | None = None,
     ) -> "Stream":
         """Apply a simple post processing filter."""
         return self._apply_filter(
@@ -10003,7 +10341,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def ssim(
-        self, reference_stream: "Stream", stats_file: str = None, f: str = None
+        self,
+        reference_stream: "Stream",
+        stats_file: str | None = None,
+        f: str | None = None,
     ) -> "Stream":
         """Calculate the SSIM between two video streams."""
         return self._apply_filter(
@@ -10018,26 +10359,28 @@ class GeneratedFiltersMixin:
     def ssim360(
         self,
         reference_stream: "Stream",
-        stats_file: str = None,
-        f: str = None,
-        compute_chroma: int = None,
-        frame_skip_ratio: int = None,
+        stats_file: str | None = None,
+        f: str | None = None,
+        compute_chroma: int | None = None,
+        frame_skip_ratio: int | None = None,
         ref_projection: Literal[
             "e", "equirect", "c3x2", "c2x3", "barrel", "barrelsplit"
         ]
-        | int = None,
+        | int
+        | None = None,
         main_projection: Literal[
             "e", "equirect", "c3x2", "c2x3", "barrel", "barrelsplit"
         ]
-        | int = None,
-        ref_stereo: Literal["mono", "tb", "lr"] | int = None,
-        main_stereo: Literal["mono", "tb", "lr"] | int = None,
-        ref_pad: float = None,
-        main_pad: float = None,
-        use_tape: int = None,
-        heatmap_str: str = None,
-        default_heatmap_width: int = None,
-        default_heatmap_height: int = None,
+        | int
+        | None = None,
+        ref_stereo: Literal["mono", "tb", "lr"] | int | None = None,
+        main_stereo: Literal["mono", "tb", "lr"] | int | None = None,
+        ref_pad: float | None = None,
+        main_pad: float | None = None,
+        use_tape: int | None = None,
+        heatmap_str: str | None = None,
+        default_heatmap_width: int | None = None,
+        default_heatmap_height: int | None = None,
     ) -> "Stream":
         """Calculate the SSIM between two 360 video streams."""
         return self._apply_filter(
@@ -10083,7 +10426,8 @@ class GeneratedFiltersMixin:
             "icl",
             "icr",
         ]
-        | int = None,
+        | int
+        | None = None,
         out: Literal[
             "ab2l",
             "tb2l",
@@ -10123,7 +10467,8 @@ class GeneratedFiltersMixin:
             "icr",
             "hdmi",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Convert video stereoscopic 3D view."""
         return self._apply_filter(
@@ -10137,15 +10482,15 @@ class GeneratedFiltersMixin:
 
     def stereotools(
         self,
-        level_in: float = None,
-        level_out: float = None,
-        balance_in: float = None,
-        balance_out: float = None,
-        softclip: bool = None,
-        mutel: bool = None,
-        muter: bool = None,
-        phasel: bool = None,
-        phaser: bool = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        balance_in: float | None = None,
+        balance_out: float | None = None,
+        softclip: bool | None = None,
+        mutel: bool | None = None,
+        muter: bool | None = None,
+        phasel: bool | None = None,
+        phaser: bool | None = None,
         mode: Literal[
             "lr>lr",
             "lr>ms",
@@ -10159,17 +10504,18 @@ class GeneratedFiltersMixin:
             "ms>rl",
             "lr>l-r",
         ]
-        | int = None,
-        slev: float = None,
-        sbal: float = None,
-        mlev: float = None,
-        mpan: float = None,
-        base: float = None,
-        delay: float = None,
-        sclevel: float = None,
-        phase: float = None,
-        bmode_in: Literal["balance", "amplitude", "power"] | int = None,
-        bmode_out: Literal["balance", "amplitude", "power"] | int = None,
+        | int
+        | None = None,
+        slev: float | None = None,
+        sbal: float | None = None,
+        mlev: float | None = None,
+        mpan: float | None = None,
+        base: float | None = None,
+        delay: float | None = None,
+        sclevel: float | None = None,
+        phase: float | None = None,
+        bmode_in: Literal["balance", "amplitude", "power"] | int | None = None,
+        bmode_out: Literal["balance", "amplitude", "power"] | int | None = None,
     ) -> "Stream":
         """Apply various stereo tools."""
         return self._apply_filter(
@@ -10201,10 +10547,10 @@ class GeneratedFiltersMixin:
 
     def stereowiden(
         self,
-        delay: float = None,
-        feedback: float = None,
-        crossfeed: float = None,
-        drymix: float = None,
+        delay: float | None = None,
+        feedback: float | None = None,
+        crossfeed: float | None = None,
+        drymix: float | None = None,
     ) -> "Stream":
         """Apply stereo widening effect."""
         return self._apply_filter(
@@ -10219,7 +10565,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def streamselect(
-        self, *streams: "Stream", inputs: int = None, map: str = None
+        self, *streams: "Stream", inputs: int | None = None, map: str | None = None
     ) -> "FilterMultiOutput":
         """Select video streams"""
         return self._apply_dynamic_outputs_filter(
@@ -10233,16 +10579,16 @@ class GeneratedFiltersMixin:
 
     def subtitles(
         self,
-        filename: str = None,
-        f: str = None,
-        original_size: str = None,
-        fontsdir: str = None,
-        alpha: bool = None,
-        charenc: str = None,
-        stream_index: int = None,
-        si: int = None,
-        force_style: str = None,
-        wrap_unicode: bool = None,
+        filename: str | None = None,
+        f: str | None = None,
+        original_size: str | None = None,
+        fontsdir: str | None = None,
+        alpha: bool | None = None,
+        charenc: str | None = None,
+        stream_index: int | None = None,
+        si: int | None = None,
+        force_style: str | None = None,
+        wrap_unicode: bool | None = None,
     ) -> "Stream":
         """Render text subtitles onto input video using the libass library."""
         return self._apply_filter(
@@ -10270,24 +10616,24 @@ class GeneratedFiltersMixin:
 
     def superequalizer(
         self,
-        _1b: float = None,
-        _2b: float = None,
-        _3b: float = None,
-        _4b: float = None,
-        _5b: float = None,
-        _6b: float = None,
-        _7b: float = None,
-        _8b: float = None,
-        _9b: float = None,
-        _10b: float = None,
-        _11b: float = None,
-        _12b: float = None,
-        _13b: float = None,
-        _14b: float = None,
-        _15b: float = None,
-        _16b: float = None,
-        _17b: float = None,
-        _18b: float = None,
+        _1b: float | None = None,
+        _2b: float | None = None,
+        _3b: float | None = None,
+        _4b: float | None = None,
+        _5b: float | None = None,
+        _6b: float | None = None,
+        _7b: float | None = None,
+        _8b: float | None = None,
+        _9b: float | None = None,
+        _10b: float | None = None,
+        _11b: float | None = None,
+        _12b: float | None = None,
+        _13b: float | None = None,
+        _14b: float | None = None,
+        _15b: float | None = None,
+        _16b: float | None = None,
+        _17b: float | None = None,
+        _18b: float | None = None,
     ) -> "Stream":
         """Apply 18 band equalization filter."""
         return self._apply_filter(
@@ -10317,54 +10663,54 @@ class GeneratedFiltersMixin:
 
     def surround(
         self,
-        chl_out: str = None,
-        chl_in: str = None,
-        level_in: float = None,
-        level_out: float = None,
-        lfe: bool = None,
-        lfe_low: int = None,
-        lfe_high: int = None,
-        lfe_mode: Literal["add", "sub"] | int = None,
-        smooth: float = None,
-        angle: float = None,
-        focus: float = None,
-        fc_in: float = None,
-        fc_out: float = None,
-        fl_in: float = None,
-        fl_out: float = None,
-        fr_in: float = None,
-        fr_out: float = None,
-        sl_in: float = None,
-        sl_out: float = None,
-        sr_in: float = None,
-        sr_out: float = None,
-        bl_in: float = None,
-        bl_out: float = None,
-        br_in: float = None,
-        br_out: float = None,
-        bc_in: float = None,
-        bc_out: float = None,
-        lfe_in: float = None,
-        lfe_out: float = None,
-        allx: float = None,
-        ally: float = None,
-        fcx: float = None,
-        flx: float = None,
-        frx: float = None,
-        blx: float = None,
-        brx: float = None,
-        slx: float = None,
-        srx: float = None,
-        bcx: float = None,
-        fcy: float = None,
-        fly: float = None,
-        fry: float = None,
-        bly: float = None,
-        bry: float = None,
-        sly: float = None,
-        sry: float = None,
-        bcy: float = None,
-        win_size: int = None,
+        chl_out: str | None = None,
+        chl_in: str | None = None,
+        level_in: float | None = None,
+        level_out: float | None = None,
+        lfe: bool | None = None,
+        lfe_low: int | None = None,
+        lfe_high: int | None = None,
+        lfe_mode: Literal["add", "sub"] | int | None = None,
+        smooth: float | None = None,
+        angle: float | None = None,
+        focus: float | None = None,
+        fc_in: float | None = None,
+        fc_out: float | None = None,
+        fl_in: float | None = None,
+        fl_out: float | None = None,
+        fr_in: float | None = None,
+        fr_out: float | None = None,
+        sl_in: float | None = None,
+        sl_out: float | None = None,
+        sr_in: float | None = None,
+        sr_out: float | None = None,
+        bl_in: float | None = None,
+        bl_out: float | None = None,
+        br_in: float | None = None,
+        br_out: float | None = None,
+        bc_in: float | None = None,
+        bc_out: float | None = None,
+        lfe_in: float | None = None,
+        lfe_out: float | None = None,
+        allx: float | None = None,
+        ally: float | None = None,
+        fcx: float | None = None,
+        flx: float | None = None,
+        frx: float | None = None,
+        blx: float | None = None,
+        brx: float | None = None,
+        slx: float | None = None,
+        srx: float | None = None,
+        bcx: float | None = None,
+        fcy: float | None = None,
+        fly: float | None = None,
+        fry: float | None = None,
+        bly: float | None = None,
+        bry: float | None = None,
+        sly: float | None = None,
+        sry: float | None = None,
+        bcy: float | None = None,
+        win_size: int | None = None,
         win_func: Literal[
             "rect",
             "bartlett",
@@ -10389,8 +10735,9 @@ class GeneratedFiltersMixin:
             "bohman",
             "kaiser",
         ]
-        | int = None,
-        overlap: float = None,
+        | int
+        | None = None,
+        overlap: float | None = None,
     ) -> "Stream":
         """Apply audio surround upmix filter."""
         return self._apply_filter(
@@ -10452,12 +10799,12 @@ class GeneratedFiltersMixin:
 
     def swaprect(
         self,
-        w: str = None,
-        h: str = None,
-        x1: str = None,
-        y1: str = None,
-        x2: str = None,
-        y2: str = None,
+        w: str | None = None,
+        h: str | None = None,
+        x1: str | None = None,
+        y1: str | None = None,
+        x2: str | None = None,
+        y2: str | None = None,
     ) -> "Stream":
         """Swap 2 rectangular objects in video."""
         return self._apply_filter(
@@ -10525,7 +10872,8 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
+        | int
+        | None = None,
         c1_mode: Literal[
             "addition",
             "addition128",
@@ -10570,7 +10918,8 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
+        | int
+        | None = None,
         c2_mode: Literal[
             "addition",
             "addition128",
@@ -10615,7 +10964,8 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
+        | int
+        | None = None,
         c3_mode: Literal[
             "addition",
             "addition128",
@@ -10660,7 +11010,8 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
+        | int
+        | None = None,
         all_mode: Literal[
             "addition",
             "addition128",
@@ -10705,17 +11056,18 @@ class GeneratedFiltersMixin:
             "interpolate",
             "hardoverlay",
         ]
-        | int = None,
-        c0_expr: str = None,
-        c1_expr: str = None,
-        c2_expr: str = None,
-        c3_expr: str = None,
-        all_expr: str = None,
-        c0_opacity: float = None,
-        c1_opacity: float = None,
-        c2_opacity: float = None,
-        c3_opacity: float = None,
-        all_opacity: float = None,
+        | int
+        | None = None,
+        c0_expr: str | None = None,
+        c1_expr: str | None = None,
+        c2_expr: str | None = None,
+        c3_expr: str | None = None,
+        all_expr: str | None = None,
+        c0_opacity: float | None = None,
+        c1_opacity: float | None = None,
+        c2_opacity: float | None = None,
+        c3_opacity: float | None = None,
+        all_opacity: float | None = None,
     ) -> "Stream":
         """Blend successive frames."""
         return self._apply_filter(
@@ -10742,8 +11094,8 @@ class GeneratedFiltersMixin:
 
     def telecine(
         self,
-        first_field: Literal["top", "t", "bottom", "b"] | int = None,
-        pattern: str = None,
+        first_field: Literal["top", "t", "bottom", "b"] | int | None = None,
+        pattern: str | None = None,
     ) -> "Stream":
         """Apply a telecine pattern."""
         return self._apply_filter(
@@ -10757,21 +11109,23 @@ class GeneratedFiltersMixin:
 
     def thistogram(
         self,
-        width: int = None,
-        w: int = None,
-        display_mode: Literal["overlay", "parade", "stack"] | int = None,
-        d: Literal["overlay", "parade", "stack"] | int = None,
-        levels_mode: Literal["linear", "logarithmic"] | int = None,
-        m: Literal["linear", "logarithmic"] | int = None,
-        components: int = None,
-        c: int = None,
-        bgopacity: float = None,
-        b: float = None,
-        envelope: bool = None,
-        e: bool = None,
-        ecolor: str = None,
-        ec: str = None,
-        slide: Literal["frame", "replace", "scroll", "rscroll", "picture"] | int = None,
+        width: int | None = None,
+        w: int | None = None,
+        display_mode: Literal["overlay", "parade", "stack"] | int | None = None,
+        d: Literal["overlay", "parade", "stack"] | int | None = None,
+        levels_mode: Literal["linear", "logarithmic"] | int | None = None,
+        m: Literal["linear", "logarithmic"] | int | None = None,
+        components: int | None = None,
+        c: int | None = None,
+        bgopacity: float | None = None,
+        b: float | None = None,
+        envelope: bool | None = None,
+        e: bool | None = None,
+        ecolor: str | None = None,
+        ec: str | None = None,
+        slide: Literal["frame", "replace", "scroll", "rscroll", "picture"]
+        | int
+        | None = None,
     ) -> "Stream":
         """Compute and draw a temporal histogram."""
         return self._apply_filter(
@@ -10801,7 +11155,7 @@ class GeneratedFiltersMixin:
         threshold_stream: "Stream",
         min_stream: "Stream",
         max_stream: "Stream",
-        planes: int = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Threshold first video stream using other video streams."""
         return self._apply_filter(
@@ -10813,7 +11167,9 @@ class GeneratedFiltersMixin:
         )[0]
 
     def thumbnail(
-        self, n: int = None, log: Literal["quiet", "info", "verbose"] | int = None
+        self,
+        n: int | None = None,
+        log: Literal["quiet", "info", "verbose"] | int | None = None,
     ) -> "Stream":
         """Select the most representative frame in a given sequence of consecutive frames."""
         return self._apply_filter(
@@ -10827,13 +11183,13 @@ class GeneratedFiltersMixin:
 
     def tile(
         self,
-        layout: str = None,
-        nb_frames: int = None,
-        margin: int = None,
-        padding: int = None,
-        color: str = None,
-        overlap: int = None,
-        init_padding: int = None,
+        layout: str | None = None,
+        nb_frames: int | None = None,
+        margin: int | None = None,
+        padding: int | None = None,
+        color: str | None = None,
+        overlap: int | None = None,
+        init_padding: int | None = None,
     ) -> "Stream":
         """Tile several successive frames together."""
         return self._apply_filter(
@@ -10852,11 +11208,11 @@ class GeneratedFiltersMixin:
 
     def tiltandshift(
         self,
-        _tilt: int = None,
-        _start: Literal["none", "frame", "black"] | int = None,
-        _end: Literal["none", "frame", "black"] | int = None,
-        _hold: int = None,
-        _pad: int = None,
+        _tilt: int | None = None,
+        _start: Literal["none", "frame", "black"] | int | None = None,
+        _end: Literal["none", "frame", "black"] | int | None = None,
+        _hold: int | None = None,
+        _pad: int | None = None,
     ) -> "Stream":
         """Generate a tilt-and-shift'd video."""
         return self._apply_filter(
@@ -10873,29 +11229,32 @@ class GeneratedFiltersMixin:
 
     def tiltshelf(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        gain: float = None,
-        g: float = None,
-        poles: int = None,
-        p: int = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        gain: float | None = None,
+        g: float | None = None,
+        poles: int | None = None,
+        p: int | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Apply a tilt shelf filter."""
         return self._apply_filter(
@@ -10939,7 +11298,8 @@ class GeneratedFiltersMixin:
             "interlacex2",
             "mergex2",
         ]
-        | int = None,
+        | int
+        | None = None,
     ) -> "Stream":
         """Perform temporal field interlacing."""
         return self._apply_filter(
@@ -10951,7 +11311,11 @@ class GeneratedFiltersMixin:
         )[0]
 
     def tlut2(
-        self, c0: str = None, c1: str = None, c2: str = None, c3: str = None
+        self,
+        c0: str | None = None,
+        c1: str | None = None,
+        c2: str | None = None,
+        c3: str | None = None,
     ) -> "Stream":
         """Compute and apply a lookup table from two successive frames."""
         return self._apply_filter(
@@ -10966,7 +11330,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def tmedian(
-        self, radius: int = None, planes: int = None, percentile: float = None
+        self,
+        radius: int | None = None,
+        planes: int | None = None,
+        percentile: float | None = None,
     ) -> "Stream":
         """Pick median pixels from successive frames."""
         return self._apply_filter(
@@ -10980,7 +11347,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def tmidequalizer(
-        self, radius: int = None, sigma: float = None, planes: int = None
+        self,
+        radius: int | None = None,
+        sigma: float | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Apply Temporal Midway Equalization."""
         return self._apply_filter(
@@ -10995,10 +11365,10 @@ class GeneratedFiltersMixin:
 
     def tmix(
         self,
-        frames: int = None,
-        weights: str = None,
-        scale: float = None,
-        planes: str = None,
+        frames: int | None = None,
+        weights: str | None = None,
+        scale: float | None = None,
+        planes: str | None = None,
     ) -> "Stream":
         """Mix successive video frames."""
         return self._apply_filter(
@@ -11017,10 +11387,11 @@ class GeneratedFiltersMixin:
         tonemap: Literal[
             "none", "linear", "gamma", "clip", "reinhard", "hable", "mobius"
         ]
-        | int = None,
-        param: float = None,
-        desat: float = None,
-        peak: float = None,
+        | int
+        | None = None,
+        param: float | None = None,
+        desat: float | None = None,
+        peak: float | None = None,
     ) -> "Stream":
         """Conversion to/from different dynamic ranges."""
         return self._apply_filter(
@@ -11036,13 +11407,13 @@ class GeneratedFiltersMixin:
 
     def tpad(
         self,
-        start: int = None,
-        stop: int = None,
-        start_mode: Literal["add", "clone"] | int = None,
-        stop_mode: Literal["add", "clone"] | int = None,
-        start_duration: str = None,
-        stop_duration: str = None,
-        color: str = None,
+        start: int | None = None,
+        stop: int | None = None,
+        start_mode: Literal["add", "clone"] | int | None = None,
+        stop_mode: Literal["add", "clone"] | int | None = None,
+        start_duration: str | None = None,
+        stop_duration: str | None = None,
+        color: str | None = None,
     ) -> "Stream":
         """Temporarily pad video frames."""
         return self._apply_filter(
@@ -11061,8 +11432,10 @@ class GeneratedFiltersMixin:
 
     def transpose(
         self,
-        dir: Literal["cclock_flip", "clock", "cclock", "clock_flip"] | int = None,
-        passthrough: Literal["none", "portrait", "landscape"] | int = None,
+        dir: Literal["cclock_flip", "clock", "cclock", "clock_flip"]
+        | int
+        | None = None,
+        passthrough: Literal["none", "portrait", "landscape"] | int | None = None,
     ) -> "Stream":
         """Transpose input video."""
         return self._apply_filter(
@@ -11079,8 +11452,9 @@ class GeneratedFiltersMixin:
         dir: Literal[
             "cclock_flip", "clock", "cclock", "clock_flip", "reversal", "hflip", "vflip"
         ]
-        | int = None,
-        passthrough: Literal["none", "portrait", "landscape"] | int = None,
+        | int
+        | None = None,
+        passthrough: Literal["none", "portrait", "landscape"] | int | None = None,
     ) -> "Stream":
         """Transpose Videotoolbox frames"""
         return self._apply_filter(
@@ -11094,29 +11468,32 @@ class GeneratedFiltersMixin:
 
     def treble(
         self,
-        frequency: float = None,
-        f: float = None,
-        width_type: Literal["h", "q", "o", "s", "k"] | int = None,
-        t: Literal["h", "q", "o", "s", "k"] | int = None,
-        width: float = None,
-        w: float = None,
-        gain: float = None,
-        g: float = None,
-        poles: int = None,
-        p: int = None,
-        mix: float = None,
-        m: float = None,
-        channels: str = None,
-        c: str = None,
-        normalize: bool = None,
-        n: bool = None,
+        frequency: float | None = None,
+        f: float | None = None,
+        width_type: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        t: Literal["h", "q", "o", "s", "k"] | int | None = None,
+        width: float | None = None,
+        w: float | None = None,
+        gain: float | None = None,
+        g: float | None = None,
+        poles: int | None = None,
+        p: int | None = None,
+        mix: float | None = None,
+        m: float | None = None,
+        channels: str | None = None,
+        c: str | None = None,
+        normalize: bool | None = None,
+        n: bool | None = None,
         transform: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
-        | int = None,
-        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"] | int = None,
-        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        r: Literal["auto", "s16", "s32", "f32", "f64"] | int = None,
-        blocksize: int = None,
-        b: int = None,
+        | int
+        | None = None,
+        a: Literal["di", "dii", "tdi", "tdii", "latt", "svf", "zdf"]
+        | int
+        | None = None,
+        precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
+        blocksize: int | None = None,
+        b: int | None = None,
     ) -> "Stream":
         """Boost or cut upper frequencies."""
         return self._apply_filter(
@@ -11148,7 +11525,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def tremolo(self, f: float = None, d: float = None) -> "Stream":
+    def tremolo(self, f: float | None = None, d: float | None = None) -> "Stream":
         """Apply tremolo effect."""
         return self._apply_filter(
             filter_name="tremolo",
@@ -11161,16 +11538,16 @@ class GeneratedFiltersMixin:
 
     def trim(
         self,
-        start: str = None,
-        starti: str = None,
-        end: str = None,
-        endi: str = None,
-        start_pts: str = None,
-        end_pts: str = None,
-        duration: str = None,
-        durationi: str = None,
-        start_frame: str = None,
-        end_frame: str = None,
+        start: str | None = None,
+        starti: str | None = None,
+        end: str | None = None,
+        endi: str | None = None,
+        start_pts: str | None = None,
+        end_pts: str | None = None,
+        duration: str | None = None,
+        durationi: str | None = None,
+        start_frame: str | None = None,
+        end_frame: str | None = None,
     ) -> "Stream":
         """Pick one continuous section from the input, drop the rest."""
         return self._apply_filter(
@@ -11191,7 +11568,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def unpremultiply(
-        self, *streams: "Stream", planes: int = None, inplace: bool = None
+        self, *streams: "Stream", planes: int | None = None, inplace: bool | None = None
     ) -> "Stream":
         """UnPreMultiply first stream with first plane of second stream."""
         return self._apply_filter(
@@ -11205,24 +11582,24 @@ class GeneratedFiltersMixin:
 
     def unsharp(
         self,
-        luma_msize_x: int = None,
-        lx: int = None,
-        luma_msize_y: int = None,
-        ly: int = None,
-        luma_amount: float = None,
-        la: float = None,
-        chroma_msize_x: int = None,
-        cx: int = None,
-        chroma_msize_y: int = None,
-        cy: int = None,
-        chroma_amount: float = None,
-        ca: float = None,
-        alpha_msize_x: int = None,
-        ax: int = None,
-        alpha_msize_y: int = None,
-        ay: int = None,
-        alpha_amount: float = None,
-        aa: float = None,
+        luma_msize_x: int | None = None,
+        lx: int | None = None,
+        luma_msize_y: int | None = None,
+        ly: int | None = None,
+        luma_amount: float | None = None,
+        la: float | None = None,
+        chroma_msize_x: int | None = None,
+        cx: int | None = None,
+        chroma_msize_y: int | None = None,
+        cy: int | None = None,
+        chroma_amount: float | None = None,
+        ca: float | None = None,
+        alpha_msize_x: int | None = None,
+        ax: int | None = None,
+        alpha_msize_y: int | None = None,
+        ay: int | None = None,
+        alpha_amount: float | None = None,
+        aa: float | None = None,
     ) -> "Stream":
         """Sharpen or blur the input video."""
         return self._apply_filter(
@@ -11250,7 +11627,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def untile(self, layout: str = None) -> "Stream":
+    def untile(self, layout: str | None = None) -> "Stream":
         """Untile a frame into a sequence of frames."""
         return self._apply_filter(
             filter_name="untile",
@@ -11262,10 +11639,10 @@ class GeneratedFiltersMixin:
 
     def uspp(
         self,
-        quality: int = None,
-        qp: int = None,
-        use_bframe_qp: bool = None,
-        codec: str = None,
+        quality: int | None = None,
+        qp: int | None = None,
+        use_bframe_qp: bool | None = None,
+        codec: str | None = None,
     ) -> "Stream":
         """Apply Ultra Simple / Slow Post-processing filter."""
         return self._apply_filter(
@@ -11312,7 +11689,8 @@ class GeneratedFiltersMixin:
             "octahedron",
             "cylindricalea",
         ]
-        | int = None,
+        | int
+        | None = None,
         output: Literal[
             "e",
             "equirect",
@@ -11345,7 +11723,8 @@ class GeneratedFiltersMixin:
             "octahedron",
             "cylindricalea",
         ]
-        | int = None,
+        | int
+        | None = None,
         interp: Literal[
             "near",
             "nearest",
@@ -11362,40 +11741,41 @@ class GeneratedFiltersMixin:
             "gaussian",
             "mitchell",
         ]
-        | int = None,
-        w: int = None,
-        h: int = None,
-        in_stereo: Literal["2d", "sbs", "tb"] | int = None,
-        out_stereo: Literal["2d", "sbs", "tb"] | int = None,
-        in_forder: str = None,
-        out_forder: str = None,
-        in_frot: str = None,
-        out_frot: str = None,
-        in_pad: float = None,
-        out_pad: float = None,
-        fin_pad: int = None,
-        fout_pad: int = None,
-        yaw: float = None,
-        pitch: float = None,
-        roll: float = None,
-        rorder: str = None,
-        h_fov: float = None,
-        v_fov: float = None,
-        d_fov: float = None,
-        h_flip: bool = None,
-        v_flip: bool = None,
-        d_flip: bool = None,
-        ih_flip: bool = None,
-        iv_flip: bool = None,
-        in_trans: bool = None,
-        out_trans: bool = None,
-        ih_fov: float = None,
-        iv_fov: float = None,
-        id_fov: float = None,
-        h_offset: float = None,
-        v_offset: float = None,
-        alpha_mask: bool = None,
-        reset_rot: bool = None,
+        | int
+        | None = None,
+        w: int | None = None,
+        h: int | None = None,
+        in_stereo: Literal["2d", "sbs", "tb"] | int | None = None,
+        out_stereo: Literal["2d", "sbs", "tb"] | int | None = None,
+        in_forder: str | None = None,
+        out_forder: str | None = None,
+        in_frot: str | None = None,
+        out_frot: str | None = None,
+        in_pad: float | None = None,
+        out_pad: float | None = None,
+        fin_pad: int | None = None,
+        fout_pad: int | None = None,
+        yaw: float | None = None,
+        pitch: float | None = None,
+        roll: float | None = None,
+        rorder: str | None = None,
+        h_fov: float | None = None,
+        v_fov: float | None = None,
+        d_fov: float | None = None,
+        h_flip: bool | None = None,
+        v_flip: bool | None = None,
+        d_flip: bool | None = None,
+        ih_flip: bool | None = None,
+        iv_flip: bool | None = None,
+        in_trans: bool | None = None,
+        out_trans: bool | None = None,
+        ih_fov: float | None = None,
+        iv_fov: float | None = None,
+        id_fov: float | None = None,
+        h_offset: float | None = None,
+        v_offset: float | None = None,
+        alpha_mask: bool | None = None,
+        reset_rot: bool | None = None,
     ) -> "Stream":
         """Convert 360 projection of video."""
         return self._apply_filter(
@@ -11443,12 +11823,12 @@ class GeneratedFiltersMixin:
 
     def vaguedenoiser(
         self,
-        threshold: float = None,
-        method: Literal["hard", "soft", "garrote"] | int = None,
-        nsteps: int = None,
-        percent: float = None,
-        planes: int = None,
-        type: Literal["universal", "bayes"] | int = None,
+        threshold: float | None = None,
+        method: Literal["hard", "soft", "garrote"] | int | None = None,
+        nsteps: int | None = None,
+        percent: float | None = None,
+        planes: int | None = None,
+        type: Literal["universal", "bayes"] | int | None = None,
     ) -> "Stream":
         """Apply a Wavelet based Denoiser."""
         return self._apply_filter(
@@ -11467,9 +11847,9 @@ class GeneratedFiltersMixin:
     def varblur(
         self,
         radius_stream: "Stream",
-        min_r: int = None,
-        max_r: int = None,
-        planes: int = None,
+        min_r: int | None = None,
+        max_r: int | None = None,
+        planes: int | None = None,
     ) -> "Stream":
         """Apply Variable Blur filter."""
         return self._apply_filter(
@@ -11485,33 +11865,37 @@ class GeneratedFiltersMixin:
     def vectorscope(
         self,
         mode: Literal["gray", "tint", "color", "color2", "color3", "color4", "color5"]
-        | int = None,
+        | int
+        | None = None,
         m: Literal["gray", "tint", "color", "color2", "color3", "color4", "color5"]
-        | int = None,
-        x: int = None,
-        y: int = None,
-        intensity: float = None,
-        i: float = None,
-        envelope: Literal["none", "instant", "peak", "peak+instant"] | int = None,
-        e: Literal["none", "instant", "peak", "peak+instant"] | int = None,
-        graticule: Literal["none", "green", "color", "invert"] | int = None,
-        g: Literal["none", "green", "color", "invert"] | int = None,
-        opacity: float = None,
-        o: float = None,
-        flags: Literal["white", "black", "name"] = None,
-        f: Literal["white", "black", "name"] = None,
-        bgopacity: float = None,
-        b: float = None,
-        lthreshold: float = None,
-        l: float = None,
-        hthreshold: float = None,
-        h: float = None,
-        colorspace: Literal["auto", "601", "709"] | int = None,
-        c: Literal["auto", "601", "709"] | int = None,
-        tint0: float = None,
-        t0: float = None,
-        tint1: float = None,
-        t1: float = None,
+        | int
+        | None = None,
+        x: int | None = None,
+        y: int | None = None,
+        intensity: float | None = None,
+        i: float | None = None,
+        envelope: Literal["none", "instant", "peak", "peak+instant"]
+        | int
+        | None = None,
+        e: Literal["none", "instant", "peak", "peak+instant"] | int | None = None,
+        graticule: Literal["none", "green", "color", "invert"] | int | None = None,
+        g: Literal["none", "green", "color", "invert"] | int | None = None,
+        opacity: float | None = None,
+        o: float | None = None,
+        flags: Literal["white", "black", "name"] | None = None,
+        f: Literal["white", "black", "name"] | None = None,
+        bgopacity: float | None = None,
+        b: float | None = None,
+        lthreshold: float | None = None,
+        l: float | None = None,
+        hthreshold: float | None = None,
+        h: float | None = None,
+        colorspace: Literal["auto", "601", "709"] | int | None = None,
+        c: Literal["auto", "601", "709"] | int | None = None,
+        tint0: float | None = None,
+        t0: float | None = None,
+        tint1: float | None = None,
+        t1: float | None = None,
     ) -> "Stream":
         """Video vectorscope."""
         return self._apply_filter(
@@ -11561,14 +11945,14 @@ class GeneratedFiltersMixin:
 
     def vibrance(
         self,
-        intensity: float = None,
-        rbal: float = None,
-        gbal: float = None,
-        bbal: float = None,
-        rlum: float = None,
-        glum: float = None,
-        blum: float = None,
-        alternate: bool = None,
+        intensity: float | None = None,
+        rbal: float | None = None,
+        gbal: float | None = None,
+        bbal: float | None = None,
+        rlum: float | None = None,
+        glum: float | None = None,
+        blum: float | None = None,
+        alternate: bool | None = None,
     ) -> "Stream":
         """Boost or alter saturation."""
         return self._apply_filter(
@@ -11586,7 +11970,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def vibrato(self, f: float = None, d: float = None) -> "Stream":
+    def vibrato(self, f: float | None = None, d: float | None = None) -> "Stream":
         """Apply vibrato effect."""
         return self._apply_filter(
             filter_name="vibrato",
@@ -11599,14 +11983,14 @@ class GeneratedFiltersMixin:
 
     def vidstabdetect(
         self,
-        result: str = None,
-        shakiness: int = None,
-        accuracy: int = None,
-        stepsize: int = None,
-        mincontrast: float = None,
-        show: int = None,
-        tripod: int = None,
-        fileformat: Literal["ascii", "binary"] | int = None,
+        result: str | None = None,
+        shakiness: int | None = None,
+        accuracy: int | None = None,
+        stepsize: int | None = None,
+        mincontrast: float | None = None,
+        show: int | None = None,
+        tripod: int | None = None,
+        fileformat: Literal["ascii", "binary"] | int | None = None,
     ) -> "Stream":
         """Extract relative transformations, pass 1 of 2 for stabilization (see vidstabtransform for pass 2)."""
         return self._apply_filter(
@@ -11626,20 +12010,20 @@ class GeneratedFiltersMixin:
 
     def vidstabtransform(
         self,
-        input: str = None,
-        smoothing: int = None,
-        optalgo: Literal["opt", "gauss", "avg"] | int = None,
-        maxshift: int = None,
-        maxangle: float = None,
-        crop: Literal["keep", "black"] | int = None,
-        invert: int = None,
-        relative: int = None,
-        zoom: float = None,
-        optzoom: int = None,
-        zoomspeed: float = None,
-        interpol: Literal["no", "linear", "bilinear", "bicubic"] | int = None,
-        tripod: bool = None,
-        debug: bool = None,
+        input: str | None = None,
+        smoothing: int | None = None,
+        optalgo: Literal["opt", "gauss", "avg"] | int | None = None,
+        maxshift: int | None = None,
+        maxangle: float | None = None,
+        crop: Literal["keep", "black"] | int | None = None,
+        invert: int | None = None,
+        relative: int | None = None,
+        zoom: float | None = None,
+        optzoom: int | None = None,
+        zoomspeed: float | None = None,
+        interpol: Literal["no", "linear", "bilinear", "bicubic"] | int | None = None,
+        tripod: bool | None = None,
+        debug: bool | None = None,
     ) -> "Stream":
         """Transform the frames, pass 2 of 2 for stabilization (see vidstabdetect for pass 1)."""
         return self._apply_filter(
@@ -11671,14 +12055,14 @@ class GeneratedFiltersMixin:
 
     def vignette(
         self,
-        angle: str = None,
-        a: str = None,
-        x0: str = None,
-        y0: str = None,
-        mode: Literal["forward", "backward"] | int = None,
-        eval: Literal["init", "frame"] | int = None,
-        dither: bool = None,
-        aspect: str = None,
+        angle: str | None = None,
+        a: str | None = None,
+        x0: str | None = None,
+        y0: str | None = None,
+        mode: Literal["forward", "backward"] | int | None = None,
+        eval: Literal["init", "frame"] | int | None = None,
+        dither: bool | None = None,
+        aspect: str | None = None,
     ) -> "Stream":
         """Make or reverse a vignette effect."""
         return self._apply_filter(
@@ -11696,7 +12080,9 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def virtualbass(self, cutoff: float = None, strength: float = None) -> "Stream":
+    def virtualbass(
+        self, cutoff: float | None = None, strength: float | None = None
+    ) -> "Stream":
         """Audio Virtual Bass."""
         return self._apply_filter(
             filter_name="virtualbass",
@@ -11707,7 +12093,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def vmafmotion(self, stats_file: str = None) -> "Stream":
+    def vmafmotion(self, stats_file: str | None = None) -> "Stream":
         """Calculate the VMAF Motion score."""
         return self._apply_filter(
             filter_name="vmafmotion",
@@ -11719,12 +12105,12 @@ class GeneratedFiltersMixin:
 
     def volume(
         self,
-        volume: str = None,
-        precision: Literal["fixed", "float", "double"] | int = None,
-        eval: Literal["once", "frame"] | int = None,
-        replaygain: Literal["drop", "ignore", "track", "album"] | int = None,
-        replaygain_preamp: float = None,
-        replaygain_noclip: bool = None,
+        volume: str | None = None,
+        precision: Literal["fixed", "float", "double"] | int | None = None,
+        eval: Literal["once", "frame"] | int | None = None,
+        replaygain: Literal["drop", "ignore", "track", "album"] | int | None = None,
+        replaygain_preamp: float | None = None,
+        replaygain_noclip: bool | None = None,
     ) -> "Stream":
         """Change input volume."""
         return self._apply_filter(
@@ -11747,7 +12133,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def vstack(
-        self, *streams: "Stream", inputs: int = None, shortest: bool = None
+        self,
+        *streams: "Stream",
+        inputs: int | None = None,
+        shortest: bool | None = None,
     ) -> "Stream":
         """Stack video inputs vertically."""
         return self._apply_filter(
@@ -11761,10 +12150,10 @@ class GeneratedFiltersMixin:
 
     def w3fdif(
         self,
-        filter: Literal["simple", "complex"] | int = None,
-        mode: Literal["frame", "field"] | int = None,
-        parity: Literal["tff", "bff", "auto"] | int = None,
-        deint: Literal["all", "interlaced"] | int = None,
+        filter: Literal["simple", "complex"] | int | None = None,
+        mode: Literal["frame", "field"] | int | None = None,
+        parity: Literal["tff", "bff", "auto"] | int | None = None,
+        deint: Literal["all", "interlaced"] | int | None = None,
     ) -> "Stream":
         """Apply Martin Weston three field deinterlace."""
         return self._apply_filter(
@@ -11780,43 +12169,47 @@ class GeneratedFiltersMixin:
 
     def waveform(
         self,
-        mode: Literal["row", "column"] | int = None,
-        m: Literal["row", "column"] | int = None,
-        intensity: float = None,
-        i: float = None,
-        mirror: bool = None,
-        r: bool = None,
-        display: Literal["overlay", "stack", "parade"] | int = None,
-        d: Literal["overlay", "stack", "parade"] | int = None,
-        components: int = None,
-        c: int = None,
-        envelope: Literal["none", "instant", "peak", "peak+instant"] | int = None,
-        e: Literal["none", "instant", "peak", "peak+instant"] | int = None,
+        mode: Literal["row", "column"] | int | None = None,
+        m: Literal["row", "column"] | int | None = None,
+        intensity: float | None = None,
+        i: float | None = None,
+        mirror: bool | None = None,
+        r: bool | None = None,
+        display: Literal["overlay", "stack", "parade"] | int | None = None,
+        d: Literal["overlay", "stack", "parade"] | int | None = None,
+        components: int | None = None,
+        c: int | None = None,
+        envelope: Literal["none", "instant", "peak", "peak+instant"]
+        | int
+        | None = None,
+        e: Literal["none", "instant", "peak", "peak+instant"] | int | None = None,
         filter: Literal[
             "lowpass", "flat", "aflat", "chroma", "color", "acolor", "xflat", "yflat"
         ]
-        | int = None,
+        | int
+        | None = None,
         f: Literal[
             "lowpass", "flat", "aflat", "chroma", "color", "acolor", "xflat", "yflat"
         ]
-        | int = None,
-        graticule: Literal["none", "green", "orange", "invert"] | int = None,
-        g: Literal["none", "green", "orange", "invert"] | int = None,
-        opacity: float = None,
-        o: float = None,
-        flags: Literal["numbers", "dots"] = None,
-        fl: Literal["numbers", "dots"] = None,
-        scale: Literal["digital", "millivolts", "ire"] | int = None,
-        s: Literal["digital", "millivolts", "ire"] | int = None,
-        bgopacity: float = None,
-        b: float = None,
-        tint0: float = None,
-        t0: float = None,
-        tint1: float = None,
-        t1: float = None,
-        fitmode: Literal["none", "size"] | int = None,
-        fm: Literal["none", "size"] | int = None,
-        input: Literal["all", "first"] | int = None,
+        | int
+        | None = None,
+        graticule: Literal["none", "green", "orange", "invert"] | int | None = None,
+        g: Literal["none", "green", "orange", "invert"] | int | None = None,
+        opacity: float | None = None,
+        o: float | None = None,
+        flags: Literal["numbers", "dots"] | None = None,
+        fl: Literal["numbers", "dots"] | None = None,
+        scale: Literal["digital", "millivolts", "ire"] | int | None = None,
+        s: Literal["digital", "millivolts", "ire"] | int | None = None,
+        bgopacity: float | None = None,
+        b: float | None = None,
+        tint0: float | None = None,
+        t0: float | None = None,
+        tint1: float | None = None,
+        t1: float | None = None,
+        fitmode: Literal["none", "size"] | int | None = None,
+        fm: Literal["none", "size"] | int | None = None,
+        input: Literal["all", "first"] | int | None = None,
     ) -> "Stream":
         """Video waveform monitor."""
         return self._apply_filter(
@@ -11858,7 +12251,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def weave(
-        self, first_field: Literal["top", "t", "bottom", "b"] | int = None
+        self, first_field: Literal["top", "t", "bottom", "b"] | int | None = None
     ) -> "Stream":
         """Weave input video fields into frames."""
         return self._apply_filter(
@@ -11869,7 +12262,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def xbr(self, n: int = None) -> "Stream":
+    def xbr(self, n: int | None = None) -> "Stream":
         """Scale the input using xBR algorithm."""
         return self._apply_filter(
             filter_name="xbr",
@@ -11882,8 +12275,8 @@ class GeneratedFiltersMixin:
     def xcorrelate(
         self,
         secondary_stream: "Stream",
-        planes: int = None,
-        secondary: Literal["first", "all"] | int = None,
+        planes: int | None = None,
+        secondary: Literal["first", "all"] | int | None = None,
     ) -> "Stream":
         """Cross-correlate first video stream with second video stream."""
         return self._apply_filter(
@@ -11959,10 +12352,11 @@ class GeneratedFiltersMixin:
             "revealup",
             "revealdown",
         ]
-        | int = None,
-        duration: str = None,
-        offset: str = None,
-        expr: str = None,
+        | int
+        | None = None,
+        duration: str | None = None,
+        offset: str | None = None,
+        expr: str | None = None,
     ) -> "Stream":
         """Cross fade one video with another video."""
         return self._apply_filter(
@@ -11979,9 +12373,9 @@ class GeneratedFiltersMixin:
     def xmedian(
         self,
         *streams: "Stream",
-        inputs: int = None,
-        planes: int = None,
-        percentile: float = None,
+        inputs: int | None = None,
+        planes: int | None = None,
+        percentile: float | None = None,
     ) -> "Stream":
         """Pick median pixels from several video inputs."""
         return self._apply_filter(
@@ -11995,7 +12389,10 @@ class GeneratedFiltersMixin:
         )[0]
 
     def xpsnr(
-        self, reference_stream: "Stream", stats_file: str = None, f: str = None
+        self,
+        reference_stream: "Stream",
+        stats_file: str | None = None,
+        f: str | None = None,
     ) -> "Stream":
         """Calculate the extended perceptually weighted peak signal-to-noise ratio (XPSNR) between two video streams."""
         return self._apply_filter(
@@ -12010,11 +12407,11 @@ class GeneratedFiltersMixin:
     def xstack(
         self,
         *streams: "Stream",
-        inputs: int = None,
-        layout: str = None,
-        grid: str = None,
-        shortest: bool = None,
-        fill: str = None,
+        inputs: int | None = None,
+        layout: str | None = None,
+        grid: str | None = None,
+        shortest: bool | None = None,
+        fill: str | None = None,
     ) -> "Stream":
         """Stack video inputs into custom layout."""
         return self._apply_filter(
@@ -12034,9 +12431,10 @@ class GeneratedFiltersMixin:
         mode: Literal[
             "send_frame", "send_field", "send_frame_nospatial", "send_field_nospatial"
         ]
-        | int = None,
-        parity: Literal["tff", "bff", "auto"] | int = None,
-        deint: Literal["all", "interlaced"] | int = None,
+        | int
+        | None = None,
+        parity: Literal["tff", "bff", "auto"] | int | None = None,
+        deint: Literal["all", "interlaced"] | int | None = None,
     ) -> "Stream":
         """Deinterlace the input image."""
         return self._apply_filter(
@@ -12051,12 +12449,12 @@ class GeneratedFiltersMixin:
 
     def yaepblur(
         self,
-        radius: int = None,
-        r: int = None,
-        planes: int = None,
-        p: int = None,
-        sigma: int = None,
-        s: int = None,
+        radius: int | None = None,
+        r: int | None = None,
+        planes: int | None = None,
+        p: int | None = None,
+        sigma: int | None = None,
+        s: int | None = None,
     ) -> "Stream":
         """Yet another edge preserving blur filter."""
         return self._apply_filter(
@@ -12072,7 +12470,7 @@ class GeneratedFiltersMixin:
             },
         )[0]
 
-    def zmq(self, bind_address: str = None, b: str = None) -> "Stream":
+    def zmq(self, bind_address: str | None = None, b: str | None = None) -> "Stream":
         """Receive commands through ZMQ and broker them to filters."""
         return self._apply_filter(
             filter_name="zmq",
@@ -12085,13 +12483,13 @@ class GeneratedFiltersMixin:
 
     def zoompan(
         self,
-        zoom: str = None,
-        z: str = None,
-        x: str = None,
-        y: str = None,
-        d: str = None,
-        s: str = None,
-        fps: str = None,
+        zoom: str | None = None,
+        z: str | None = None,
+        x: str | None = None,
+        y: str | None = None,
+        d: str | None = None,
+        s: str | None = None,
+        fps: str | None = None,
     ) -> "Stream":
         """Apply Zoom & Pan effect."""
         return self._apply_filter(
@@ -12110,24 +12508,33 @@ class GeneratedFiltersMixin:
 
     def zscale(
         self,
-        w: str = None,
-        width: str = None,
-        h: str = None,
-        height: str = None,
-        size: str = None,
-        s: str = None,
-        dither: Literal["none", "ordered", "random", "error_diffusion"] | int = None,
-        d: Literal["none", "ordered", "random", "error_diffusion"] | int = None,
+        w: str | None = None,
+        width: str | None = None,
+        h: str | None = None,
+        height: str | None = None,
+        size: str | None = None,
+        s: str | None = None,
+        dither: Literal["none", "ordered", "random", "error_diffusion"]
+        | int
+        | None = None,
+        d: Literal["none", "ordered", "random", "error_diffusion"] | int | None = None,
         filter: Literal[
             "point", "bilinear", "bicubic", "spline16", "spline36", "lanczos"
         ]
-        | int = None,
+        | int
+        | None = None,
         f: Literal["point", "bilinear", "bicubic", "spline16", "spline36", "lanczos"]
-        | int = None,
+        | int
+        | None = None,
         out_range: Literal["input", "limited", "full", "unknown", "tv", "pc"]
-        | int = None,
-        range: Literal["input", "limited", "full", "unknown", "tv", "pc"] | int = None,
-        r: Literal["input", "limited", "full", "unknown", "tv", "pc"] | int = None,
+        | int
+        | None = None,
+        range: Literal["input", "limited", "full", "unknown", "tv", "pc"]
+        | int
+        | None = None,
+        r: Literal["input", "limited", "full", "unknown", "tv", "pc"]
+        | int
+        | None = None,
         primaries: Literal[
             "input",
             "709",
@@ -12149,7 +12556,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         p: Literal[
             "input",
             "709",
@@ -12171,7 +12579,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         transfer: Literal[
             "input",
             "709",
@@ -12196,7 +12605,8 @@ class GeneratedFiltersMixin:
             "iec61966-2-1",
             "arib-std-b67",
         ]
-        | int = None,
+        | int
+        | None = None,
         t: Literal[
             "input",
             "709",
@@ -12221,7 +12631,8 @@ class GeneratedFiltersMixin:
             "iec61966-2-1",
             "arib-std-b67",
         ]
-        | int = None,
+        | int
+        | None = None,
         matrix: Literal[
             "input",
             "709",
@@ -12244,7 +12655,8 @@ class GeneratedFiltersMixin:
             "chroma-derived-c",
             "ictcp",
         ]
-        | int = None,
+        | int
+        | None = None,
         m: Literal[
             "input",
             "709",
@@ -12267,12 +12679,17 @@ class GeneratedFiltersMixin:
             "chroma-derived-c",
             "ictcp",
         ]
-        | int = None,
+        | int
+        | None = None,
         in_range: Literal["input", "limited", "full", "unknown", "tv", "pc"]
-        | int = None,
+        | int
+        | None = None,
         rangein: Literal["input", "limited", "full", "unknown", "tv", "pc"]
-        | int = None,
-        rin: Literal["input", "limited", "full", "unknown", "tv", "pc"] | int = None,
+        | int
+        | None = None,
+        rin: Literal["input", "limited", "full", "unknown", "tv", "pc"]
+        | int
+        | None = None,
         primariesin: Literal[
             "input",
             "709",
@@ -12294,7 +12711,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         pin: Literal[
             "input",
             "709",
@@ -12316,7 +12734,8 @@ class GeneratedFiltersMixin:
             "jedec-p22",
             "ebu3213",
         ]
-        | int = None,
+        | int
+        | None = None,
         transferin: Literal[
             "input",
             "709",
@@ -12341,7 +12760,8 @@ class GeneratedFiltersMixin:
             "iec61966-2-1",
             "arib-std-b67",
         ]
-        | int = None,
+        | int
+        | None = None,
         tin: Literal[
             "input",
             "709",
@@ -12366,7 +12786,8 @@ class GeneratedFiltersMixin:
             "iec61966-2-1",
             "arib-std-b67",
         ]
-        | int = None,
+        | int
+        | None = None,
         matrixin: Literal[
             "input",
             "709",
@@ -12389,7 +12810,8 @@ class GeneratedFiltersMixin:
             "chroma-derived-c",
             "ictcp",
         ]
-        | int = None,
+        | int
+        | None = None,
         min: Literal[
             "input",
             "709",
@@ -12412,25 +12834,30 @@ class GeneratedFiltersMixin:
             "chroma-derived-c",
             "ictcp",
         ]
-        | int = None,
+        | int
+        | None = None,
         chromal: Literal[
             "input", "left", "center", "topleft", "top", "bottomleft", "bottom"
         ]
-        | int = None,
+        | int
+        | None = None,
         c: Literal["input", "left", "center", "topleft", "top", "bottomleft", "bottom"]
-        | int = None,
+        | int
+        | None = None,
         chromalin: Literal[
             "input", "left", "center", "topleft", "top", "bottomleft", "bottom"
         ]
-        | int = None,
+        | int
+        | None = None,
         cin: Literal[
             "input", "left", "center", "topleft", "top", "bottomleft", "bottom"
         ]
-        | int = None,
-        npl: float = None,
-        agamma: bool = None,
-        param_a: float = None,
-        param_b: float = None,
+        | int
+        | None = None,
+        npl: float | None = None,
+        agamma: bool | None = None,
+        param_a: float | None = None,
+        param_b: float | None = None,
     ) -> "Stream":
         """Apply resizing, colorspace and bit depth conversion."""
         return self._apply_filter(
