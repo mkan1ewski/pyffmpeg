@@ -159,14 +159,6 @@ class InputNode(ProcessableNode):
         self.filename: str = filename
         self.options: dict[str, Any] = options
 
-    def __eq__(self, other: object) -> bool:
-        if not isinstance(other, InputNode):
-            return NotImplemented
-        return self.filename == other.filename
-
-    def __hash__(self) -> int:
-        return hash(self.filename)
-
     def get_input_args(self) -> list[str]:
         """Returns command args for this input"""
         options = self.options.copy()
@@ -257,14 +249,6 @@ class OutputNode(RunnableNode):
 
         return args
 
-    def __eq__(self, other: object) -> bool:
-        if not isinstance(other, OutputNode):
-            return NotImplemented
-        return self.filename == other.filename and self.inputs == other.inputs
-
-    def __hash__(self) -> int:
-        return hash((self.filename, tuple(self.inputs)))
-
 
 class MergedOutputNode(RunnableNode):
     """Node representing multiple outputs"""
@@ -290,26 +274,6 @@ class FilterNode(ProcessableNode):
         self.positional_arguments: tuple = postional_arguments
         self.named_arguments: dict = named_arguments
         self.inputs: list[Stream] = inputs
-
-    def __eq__(self, other: object) -> bool:
-        if not isinstance(other, FilterNode):
-            return NotImplemented
-        return (
-            self.filter_name == other.filter_name
-            and self.positional_arguments == other.positional_arguments
-            and self.named_arguments == other.named_arguments
-            and self.inputs == other.inputs
-        )
-
-    def __hash__(self) -> int:
-        return hash(
-            (
-                self.filter_name,
-                self.positional_arguments,
-                frozenset(self.named_arguments.items()),
-                tuple(self.inputs),
-            )
-        )
 
     def get_command_string(self) -> str:
         """Builds a command string based on this filter"""
@@ -344,14 +308,6 @@ class Stream(GeneratedFiltersMixin):
         self.source_node: Node = source_node
         self.index: str | None = None
         self.elemantary_streams: dict[str, TypedStream | IndexedStream] = {}
-
-    def __eq__(self, other: object) -> bool:
-        if not isinstance(other, Stream):
-            return NotImplemented
-        return self.source_node == other.source_node
-
-    def __hash__(self) -> int:
-        return hash(self.source_node)
 
     @property
     def audio(self) -> "TypedStream":
