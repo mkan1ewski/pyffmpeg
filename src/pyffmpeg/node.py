@@ -201,15 +201,13 @@ class OutputNode(RunnableNode):
             "format": "f",
         }
         self.output_options = {
-            keys_names_mapping.get(k, k): (
-                [str(x) for x in v] if isinstance(v, (list, tuple)) else str(v)
-            )
-            for k, v in self.output_options.items()
+            keys_names_mapping.get(k, k): v for k, v in self.output_options.items()
         }
 
-        if isinstance(self.output_options.get("video_size"), list):
+        video_size = self.output_options.get("video_size")
+        if isinstance(video_size, Sequence) and not isinstance(video_size, str):
             try:
-                width, height = self.output_options["video_size"]
+                width, height = video_size
             except ValueError:
                 raise ValueError(
                     "video_size must contain exactly two elements: (width, height)"
