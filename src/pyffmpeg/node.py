@@ -518,7 +518,7 @@ class CommandBuilder:
 
         if filters:
             args.append(";".join(filters))
-        args.extend([*outputs])
+        args.extend(outputs)
 
         args.extend(self.global_options)
 
