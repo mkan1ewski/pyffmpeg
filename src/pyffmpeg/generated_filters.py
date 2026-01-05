@@ -34,34 +34,49 @@ class GeneratedFiltersMixin:
 
         Args:
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             size (str): set video size
+
                 Defaults to hd720.
             s (str): set video size
+
                 Defaults to hd720.
             fov (float): set camera FoV (from 40 to 150)
+
                 Defaults to 90.
             roll (float): set camera roll (from -180 to 180)
+
                 Defaults to 0.
             pitch (float): set camera pitch (from -180 to 180)
+
                 Defaults to 0.
             yaw (float): set camera yaw (from -180 to 180)
+
                 Defaults to 0.
             xzoom (float): set camera zoom (from 0.01 to 10)
+
                 Defaults to 1.
             yzoom (float): set camera zoom (from 0.01 to 10)
+
                 Defaults to 1.
             zzoom (float): set camera zoom (from 0.01 to 10)
+
                 Defaults to 1.
             xpos (float): set camera position (from -60 to 60)
+
                 Defaults to 0.
             ypos (float): set camera position (from -60 to 60)
+
                 Defaults to 0.
             zpos (float): set camera position (from -60 to 60)
+
                 Defaults to 0.
             length (int): set length (from 1 to 60)
+
                 Defaults to 15.
 
         Returns:
@@ -104,26 +119,34 @@ class GeneratedFiltersMixin:
         Args:
             desired_stream (Stream): Input audio stream.
             order (int): set the filter order (from 1 to 32767)
+
                 Defaults to 16.
             projection (int): set the filter projection (from 1 to 256)
+
                 Defaults to 2.
             mu (float): set the filter mu (from 0 to 1)
+
                 Defaults to 0.0001.
             delta (float): set the filter delta (from 0 to 1)
+
                 Defaults to 0.001.
             out_mode (int | str): set output mode (from 0 to 4)
+
                 Allowed values:
                     * i: input
                     * d: desired
                     * o: output
                     * n: noise
                     * e: error
+
                 Defaults to o.
             precision (int | str): set processing precision (from 0 to 2)
+
                 Allowed values:
                     * auto: set auto processing precision
                     * float: set single-floating point processing precision
                     * double: set double-floating point processing precision
+
                 Defaults to auto.
 
         Returns:
@@ -147,9 +170,11 @@ class GeneratedFiltersMixin:
 
         Args:
             action (int | str): set action (from 0 to 1)
+
                 Allowed values:
                     * start: start timer
                     * stop: stop timer
+
                 Defaults to start.
 
         Returns:
@@ -177,24 +202,33 @@ class GeneratedFiltersMixin:
 
         Args:
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             size (str): set video size
+
                 Defaults to 1024x256.
             s (str): set video size
+
                 Defaults to 1024x256.
             colors (str): set channels colors
+
                 Defaults to red|green|blue|yellow|orange|lime|pink|magenta|brown.
             mode (int | str): set output mode (from 0 to 1)
+
                 Allowed values:
                     * bars
                     * trace
+
                 Defaults to bars.
             m (int | str): set output mode (from 0 to 1)
+
                 Allowed values:
                     * bars
                     * trace
+
                 Defaults to bars.
 
         Returns:
@@ -233,37 +267,52 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set input gain (from 0.015625 to 64)
+
                 Defaults to 1.
             mode (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * downward
                     * upward
+
                 Defaults to downward.
             threshold (float): set threshold (from 0.000976563 to 1)
+
                 Defaults to 0.125.
             ratio (float): set ratio (from 1 to 20)
+
                 Defaults to 2.
             attack (float): set attack (from 0.01 to 2000)
+
                 Defaults to 20.
             release (float): set release (from 0.01 to 9000)
+
                 Defaults to 250.
             makeup (float): set make up gain (from 1 to 64)
+
                 Defaults to 1.
             knee (float): set knee (from 1 to 8)
+
                 Defaults to 2.82843.
             link (int | str): set link type (from 0 to 1)
+
                 Allowed values:
                     * average
                     * maximum
+
                 Defaults to average.
             detection (int | str): set detection (from 0 to 1)
+
                 Allowed values:
                     * peak
                     * rms
+
                 Defaults to rms.
             level_sc (float): set sidechain gain (from 0.015625 to 64)
+
                 Defaults to 1.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -293,6 +342,7 @@ class GeneratedFiltersMixin:
 
         Args:
             contrast (float): set contrast (from 0 to 100)
+
                 Defaults to 33.
 
         Returns:
@@ -445,18 +495,25 @@ class GeneratedFiltersMixin:
         Args:
             crossfade1_stream (Stream): Input audio stream.
             nb_samples (str): set number of samples for cross fade duration (from 1 to 2.14748e+08)
+
                 Defaults to 44100.
             ns (str): set number of samples for cross fade duration (from 1 to 2.14748e+08)
+
                 Defaults to 44100.
             duration (str): set cross fade duration
+
                 Defaults to 0.
             d (str): set cross fade duration
+
                 Defaults to 0.
             overlap (bool): overlap 1st stream end with 2nd stream start
+
                 Defaults to true.
             o (bool): overlap 1st stream end with 2nd stream start
+
                 Defaults to true.
             curve1 (int | str): set fade curve type for 1st stream (from -1 to 22)
+
                 Allowed values:
                     * nofade: no fade; keep audio as-is
                     * tri: linear slope
@@ -482,8 +539,10 @@ class GeneratedFiltersMixin:
                     * quatr: quartic root
                     * qsin2: squared quarter of sine wave
                     * hsin2: squared half of sine wave
+
                 Defaults to tri.
             c1 (int | str): set fade curve type for 1st stream (from -1 to 22)
+
                 Allowed values:
                     * nofade: no fade; keep audio as-is
                     * tri: linear slope
@@ -509,8 +568,10 @@ class GeneratedFiltersMixin:
                     * quatr: quartic root
                     * qsin2: squared quarter of sine wave
                     * hsin2: squared half of sine wave
+
                 Defaults to tri.
             curve2 (int | str): set fade curve type for 2nd stream (from -1 to 22)
+
                 Allowed values:
                     * nofade: no fade; keep audio as-is
                     * tri: linear slope
@@ -536,8 +597,10 @@ class GeneratedFiltersMixin:
                     * quatr: quartic root
                     * qsin2: squared quarter of sine wave
                     * hsin2: squared half of sine wave
+
                 Defaults to tri.
             c2 (int | str): set fade curve type for 2nd stream (from -1 to 22)
+
                 Allowed values:
                     * nofade: no fade; keep audio as-is
                     * tri: linear slope
@@ -563,6 +626,7 @@ class GeneratedFiltersMixin:
                     * quatr: quartic root
                     * qsin2: squared quarter of sine wave
                     * hsin2: squared half of sine wave
+
                 Defaults to tri.
 
         Returns:
@@ -601,8 +665,10 @@ class GeneratedFiltersMixin:
 
         Args:
             split (str): set split frequencies
+
                 Defaults to 500.
             order (int | str): set filter order (from 0 to 9)
+
                 Allowed values:
                     * 2nd: 2nd order (12 dB/8ve)
                     * 4th: 4th order (24 dB/8ve)
@@ -614,16 +680,21 @@ class GeneratedFiltersMixin:
                     * 16th: 16th order (96 dB/8ve)
                     * 18th: 18th order (108 dB/8ve)
                     * 20th: 20th order (120 dB/8ve)
+
                 Defaults to 4th.
             level (float): set input gain (from 0 to 1)
+
                 Defaults to 1.
             gain (str): set output bands gain
+
                 Defaults to 1.f.
             precision (int | str): set processing precision (from 0 to 2)
+
                 Allowed values:
                     * auto: set auto processing precision
                     * float: set single-floating point processing precision
                     * double: set double-floating point processing precision
+
                 Defaults to auto.
 
         Returns:
@@ -659,29 +730,41 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set level in (from 0.015625 to 64)
+
                 Defaults to 1.
             level_out (float): set level out (from 0.015625 to 64)
+
                 Defaults to 1.
             bits (float): set bit reduction (from 1 to 64)
+
                 Defaults to 8.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 0.5.
             mode (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * lin: linear
                     * log: logarithmic
+
                 Defaults to lin.
             dc (float): set DC (from 0.25 to 4)
+
                 Defaults to 1.
             aa (float): set anti-aliasing (from 0 to 1)
+
                 Defaults to 0.5.
             samples (float): set sample reduction (from 1 to 250)
+
                 Defaults to 1.
             lfo (bool): enable LFO
+
                 Defaults to false.
             lforange (float): set LFO depth (from 1 to 250)
+
                 Defaults to 20.
             lforate (float): set LFO rate (from 0.01 to 200)
+
                 Defaults to 0.3.
 
         Returns:
@@ -715,10 +798,13 @@ class GeneratedFiltersMixin:
 
         Args:
             cue (str): cue unix timestamp in microseconds (from 0 to I64_MAX)
+
                 Defaults to 0.
             preroll (str): preroll duration in seconds
+
                 Defaults to 0.
             buffer (str): buffer duration in seconds
+
                 Defaults to 0.
 
         Returns:
@@ -747,16 +833,22 @@ class GeneratedFiltersMixin:
 
         Args:
             x (str): Region distance from left edge of frame.
+
                 Defaults to 0.
             y (str): Region distance from top edge of frame.
+
                 Defaults to 0.
             w (str): Region width.
+
                 Defaults to 0.
             h (str): Region height.
+
                 Defaults to 0.
             qoffset (str): Quantisation offset to apply in the region. (from -1 to 1)
+
                 Defaults to -1/10.
             clear (bool): Remove any existing regions of interest before adding the new one.
+
                 Defaults to false.
 
         Returns:
@@ -794,38 +886,52 @@ class GeneratedFiltersMixin:
 
         Args:
             window (float): set window size (from 10 to 100)
+
                 Defaults to 55.
             w (float): set window size (from 10 to 100)
+
                 Defaults to 55.
             overlap (float): set window overlap (from 50 to 95)
+
                 Defaults to 75.
             o (float): set window overlap (from 50 to 95)
+
                 Defaults to 75.
             arorder (float): set autoregression order (from 0 to 25)
+
                 Defaults to 2.
             a (float): set autoregression order (from 0 to 25)
+
                 Defaults to 2.
             threshold (float): set threshold (from 1 to 100)
+
                 Defaults to 2.
             t (float): set threshold (from 1 to 100)
+
                 Defaults to 2.
             burst (float): set burst fusion (from 0 to 10)
+
                 Defaults to 2.
             b (float): set burst fusion (from 0 to 10)
+
                 Defaults to 2.
             method (int | str): set overlap method (from 0 to 1)
+
                 Allowed values:
                     * add: overlap-add
                     * a: overlap-add
                     * save: overlap-save
                     * s: overlap-save
+
                 Defaults to add.
             m (int | str): set overlap method (from 0 to 1)
+
                 Allowed values:
                     * add: overlap-add
                     * a: overlap-add
                     * save: overlap-save
                     * s: overlap-save
+
                 Defaults to add.
 
         Returns:
@@ -869,38 +975,52 @@ class GeneratedFiltersMixin:
 
         Args:
             window (float): set window size (from 10 to 100)
+
                 Defaults to 55.
             w (float): set window size (from 10 to 100)
+
                 Defaults to 55.
             overlap (float): set window overlap (from 50 to 95)
+
                 Defaults to 75.
             o (float): set window overlap (from 50 to 95)
+
                 Defaults to 75.
             arorder (float): set autoregression order (from 0 to 25)
+
                 Defaults to 8.
             a (float): set autoregression order (from 0 to 25)
+
                 Defaults to 8.
             threshold (float): set threshold (from 1 to 100)
+
                 Defaults to 10.
             t (float): set threshold (from 1 to 100)
+
                 Defaults to 10.
             hsize (int): set histogram size (from 100 to 9999)
+
                 Defaults to 1000.
             n (int): set histogram size (from 100 to 9999)
+
                 Defaults to 1000.
             method (int | str): set overlap method (from 0 to 1)
+
                 Allowed values:
                     * add: overlap-add
                     * a: overlap-add
                     * save: overlap-save
                     * s: overlap-save
+
                 Defaults to add.
             m (int | str): set overlap method (from 0 to 1)
+
                 Allowed values:
                     * add: overlap-add
                     * a: overlap-add
                     * save: overlap-save
                     * s: overlap-save
+
                 Defaults to add.
 
         Returns:
@@ -932,8 +1052,10 @@ class GeneratedFiltersMixin:
 
         Args:
             stages (int): set filtering stages (from 1 to 16)
+
                 Defaults to 6.
             seed (str): set random seed (from -1 to UINT32_MAX)
+
                 Defaults to -1.
 
         Returns:
@@ -953,7 +1075,9 @@ class GeneratedFiltersMixin:
 
         Args:
             delays (str): set list of delays for each channel
+
             all (bool): use last available delay for remained channels
+
                 Defaults to false.
 
         Returns:
@@ -977,13 +1101,16 @@ class GeneratedFiltersMixin:
 
         Args:
             level (float): set level (from -451 to -90)
+
                 Defaults to -351.
             type (int | str): set type (from 0 to 3)
+
                 Allowed values:
                     * dc
                     * ac
                     * square
                     * pulse
+
                 Defaults to dc.
 
         Returns:
@@ -1036,44 +1163,63 @@ class GeneratedFiltersMixin:
 
         Args:
             m1 (str): set 1st metadata key
+
             fg1 (str): set 1st foreground color expression
+
                 Defaults to 0xffff0000.
             m2 (str): set 2nd metadata key
+
             fg2 (str): set 2nd foreground color expression
+
                 Defaults to 0xff00ff00.
             m3 (str): set 3rd metadata key
+
             fg3 (str): set 3rd foreground color expression
+
                 Defaults to 0xffff00ff.
             m4 (str): set 4th metadata key
+
             fg4 (str): set 4th foreground color expression
+
                 Defaults to 0xffffff00.
             bg (str): set background color
+
                 Defaults to white.
             min (float): set minimal value (from INT_MIN to INT_MAX)
+
                 Defaults to -1.
             max (float): set maximal value (from INT_MIN to INT_MAX)
+
                 Defaults to 1.
             mode (int | str): set graph mode (from 0 to 2)
+
                 Allowed values:
                     * bar: draw bars
                     * dot: draw dots
                     * line: draw lines
+
                 Defaults to line.
             slide (int | str): set slide mode (from 0 to 4)
+
                 Allowed values:
                     * frame: draw new frames
                     * replace: replace old columns with new
                     * scroll: scroll from right to left
                     * rscroll: scroll from left to right
                     * picture: display graph in single frame
+
                 Defaults to frame.
             size (str): set graph size
+
                 Defaults to 900x256.
             s (str): set graph size
+
                 Defaults to 900x256.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
 
         Returns:
@@ -1114,12 +1260,16 @@ class GeneratedFiltersMixin:
 
         Args:
             transfer (str): set the transfer expression
+
                 Defaults to p.
             attack (float): set the attack (from 1 to 1000)
+
                 Defaults to 50.
             release (float): set the release (from 5 to 2000)
+
                 Defaults to 100.
             channels (str): set channels to filter
+
                 Defaults to all.
 
         Returns:
@@ -1160,58 +1310,78 @@ class GeneratedFiltersMixin:
 
         Args:
             threshold (float): set detection threshold (from 0 to 100)
+
                 Defaults to 0.
             dfrequency (float): set detection frequency (from 2 to 1e+06)
+
                 Defaults to 1000.
             dqfactor (float): set detection Q factor (from 0.001 to 1000)
+
                 Defaults to 1.
             tfrequency (float): set target frequency (from 2 to 1e+06)
+
                 Defaults to 1000.
             tqfactor (float): set target Q factor (from 0.001 to 1000)
+
                 Defaults to 1.
             attack (float): set detection attack duration (from 0.01 to 2000)
+
                 Defaults to 20.
             release (float): set detection release duration (from 0.01 to 2000)
+
                 Defaults to 200.
             ratio (float): set ratio factor (from 0 to 30)
+
                 Defaults to 1.
             makeup (float): set makeup gain (from 0 to 1000)
+
                 Defaults to 0.
             range (float): set max gain (from 1 to 2000)
+
                 Defaults to 50.
             mode (int | str): set mode (from -1 to 3)
+
                 Allowed values:
                     * listen
                     * cutbelow
                     * cutabove
                     * boostbelow
                     * boostabove
+
                 Defaults to cutbelow.
             dftype (int | str): set detection filter type (from 0 to 3)
+
                 Allowed values:
                     * bandpass
                     * lowpass
                     * highpass
                     * peak
+
                 Defaults to bandpass.
             tftype (int | str): set target filter type (from 0 to 2)
+
                 Allowed values:
                     * bell
                     * lowshelf
                     * highshelf
+
                 Defaults to bell.
             auto (int | str): set auto threshold (from 1 to 4)
+
                 Allowed values:
                     * disabled
                     * off
                     * on
                     * adaptive
+
                 Defaults to off.
             precision (int | str): set processing precision (from 0 to 2)
+
                 Allowed values:
                     * auto: set auto processing precision
                     * float: set single-floating point processing precision
                     * double: set double-floating point processing precision
+
                 Defaults to auto.
 
         Returns:
@@ -1246,8 +1416,10 @@ class GeneratedFiltersMixin:
 
         Args:
             sensitivity (float): set smooth sensitivity (from 0 to 1e+06)
+
                 Defaults to 2.
             basefreq (float): set base frequency (from 2 to 1e+06)
+
                 Defaults to 22050.
 
         Returns:
@@ -1273,12 +1445,16 @@ class GeneratedFiltersMixin:
 
         Args:
             in_gain (float): set signal input gain (from 0 to 1)
+
                 Defaults to 0.6.
             out_gain (float): set signal output gain (from 0 to 1)
+
                 Defaults to 0.3.
             delays (str): set list of signal delays
+
                 Defaults to 1000.
             decays (str): set list of signal decays
+
                 Defaults to 0.5.
 
         Returns:
@@ -1308,15 +1484,20 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set input gain (from 0 to 64)
+
                 Defaults to 1.
             level_out (float): set output gain (from 0 to 64)
+
                 Defaults to 1.
             mode (int | str): set filter mode (from 0 to 1)
+
                 Allowed values:
                     * reproduction
                     * production
+
                 Defaults to reproduction.
             type (int | str): set filter type (from 0 to 8)
+
                 Allowed values:
                     * col: Columbia
                     * emi: EMI
@@ -1327,6 +1508,7 @@ class GeneratedFiltersMixin:
                     * 75fm: 75µs (FM)
                     * 50kf: 50µs (FM-KF)
                     * 75kf: 75µs (FM-KF)
+
                 Defaults to cd.
 
         Returns:
@@ -1353,8 +1535,11 @@ class GeneratedFiltersMixin:
 
         Args:
             exprs (str): set the '|'-separated list of channels expressions
+
             channel_layout (str): set channel layout
+
             c (str): set channel layout
+
 
         Returns:
             "Stream": The output stream.
@@ -1384,20 +1569,28 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set level in (from 0 to 64)
+
                 Defaults to 1.
             level_out (float): set level out (from 0 to 64)
+
                 Defaults to 1.
             amount (float): set amount (from 0 to 64)
+
                 Defaults to 1.
             drive (float): set harmonics (from 0.1 to 10)
+
                 Defaults to 8.5.
             blend (float): set blend harmonics (from -10 to 10)
+
                 Defaults to 0.
             freq (float): set scope (from 2000 to 12000)
+
                 Defaults to 7500.
             ceil (float): set ceiling (from 9999 to 20000)
+
                 Defaults to 9999.
             listen (bool): enable listen mode
+
                 Defaults to false.
 
         Returns:
@@ -1493,32 +1686,45 @@ class GeneratedFiltersMixin:
 
         Args:
             type (int | str): set the fade direction (from 0 to 1)
+
                 Allowed values:
                     * in: fade-in
                     * out: fade-out
+
                 Defaults to in.
             t (int | str): set the fade direction (from 0 to 1)
+
                 Allowed values:
                     * in: fade-in
                     * out: fade-out
+
                 Defaults to in.
             start_sample (str): set number of first sample to start fading (from 0 to I64_MAX)
+
                 Defaults to 0.
             ss (str): set number of first sample to start fading (from 0 to I64_MAX)
+
                 Defaults to 0.
             nb_samples (str): set number of samples for fade duration (from 1 to I64_MAX)
+
                 Defaults to 44100.
             ns (str): set number of samples for fade duration (from 1 to I64_MAX)
+
                 Defaults to 44100.
             start_time (str): set time to start fading
+
                 Defaults to 0.
             st (str): set time to start fading
+
                 Defaults to 0.
             duration (str): set fade duration
+
                 Defaults to 0.
             d (str): set fade duration
+
                 Defaults to 0.
             curve (int | str): set fade curve type (from -1 to 22)
+
                 Allowed values:
                     * nofade: no fade; keep audio as-is
                     * tri: linear slope
@@ -1544,8 +1750,10 @@ class GeneratedFiltersMixin:
                     * quatr: quartic root
                     * qsin2: squared quarter of sine wave
                     * hsin2: squared half of sine wave
+
                 Defaults to tri.
             c (int | str): set fade curve type (from -1 to 22)
+
                 Allowed values:
                     * nofade: no fade; keep audio as-is
                     * tri: linear slope
@@ -1571,10 +1779,13 @@ class GeneratedFiltersMixin:
                     * quatr: quartic root
                     * qsin2: squared quarter of sine wave
                     * hsin2: squared half of sine wave
+
                 Defaults to tri.
             silence (float): set the silence gain (from 0 to 1)
+
                 Defaults to 0.
             unity (float): set the unity gain (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -1644,14 +1855,19 @@ class GeneratedFiltersMixin:
 
         Args:
             noise_reduction (float): set the noise reduction (from 0.01 to 97)
+
                 Defaults to 12.
             nr (float): set the noise reduction (from 0.01 to 97)
+
                 Defaults to 12.
             noise_floor (float): set the noise floor (from -80 to -20)
+
                 Defaults to -50.
             nf (float): set the noise floor (from -80 to -20)
+
                 Defaults to -50.
             noise_type (int | str): set the noise type (from 0 to 3)
+
                 Allowed values:
                     * white: white noise
                     * w: white noise
@@ -1661,8 +1877,10 @@ class GeneratedFiltersMixin:
                     * s: shellac noise
                     * custom: custom noise
                     * c: custom noise
+
                 Defaults to white.
             nt (int | str): set the noise type (from 0 to 3)
+
                 Allowed values:
                     * white: white noise
                     * w: white noise
@@ -1672,22 +1890,32 @@ class GeneratedFiltersMixin:
                     * s: shellac noise
                     * custom: custom noise
                     * c: custom noise
+
                 Defaults to white.
             band_noise (str): set the custom bands noise
+
             bn (str): set the custom bands noise
+
             residual_floor (float): set the residual floor (from -80 to -20)
+
                 Defaults to -38.
             rf (float): set the residual floor (from -80 to -20)
+
                 Defaults to -38.
             track_noise (bool): track noise
+
                 Defaults to false.
             tn (bool): track noise
+
                 Defaults to false.
             track_residual (bool): track residual
+
                 Defaults to false.
             tr (bool): track residual
+
                 Defaults to false.
             output_mode (int | str): set output mode (from 0 to 2)
+
                 Allowed values:
                     * input: input
                     * i: input
@@ -1695,8 +1923,10 @@ class GeneratedFiltersMixin:
                     * o: output
                     * noise: noise
                     * n: noise
+
                 Defaults to output.
             om (int | str): set output mode (from 0 to 2)
+
                 Allowed values:
                     * input: input
                     * i: input
@@ -1704,52 +1934,69 @@ class GeneratedFiltersMixin:
                     * o: output
                     * noise: noise
                     * n: noise
+
                 Defaults to output.
             adaptivity (float): set adaptivity factor (from 0 to 1)
+
                 Defaults to 0.5.
             ad (float): set adaptivity factor (from 0 to 1)
+
                 Defaults to 0.5.
             floor_offset (float): set noise floor offset factor (from -2 to 2)
+
                 Defaults to 1.
             fo (float): set noise floor offset factor (from -2 to 2)
+
                 Defaults to 1.
             noise_link (int | str): set the noise floor link (from 0 to 3)
+
                 Allowed values:
                     * none: none
                     * min: min
                     * max: max
                     * average: average
+
                 Defaults to min.
             nl (int | str): set the noise floor link (from 0 to 3)
+
                 Allowed values:
                     * none: none
                     * min: min
                     * max: max
                     * average: average
+
                 Defaults to min.
             band_multiplier (float): set band multiplier (from 0.2 to 5)
+
                 Defaults to 1.25.
             bm (float): set band multiplier (from 0.2 to 5)
+
                 Defaults to 1.25.
             sample_noise (int | str): set sample noise mode (from 0 to 2)
+
                 Allowed values:
                     * none: none
                     * start: start
                     * begin: start
                     * stop: stop
                     * end: stop
+
                 Defaults to none.
             sn (int | str): set sample noise mode (from 0 to 2)
+
                 Allowed values:
                     * none: none
                     * start: start
                     * begin: start
                     * stop: stop
                     * end: stop
+
                 Defaults to none.
             gain_smooth (int): set gain smooth radius (from 0 to 50)
+
                 Defaults to 0.
             gs (int): set gain smooth radius (from 0 to 50)
+
                 Defaults to 0.
 
         Returns:
@@ -1827,12 +2074,16 @@ class GeneratedFiltersMixin:
 
         Args:
             real (str): set channels real expressions
+
                 Defaults to re.
             imag (str): set channels imaginary expressions
+
                 Defaults to im.
             win_size (int): set window size (from 16 to 131072)
+
                 Defaults to 4096.
             win_func (int | str): set window function (from 0 to 20)
+
                 Allowed values:
                     * rect: Rectangular
                     * bartlett: Bartlett
@@ -1856,8 +2107,10 @@ class GeneratedFiltersMixin:
                     * poisson: Poisson
                     * bohman: Bohman
                     * kaiser: Kaiser
+
                 Defaults to hann.
             overlap (float): set window overlap (from 0 to 1)
+
                 Defaults to 0.75.
 
         Returns:
@@ -1903,12 +2156,16 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             dry (float): set dry gain (from 0 to 10)
+
                 Defaults to 1.
             wet (float): set wet gain (from 0 to 10)
+
                 Defaults to 1.
             length (float): set IR length (from 0 to 1)
+
                 Defaults to 1.
             gtype (int | str): set IR auto gain type (from -1 to 4)
+
                 Allowed values:
                     * none: without auto gain
                     * peak: peak gain
@@ -1916,46 +2173,65 @@ class GeneratedFiltersMixin:
                     * gn: gain to noise
                     * ac: AC gain
                     * rms: RMS gain
+
                 Defaults to peak.
             irnorm (float): set IR norm (from -1 to 2)
+
                 Defaults to 1.
             irlink (bool): set IR link
+
                 Defaults to true.
             irgain (float): set IR gain (from 0 to 1)
+
                 Defaults to 1.
             irfmt (int | str): set IR format (from 0 to 1)
+
                 Allowed values:
                     * mono: single channel
                     * input: same as input
+
                 Defaults to input.
             maxir (float): set max IR length (from 0.1 to 60)
+
                 Defaults to 30.
             response (bool): show IR frequency response
+
                 Defaults to false.
             channel (int): set IR channel to display frequency response (from 0 to 1024)
+
                 Defaults to 0.
             size (str): set video size
+
                 Defaults to hd720.
             rate (str): set video rate
+
                 Defaults to 25.
             minp (int): set min partition size (from 1 to 65536)
+
                 Defaults to 8192.
             maxp (int): set max partition size (from 8 to 65536)
+
                 Defaults to 8192.
             nbirs (int): set number of input IRs (from 1 to 32)
+
                 Defaults to 1.
             ir (int): select IR (from 0 to 31)
+
                 Defaults to 0.
             precision (int | str): set processing precision (from 0 to 2)
+
                 Allowed values:
                     * auto: set auto processing precision
                     * float: set single-floating point processing precision
                     * double: set double-floating point processing precision
+
                 Defaults to auto.
             irload (int | str): set IR loading type (from 0 to 1)
+
                 Allowed values:
                     * init: load all IRs on init
                     * access: load IR on access
+
                 Defaults to init.
 
         Returns:
@@ -2009,10 +2285,13 @@ class GeneratedFiltersMixin:
 
         Args:
             shift (float): set frequency shift (from -2.14748e+09 to INT_MAX)
+
                 Defaults to 0.
             level (float): set output level (from 0 to 1)
+
                 Defaults to 1.
             order (int): set filter order (from 1 to 16)
+
                 Defaults to 8.
 
         Returns:
@@ -2045,10 +2324,13 @@ class GeneratedFiltersMixin:
 
         Args:
             sigma (float): set noise sigma (from 0 to 1)
+
                 Defaults to 0.
             levels (int): set number of wavelet levels (from 1 to 12)
+
                 Defaults to 10.
             wavet (int | str): set wavelet type (from 0 to 6)
+
                 Allowed values:
                     * sym2: sym2
                     * sym4: sym4
@@ -2057,16 +2339,22 @@ class GeneratedFiltersMixin:
                     * sym10: sym10
                     * coif5: coif5
                     * bl3: bl3
+
                 Defaults to sym10.
             percent (float): set percent of full denoising (from 0 to 100)
+
                 Defaults to 85.
             profile (bool): profile noise
+
                 Defaults to false.
             adaptive (bool): adaptive profiling of noise
+
                 Defaults to false.
             samples (int): set frame size in number of samples (from 512 to 65536)
+
                 Defaults to 8192.
             softness (float): set thresholding softness (from 0 to 10)
+
                 Defaults to 1.
 
         Returns:
@@ -2106,37 +2394,52 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set input level (from 0.015625 to 64)
+
                 Defaults to 1.
             mode (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * downward
                     * upward
+
                 Defaults to downward.
             range (float): set max gain reduction (from 0 to 1)
+
                 Defaults to 0.06125.
             threshold (float): set threshold (from 0 to 1)
+
                 Defaults to 0.125.
             ratio (float): set ratio (from 1 to 9000)
+
                 Defaults to 2.
             attack (float): set attack (from 0.01 to 9000)
+
                 Defaults to 20.
             release (float): set release (from 0.01 to 9000)
+
                 Defaults to 250.
             makeup (float): set makeup gain (from 1 to 64)
+
                 Defaults to 1.
             knee (float): set knee (from 1 to 8)
+
                 Defaults to 2.82843.
             detection (int | str): set detection (from 0 to 1)
+
                 Allowed values:
                     * peak
                     * rms
+
                 Defaults to rms.
             link (int | str): set link (from 0 to 1)
+
                 Allowed values:
                     * average
                     * maximum
+
                 Defaults to average.
             level_sc (float): set sidechain gain (from 0.015625 to 64)
+
                 Defaults to 1.
 
         Returns:
@@ -2220,30 +2523,39 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set monitor size
+
                 Defaults to hd720.
             s (str): set monitor size
+
                 Defaults to hd720.
             opacity (float): set video opacity (from 0 to 1)
+
                 Defaults to 0.9.
             o (float): set video opacity (from 0 to 1)
+
                 Defaults to 0.9.
             mode (str): set mode
+
                 Allowed values:
                     * full
                     * compact
                     * nozero
                     * noeof
                     * nodisabled
+
                 Defaults to 0.
             m (str): set mode
+
                 Allowed values:
                     * full
                     * compact
                     * nozero
                     * noeof
                     * nodisabled
+
                 Defaults to 0.
             flags (str): set flags
+
                 Allowed values:
                     * none
                     * all
@@ -2264,8 +2576,10 @@ class GeneratedFiltersMixin:
                     * sample_count_out
                     * sample_count_delta
                     * disabled
+
                 Defaults to all+queue.
             f (str): set flags
+
                 Allowed values:
                     * none
                     * all
@@ -2286,10 +2600,13 @@ class GeneratedFiltersMixin:
                     * sample_count_out
                     * sample_count_delta
                     * disabled
+
                 Defaults to all+queue.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
 
         Returns:
@@ -2330,44 +2647,60 @@ class GeneratedFiltersMixin:
 
         Args:
             dmode (int | str): set method to display channels (from 0 to 1)
+
                 Allowed values:
                     * single: all channels use single histogram
                     * separate: each channel have own histogram
+
                 Defaults to single.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             size (str): set video size
+
                 Defaults to hd720.
             s (str): set video size
+
                 Defaults to hd720.
             scale (int | str): set display scale (from 0 to 4)
+
                 Allowed values:
                     * log: logarithmic
                     * sqrt: square root
                     * cbrt: cubic root
                     * lin: linear
                     * rlog: reverse logarithmic
+
                 Defaults to log.
             ascale (int | str): set amplitude scale (from 0 to 1)
+
                 Allowed values:
                     * log: logarithmic
                     * lin: linear
+
                 Defaults to log.
             acount (int): how much frames to accumulate (from -1 to 100)
+
                 Defaults to 1.
             rheight (float): set histogram ratio of window height (from 0 to 1)
+
                 Defaults to 0.1.
             slide (int | str): set sonogram sliding (from 0 to 1)
+
                 Allowed values:
                     * replace: replace old rows with new
                     * scroll: scroll from top to bottom
+
                 Defaults to replace.
             hmode (int | str): set histograms mode (from 0 to 1)
+
                 Allowed values:
                     * abs: use absolute samples
                     * sign: use unchanged samples
+
                 Defaults to abs.
 
         Returns:
@@ -2419,22 +2752,31 @@ class GeneratedFiltersMixin:
 
         Args:
             zeros (str): set B/numerator/zeros/reflection coefficients
+
                 Defaults to 1+0i 1-0i.
             z (str): set B/numerator/zeros/reflection coefficients
+
                 Defaults to 1+0i 1-0i.
             poles (str): set A/denominator/poles/ladder coefficients
+
                 Defaults to 1+0i 1-0i.
             p (str): set A/denominator/poles/ladder coefficients
+
                 Defaults to 1+0i 1-0i.
             gains (str): set channels gains
+
                 Defaults to 1|1.
             k (str): set channels gains
+
                 Defaults to 1|1.
             dry (float): set dry gain (from 0 to 1)
+
                 Defaults to 1.
             wet (float): set wet gain (from 0 to 1)
+
                 Defaults to 1.
             format (int | str): set coefficients format (from -2 to 4)
+
                 Allowed values:
                     * ll: lattice-ladder function
                     * sf: analog transfer function
@@ -2443,8 +2785,10 @@ class GeneratedFiltersMixin:
                     * pr: Z-plane zeros/poles (polar radians)
                     * pd: Z-plane zeros/poles (polar degrees)
                     * sp: S-plane zeros/poles
+
                 Defaults to zp.
             f (int | str): set coefficients format (from -2 to 4)
+
                 Allowed values:
                     * ll: lattice-ladder function
                     * sf: analog transfer function
@@ -2453,46 +2797,62 @@ class GeneratedFiltersMixin:
                     * pr: Z-plane zeros/poles (polar radians)
                     * pd: Z-plane zeros/poles (polar degrees)
                     * sp: S-plane zeros/poles
+
                 Defaults to zp.
             process (int | str): set kind of processing (from 0 to 2)
+
                 Allowed values:
                     * d: direct
                     * s: serial
                     * p: parallel
+
                 Defaults to s.
             r (int | str): set kind of processing (from 0 to 2)
+
                 Allowed values:
                     * d: direct
                     * s: serial
                     * p: parallel
+
                 Defaults to s.
             precision (int | str): set filtering precision (from 0 to 3)
+
                 Allowed values:
                     * dbl: double-precision floating-point
                     * flt: single-precision floating-point
                     * i32: 32-bit integers
                     * i16: 16-bit integers
+
                 Defaults to dbl.
             e (int | str): set precision (from 0 to 3)
+
                 Allowed values:
                     * dbl: double-precision floating-point
                     * flt: single-precision floating-point
                     * i32: 32-bit integers
                     * i16: 16-bit integers
+
                 Defaults to dbl.
             normalize (bool): normalize coefficients
+
                 Defaults to true.
             n (bool): normalize coefficients
+
                 Defaults to true.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             response (bool): show IR frequency response
+
                 Defaults to false.
             channel (int): set IR channel to display frequency response (from 0 to 1024)
+
                 Defaults to 0.
             size (str): set video size
+
                 Defaults to hd720.
             rate (str): set video rate
+
                 Defaults to 25.
 
         Returns:
@@ -2550,14 +2910,18 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             nb_inputs (int): set number of inputs (from 1 to INT_MAX)
+
                 Defaults to 2.
             n (int): set number of inputs (from 1 to INT_MAX)
+
                 Defaults to 2.
             duration (int | str): how to determine the end-of-stream (from 0 to 2)
+
                 Allowed values:
                     * longest: Duration of longest input
                     * shortest: Duration of shortest input
                     * first: Duration of first input
+
                 Defaults to longest.
 
         Returns:
@@ -2601,22 +2965,31 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set input level (from 0.015625 to 64)
+
                 Defaults to 1.
             level_out (float): set output level (from 0.015625 to 64)
+
                 Defaults to 1.
             limit (float): set limit (from 0.0625 to 1)
+
                 Defaults to 1.
             attack (float): set attack (from 0.1 to 80)
+
                 Defaults to 5.
             release (float): set release (from 1 to 8000)
+
                 Defaults to 50.
             asc (bool): enable asc
+
                 Defaults to false.
             asc_level (float): set asc level (from 0 to 1)
+
                 Defaults to 0.5.
             level (bool): auto level
+
                 Defaults to true.
             latency (bool): compensate delay
+
                 Defaults to false.
 
         Returns:
@@ -2667,46 +3040,63 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             f (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.707.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.707.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             order (int): set filter order (from 1 to 2)
+
                 Defaults to 2.
             o (int): set filter order (from 1 to 2)
+
                 Defaults to 2.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -2715,8 +3105,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -2725,22 +3117,27 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
 
         Returns:
@@ -2782,12 +3179,16 @@ class GeneratedFiltersMixin:
 
         Args:
             loop (int): number of loops (from -1 to INT_MAX)
+
                 Defaults to 0.
             size (str): max number of samples to loop (from 0 to INT_MAX)
+
                 Defaults to 0.
             start (str): set the loop start sample (from -1 to I64_MAX)
+
                 Defaults to 0.
             time (str): set the loop start time
+
                 Defaults to INT64_MAX.
 
         Returns:
@@ -2835,6 +3236,7 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): specify the number of inputs (from 1 to 64)
+
                 Defaults to 2.
 
         Returns:
@@ -2866,16 +3268,21 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set a mode of operation (from 0 to 4)
+
                 Allowed values:
                     * select: select frame
                     * add: add new metadata
                     * modify: modify metadata
                     * delete: delete metadata
                     * print: print metadata
+
                 Defaults to select.
             key (str): set metadata key
+
             value (str): set metadata value
+
             function (int | str): function for comparing values (from 0 to 6)
+
                 Allowed values:
                     * same_str
                     * starts_with
@@ -2884,10 +3291,14 @@ class GeneratedFiltersMixin:
                     * greater
                     * expr
                     * ends_with
+
                 Defaults to same_str.
             expr (str): set expression for expr function
+
             file (str): set file where to print metadata information
+
             direct (bool): reduce buffering when printing to user-set file or pipe
+
                 Defaults to false.
 
         Returns:
@@ -2921,18 +3332,24 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): Number of inputs. (from 1 to 32767)
+
                 Defaults to 2.
             duration (int | str): How to determine the end-of-stream. (from 0 to 2)
+
                 Allowed values:
                     * longest: Duration of longest input.
                     * shortest: Duration of shortest input.
                     * first: Duration of first input.
+
                 Defaults to longest.
             dropout_transition (float): Transition time, in seconds, for volume renormalization when an input stream ends. (from 0 to INT_MAX)
+
                 Defaults to 2.
             weights (str): Set weight for each input.
+
                 Defaults to 1 1.
             normalize (bool): Scale inputs
+
                 Defaults to true.
 
         Returns:
@@ -2964,18 +3381,25 @@ class GeneratedFiltersMixin:
 
         Args:
             radius (int): set radius (from 1 to 63)
+
                 Defaults to 2.
             factor (float): set factor (from 0 to 65535)
+
                 Defaults to 2.
             threshold (float): set threshold (from 0 to 65535)
+
                 Defaults to 10.
             tolerance (float): set tolerance (from 0 to 65535)
+
                 Defaults to 0.
             low (float): set low limit for amplification (from 0 to 65535)
+
                 Defaults to 65535.
             high (float): set high limit for amplification (from 0 to 65535)
+
                 Defaults to 65535.
             planes (str): set what planes to filter
+
                 Defaults to 7.
 
         Returns:
@@ -3021,18 +3445,25 @@ class GeneratedFiltersMixin:
 
         Args:
             params (str): No description available.
+
             curves (bool): draw frequency response curves
+
                 Defaults to false.
             size (str): set video size
+
                 Defaults to hd720.
             mgain (float): set max gain (from -900 to 900)
+
                 Defaults to 60.
             fscale (int | str): set frequency scale (from 0 to 1)
+
                 Allowed values:
                     * lin: linear
                     * log: logarithmic
+
                 Defaults to log.
             colors (str): set channels curves colors
+
                 Defaults to red|green|blue|yellow|orange|lime|pink|magenta|brown.
 
         Returns:
@@ -3068,32 +3499,44 @@ class GeneratedFiltersMixin:
 
         Args:
             strength (float): set denoising strength (from 1e-05 to 10000)
+
                 Defaults to 1e-05.
             s (float): set denoising strength (from 1e-05 to 10000)
+
                 Defaults to 1e-05.
             patch (str): set patch duration
+
                 Defaults to 0.002.
             p (str): set patch duration
+
                 Defaults to 0.002.
             research (str): set research duration
+
                 Defaults to 0.006.
             r (str): set research duration
+
                 Defaults to 0.006.
             output (int | str): set output mode (from 0 to 2)
+
                 Allowed values:
                     * i: input
                     * o: output
                     * n: noise
+
                 Defaults to o.
             o (int | str): set output mode (from 0 to 2)
+
                 Allowed values:
                     * i: input
                     * o: output
                     * n: noise
+
                 Defaults to o.
             smooth (float): set smooth factor (from 1 to 1000)
+
                 Defaults to 11.
             m (float): set smooth factor (from 1 to 1000)
+
                 Defaults to 11.
 
         Returns:
@@ -3131,26 +3574,34 @@ class GeneratedFiltersMixin:
         Args:
             desired_stream (Stream): Input audio stream.
             order (int): set the filter order (from 1 to 32767)
+
                 Defaults to 256.
             mu (float): set the filter mu (from 0 to 2)
+
                 Defaults to 0.75.
             eps (float): set the filter eps (from 0 to 1)
+
                 Defaults to 1.
             leakage (float): set the filter leakage (from 0 to 1)
+
                 Defaults to 0.
             out_mode (int | str): set output mode (from 0 to 4)
+
                 Allowed values:
                     * i: input
                     * d: desired
                     * o: output
                     * n: noise
                     * e: error
+
                 Defaults to o.
             precision (int | str): set processing precision (from 0 to 2)
+
                 Allowed values:
                     * auto: set auto processing precision
                     * float: set single-floating point processing precision
                     * double: set double-floating point processing precision
+
                 Defaults to auto.
 
         Returns:
@@ -3184,26 +3635,34 @@ class GeneratedFiltersMixin:
         Args:
             desired_stream (Stream): Input audio stream.
             order (int): set the filter order (from 1 to 32767)
+
                 Defaults to 256.
             mu (float): set the filter mu (from 0 to 2)
+
                 Defaults to 0.75.
             eps (float): set the filter eps (from 0 to 1)
+
                 Defaults to 1.
             leakage (float): set the filter leakage (from 0 to 1)
+
                 Defaults to 0.
             out_mode (int | str): set output mode (from 0 to 4)
+
                 Allowed values:
                     * i: input
                     * d: desired
                     * o: output
                     * n: noise
                     * e: error
+
                 Defaults to o.
             precision (int | str): set processing precision (from 0 to 2)
+
                 Allowed values:
                     * auto: set auto processing precision
                     * float: set single-floating point processing precision
                     * double: set double-floating point processing precision
+
                 Defaults to auto.
 
         Returns:
@@ -3246,14 +3705,19 @@ class GeneratedFiltersMixin:
 
         Args:
             packet_size (int): set silence packet size (from 0 to INT_MAX)
+
                 Defaults to 4096.
             pad_len (str): set number of samples of silence to add (from -1 to I64_MAX)
+
                 Defaults to -1.
             whole_len (str): set minimum target number of samples in the audio stream (from -1 to I64_MAX)
+
                 Defaults to -1.
             pad_dur (str): set duration of silence to add
+
                 Defaults to -0.000001.
             whole_dur (str): set minimum target duration in the audio stream
+
                 Defaults to -0.000001.
 
         Returns:
@@ -3280,14 +3744,17 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): select permissions mode (from 0 to 4)
+
                 Allowed values:
                     * none: do nothing
                     * ro: set all output frames read-only
                     * rw: set all output frames writable
                     * toggle: switch permissions
                     * random: set permissions randomly
+
                 Defaults to none.
             seed (str): set the seed for the random mode (from -1 to UINT32_MAX)
+
                 Defaults to -1.
 
         Returns:
@@ -3325,36 +3792,52 @@ class GeneratedFiltersMixin:
 
         Args:
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             size (str): set video size
+
                 Defaults to 800x400.
             s (str): set video size
+
                 Defaults to 800x400.
             rc (int): set red contrast (from 0 to 255)
+
                 Defaults to 2.
             gc (int): set green contrast (from 0 to 255)
+
                 Defaults to 7.
             bc (int): set blue contrast (from 0 to 255)
+
                 Defaults to 1.
             mpc (str): set median phase color
+
                 Defaults to none.
             video (bool): set video output
+
                 Defaults to true.
             phasing (bool): set mono and out-of-phase detection output
+
                 Defaults to false.
             tolerance (float): set phase tolerance for mono detection (from 0 to 1)
+
                 Defaults to 0.
             t (float): set phase tolerance for mono detection (from 0 to 1)
+
                 Defaults to 0.
             angle (float): set angle threshold for out-of-phase detection (from 90 to 180)
+
                 Defaults to 170.
             a (float): set angle threshold for out-of-phase detection (from 90 to 180)
+
                 Defaults to 170.
             duration (str): set minimum mono or out-of-phase duration in seconds
+
                 Defaults to 2.
             d (str): set minimum mono or out-of-phase duration in seconds
+
                 Defaults to 2.
 
         Returns:
@@ -3396,21 +3879,28 @@ class GeneratedFiltersMixin:
 
         Args:
             in_gain (float): set input gain (from 0 to 1)
+
                 Defaults to 0.4.
             out_gain (float): set output gain (from 0 to 1e+09)
+
                 Defaults to 0.74.
             delay (float): set delay in milliseconds (from 0 to 5)
+
                 Defaults to 3.
             decay (float): set decay (from 0 to 0.99)
+
                 Defaults to 0.4.
             speed (float): set modulation speed (from 0.1 to 2)
+
                 Defaults to 0.5.
             type (int | str): set modulation type (from 0 to 1)
+
                 Allowed values:
                     * triangular
                     * t
                     * sinusoidal
                     * s
+
                 Defaults to triangular.
 
         Returns:
@@ -3439,10 +3929,13 @@ class GeneratedFiltersMixin:
 
         Args:
             shift (float): set phase shift (from -1 to 1)
+
                 Defaults to 0.
             level (float): set output level (from 0 to 1)
+
                 Defaults to 1.
             order (int): set filter order (from 1 to 16)
+
                 Defaults to 8.
 
         Returns:
@@ -3485,18 +3978,25 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set input level (from 0.015625 to 64)
+
                 Defaults to 1.
             level_out (float): set output level (from 0.015625 to 64)
+
                 Defaults to 1.
             clip (float): set clip level (from 0.015625 to 1)
+
                 Defaults to 1.
             diff (bool): enable difference
+
                 Defaults to false.
             adaptive (float): set adaptive distortion (from 0 to 1)
+
                 Defaults to 0.5.
             iterations (int): set iterations (from 1 to 20)
+
                 Defaults to 10.
             level (bool): set auto level
+
                 Defaults to false.
 
         Returns:
@@ -3536,36 +4036,49 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set input gain (from 0.015625 to 64)
+
                 Defaults to 1.
             level_out (float): set output gain (from 0.015625 to 64)
+
                 Defaults to 1.
             mode (int | str): set mode (from 0 to 4)
+
                 Allowed values:
                     * sine
                     * triangle
                     * square
                     * sawup
                     * sawdown
+
                 Defaults to sine.
             amount (float): set modulation (from 0 to 1)
+
                 Defaults to 1.
             offset_l (float): set offset L (from 0 to 1)
+
                 Defaults to 0.
             offset_r (float): set offset R (from 0 to 1)
+
                 Defaults to 0.5.
             width (float): set pulse width (from 0 to 2)
+
                 Defaults to 1.
             timing (int | str): set timing (from 0 to 2)
+
                 Allowed values:
                     * bpm
                     * ms
                     * hz
+
                 Defaults to hz.
             bpm (float): set BPM (from 30 to 300)
+
                 Defaults to 120.
             ms (int): set ms (from 10 to 2000)
+
                 Defaults to 500.
             hz (float): set frequency (from 0.01 to 100)
+
                 Defaults to 2.
 
         Returns:
@@ -3596,8 +4109,10 @@ class GeneratedFiltersMixin:
 
         Args:
             limit (str): sleep time limit
+
                 Defaults to 2.
             speed (float): speed factor (from DBL_MIN to DBL_MAX)
+
                 Defaults to 1.
 
         Returns:
@@ -3617,6 +4132,7 @@ class GeneratedFiltersMixin:
 
         Args:
             sample_rate (int): (from 0 to INT_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -3656,24 +4172,31 @@ class GeneratedFiltersMixin:
         Args:
             desired_stream (Stream): Input audio stream.
             order (int): set the filter order (from 1 to 32767)
+
                 Defaults to 16.
             lambda_ (float): set the filter lambda (from 0 to 1)
+
                 Defaults to 1.
             delta (float): set the filter delta (from 0 to 32767)
+
                 Defaults to 2.
             out_mode (int | str): set output mode (from 0 to 4)
+
                 Allowed values:
                     * i: input
                     * d: desired
                     * o: output
                     * n: noise
                     * e: error
+
                 Defaults to o.
             precision (int | str): set processing precision (from 0 to 2)
+
                 Allowed values:
                     * auto: set auto processing precision
                     * float: set single-floating point processing precision
                     * double: set double-floating point processing precision
+
                 Defaults to auto.
 
         Returns:
@@ -3698,8 +4221,11 @@ class GeneratedFiltersMixin:
 
         Args:
             model (str): set model name
+
             m (str): set model name
+
             mix (float): set output vs input mix (from -1 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -3735,7 +4261,9 @@ class GeneratedFiltersMixin:
 
         Args:
             timestamps (str): timestamps of input at which to split input
+
             samples (str): samples at which to split input
+
 
         Returns:
             "FilterMultiOutput": A FilterMultiOutput object to access dynamic outputs.
@@ -3760,12 +4288,16 @@ class GeneratedFiltersMixin:
 
         Args:
             expr (str): set an expression to use for selecting frames
+
                 Defaults to 1.
             e (str): set an expression to use for selecting frames
+
                 Defaults to 1.
             outputs (int): set the number of outputs (from 1 to INT_MAX)
+
                 Defaults to 1.
             n (int): set the number of outputs (from 1 to INT_MAX)
+
                 Defaults to 1.
 
         Returns:
@@ -3793,9 +4325,13 @@ class GeneratedFiltersMixin:
 
         Args:
             commands (str): set commands
+
             c (str): set commands
+
             filename (str): set commands file
+
             f (str): set commands file
+
 
         Returns:
             "Stream": The output stream.
@@ -3822,12 +4358,16 @@ class GeneratedFiltersMixin:
 
         Args:
             nb_out_samples (int): set the number of per-frame output samples (from 1 to INT_MAX)
+
                 Defaults to 1024.
             n (int): set the number of per-frame output samples (from 1 to INT_MAX)
+
                 Defaults to 1024.
             pad (bool): pad last frame with zeros
+
                 Defaults to true.
             p (bool): pad last frame with zeros
+
                 Defaults to true.
 
         Returns:
@@ -3849,6 +4389,7 @@ class GeneratedFiltersMixin:
 
         Args:
             expr (str): Expression determining the frame timestamp
+
                 Defaults to PTS.
 
         Returns:
@@ -3869,8 +4410,10 @@ class GeneratedFiltersMixin:
 
         Args:
             sample_rate (int): set the sample rate (from 1 to INT_MAX)
+
                 Defaults to 44100.
             r (int): set the sample rate (from 1 to INT_MAX)
+
                 Defaults to 44100.
 
         Returns:
@@ -3890,8 +4433,10 @@ class GeneratedFiltersMixin:
 
         Args:
             expr (str): set expression determining the output timebase
+
                 Defaults to intb.
             tb (str): set expression determining the output timebase
+
                 Defaults to intb.
 
         Returns:
@@ -3959,11 +4504,14 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set a mode of operation (from 0 to 1)
+
                 Allowed values:
                     * select: select frame
                     * delete: delete side data
+
                 Defaults to select.
             type (int | str): set side data type (from -1 to INT_MAX)
+
                 Allowed values:
                     * PANSCAN
                     * A53_CC
@@ -3994,6 +4542,7 @@ class GeneratedFiltersMixin:
                     * DYNAMIC_HDR_VIVID
                     * AMBIENT_VIEWING_ENVIRONMENT
                     * VIDEO_HINT
+
                 Defaults to -1.
 
         Returns:
@@ -4037,6 +4586,7 @@ class GeneratedFiltersMixin:
 
         Args:
             type (int | str): set softclip type (from -1 to 7)
+
                 Allowed values:
                     * hard
                     * tanh
@@ -4047,14 +4597,19 @@ class GeneratedFiltersMixin:
                     * quintic
                     * sin
                     * erf
+
                 Defaults to tanh.
             threshold (float): set softclip threshold (from 1e-06 to 1)
+
                 Defaults to 1.
             output (float): set softclip output gain (from 1e-06 to 16)
+
                 Defaults to 1.
             param (float): set softclip parameter (from 0.01 to 3)
+
                 Defaults to 1.
             oversample (int): set oversample factor (from 1 to 64)
+
                 Defaults to 1.
 
         Returns:
@@ -4125,8 +4680,10 @@ class GeneratedFiltersMixin:
 
         Args:
             win_size (int): set the window size (from 32 to 65536)
+
                 Defaults to 2048.
             win_func (int | str): set window function (from 0 to 20)
+
                 Allowed values:
                     * rect: Rectangular
                     * bartlett: Bartlett
@@ -4150,10 +4707,13 @@ class GeneratedFiltersMixin:
                     * poisson: Poisson
                     * bohman: Bohman
                     * kaiser: Kaiser
+
                 Defaults to hann.
             overlap (float): set window overlap (from 0 to 1)
+
                 Defaults to 0.5.
             measure (str): select the parameters which are measured
+
                 Allowed values:
                     * none
                     * all
@@ -4170,6 +4730,7 @@ class GeneratedFiltersMixin:
                     * slope
                     * decrease
                     * rolloff
+
                 Defaults to all+mean+variance+centroid+spread+skewness+kurtosis+entropy+flatness+crest+flux+slope+decrease+rolloff.
 
         Returns:
@@ -4191,6 +4752,7 @@ class GeneratedFiltersMixin:
 
         Args:
             outputs (int): set number of outputs (from 1 to INT_MAX)
+
                 Defaults to 2.
 
         Returns:
@@ -4217,16 +4779,23 @@ class GeneratedFiltersMixin:
 
         Args:
             filename (str): set the filename of file to read
+
             f (str): set the filename of file to read
+
             original_size (str): set the size of the original video (used to scale fonts)
+
             fontsdir (str): set the directory containing the fonts to read
+
             alpha (bool): enable processing of alpha channel
+
                 Defaults to false.
             shaping (int | str): set shaping engine (from -1 to 1)
+
                 Allowed values:
                     * auto
                     * simple: simple shaping
                     * complex: complex shaping
+
                 Defaults to auto.
 
         Returns:
@@ -4317,12 +4886,16 @@ class GeneratedFiltersMixin:
 
         Args:
             length (float): set the window length (from 0 to 10)
+
                 Defaults to 0.05.
             metadata (bool): inject metadata in the filtergraph
+
                 Defaults to false.
             reset (int): Set the number of frames over which cumulative stats are calculated before being reset (from 0 to INT_MAX)
+
                 Defaults to 0.
             measure_perchannel (str): Select the parameters which are measured per channel
+
                 Allowed values:
                     * none
                     * all
@@ -4352,8 +4925,10 @@ class GeneratedFiltersMixin:
                     * Zero_crossings
                     * Zero_crossings_rate
                     * Abs_Peak_count
+
                 Defaults to all+Bit_depth+Crest_factor+DC_offset+Dynamic_range+Entropy+Flat_factor+Max_difference+Max_level+Mean_difference+Min_difference+Min_level+Noise_floor+Noise_floor_count+Number_of_Infs+Number_of_NaNs+Number_of_denormals+Number_of_samples+Peak_count+Peak_level+RMS_difference+RMS_level+RMS_peak+RMS_trough+Zero_crossings+Zero_crossings_rate+Abs_Peak_count.
             measure_overall (str): Select the parameters which are measured overall
+
                 Allowed values:
                     * none
                     * all
@@ -4383,6 +4958,7 @@ class GeneratedFiltersMixin:
                     * Zero_crossings
                     * Zero_crossings_rate
                     * Abs_Peak_count
+
                 Defaults to all+Bit_depth+Crest_factor+DC_offset+Dynamic_range+Entropy+Flat_factor+Max_difference+Max_level+Mean_difference+Min_difference+Min_level+Noise_floor+Noise_floor_count+Number_of_Infs+Number_of_NaNs+Number_of_denormals+Number_of_samples+Peak_count+Peak_level+RMS_difference+RMS_level+RMS_peak+RMS_trough+Zero_crossings+Zero_crossings_rate+Abs_Peak_count.
 
         Returns:
@@ -4408,8 +4984,10 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): number of input streams (from 2 to INT_MAX)
+
                 Defaults to 2.
             map (str): input indexes to remap to outputs
+
 
         Returns:
             "FilterMultiOutput": A FilterMultiOutput object to access dynamic outputs.
@@ -4439,22 +5017,31 @@ class GeneratedFiltersMixin:
 
         Args:
             dry (float): set dry gain (from 0 to 1)
+
                 Defaults to 1.
             wet (float): set wet gain (from 0 to 1)
+
                 Defaults to 1.
             boost (float): set max boost (from 1 to 12)
+
                 Defaults to 2.
             decay (float): set decay (from 0 to 1)
+
                 Defaults to 0.
             feedback (float): set feedback (from 0 to 1)
+
                 Defaults to 0.9.
             cutoff (float): set cutoff (from 50 to 900)
+
                 Defaults to 100.
             slope (float): set slope (from 0.0001 to 1)
+
                 Defaults to 0.5.
             delay (float): set delay (from 1 to 100)
+
                 Defaults to 20.
             channels (str): set channels to filter
+
                 Defaults to all.
 
         Returns:
@@ -4486,10 +5073,13 @@ class GeneratedFiltersMixin:
 
         Args:
             cutoff (float): set cutoff frequency (from 2 to 200)
+
                 Defaults to 20.
             order (int): set filter order (from 3 to 20)
+
                 Defaults to 10.
             level (float): set input level (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -4515,10 +5105,13 @@ class GeneratedFiltersMixin:
 
         Args:
             cutoff (float): set cutoff frequency (from 20000 to 192000)
+
                 Defaults to 20000.
             order (int): set filter order (from 3 to 20)
+
                 Defaults to 10.
             level (float): set input level (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -4545,12 +5138,16 @@ class GeneratedFiltersMixin:
 
         Args:
             centerf (float): set center frequency (from 2 to 999999)
+
                 Defaults to 1000.
             order (int): set filter order (from 4 to 20)
+
                 Defaults to 4.
             qfactor (float): set Q-factor (from 0.01 to 100)
+
                 Defaults to 1.
             level (float): set input level (from 0 to 2)
+
                 Defaults to 1.
 
         Returns:
@@ -4578,12 +5175,16 @@ class GeneratedFiltersMixin:
 
         Args:
             centerf (float): set center frequency (from 2 to 999999)
+
                 Defaults to 1000.
             order (int): set filter order (from 4 to 20)
+
                 Defaults to 4.
             qfactor (float): set Q-factor (from 0.01 to 100)
+
                 Defaults to 1.
             level (float): set input level (from 0 to 2)
+
                 Defaults to 1.
 
         Returns:
@@ -4619,31 +5220,44 @@ class GeneratedFiltersMixin:
 
         Args:
             _0a (float): set threshold A for 1st plane (from 0 to 0.3)
+
                 Defaults to 0.02.
             _0b (float): set threshold B for 1st plane (from 0 to 5)
+
                 Defaults to 0.04.
             _1a (float): set threshold A for 2nd plane (from 0 to 0.3)
+
                 Defaults to 0.02.
             _1b (float): set threshold B for 2nd plane (from 0 to 5)
+
                 Defaults to 0.04.
             _2a (float): set threshold A for 3rd plane (from 0 to 0.3)
+
                 Defaults to 0.02.
             _2b (float): set threshold B for 3rd plane (from 0 to 5)
+
                 Defaults to 0.04.
             s (int): set how many frames to use (from 5 to 129)
+
                 Defaults to 9.
             p (str): set what planes to filter
+
                 Defaults to 7.
             a (int | str): set variant of algorithm (from 0 to 1)
+
                 Allowed values:
                     * p: parallel
                     * s: serial
+
                 Defaults to p.
             _0s (float): set sigma for 1st plane (from 0 to 32767)
+
                 Defaults to 32767.
             _1s (float): set sigma for 2nd plane (from 0 to 32767)
+
                 Defaults to 32767.
             _2s (float): set sigma for 3rd plane (from 0 to 32767)
+
                 Defaults to 32767.
 
         Returns:
@@ -4673,6 +5287,7 @@ class GeneratedFiltersMixin:
 
         Args:
             tempo (float): set tempo scale factor (from 0.5 to 100)
+
                 Defaults to 1.
 
         Returns:
@@ -4698,14 +5313,19 @@ class GeneratedFiltersMixin:
 
         Args:
             freq (float): set central frequency (from 20 to 192000)
+
                 Defaults to 10000.
             slope (float): set filter slope (from -1 to 1)
+
                 Defaults to 0.
             width (float): set filter width (from 100 to 10000)
+
                 Defaults to 1000.
             order (int): set filter order (from 2 to 30)
+
                 Defaults to 5.
             level (float): set input level (from 0 to 4)
+
                 Defaults to 1.
 
         Returns:
@@ -4740,24 +5360,34 @@ class GeneratedFiltersMixin:
 
         Args:
             start (str): Timestamp of the first frame that should be passed
+
                 Defaults to INT64_MAX.
             starti (str): Timestamp of the first frame that should be passed
+
                 Defaults to INT64_MAX.
             end (str): Timestamp of the first frame that should be dropped again
+
                 Defaults to INT64_MAX.
             endi (str): Timestamp of the first frame that should be dropped again
+
                 Defaults to INT64_MAX.
             start_pts (str): Timestamp of the first frame that should be  passed (from I64_MIN to I64_MAX)
+
                 Defaults to I64_MIN.
             end_pts (str): Timestamp of the first frame that should be dropped again (from I64_MIN to I64_MAX)
+
                 Defaults to I64_MIN.
             duration (str): Maximum duration of the output
+
                 Defaults to 0.
             durationi (str): Maximum duration of the output
+
                 Defaults to 0.
             start_sample (str): Number of the first audio sample that should be passed to the output (from -1 to I64_MAX)
+
                 Defaults to -1.
             end_sample (str): Number of the first audio sample that should be dropped again (from 0 to I64_MAX)
+
                 Defaults to I64_MAX.
 
         Returns:
@@ -4806,64 +5436,88 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set mode (from 0 to 2)
+
                 Allowed values:
                     * lissajous
                     * lissajous_xy
                     * polar
+
                 Defaults to lissajous.
             m (int | str): set mode (from 0 to 2)
+
                 Allowed values:
                     * lissajous
                     * lissajous_xy
                     * polar
+
                 Defaults to lissajous.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             size (str): set video size
+
                 Defaults to 400x400.
             s (str): set video size
+
                 Defaults to 400x400.
             rc (int): set red contrast (from 0 to 255)
+
                 Defaults to 40.
             gc (int): set green contrast (from 0 to 255)
+
                 Defaults to 160.
             bc (int): set blue contrast (from 0 to 255)
+
                 Defaults to 80.
             ac (int): set alpha contrast (from 0 to 255)
+
                 Defaults to 255.
             rf (int): set red fade (from 0 to 255)
+
                 Defaults to 15.
             gf (int): set green fade (from 0 to 255)
+
                 Defaults to 10.
             bf (int): set blue fade (from 0 to 255)
+
                 Defaults to 5.
             af (int): set alpha fade (from 0 to 255)
+
                 Defaults to 5.
             zoom (float): set zoom factor (from 0 to 10)
+
                 Defaults to 1.
             draw (int | str): set draw mode (from 0 to 2)
+
                 Allowed values:
                     * dot: draw dots
                     * line: draw lines
                     * aaline: draw anti-aliased lines
+
                 Defaults to dot.
             scale (int | str): set amplitude scale mode (from 0 to 3)
+
                 Allowed values:
                     * lin: linear
                     * sqrt: square root
                     * cbrt: cube root
                     * log: logarithmic
+
                 Defaults to lin.
             swap (bool): swap x axis with y axis
+
                 Defaults to true.
             mirror (int | str): mirror axis (from 0 to 3)
+
                 Allowed values:
                     * none: no mirror
                     * x: mirror x
                     * y: mirror y
                     * xy: mirror both
+
                 Defaults to none.
 
         Returns:
@@ -4905,10 +5559,13 @@ class GeneratedFiltersMixin:
 
         Args:
             sizeX (int): set horizontal size (from 1 to 1024)
+
                 Defaults to 1.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             sizeY (int): set vertical size (from 0 to 1024)
+
                 Defaults to 0.
 
         Returns:
@@ -4935,12 +5592,15 @@ class GeneratedFiltersMixin:
         Args:
             axcorrelate1_stream (Stream): Input audio stream.
             size (int): set the segment size (from 2 to 131072)
+
                 Defaults to 256.
             algo (int | str): set the algorithm (from 0 to 2)
+
                 Allowed values:
                     * slow: slow algorithm
                     * fast: fast algorithm
                     * best: best algorithm
+
                 Defaults to best.
 
         Returns:
@@ -4960,8 +5620,10 @@ class GeneratedFiltersMixin:
 
         Args:
             bind_address (str): set bind address
+
                 Defaults to tcp://*:5555.
             b (str): set bind address
+
                 Defaults to tcp://*:5555.
 
         Returns:
@@ -4986,10 +5648,13 @@ class GeneratedFiltersMixin:
 
         Args:
             threshold (float): set the scene change threshold (from 0 to 1)
+
                 Defaults to 0.08.
             similarity (float): set the similarity (from 0 to 1)
+
                 Defaults to 0.1.
             blend (float): set the blend value (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -5035,44 +5700,60 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             f (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             csg (bool): use constant skirt gain
+
                 Defaults to false.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -5081,8 +5762,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -5091,26 +5774,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -5171,42 +5861,57 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             f (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -5215,8 +5920,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -5225,26 +5932,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -5308,50 +6022,69 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
+
                 Defaults to 100.
             f (float): set central frequency (from 0 to 999999)
+
                 Defaults to 100.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             gain (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             g (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             poles (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             p (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -5360,8 +6093,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -5370,26 +6105,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -5429,6 +6171,7 @@ class GeneratedFiltersMixin:
 
         Args:
             min_val (int): set minimum luminance value for bounding box (from 0 to 65535)
+
                 Defaults to 16.
 
         Returns:
@@ -5447,9 +6190,11 @@ class GeneratedFiltersMixin:
 
         Args:
             action (int | str): set action (from 0 to 1)
+
                 Allowed values:
                     * start: start timer
                     * stop: stop timer
+
                 Defaults to start.
 
         Returns:
@@ -5473,10 +6218,13 @@ class GeneratedFiltersMixin:
 
         Args:
             sigmaS (float): set spatial sigma (from 0 to 512)
+
                 Defaults to 0.1.
             sigmaR (float): set range sigma (from 0 to 1)
+
                 Defaults to 0.1.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 1.
 
         Returns:
@@ -5521,30 +6269,43 @@ class GeneratedFiltersMixin:
 
         Args:
             a0 (float): (from INT_MIN to INT_MAX)
+
                 Defaults to 1.
             a1 (float): (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             a2 (float): (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             b0 (float): (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             b1 (float): (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             b2 (float): (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -5553,8 +6314,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -5563,26 +6326,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -5620,8 +6390,10 @@ class GeneratedFiltersMixin:
 
         Args:
             bitplane (int): set bit plane to use for measuring noise (from 1 to 16)
+
                 Defaults to 1.
             filter (bool): show noisy pixels
+
                 Defaults to false.
 
         Returns:
@@ -5650,18 +6422,25 @@ class GeneratedFiltersMixin:
 
         Args:
             d (float): set minimum detected black duration in seconds (from 0 to DBL_MAX)
+
                 Defaults to 2.
             black_min_duration (float): set minimum detected black duration in seconds (from 0 to DBL_MAX)
+
                 Defaults to 2.
             picture_black_ratio_th (float): set the picture black ratio threshold (from 0 to 1)
+
                 Defaults to 0.98.
             pic_th (float): set the picture black ratio threshold (from 0 to 1)
+
                 Defaults to 0.98.
             pixel_black_th (float): set the pixel black threshold (from 0 to 1)
+
                 Defaults to 0.1.
             pix_th (float): set the pixel black threshold (from 0 to 1)
+
                 Defaults to 0.1.
             alpha (bool): check alpha instead of luma
+
                 Defaults to false.
 
         Returns:
@@ -5691,10 +6470,13 @@ class GeneratedFiltersMixin:
 
         Args:
             amount (int): percentage of the pixels that have to be below the threshold for the frame to be considered black (from 0 to 100)
+
                 Defaults to 98.
             threshold (int): threshold below which a pixel value is considered black (from 0 to 255)
+
                 Defaults to 32.
             thresh (int): threshold below which a pixel value is considered black (from 0 to 255)
+
                 Defaults to 32.
 
         Returns:
@@ -5959,6 +6741,7 @@ class GeneratedFiltersMixin:
         Args:
             bottom_stream (Stream): Input video stream.
             c0_mode (int | str): set component #0 blend mode (from 0 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -6002,8 +6785,10 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to normal.
             c1_mode (int | str): set component #1 blend mode (from 0 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -6047,8 +6832,10 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to normal.
             c2_mode (int | str): set component #2 blend mode (from 0 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -6092,8 +6879,10 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to normal.
             c3_mode (int | str): set component #3 blend mode (from 0 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -6137,8 +6926,10 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to normal.
             all_mode (int | str): set blend mode for all components (from -1 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -6182,21 +6973,32 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to -1.
             c0_expr (str): set color component #0 expression
+
             c1_expr (str): set color component #1 expression
+
             c2_expr (str): set color component #2 expression
+
             c3_expr (str): set color component #3 expression
+
             all_expr (str): set expression for all color components
+
             c0_opacity (float): set color component #0 opacity (from 0 to 1)
+
                 Defaults to 1.
             c1_opacity (float): set color component #1 opacity (from 0 to 1)
+
                 Defaults to 1.
             c2_opacity (float): set color component #2 opacity (from 0 to 1)
+
                 Defaults to 1.
             c3_opacity (float): set color component #3 opacity (from 0 to 1)
+
                 Defaults to 1.
             all_opacity (float): set opacity for all color components (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -6234,10 +7036,13 @@ class GeneratedFiltersMixin:
 
         Args:
             period_min (int): Minimum period to search for (from 2 to 32)
+
                 Defaults to 3.
             period_max (int): Maximum period to search for (from 2 to 64)
+
                 Defaults to 24.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 1.
 
         Returns:
@@ -6267,18 +7072,25 @@ class GeneratedFiltersMixin:
 
         Args:
             high (float): set high threshold (from 0 to 1)
+
                 Defaults to 0.117647.
             low (float): set low threshold (from 0 to 1)
+
                 Defaults to 0.0588235.
             radius (int): search radius for maxima detection (from 1 to 100)
+
                 Defaults to 50.
             block_pct (int): block pooling threshold when calculating blurriness (from 1 to 100)
+
                 Defaults to 80.
             block_width (int): block size for block-based abbreviation of blurriness (from -1 to INT_MAX)
+
                 Defaults to -1.
             block_height (int): block size for block-based abbreviation of blurriness (from -1 to INT_MAX)
+
                 Defaults to -1.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 1.
 
         Returns:
@@ -6318,29 +7130,41 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             sigma (float): set denoising strength (from 0 to 99999.9)
+
                 Defaults to 1.
             block (int): set size of local patch (from 8 to 64)
+
                 Defaults to 16.
             bstep (int): set sliding step for processing blocks (from 1 to 64)
+
                 Defaults to 4.
             group (int): set maximal number of similar blocks (from 1 to 256)
+
                 Defaults to 1.
             range (int): set block matching range (from 1 to INT_MAX)
+
                 Defaults to 9.
             mstep (int): set step for block matching (from 1 to 64)
+
                 Defaults to 1.
             thmse (float): set threshold of mean square error for block matching (from 0 to INT_MAX)
+
                 Defaults to 0.
             hdthr (float): set hard threshold for 3D transfer domain (from 0 to INT_MAX)
+
                 Defaults to 2.7.
             estim (int | str): set filtering estimation mode (from 0 to 1)
+
                 Allowed values:
                     * basic: basic estimate
                     * final: final estimate
+
                 Defaults to basic.
             ref (bool): have reference stream
+
                 Defaults to false.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 7.
 
         Returns:
@@ -6383,24 +7207,36 @@ class GeneratedFiltersMixin:
 
         Args:
             luma_radius (str): Radius of the luma blurring box
+
                 Defaults to 2.
             lr (str): Radius of the luma blurring box
+
                 Defaults to 2.
             luma_power (int): How many times should the boxblur be applied to luma (from 0 to INT_MAX)
+
                 Defaults to 2.
             lp (int): How many times should the boxblur be applied to luma (from 0 to INT_MAX)
+
                 Defaults to 2.
             chroma_radius (str): Radius of the chroma blurring box
+
             cr (str): Radius of the chroma blurring box
+
             chroma_power (int): How many times should the boxblur be applied to chroma (from -1 to INT_MAX)
+
                 Defaults to -1.
             cp (int): How many times should the boxblur be applied to chroma (from -1 to INT_MAX)
+
                 Defaults to -1.
             alpha_radius (str): Radius of the alpha blurring box
+
             ar (str): Radius of the alpha blurring box
+
             alpha_power (int): How many times should the boxblur be applied to alpha (from -1 to INT_MAX)
+
                 Defaults to -1.
             ap (int): How many times should the boxblur be applied to alpha (from -1 to INT_MAX)
+
                 Defaults to -1.
 
         Returns:
@@ -6435,20 +7271,26 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): specify the interlacing mode (from 0 to 1)
+
                 Allowed values:
                     * send_frame: send one frame for each frame
                     * send_field: send one frame for each field
+
                 Defaults to send_field.
             parity (int | str): specify the assumed picture field parity (from -1 to 1)
+
                 Allowed values:
                     * tff: assume top field first
                     * bff: assume bottom field first
                     * auto: auto detect parity
+
                 Defaults to auto.
             deint (int | str): specify which frames to deinterlace (from 0 to 1)
+
                 Allowed values:
                     * all: deinterlace all frames
                     * interlaced: only deinterlace frames marked as interlaced
+
                 Defaults to all.
 
         Returns:
@@ -6469,8 +7311,10 @@ class GeneratedFiltersMixin:
 
         Args:
             strength (float): set the sharpening strength (from 0 to 1)
+
                 Defaults to 0.
             planes (str): set what planes to filter
+
                 Defaults to 7.
 
         Returns:
@@ -6504,7 +7348,9 @@ class GeneratedFiltersMixin:
 
         Args:
             map (str): A comma-separated list of input channel numbers in output order.
+
             channel_layout (str): Output channel layout.
+
 
         Returns:
             "Stream": The output stream.
@@ -6525,8 +7371,10 @@ class GeneratedFiltersMixin:
 
         Args:
             channel_layout (str): Input channel layout.
+
                 Defaults to stereo.
             channels (str): Channels to extract.
+
                 Defaults to all.
 
         Returns:
@@ -6554,13 +7402,19 @@ class GeneratedFiltersMixin:
 
         Args:
             in_gain (float): set input gain (from 0 to 1)
+
                 Defaults to 0.4.
             out_gain (float): set output gain (from 0 to 1)
+
                 Defaults to 0.4.
             delays (str): set delays
+
             decays (str): set decays
+
             speeds (str): set speeds
+
             depths (str): set depths
+
 
         Returns:
             "Stream": The output stream.
@@ -6589,12 +7443,16 @@ class GeneratedFiltersMixin:
 
         Args:
             color (str): set the chromahold key color
+
                 Defaults to black.
             similarity (float): set the chromahold similarity value (from 1e-05 to 1)
+
                 Defaults to 0.01.
             blend (float): set the chromahold blend value (from 0 to 1)
+
                 Defaults to 0.
             yuv (bool): color parameter is in yuv instead of rgb
+
                 Defaults to false.
 
         Returns:
@@ -6622,12 +7480,16 @@ class GeneratedFiltersMixin:
 
         Args:
             color (str): set the chromakey key color
+
                 Defaults to black.
             similarity (float): set the chromakey similarity value (from 1e-05 to 1)
+
                 Defaults to 0.01.
             blend (float): set the chromakey key blend value (from 0 to 1)
+
                 Defaults to 0.
             yuv (bool): color parameter is in yuv instead of rgb
+
                 Defaults to false.
 
         Returns:
@@ -6660,25 +7522,35 @@ class GeneratedFiltersMixin:
 
         Args:
             thres (float): set y+u+v threshold (from 1 to 200)
+
                 Defaults to 30.
             sizew (int): set horizontal patch size (from 1 to 100)
+
                 Defaults to 5.
             sizeh (int): set vertical patch size (from 1 to 100)
+
                 Defaults to 5.
             stepw (int): set horizontal step (from 1 to 50)
+
                 Defaults to 1.
             steph (int): set vertical step (from 1 to 50)
+
                 Defaults to 1.
             threy (float): set y threshold (from 1 to 200)
+
                 Defaults to 200.
             threu (float): set u threshold (from 1 to 200)
+
                 Defaults to 200.
             threv (float): set v threshold (from 1 to 200)
+
                 Defaults to 200.
             distance (int | str): set distance type (from 0 to 1)
+
                 Allowed values:
                     * manhattan
                     * euclidean
+
                 Defaults to manhattan.
 
         Returns:
@@ -6712,17 +7584,23 @@ class GeneratedFiltersMixin:
 
         Args:
             cbh (int): shift chroma-blue horizontally (from -255 to 255)
+
                 Defaults to 0.
             cbv (int): shift chroma-blue vertically (from -255 to 255)
+
                 Defaults to 0.
             crh (int): shift chroma-red horizontally (from -255 to 255)
+
                 Defaults to 0.
             crv (int): shift chroma-red vertically (from -255 to 255)
+
                 Defaults to 0.
             edge (int | str): set edge operation (from 0 to 1)
+
                 Allowed values:
                     * smear
                     * wrap
+
                 Defaults to smear.
 
         Returns:
@@ -6792,6 +7670,7 @@ class GeneratedFiltersMixin:
 
         Args:
             system (int | str): set color system (from 0 to 9)
+
                 Allowed values:
                     * ntsc: NTSC 1953 Y'I'O' (ITU-R BT.470 System M)
                     * 470m: NTSC 1953 Y'I'O' (ITU-R BT.470 System M)
@@ -6807,14 +7686,18 @@ class GeneratedFiltersMixin:
                     * uhdtv: ITU-R.BT-2020
                     * rec2020: ITU-R.BT-2020
                     * dcip3: DCI-P3
+
                 Defaults to hdtv.
             cie (int | str): set cie system (from 0 to 2)
+
                 Allowed values:
                     * xyy: CIE 1931 xyY
                     * ucs: CIE 1960 UCS
                     * luv: CIE 1976 Luv
+
                 Defaults to xyy.
             gamuts (str): set what gamuts to draw
+
                 Allowed values:
                     * ntsc
                     * 470m
@@ -6830,24 +7713,34 @@ class GeneratedFiltersMixin:
                     * uhdtv
                     * rec2020
                     * dcip3
+
                 Defaults to 0.
             size (int): set ciescope size (from 256 to 8192)
+
                 Defaults to 512.
             s (int): set ciescope size (from 256 to 8192)
+
                 Defaults to 512.
             intensity (float): set ciescope intensity (from 0 to 1)
+
                 Defaults to 0.001.
             i (float): set ciescope intensity (from 0 to 1)
+
                 Defaults to 0.001.
             contrast (float): (from 0 to 1)
+
                 Defaults to 0.75.
             corrgamma (bool): No description available.
+
                 Defaults to true.
             showwhite (bool): No description available.
+
                 Defaults to false.
             gamma (float): (from 0.1 to 6)
+
                 Defaults to 2.6.
             fill (bool): fill with CIE colors
+
                 Defaults to true.
 
         Returns:
@@ -6886,36 +7779,48 @@ class GeneratedFiltersMixin:
 
         Args:
             mv (str): set motion vectors to visualize
+
                 Allowed values:
                     * pf: predicted MVs of P-frames
                     * bf: predicted MVs of B-frames
                     * bb: predicted MVs of B-frames
+
                 Defaults to 0.
             qp (bool): No description available.
+
                 Defaults to false.
             mv_type (str): set motion vectors type
+
                 Allowed values:
                     * fp: predicted MVs
                     * bp: predicted MVs
+
                 Defaults to 0.
             mvt (str): set motion vectors type
+
                 Allowed values:
                     * fp: predicted MVs
                     * bp: predicted MVs
+
                 Defaults to 0.
             frame_type (str): set frame types to visualize motion vectors of
+
                 Allowed values:
                     * if
                     * pf
                     * bf
+
                 Defaults to 0.
             ft (str): set frame types to visualize motion vectors of
+
                 Allowed values:
                     * if
                     * pf
                     * bf
+
                 Defaults to 0.
             block (bool): set block partitioning structure to visualize
+
                 Defaults to false.
 
         Returns:
@@ -6952,24 +7857,34 @@ class GeneratedFiltersMixin:
 
         Args:
             rs (float): set red shadows (from -1 to 1)
+
                 Defaults to 0.
             gs (float): set green shadows (from -1 to 1)
+
                 Defaults to 0.
             bs (float): set blue shadows (from -1 to 1)
+
                 Defaults to 0.
             rm (float): set red midtones (from -1 to 1)
+
                 Defaults to 0.
             gm (float): set green midtones (from -1 to 1)
+
                 Defaults to 0.
             bm (float): set blue midtones (from -1 to 1)
+
                 Defaults to 0.
             rh (float): set red highlights (from -1 to 1)
+
                 Defaults to 0.
             gh (float): set green highlights (from -1 to 1)
+
                 Defaults to 0.
             bh (float): set blue highlights (from -1 to 1)
+
                 Defaults to 0.
             pl (bool): preserve lightness
+
                 Defaults to false.
 
         Returns:
@@ -7019,38 +7934,55 @@ class GeneratedFiltersMixin:
 
         Args:
             rr (float): set the red gain for the red channel (from -2 to 2)
+
                 Defaults to 1.
             rg (float): set the green gain for the red channel (from -2 to 2)
+
                 Defaults to 0.
             rb (float): set the blue gain for the red channel (from -2 to 2)
+
                 Defaults to 0.
             ra (float): set the alpha gain for the red channel (from -2 to 2)
+
                 Defaults to 0.
             gr (float): set the red gain for the green channel (from -2 to 2)
+
                 Defaults to 0.
             gg (float): set the green gain for the green channel (from -2 to 2)
+
                 Defaults to 1.
             gb (float): set the blue gain for the green channel (from -2 to 2)
+
                 Defaults to 0.
             ga (float): set the alpha gain for the green channel (from -2 to 2)
+
                 Defaults to 0.
             br (float): set the red gain for the blue channel (from -2 to 2)
+
                 Defaults to 0.
             bg (float): set the green gain for the blue channel (from -2 to 2)
+
                 Defaults to 0.
             bb (float): set the blue gain for the blue channel (from -2 to 2)
+
                 Defaults to 1.
             ba (float): set the alpha gain for the blue channel (from -2 to 2)
+
                 Defaults to 0.
             ar (float): set the red gain for the alpha channel (from -2 to 2)
+
                 Defaults to 0.
             ag (float): set the green gain for the alpha channel (from -2 to 2)
+
                 Defaults to 0.
             ab (float): set the blue gain for the alpha channel (from -2 to 2)
+
                 Defaults to 0.
             aa (float): set the alpha gain for the alpha channel (from -2 to 2)
+
                 Defaults to 1.
             pc (int | str): set the preserve color mode (from 0 to 6)
+
                 Allowed values:
                     * none: disabled
                     * lum: luminance
@@ -7059,8 +7991,10 @@ class GeneratedFiltersMixin:
                     * sum: sum
                     * nrm: norm
                     * pwr: power
+
                 Defaults to none.
             pa (float): set the preserve color amount (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -7105,18 +8039,25 @@ class GeneratedFiltersMixin:
 
         Args:
             rc (float): set the red-cyan contrast (from -1 to 1)
+
                 Defaults to 0.
             gm (float): set the green-magenta contrast (from -1 to 1)
+
                 Defaults to 0.
             by (float): set the blue-yellow contrast (from -1 to 1)
+
                 Defaults to 0.
             rcw (float): set the red-cyan weight (from 0 to 1)
+
                 Defaults to 0.
             gmw (float): set the green-magenta weight (from 0 to 1)
+
                 Defaults to 0.
             byw (float): set the blue-yellow weight (from 0 to 1)
+
                 Defaults to 0.
             pl (float): set the amount of preserving lightness (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -7149,21 +8090,28 @@ class GeneratedFiltersMixin:
 
         Args:
             rl (float): set the red shadow spot (from -1 to 1)
+
                 Defaults to 0.
             bl (float): set the blue shadow spot (from -1 to 1)
+
                 Defaults to 0.
             rh (float): set the red highlight spot (from -1 to 1)
+
                 Defaults to 0.
             bh (float): set the blue highlight spot (from -1 to 1)
+
                 Defaults to 0.
             saturation (float): set the amount of saturation (from -3 to 3)
+
                 Defaults to 1.
             analyze (int | str): set the analyze mode (from 0 to 3)
+
                 Allowed values:
                     * manual: manually set options
                     * average: use average pixels
                     * minmax: use minmax pixels
                     * median: use median pixels
+
                 Defaults to manual.
 
         Returns:
@@ -7189,10 +8137,12 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (str): Image properties to detect
+
                 Allowed values:
                     * color_range: (YUV) color range
                     * alpha_mode: alpha mode
                     * all: all supported properties
+
                 Defaults to color_range+alpha_mode+all.
 
         Returns:
@@ -7216,10 +8166,13 @@ class GeneratedFiltersMixin:
 
         Args:
             color (str): set the colorhold key color
+
                 Defaults to black.
             similarity (float): set the colorhold similarity value (from 1e-05 to 1)
+
                 Defaults to 0.01.
             blend (float): set the colorhold blend value (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -7246,12 +8199,16 @@ class GeneratedFiltersMixin:
 
         Args:
             hue (float): set the hue (from 0 to 360)
+
                 Defaults to 0.
             saturation (float): set the saturation (from 0 to 1)
+
                 Defaults to 0.5.
             lightness (float): set the lightness (from 0 to 1)
+
                 Defaults to 0.5.
             mix (float): set the mix of source lightness (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -7278,10 +8235,13 @@ class GeneratedFiltersMixin:
 
         Args:
             color (str): set the colorkey key color
+
                 Defaults to black.
             similarity (float): set the colorkey similarity value (from 1e-05 to 1)
+
                 Defaults to 0.01.
             blend (float): set the colorkey key blend value (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -7323,38 +8283,55 @@ class GeneratedFiltersMixin:
 
         Args:
             rimin (float): set input red black point (from -1 to 1)
+
                 Defaults to 0.
             gimin (float): set input green black point (from -1 to 1)
+
                 Defaults to 0.
             bimin (float): set input blue black point (from -1 to 1)
+
                 Defaults to 0.
             aimin (float): set input alpha black point (from -1 to 1)
+
                 Defaults to 0.
             rimax (float): set input red white point (from -1 to 1)
+
                 Defaults to 1.
             gimax (float): set input green white point (from -1 to 1)
+
                 Defaults to 1.
             bimax (float): set input blue white point (from -1 to 1)
+
                 Defaults to 1.
             aimax (float): set input alpha white point (from -1 to 1)
+
                 Defaults to 1.
             romin (float): set output red black point (from 0 to 1)
+
                 Defaults to 0.
             gomin (float): set output green black point (from 0 to 1)
+
                 Defaults to 0.
             bomin (float): set output blue black point (from 0 to 1)
+
                 Defaults to 0.
             aomin (float): set output alpha black point (from 0 to 1)
+
                 Defaults to 0.
             romax (float): set output red white point (from 0 to 1)
+
                 Defaults to 1.
             gomax (float): set output green white point (from 0 to 1)
+
                 Defaults to 1.
             bomax (float): set output blue white point (from 0 to 1)
+
                 Defaults to 1.
             aomax (float): set output alpha white point (from 0 to 1)
+
                 Defaults to 1.
             preserve (int | str): set preserve color mode (from 0 to 6)
+
                 Allowed values:
                     * none: disabled
                     * lum: luminance
@@ -7363,6 +8340,7 @@ class GeneratedFiltersMixin:
                     * sum: sum
                     * nrm: norm
                     * pwr: power
+
                 Defaults to none.
 
         Returns:
@@ -7407,18 +8385,24 @@ class GeneratedFiltersMixin:
             source_stream (Stream): Input video stream.
             target_stream (Stream): Input video stream.
             patch_size (str): set patch size
+
                 Defaults to 64x64.
             nb_patches (int): set number of patches (from 0 to 64)
+
                 Defaults to 0.
             type (int | str): set the target type used (from 0 to 1)
+
                 Allowed values:
                     * relative: the target colors are relative
                     * absolute: the target colors are absolute
+
                 Defaults to absolute.
             kernel (int | str): set the kernel used for measuring color difference (from 0 to 1)
+
                 Allowed values:
                     * euclidean: square root of sum of squared differences
                     * weuclidean: weighted square root of sum of squared differences
+
                 Defaults to euclidean.
 
         Returns:
@@ -7466,6 +8450,7 @@ class GeneratedFiltersMixin:
 
         Args:
             src (int | str): set source color matrix (from -1 to 4)
+
                 Allowed values:
                     * bt709: set BT.709 colorspace
                     * fcc: set FCC colorspace
@@ -7475,8 +8460,10 @@ class GeneratedFiltersMixin:
                     * smpte170m: set SMTPE-170M colorspace
                     * smpte240m: set SMPTE-240M colorspace
                     * bt2020: set BT.2020 colorspace
+
                 Defaults to -1.
             dst (int | str): set destination color matrix (from -1 to 4)
+
                 Allowed values:
                     * bt709: set BT.709 colorspace
                     * fcc: set FCC colorspace
@@ -7486,6 +8473,7 @@ class GeneratedFiltersMixin:
                     * smpte170m: set SMTPE-170M colorspace
                     * smpte240m: set SMPTE-240M colorspace
                     * bt2020: set BT.2020 colorspace
+
                 Defaults to -1.
 
         Returns:
@@ -7643,6 +8631,7 @@ class GeneratedFiltersMixin:
 
         Args:
             all (int | str): Set all color properties together (from 0 to 8)
+
                 Allowed values:
                     * bt470m
                     * bt470bg
@@ -7652,8 +8641,10 @@ class GeneratedFiltersMixin:
                     * smpte170m
                     * smpte240m
                     * bt2020
+
                 Defaults to 0.
             space (int | str): Output colorspace (from 0 to 17)
+
                 Allowed values:
                     * bt709
                     * fcc
@@ -7664,15 +8655,19 @@ class GeneratedFiltersMixin:
                     * gbr
                     * bt2020nc
                     * bt2020ncl
+
                 Defaults to 2.
             range (int | str): Output color range (from 0 to 2)
+
                 Allowed values:
                     * tv
                     * mpeg
                     * pc
                     * jpeg
+
                 Defaults to 0.
             primaries (int | str): Output color primaries (from 0 to 22)
+
                 Allowed values:
                     * bt709
                     * bt470m
@@ -7686,8 +8681,10 @@ class GeneratedFiltersMixin:
                     * bt2020
                     * jedec-p22
                     * ebu3213
+
                 Defaults to 2.
             trc (int | str): Output transfer characteristics (from 0 to 18)
+
                 Allowed values:
                     * bt709
                     * bt470m
@@ -7703,8 +8700,10 @@ class GeneratedFiltersMixin:
                     * iec61966-2-4
                     * bt2020-10
                     * bt2020-12
+
                 Defaults to 2.
             format (int | str): Output pixel format (from -1 to 161)
+
                 Allowed values:
                     * yuv420p
                     * yuv420p10
@@ -7715,21 +8714,28 @@ class GeneratedFiltersMixin:
                     * yuv444p
                     * yuv444p10
                     * yuv444p12
+
                 Defaults to -1.
             fast (bool): Ignore primary chromaticity and gamma correction
+
                 Defaults to false.
             dither (int | str): Dithering mode (from 0 to 1)
+
                 Allowed values:
                     * none
                     * fsb
+
                 Defaults to none.
             wpadapt (int | str): Whitepoint adaptation method (from 0 to 2)
+
                 Allowed values:
                     * bradford
                     * vonkries
                     * identity
+
                 Defaults to bradford.
             iall (int | str): Set all input color properties together (from 0 to 8)
+
                 Allowed values:
                     * bt470m
                     * bt470bg
@@ -7739,8 +8745,10 @@ class GeneratedFiltersMixin:
                     * smpte170m
                     * smpte240m
                     * bt2020
+
                 Defaults to 0.
             ispace (int | str): Input colorspace (from 0 to 22)
+
                 Allowed values:
                     * bt709
                     * fcc
@@ -7751,15 +8759,19 @@ class GeneratedFiltersMixin:
                     * gbr
                     * bt2020nc
                     * bt2020ncl
+
                 Defaults to 2.
             irange (int | str): Input color range (from 0 to 2)
+
                 Allowed values:
                     * tv
                     * mpeg
                     * pc
                     * jpeg
+
                 Defaults to 0.
             iprimaries (int | str): Input color primaries (from 0 to 22)
+
                 Allowed values:
                     * bt709
                     * bt470m
@@ -7773,8 +8785,10 @@ class GeneratedFiltersMixin:
                     * bt2020
                     * jedec-p22
                     * ebu3213
+
                 Defaults to 2.
             itrc (int | str): Input transfer characteristics (from 0 to 18)
+
                 Allowed values:
                     * bt709
                     * bt470m
@@ -7790,6 +8804,7 @@ class GeneratedFiltersMixin:
                     * iec61966-2-4
                     * bt2020-10
                     * bt2020-12
+
                 Defaults to 2.
 
         Returns:
@@ -7826,10 +8841,13 @@ class GeneratedFiltersMixin:
 
         Args:
             temperature (float): set the temperature in Kelvin (from 1000 to 40000)
+
                 Defaults to 6500.
             mix (float): set the mix with filtered output (from 0 to 1)
+
                 Defaults to 1.
             pl (float): set the amount of preserving lightness (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -7859,18 +8877,25 @@ class GeneratedFiltersMixin:
 
         Args:
             attacks (str): set time over which increase of volume is determined
+
                 Defaults to 0.
             decays (str): set time over which decrease of volume is determined
+
                 Defaults to 0.8.
             points (str): set points of transfer function
+
                 Defaults to -70/-70|-60/-20|1/0.
             soft_knee (float): set soft-knee (from 0.01 to 900)
+
                 Defaults to 0.01.
             gain (float): set output gain (from -900 to 900)
+
                 Defaults to 0.
             volume (float): set initial volume (from -900 to 0)
+
                 Defaults to 0.
             delay (float): set delay for samples before sending them to volume adjuster (from 0 to 20)
+
                 Defaults to 0.
 
         Returns:
@@ -7903,16 +8928,22 @@ class GeneratedFiltersMixin:
 
         Args:
             mm (int): set mm distance (from 0 to 10)
+
                 Defaults to 0.
             cm (int): set cm distance (from 0 to 100)
+
                 Defaults to 0.
             m (int): set meter distance (from 0 to 100)
+
                 Defaults to 0.
             dry (float): set dry amount (from 0 to 1)
+
                 Defaults to 0.
             wet (float): set wet amount (from 0 to 1)
+
                 Defaults to 1.
             temp (int): set temperature °C (from -50 to 50)
+
                 Defaults to 20.
 
         Returns:
@@ -7944,12 +8975,16 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             n (int): specify the number of segments (from 1 to INT_MAX)
+
                 Defaults to 2.
             v (int): specify the number of video streams (from 0 to INT_MAX)
+
                 Defaults to 1.
             a (int): specify the number of audio streams (from 0 to INT_MAX)
+
                 Defaults to 0.
             unsafe (bool): enable unsafe mode
+
                 Defaults to false.
 
         Returns:
@@ -7989,52 +9024,72 @@ class GeneratedFiltersMixin:
 
         Args:
             _0m (str): set matrix for 1st plane
+
                 Defaults to 0 0 0 0 1 0 0 0 0.
             _1m (str): set matrix for 2nd plane
+
                 Defaults to 0 0 0 0 1 0 0 0 0.
             _2m (str): set matrix for 3rd plane
+
                 Defaults to 0 0 0 0 1 0 0 0 0.
             _3m (str): set matrix for 4th plane
+
                 Defaults to 0 0 0 0 1 0 0 0 0.
             _0rdiv (float): set rdiv for 1st plane (from 0 to INT_MAX)
+
                 Defaults to 0.
             _1rdiv (float): set rdiv for 2nd plane (from 0 to INT_MAX)
+
                 Defaults to 0.
             _2rdiv (float): set rdiv for 3rd plane (from 0 to INT_MAX)
+
                 Defaults to 0.
             _3rdiv (float): set rdiv for 4th plane (from 0 to INT_MAX)
+
                 Defaults to 0.
             _0bias (float): set bias for 1st plane (from 0 to INT_MAX)
+
                 Defaults to 0.
             _1bias (float): set bias for 2nd plane (from 0 to INT_MAX)
+
                 Defaults to 0.
             _2bias (float): set bias for 3rd plane (from 0 to INT_MAX)
+
                 Defaults to 0.
             _3bias (float): set bias for 4th plane (from 0 to INT_MAX)
+
                 Defaults to 0.
             _0mode (int | str): set matrix mode for 1st plane (from 0 to 2)
+
                 Allowed values:
                     * square: square matrix
                     * row: single row matrix
                     * column: single column matrix
+
                 Defaults to square.
             _1mode (int | str): set matrix mode for 2nd plane (from 0 to 2)
+
                 Allowed values:
                     * square: square matrix
                     * row: single row matrix
                     * column: single column matrix
+
                 Defaults to square.
             _2mode (int | str): set matrix mode for 3rd plane (from 0 to 2)
+
                 Allowed values:
                     * square: square matrix
                     * row: single row matrix
                     * column: single column matrix
+
                 Defaults to square.
             _3mode (int | str): set matrix mode for 4th plane (from 0 to 2)
+
                 Allowed values:
                     * square: square matrix
                     * row: single row matrix
                     * column: single column matrix
+
                 Defaults to square.
 
         Returns:
@@ -8075,13 +9130,17 @@ class GeneratedFiltersMixin:
         Args:
             impulse_stream (Stream): Input video stream.
             planes (int): set planes to convolve (from 0 to 15)
+
                 Defaults to 7.
             impulse (int | str): when to process impulses (from 0 to 1)
+
                 Allowed values:
                     * first: process only first impulse, ignore rest
                     * all: process all impulses
+
                 Defaults to all.
             noise (float): set noise (from 0 to 1)
+
                 Defaults to 1e-07.
 
         Returns:
@@ -8120,11 +9179,15 @@ class GeneratedFiltersMixin:
 
         Args:
             list_filters (bool): list available filters
+
                 Defaults to false.
             list_generators (bool): list available generators
+
                 Defaults to false.
             filter (str): names and options of filters to apply
+
             output_rect (str): output rectangle within output image
+
 
         Returns:
             "Stream": The output stream.
@@ -8162,10 +9225,13 @@ class GeneratedFiltersMixin:
 
         Args:
             cover (str): cover bitmap filename
+
             mode (int | str): set removal mode (from 0 to 1)
+
                 Allowed values:
                     * cover: cover area with bitmap
                     * blur: blur area
+
                 Defaults to blur.
 
         Returns:
@@ -8195,20 +9261,28 @@ class GeneratedFiltersMixin:
 
         Args:
             out_w (str): set the width crop area expression
+
                 Defaults to iw.
             w (str): set the width crop area expression
+
                 Defaults to iw.
             out_h (str): set the height crop area expression
+
                 Defaults to ih.
             h (str): set the height crop area expression
+
                 Defaults to ih.
             x (str): set the x crop area expression
+
                 Defaults to (in_w-out_w)/2.
             y (str): set the y crop area expression
+
                 Defaults to (in_h-out_h)/2.
             keep_aspect (bool): keep aspect ratio
+
                 Defaults to false.
             exact (bool): do exact cropping
+
                 Defaults to false.
 
         Returns:
@@ -8246,27 +9320,38 @@ class GeneratedFiltersMixin:
 
         Args:
             limit (float): Threshold below which the pixel is considered black (from 0 to 65535)
+
                 Defaults to 0.0941176.
             round (int): Value by which the width/height should be divisible (from 0 to INT_MAX)
+
                 Defaults to 16.
             reset (int): Recalculate the crop area after this many frames (from 0 to INT_MAX)
+
                 Defaults to 0.
             skip (int): Number of initial frames to skip (from 0 to INT_MAX)
+
                 Defaults to 2.
             reset_count (int): Recalculate the crop area after this many frames (from 0 to INT_MAX)
+
                 Defaults to 0.
             max_outliers (int): Threshold count of outliers (from 0 to INT_MAX)
+
                 Defaults to 0.
             mode (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * black: detect black pixels surrounding the video
                     * mvedges: detect motion and edged surrounding the video
+
                 Defaults to black.
             high (float): Set high threshold for edge detection (from 0 to 1)
+
                 Defaults to 0.0980392.
             low (float): Set low threshold for edge detection (from 0 to 1)
+
                 Defaults to 0.0588235.
             mv_threshold (int): motion vector threshold when estimating video window size (from 0 to 100)
+
                 Defaults to 8.
 
         Returns:
@@ -8302,16 +9387,22 @@ class GeneratedFiltersMixin:
 
         Args:
             strength (float): set crossfeed strength (from 0 to 1)
+
                 Defaults to 0.2.
             range (float): set soundstage wideness (from 0 to 1)
+
                 Defaults to 0.5.
             slope (float): set curve slope (from 0.01 to 1)
+
                 Defaults to 0.5.
             level_in (float): set level in (from 0 to 1)
+
                 Defaults to 0.9.
             level_out (float): set level out (from 0 to 1)
+
                 Defaults to 1.
             block_size (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -8335,8 +9426,10 @@ class GeneratedFiltersMixin:
 
         Args:
             i (float): set intensity (from -10 to 10)
+
                 Defaults to 2.
             c (bool): enable clipping
+
                 Defaults to true.
 
         Returns:
@@ -8361,10 +9454,13 @@ class GeneratedFiltersMixin:
 
         Args:
             cue (str): cue unix timestamp in microseconds (from 0 to I64_MAX)
+
                 Defaults to 0.
             preroll (str): preroll duration in seconds
+
                 Defaults to 0.
             buffer (str): buffer duration in seconds
+
                 Defaults to 0.
 
         Returns:
@@ -8414,6 +9510,7 @@ class GeneratedFiltersMixin:
 
         Args:
             preset (int | str): select a color curves preset (from 0 to 10)
+
                 Allowed values:
                     * none
                     * color_negative
@@ -8426,22 +9523,36 @@ class GeneratedFiltersMixin:
                     * negative
                     * strong_contrast
                     * vintage
+
                 Defaults to none.
             master (str): set master points coordinates
+
             m (str): set master points coordinates
+
             red (str): set red points coordinates
+
             r (str): set red points coordinates
+
             green (str): set green points coordinates
+
             g (str): set green points coordinates
+
             blue (str): set blue points coordinates
+
             b (str): set blue points coordinates
+
             all (str): set points coordinates for all components
+
             psfile (str): set Photoshop curves file name
+
             plot (str): save Gnuplot script of the curves in specified file
+
             interp (int | str): specify the kind of interpolation (from 0 to 1)
+
                 Allowed values:
                     * natural: natural cubic spline
                     * pchip: monotonically cubic interpolation
+
                 Defaults to natural.
 
         Returns:
@@ -8483,29 +9594,40 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set output size
+
                 Defaults to hd720.
             s (str): set output size
+
                 Defaults to hd720.
             x (int): set x offset (from 0 to INT_MAX)
+
                 Defaults to 0.
             y (int): set y offset (from 0 to INT_MAX)
+
                 Defaults to 0.
             mode (int | str): set scope mode (from 0 to 2)
+
                 Allowed values:
                     * mono
                     * color
                     * color2
+
                 Defaults to mono.
             axis (bool): draw column/row numbers
+
                 Defaults to false.
             opacity (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.75.
             format (int | str): set display number format (from 0 to 1)
+
                 Allowed values:
                     * hex
                     * dec
+
                 Defaults to hex.
             components (int): set components to display (from 1 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -8537,10 +9659,13 @@ class GeneratedFiltersMixin:
 
         Args:
             angle (float): set angle (from 0 to 360)
+
                 Defaults to 45.
             radius (float): set radius (from 0 to 8192)
+
                 Defaults to 5.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -8563,8 +9688,10 @@ class GeneratedFiltersMixin:
 
         Args:
             shift (float): set DC shift (from -1 to 1)
+
                 Defaults to 0.
             limitergain (float): set limiter gain (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -8592,14 +9719,20 @@ class GeneratedFiltersMixin:
 
         Args:
             sigma (float): set noise sigma constant (from 0 to 999)
+
                 Defaults to 0.
             s (float): set noise sigma constant (from 0 to 999)
+
                 Defaults to 0.
             overlap (int): set number of block overlapping pixels (from -1 to 15)
+
                 Defaults to -1.
             expr (str): set coefficient factor expression
+
             e (str): set coefficient factor expression
+
             n (int): set the block size, expressed in bits (from 3 to 4)
+
                 Defaults to 3.
 
         Returns:
@@ -8637,28 +9770,40 @@ class GeneratedFiltersMixin:
 
         Args:
             _1thr (float): set 1st plane threshold (from 3e-05 to 0.5)
+
                 Defaults to 0.02.
             _2thr (float): set 2nd plane threshold (from 3e-05 to 0.5)
+
                 Defaults to 0.02.
             _3thr (float): set 3rd plane threshold (from 3e-05 to 0.5)
+
                 Defaults to 0.02.
             _4thr (float): set 4th plane threshold (from 3e-05 to 0.5)
+
                 Defaults to 0.02.
             range (int): set range (from INT_MIN to INT_MAX)
+
                 Defaults to 16.
             r (int): set range (from INT_MIN to INT_MAX)
+
                 Defaults to 16.
             direction (float): set direction (from -6.28319 to 6.28319)
+
                 Defaults to 6.28319.
             d (float): set direction (from -6.28319 to 6.28319)
+
                 Defaults to 6.28319.
             blur (bool): set blur
+
                 Defaults to true.
             b (bool): set blur
+
                 Defaults to true.
             coupling (bool): set plane coupling
+
                 Defaults to false.
             c (bool): set plane coupling
+
                 Defaults to false.
 
         Returns:
@@ -8697,21 +9842,29 @@ class GeneratedFiltersMixin:
 
         Args:
             filter (int | str): set type of filter (from 0 to 1)
+
                 Allowed values:
                     * weak
                     * strong
+
                 Defaults to strong.
             block (int): set size of block (from 4 to 512)
+
                 Defaults to 8.
             alpha (float): set 1st detection threshold (from 0 to 1)
+
                 Defaults to 0.098.
             beta (float): set 2nd detection threshold (from 0 to 1)
+
                 Defaults to 0.05.
             gamma (float): set 3rd detection threshold (from 0 to 1)
+
                 Defaults to 0.05.
             delta (float): set 4th detection threshold (from 0 to 1)
+
                 Defaults to 0.05.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -8748,20 +9901,28 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             cycle (int): set the number of frame from which one will be dropped (from 2 to 25)
+
                 Defaults to 5.
             dupthresh (float): set duplicate threshold (from 0 to 100)
+
                 Defaults to 1.1.
             scthresh (float): set scene change threshold (from 0 to 100)
+
                 Defaults to 15.
             blockx (int): set the size of the x-axis blocks used during metric calculations (from 4 to 512)
+
                 Defaults to 32.
             blocky (int): set the size of the y-axis blocks used during metric calculations (from 4 to 512)
+
                 Defaults to 32.
             ppsrc (bool): mark main input as a pre-processed input and activate clean source input stream
+
                 Defaults to false.
             chroma (bool): set whether or not chroma is considered in the metric calculations
+
                 Defaults to true.
             mixed (bool): set whether or not the input only partially contains content to be decimated
+
                 Defaults to false.
 
         Returns:
@@ -8794,13 +9955,17 @@ class GeneratedFiltersMixin:
         Args:
             impulse_stream (Stream): Input video stream.
             planes (int): set planes to deconvolve (from 0 to 15)
+
                 Defaults to 7.
             impulse (int | str): when to process impulses (from 0 to 1)
+
                 Allowed values:
                     * first: process only first impulse, ignore rest
                     * all: process all impulses
+
                 Defaults to all.
             noise (float): set noise (from 0 to 1)
+
                 Defaults to 1e-07.
 
         Returns:
@@ -8828,17 +9993,23 @@ class GeneratedFiltersMixin:
 
         Args:
             m (str): set filtering mode
+
                 Allowed values:
                     * dotcrawl
                     * rainbows
+
                 Defaults to dotcrawl+rainbows.
             lt (float): set spatial luma threshold (from 0 to 1)
+
                 Defaults to 0.079.
             tl (float): set tolerance for temporal luma (from 0 to 1)
+
                 Defaults to 0.079.
             tc (float): set tolerance for chroma temporal variation (from 0 to 1)
+
                 Defaults to 0.058.
             ct (float): set temporal chroma threshold (from 0 to 1)
+
                 Defaults to 0.019.
 
         Returns:
@@ -8867,16 +10038,21 @@ class GeneratedFiltersMixin:
 
         Args:
             i (float): set intensity (from 0 to 1)
+
                 Defaults to 0.
             m (float): set max deessing (from 0 to 1)
+
                 Defaults to 0.5.
             f (float): set frequency (from 0 to 1)
+
                 Defaults to 0.5.
             s (int | str): set output mode (from 0 to 2)
+
                 Allowed values:
                     * i: input
                     * o: output
                     * e: ess
+
                 Defaults to o.
 
         Returns:
@@ -8904,12 +10080,16 @@ class GeneratedFiltersMixin:
 
         Args:
             threshold0 (int): set threshold for 1st plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold1 (int): set threshold for 2nd plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold2 (int): set threshold for 3rd plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold3 (int): set threshold for 4th plane (from 0 to 65535)
+
                 Defaults to 65535.
 
         Returns:
@@ -8938,10 +10118,13 @@ class GeneratedFiltersMixin:
 
         Args:
             size (int): set how many frames to use (from 2 to 129)
+
                 Defaults to 5.
             s (int): set how many frames to use (from 2 to 129)
+
                 Defaults to 5.
             mode (int | str): set how to smooth luminance (from 0 to 6)
+
                 Allowed values:
                     * am: arithmetic mean
                     * gm: geometric mean
@@ -8950,8 +10133,10 @@ class GeneratedFiltersMixin:
                     * cm: cubic mean
                     * pm: power mean
                     * median: median
+
                 Defaults to am.
             m (int | str): set how to smooth luminance (from 0 to 6)
+
                 Allowed values:
                     * am: arithmetic mean
                     * gm: geometric mean
@@ -8960,8 +10145,10 @@ class GeneratedFiltersMixin:
                     * cm: cubic mean
                     * pm: power mean
                     * median: median
+
                 Defaults to am.
             bypass (bool): leave frames unchanged
+
                 Defaults to false.
 
         Returns:
@@ -8984,6 +10171,7 @@ class GeneratedFiltersMixin:
 
         Args:
             cycle (int): set the length of the cycle to use for dejuddering (from 2 to 240)
+
                 Defaults to 4.
 
         Returns:
@@ -9009,14 +10197,19 @@ class GeneratedFiltersMixin:
 
         Args:
             x (str): set logo x position
+
                 Defaults to -1.
             y (str): set logo y position
+
                 Defaults to -1.
             w (str): set logo width
+
                 Defaults to -1.
             h (str): set logo height
+
                 Defaults to -1.
             show (bool): show delogo area
+
                 Defaults to false.
 
         Returns:
@@ -9053,35 +10246,49 @@ class GeneratedFiltersMixin:
 
         Args:
             x (int): set x for the rectangular search area (from -1 to INT_MAX)
+
                 Defaults to -1.
             y (int): set y for the rectangular search area (from -1 to INT_MAX)
+
                 Defaults to -1.
             w (int): set width for the rectangular search area (from -1 to INT_MAX)
+
                 Defaults to -1.
             h (int): set height for the rectangular search area (from -1 to INT_MAX)
+
                 Defaults to -1.
             rx (int): set x for the rectangular search area (from 0 to 64)
+
                 Defaults to 16.
             ry (int): set y for the rectangular search area (from 0 to 64)
+
                 Defaults to 16.
             edge (int | str): set edge mode (from 0 to 3)
+
                 Allowed values:
                     * blank: fill zeroes at blank locations
                     * original: original image at blank locations
                     * clamp: extruded edge value at blank locations
                     * mirror: mirrored edge at blank locations
+
                 Defaults to mirror.
             blocksize (int): set motion search blocksize (from 4 to 128)
+
                 Defaults to 8.
             contrast (int): set contrast threshold for blocks (from 1 to 255)
+
                 Defaults to 125.
             search (int | str): set search strategy (from 0 to 1)
+
                 Allowed values:
                     * exhaustive: exhaustive search
                     * less: less exhaustive search
+
                 Defaults to exhaustive.
             filename (str): set motion search detailed log file name
+
             opencl (bool): ignored
+
                 Defaults to false.
 
         Returns:
@@ -9121,23 +10328,32 @@ class GeneratedFiltersMixin:
 
         Args:
             type (int | str): set the screen type (from 0 to 1)
+
                 Allowed values:
                     * green: greenscreen
                     * blue: bluescreen
+
                 Defaults to green.
             mix (float): set the spillmap mix (from 0 to 1)
+
                 Defaults to 0.5.
             expand (float): set the spillmap expand (from 0 to 1)
+
                 Defaults to 0.
             red (float): set red scale (from -100 to 100)
+
                 Defaults to 0.
             green (float): set green scale (from -100 to 100)
+
                 Defaults to -1.
             blue (float): set blue scale (from -100 to 100)
+
                 Defaults to 0.
             brightness (float): set brightness (from -10 to 10)
+
                 Defaults to 0.
             alpha (bool): change alpha component
+
                 Defaults to false.
 
         Returns:
@@ -9168,15 +10384,19 @@ class GeneratedFiltersMixin:
 
         Args:
             first_field (int | str): select first field (from 0 to 1)
+
                 Allowed values:
                     * top: select top field first
                     * t: select top field first
                     * bottom: select bottom field first
                     * b: select bottom field first
+
                 Defaults to top.
             pattern (str): pattern that describe for how many fields a frame is to be displayed
+
                 Defaults to 23.
             start_frame (int): position of first frame with respect to the pattern if stream is cut (from 0 to 13)
+
                 Defaults to 0.
 
         Returns:
@@ -9202,10 +10422,13 @@ class GeneratedFiltersMixin:
 
         Args:
             original (float): set original center factor (from 0 to 1)
+
                 Defaults to 1.
             enhance (float): set dialogue enhance factor (from 0 to 3)
+
                 Defaults to 1.
             voice (float): set voice detection factor (from 2 to 32)
+
                 Defaults to 2.
 
         Returns:
@@ -9233,14 +10456,19 @@ class GeneratedFiltersMixin:
 
         Args:
             coordinates (int): set coordinates (from 0 to 255)
+
                 Defaults to 255.
             threshold0 (int): set threshold for 1st plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold1 (int): set threshold for 2nd plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold2 (int): set threshold for 3rd plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold3 (int): set threshold for 4th plane (from 0 to 65535)
+
                 Defaults to 65535.
 
         Returns:
@@ -9270,11 +10498,13 @@ class GeneratedFiltersMixin:
             xmap_stream (Stream): Input video stream.
             ymap_stream (Stream): Input video stream.
             edge (int | str): set edge mode (from 0 to 3)
+
                 Allowed values:
                     * blank
                     * smear
                     * wrap
                     * mirror
+
                 Defaults to smear.
 
         Returns:
@@ -9295,11 +10525,13 @@ class GeneratedFiltersMixin:
 
         Args:
             first_field (int | str): set first field (from 0 to 1)
+
                 Allowed values:
                     * top: set top field first
                     * t: set top field first
                     * bottom: set bottom field first
                     * b: set bottom field first
+
                 Defaults to top.
 
         Returns:
@@ -9332,28 +10564,40 @@ class GeneratedFiltersMixin:
 
         Args:
             x (str): set horizontal position of the left box edge
+
                 Defaults to 0.
             y (str): set vertical position of the top box edge
+
                 Defaults to 0.
             width (str): set width of the box
+
                 Defaults to 0.
             w (str): set width of the box
+
                 Defaults to 0.
             height (str): set height of the box
+
                 Defaults to 0.
             h (str): set height of the box
+
                 Defaults to 0.
             color (str): set color of the box
+
                 Defaults to black.
             c (str): set color of the box
+
                 Defaults to black.
             thickness (str): set the box thickness
+
                 Defaults to 3.
             t (str): set the box thickness
+
                 Defaults to 3.
             replace (bool): replace color & alpha
+
                 Defaults to false.
             box_source (str): use data from bounding box in side data
+
 
         Returns:
             "Stream": The output stream.
@@ -9403,44 +10647,63 @@ class GeneratedFiltersMixin:
 
         Args:
             m1 (str): set 1st metadata key
+
             fg1 (str): set 1st foreground color expression
+
                 Defaults to 0xffff0000.
             m2 (str): set 2nd metadata key
+
             fg2 (str): set 2nd foreground color expression
+
                 Defaults to 0xff00ff00.
             m3 (str): set 3rd metadata key
+
             fg3 (str): set 3rd foreground color expression
+
                 Defaults to 0xffff00ff.
             m4 (str): set 4th metadata key
+
             fg4 (str): set 4th foreground color expression
+
                 Defaults to 0xffffff00.
             bg (str): set background color
+
                 Defaults to white.
             min (float): set minimal value (from INT_MIN to INT_MAX)
+
                 Defaults to -1.
             max (float): set maximal value (from INT_MIN to INT_MAX)
+
                 Defaults to 1.
             mode (int | str): set graph mode (from 0 to 2)
+
                 Allowed values:
                     * bar: draw bars
                     * dot: draw dots
                     * line: draw lines
+
                 Defaults to line.
             slide (int | str): set slide mode (from 0 to 4)
+
                 Allowed values:
                     * frame: draw new frames
                     * replace: replace old columns with new
                     * scroll: scroll from right to left
                     * rscroll: scroll from left to right
                     * picture: display graph in single frame
+
                 Defaults to frame.
             size (str): set graph size
+
                 Defaults to 900x256.
             s (str): set graph size
+
                 Defaults to 900x256.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
 
         Returns:
@@ -9488,26 +10751,37 @@ class GeneratedFiltersMixin:
 
         Args:
             x (str): set horizontal offset
+
                 Defaults to 0.
             y (str): set vertical offset
+
                 Defaults to 0.
             width (str): set width of grid cell
+
                 Defaults to 0.
             w (str): set width of grid cell
+
                 Defaults to 0.
             height (str): set height of grid cell
+
                 Defaults to 0.
             h (str): set height of grid cell
+
                 Defaults to 0.
             color (str): set color of the grid
+
                 Defaults to black.
             c (str): set color of the grid
+
                 Defaults to black.
             thickness (str): set grid line thickness
+
                 Defaults to 1.
             t (str): set grid line thickness
+
                 Defaults to 1.
             replace (bool): replace color & alpha
+
                 Defaults to false.
 
         Returns:
@@ -9605,25 +10879,38 @@ class GeneratedFiltersMixin:
 
         Args:
             fontfile (str): set font file
+
             text (str): set text
+
             textfile (str): set text file
+
             fontcolor (str): set foreground color
+
                 Defaults to black.
             fontcolor_expr (str): set foreground color expression
+
             boxcolor (str): set box color
+
                 Defaults to white.
             bordercolor (str): set border color
+
                 Defaults to black.
             shadowcolor (str): set shadow color
+
                 Defaults to black.
             box (bool): set box
+
                 Defaults to false.
             boxborderw (str): set box borders width
+
                 Defaults to 0.
             line_spacing (int): set line spacing in pixels (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             fontsize (str): set font size
+
             text_align (str): set text alignment
+
                 Allowed values:
                     * left
                     * L
@@ -9637,58 +10924,84 @@ class GeneratedFiltersMixin:
                     * B
                     * middle
                     * M
+
                 Defaults to 0.
             x (str): set x expression
+
                 Defaults to 0.
             y (str): set y expression
+
                 Defaults to 0.
             boxw (int): set box width (from 0 to INT_MAX)
+
                 Defaults to 0.
             boxh (int): set box height (from 0 to INT_MAX)
+
                 Defaults to 0.
             shadowx (int): set shadow x offset (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             shadowy (int): set shadow y offset (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             borderw (int): set border width (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             tabsize (int): set tab size (from 0 to INT_MAX)
+
                 Defaults to 4.
             basetime (str): set base time (from I64_MIN to I64_MAX)
+
                 Defaults to I64_MIN.
             font (str): Font name
+
                 Defaults to Sans.
             expansion (int | str): set the expansion mode (from 0 to 2)
+
                 Allowed values:
                     * none: set no expansion
                     * normal: set normal expansion
                     * strftime: set strftime expansion (deprecated)
+
                 Defaults to normal.
             y_align (int | str): set the y alignment (from 0 to 2)
+
                 Allowed values:
                     * text: y is referred to the top of the first text line
                     * baseline: y is referred to the baseline of the first line
                     * font: y is referred to the font defined line metrics
+
                 Defaults to text.
             timecode (str): set initial timecode
+
             tc24hmax (bool): set 24 hours max (timecode only)
+
                 Defaults to false.
             timecode_rate (str): set rate (timecode only) (from 0 to INT_MAX)
+
                 Defaults to 0/1.
             r (str): set rate (timecode only) (from 0 to INT_MAX)
+
                 Defaults to 0/1.
             rate (str): set rate (timecode only) (from 0 to INT_MAX)
+
                 Defaults to 0/1.
             reload (int): reload text file at specified frame interval (from 0 to INT_MAX)
+
                 Defaults to 0.
             alpha (str): apply alpha while rendering
+
                 Defaults to 1.
             fix_bounds (bool): check and fix text coords to avoid clipping
+
                 Defaults to false.
             start_number (int): start frame number for n/frame_num variable (from 0 to INT_MAX)
+
                 Defaults to 0.
             text_source (str): the source of text
+
             ft_load_flags (str): set font loading flags for libfreetype
+
                 Allowed values:
                     * default
                     * no_scale
@@ -9705,6 +11018,7 @@ class GeneratedFiltersMixin:
                     * monochrome
                     * linear_design
                     * no_autohint
+
                 Defaults to 0.
 
         Returns:
@@ -9758,6 +11072,7 @@ class GeneratedFiltersMixin:
 
         Args:
             length (float): set the window length (from 0.01 to 10)
+
                 Defaults to 3.
 
         Returns:
@@ -9804,55 +11119,81 @@ class GeneratedFiltersMixin:
 
         Args:
             framelen (int): set the frame length in msec (from 10 to 8000)
+
                 Defaults to 500.
             f (int): set the frame length in msec (from 10 to 8000)
+
                 Defaults to 500.
             gausssize (int): set the filter size (from 3 to 301)
+
                 Defaults to 31.
             g (int): set the filter size (from 3 to 301)
+
                 Defaults to 31.
             peak (float): set the peak value (from 0 to 1)
+
                 Defaults to 0.95.
             p (float): set the peak value (from 0 to 1)
+
                 Defaults to 0.95.
             maxgain (float): set the max amplification (from 1 to 100)
+
                 Defaults to 10.
             m (float): set the max amplification (from 1 to 100)
+
                 Defaults to 10.
             targetrms (float): set the target RMS (from 0 to 1)
+
                 Defaults to 0.
             r (float): set the target RMS (from 0 to 1)
+
                 Defaults to 0.
             coupling (bool): set channel coupling
+
                 Defaults to true.
             n (bool): set channel coupling
+
                 Defaults to true.
             correctdc (bool): set DC correction
+
                 Defaults to false.
             c (bool): set DC correction
+
                 Defaults to false.
             altboundary (bool): set alternative boundary mode
+
                 Defaults to false.
             b (bool): set alternative boundary mode
+
                 Defaults to false.
             compress (float): set the compress factor (from 0 to 30)
+
                 Defaults to 0.
             s (float): set the compress factor (from 0 to 30)
+
                 Defaults to 0.
             threshold (float): set the threshold value (from 0 to 1)
+
                 Defaults to 0.
             t (float): set the threshold value (from 0 to 1)
+
                 Defaults to 0.
             channels (str): set channels to filter
+
                 Defaults to all.
             h (str): set channels to filter
+
                 Defaults to all.
             overlap (float): set the frame overlap (from 0 to 1)
+
                 Defaults to 0.
             o (float): set the frame overlap (from 0 to 1)
+
                 Defaults to 0.
             curve (str): set the custom peak mapping curve
+
             v (str): set the custom peak mapping curve
+
 
         Returns:
             "Stream": The output stream.
@@ -9926,56 +11267,77 @@ class GeneratedFiltersMixin:
 
         Args:
             video (bool): set video output
+
                 Defaults to false.
             size (str): set video size
+
                 Defaults to 640x480.
             meter (int): set scale meter (+9 to +18) (from 9 to 18)
+
                 Defaults to 9.
             framelog (int | str): force frame logging level (from INT_MIN to INT_MAX)
+
                 Allowed values:
                     * quiet: logging disabled
                     * info: information logging level
                     * verbose: verbose logging level
+
                 Defaults to -1.
             metadata (bool): inject metadata in the filtergraph
+
                 Defaults to false.
             peak (str): set peak mode
+
                 Allowed values:
                     * none: any peak mode
                     * sample: peak-sample mode
                     * true: true-peak mode
+
                 Defaults to 0.
             dualmono (bool): treat mono input files as dual-mono
+
                 Defaults to false.
             panlaw (float): set a specific pan law for dual-mono files (from -10 to 0)
+
                 Defaults to -3.0103.
             target (int): set a specific target level in LUFS (-23 to 0) (from -23 to 0)
+
                 Defaults to -23.
             gauge (int | str): set gauge display type (from 0 to 1)
+
                 Allowed values:
                     * momentary: display momentary value
                     * m: display momentary value
                     * shortterm: display short-term value
                     * s: display short-term value
+
                 Defaults to momentary.
             scale (int | str): sets display method for the stats (from 0 to 1)
+
                 Allowed values:
                     * absolute: display absolute values (LUFS)
                     * LUFS: display absolute values (LUFS)
                     * relative: display values relative to target (LU)
                     * LU: display values relative to target (LU)
+
                 Defaults to absolute.
             integrated (float): integrated loudness (LUFS) (from -DBL_MAX to DBL_MAX)
+
                 Defaults to 0.
             range (float): loudness range (LU) (from -DBL_MAX to DBL_MAX)
+
                 Defaults to 0.
             lra_low (float): LRA low (LUFS) (from -DBL_MAX to DBL_MAX)
+
                 Defaults to 0.
             lra_high (float): LRA high (LUFS) (from -DBL_MAX to DBL_MAX)
+
                 Defaults to 0.
             sample_peak (float): sample peak (dBFS) (from -DBL_MAX to DBL_MAX)
+
                 Defaults to 0.
             true_peak (float): true peak (dBFS) (from -DBL_MAX to DBL_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -10016,16 +11378,21 @@ class GeneratedFiltersMixin:
 
         Args:
             high (float): set high threshold (from 0 to 1)
+
                 Defaults to 0.196078.
             low (float): set low threshold (from 0 to 1)
+
                 Defaults to 0.0784314.
             mode (int | str): set mode (from 0 to 2)
+
                 Allowed values:
                     * wires: white/gray wires on black
                     * colormix: mix colors
                     * canny: detect edges on planes
+
                 Defaults to wires.
             planes (str): set planes to filter
+
                 Allowed values:
                     * y: luma plane
                     * u: u plane
@@ -10033,6 +11400,7 @@ class GeneratedFiltersMixin:
                     * r: red plane
                     * g: green plane
                     * b: blue plane
+
                 Defaults to y+u+v+r+g+b.
 
         Returns:
@@ -10064,20 +11432,28 @@ class GeneratedFiltersMixin:
 
         Args:
             codebook_length (int): set codebook length (from 1 to INT_MAX)
+
                 Defaults to 256.
             l (int): set codebook length (from 1 to INT_MAX)
+
                 Defaults to 256.
             nb_steps (int): set max number of steps used to compute the mapping (from 1 to INT_MAX)
+
                 Defaults to 1.
             n (int): set max number of steps used to compute the mapping (from 1 to INT_MAX)
+
                 Defaults to 1.
             seed (str): set the random seed (from -1 to UINT32_MAX)
+
                 Defaults to -1.
             s (str): set the random seed (from -1 to UINT32_MAX)
+
                 Defaults to -1.
             pal8 (bool): set the pal8 output
+
                 Defaults to false.
             use_alpha (bool): use alpha channel for mapping
+
                 Defaults to false.
 
         Returns:
@@ -10103,9 +11479,11 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set kind of histogram entropy measurement (from 0 to 1)
+
                 Allowed values:
                     * normal
                     * diff
+
                 Defaults to normal.
 
         Returns:
@@ -10124,6 +11502,7 @@ class GeneratedFiltersMixin:
 
         Args:
             n (int): set scale factor (from 2 to 3)
+
                 Defaults to 3.
 
         Returns:
@@ -10153,25 +11532,35 @@ class GeneratedFiltersMixin:
 
         Args:
             contrast (str): set the contrast adjustment, negative values give a negative image
+
                 Defaults to 1.0.
             brightness (str): set the brightness adjustment
+
                 Defaults to 0.0.
             saturation (str): set the saturation adjustment
+
                 Defaults to 1.0.
             gamma (str): set the initial gamma value
+
                 Defaults to 1.0.
             gamma_r (str): gamma value for red
+
                 Defaults to 1.0.
             gamma_g (str): gamma value for green
+
                 Defaults to 1.0.
             gamma_b (str): gamma value for blue
+
                 Defaults to 1.0.
             gamma_weight (str): set the gamma weight which reduces the effect of gamma on bright areas
+
                 Defaults to 1.0.
             eval (int | str): specify when to evaluate expressions (from 0 to 1)
+
                 Allowed values:
                     * init: eval expressions once during initialization
                     * frame: eval expressions per-frame
+
                 Defaults to init.
 
         Returns:
@@ -10224,46 +11613,63 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
+
                 Defaults to 0.
             f (float): set central frequency (from 0 to 999999)
+
                 Defaults to 0.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 1.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 1.
             gain (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             g (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -10272,8 +11678,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -10282,26 +11690,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -10346,14 +11761,19 @@ class GeneratedFiltersMixin:
 
         Args:
             coordinates (int): set coordinates (from 0 to 255)
+
                 Defaults to 255.
             threshold0 (int): set threshold for 1st plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold1 (int): set threshold for 2nd plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold2 (int): set threshold for 3rd plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold3 (int): set threshold for 4th plane (from 0 to 65535)
+
                 Defaults to 65535.
 
         Returns:
@@ -10387,36 +11807,49 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): specify the mode (from 0 to 1)
+
                 Allowed values:
                     * frame: send one frame for each frame
                     * field: send one frame for each field
+
                 Defaults to field.
             parity (int | str): specify the assumed picture field parity (from -1 to 1)
+
                 Allowed values:
                     * tff: assume top field first
                     * bff: assume bottom field first
                     * auto: auto detect parity
+
                 Defaults to auto.
             deint (int | str): specify which frames to deinterlace (from 0 to 1)
+
                 Allowed values:
                     * all: deinterlace all frames
                     * interlaced: only deinterlace frames marked as interlaced
+
                 Defaults to all.
             rslope (int): specify the search radius for edge slope tracing (from 1 to 15)
+
                 Defaults to 1.
             redge (int): specify the search radius for best edge matching (from 0 to 15)
+
                 Defaults to 2.
             ecost (int): specify the edge cost for edge matching (from 0 to 50)
+
                 Defaults to 2.
             mcost (int): specify the middle cost for edge matching (from 0 to 50)
+
                 Defaults to 1.
             dcost (int): specify the distance cost for edge matching (from 0 to 50)
+
                 Defaults to 1.
             interp (int | str): specify the type of interpolation (from 0 to 2)
+
                 Allowed values:
                     * 2p: two-point interpolation
                     * 4p: four-point interpolation
                     * 6p: six-point interpolation
+
                 Defaults to 4p.
 
         Returns:
@@ -10445,8 +11878,10 @@ class GeneratedFiltersMixin:
 
         Args:
             exposure (float): set the exposure correction (from -3 to 3)
+
                 Defaults to 0.
             black (float): set the black level correction (from -1 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -10468,6 +11903,7 @@ class GeneratedFiltersMixin:
 
         Args:
             planes (str): set planes
+
                 Allowed values:
                     * y: luma plane
                     * u: u plane
@@ -10476,6 +11912,7 @@ class GeneratedFiltersMixin:
                     * g: green plane
                     * b: blue plane
                     * a: alpha plane
+
                 Defaults to r.
 
         Returns:
@@ -10494,8 +11931,10 @@ class GeneratedFiltersMixin:
 
         Args:
             m (float): set the difference coefficient (from -10 to 10)
+
                 Defaults to 2.5.
             c (bool): enable clipping
+
                 Defaults to true.
 
         Returns:
@@ -10530,36 +11969,51 @@ class GeneratedFiltersMixin:
 
         Args:
             type (int | str): set the fade direction (from 0 to 1)
+
                 Allowed values:
                     * in: fade-in
                     * out: fade-out
+
                 Defaults to in.
             t (int | str): set the fade direction (from 0 to 1)
+
                 Allowed values:
                     * in: fade-in
                     * out: fade-out
+
                 Defaults to in.
             start_frame (int): Number of the first frame to which to apply the effect. (from 0 to INT_MAX)
+
                 Defaults to 0.
             s (int): Number of the first frame to which to apply the effect. (from 0 to INT_MAX)
+
                 Defaults to 0.
             nb_frames (int): Number of frames to which the effect should be applied. (from 1 to INT_MAX)
+
                 Defaults to 25.
             n (int): Number of frames to which the effect should be applied. (from 1 to INT_MAX)
+
                 Defaults to 25.
             alpha (bool): fade alpha if it is available on the input
+
                 Defaults to false.
             start_time (str): Number of seconds of the beginning of the effect.
+
                 Defaults to 0.
             st (str): Number of seconds of the beginning of the effect.
+
                 Defaults to 0.
             duration (str): Duration of the effect in seconds.
+
                 Defaults to 0.
             d (str): Duration of the effect in seconds.
+
                 Defaults to 0.
             color (str): set color
+
                 Defaults to black.
             c (str): set color
+
                 Defaults to black.
 
         Returns:
@@ -10598,12 +12052,16 @@ class GeneratedFiltersMixin:
         Args:
             feedin_stream (Stream): Input video stream.
             x (int): set top left crop position (from 0 to INT_MAX)
+
                 Defaults to 0.
             y (int): set top left crop position (from 0 to INT_MAX)
+
                 Defaults to 0.
             w (int): set crop size (from 0 to INT_MAX)
+
                 Defaults to 0.
             h (int): set crop size (from 0 to INT_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -10662,25 +12120,35 @@ class GeneratedFiltersMixin:
 
         Args:
             sigma (float): set denoise strength (from 0 to 100)
+
                 Defaults to 1.
             amount (float): set amount of denoising (from 0.01 to 1)
+
                 Defaults to 1.
             block (int): set block size (from 8 to 256)
+
                 Defaults to 32.
             overlap (float): set block overlap (from 0.2 to 0.8)
+
                 Defaults to 0.5.
             method (int | str): set method of denoising (from 0 to 1)
+
                 Allowed values:
                     * wiener: wiener method
                     * hard: hard thresholding
+
                 Defaults to wiener.
             prev (int): set number of previous frames for temporal denoising (from 0 to 1)
+
                 Defaults to 0.
             next (int): set number of next frames for temporal denoising (from 0 to 1)
+
                 Defaults to 0.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 7.
             window (int | str): set window function (from 0 to 20)
+
                 Allowed values:
                     * rect: Rectangular
                     * bartlett: Bartlett
@@ -10704,6 +12172,7 @@ class GeneratedFiltersMixin:
                     * poisson: Poisson
                     * bohman: Bohman
                     * kaiser: Kaiser
+
                 Defaults to hann.
 
         Returns:
@@ -10739,19 +12208,27 @@ class GeneratedFiltersMixin:
 
         Args:
             dc_Y (int): adjust gain in Y plane (from 0 to 1000)
+
                 Defaults to 0.
             dc_U (int): adjust gain in U plane (from 0 to 1000)
+
                 Defaults to 0.
             dc_V (int): adjust gain in V plane (from 0 to 1000)
+
                 Defaults to 0.
             weight_Y (str): set luminance expression in Y plane
+
                 Defaults to 1.
             weight_U (str): set chrominance expression in U plane
+
             weight_V (str): set chrominance expression in V plane
+
             eval (int | str): specify when to evaluate expressions (from 0 to 1)
+
                 Allowed values:
                     * init: eval expressions once during initialization
                     * frame: eval expressions per-frame
+
                 Defaults to init.
 
         Returns:
@@ -10776,9 +12253,11 @@ class GeneratedFiltersMixin:
 
         Args:
             type (int | str): set field type (top or bottom) (from 0 to 1)
+
                 Allowed values:
                     * top: select top field
                     * bottom: select bottom field
+
                 Defaults to top.
 
         Returns:
@@ -10801,11 +12280,14 @@ class GeneratedFiltersMixin:
 
         Args:
             hint (str): set hint file
+
             mode (int | str): set hint mode (from 0 to 2)
+
                 Allowed values:
                     * absolute
                     * relative
                     * pattern
+
                 Defaults to absolute.
 
         Returns:
@@ -10846,12 +12328,15 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             order (int | str): specify the assumed field order (from -1 to 1)
+
                 Allowed values:
                     * auto: auto detect parity
                     * bff: assume bottom field first
                     * tff: assume top field first
+
                 Defaults to auto.
             mode (int | str): set the matching mode or strategy to use (from 0 to 5)
+
                 Allowed values:
                     * pc: 2-way match (p/c)
                     * pc_n: 2-way match + 3rd match on combed (p/c + u)
@@ -10859,44 +12344,61 @@ class GeneratedFiltersMixin:
                     * pc_n_ub: 2-way match + 3rd match on combed + 4th/5th matches if still combed (p/c + u + u/b)
                     * pcn: 3-way match (p/c/n)
                     * pcn_ub: 3-way match + 4th/5th matches on combed (p/c/n + u/b)
+
                 Defaults to pc_n.
             ppsrc (bool): mark main input as a pre-processed input and activate clean source input stream
+
                 Defaults to false.
             field (int | str): set the field to match from (from -1 to 1)
+
                 Allowed values:
                     * auto: automatic (same value as 'order')
                     * bottom: bottom field
                     * top: top field
+
                 Defaults to auto.
             mchroma (bool): set whether or not chroma is included during the match comparisons
+
                 Defaults to true.
             y0 (int): define an exclusion band which excludes the lines between y0 and y1 from the field matching decision (from 0 to INT_MAX)
+
                 Defaults to 0.
             y1 (int): define an exclusion band which excludes the lines between y0 and y1 from the field matching decision (from 0 to INT_MAX)
+
                 Defaults to 0.
             scthresh (float): set scene change detection threshold (from 0 to 100)
+
                 Defaults to 12.
             combmatch (int | str): set combmatching mode (from 0 to 2)
+
                 Allowed values:
                     * none: disable combmatching
                     * sc: enable combmatching only on scene change
                     * full: enable combmatching all the time
+
                 Defaults to sc.
             combdbg (int | str): enable comb debug (from 0 to 2)
+
                 Allowed values:
                     * none: no forced calculation
                     * pcn: calculate p/c/n
                     * pcnub: calculate p/c/n/u/b
+
                 Defaults to none.
             cthresh (int): set the area combing threshold used for combed frame detection (from -1 to 255)
+
                 Defaults to 9.
             chroma (bool): set whether or not chroma is considered in the combed frame decision
+
                 Defaults to false.
             blockx (int): set the x-axis size of the window used during combed frame detection (from 4 to 512)
+
                 Defaults to 16.
             blocky (int): set the y-axis size of the window used during combed frame detection (from 4 to 512)
+
                 Defaults to 16.
             combpel (int): set the number of combed pixels inside any of the blocky by blockx size blocks on the frame for the frame to be detected as combed (from 0 to INT_MAX)
+
                 Defaults to 80.
 
         Returns:
@@ -10929,9 +12431,11 @@ class GeneratedFiltersMixin:
 
         Args:
             order (int | str): output field order (from 0 to 1)
+
                 Allowed values:
                     * bff: bottom field first
                     * tff: top field first
+
                 Defaults to tff.
 
         Returns:
@@ -10960,14 +12464,19 @@ class GeneratedFiltersMixin:
 
         Args:
             left (int): set the left fill border (from 0 to INT_MAX)
+
                 Defaults to 0.
             right (int): set the right fill border (from 0 to INT_MAX)
+
                 Defaults to 0.
             top (int): set the top fill border (from 0 to INT_MAX)
+
                 Defaults to 0.
             bottom (int): set the bottom fill border (from 0 to INT_MAX)
+
                 Defaults to 0.
             mode (int | str): set the fill borders mode (from 0 to 6)
+
                 Allowed values:
                     * smear
                     * mirror
@@ -10976,8 +12485,10 @@ class GeneratedFiltersMixin:
                     * wrap
                     * fade
                     * margins
+
                 Defaults to smear.
             color (str): set the color for the fixed/fade mode
+
                 Defaults to black.
 
         Returns:
@@ -11011,19 +12522,27 @@ class GeneratedFiltersMixin:
 
         Args:
             object (str): object bitmap filename
+
             threshold (float): set threshold (from 0 to 1)
+
                 Defaults to 0.5.
             mipmaps (int): set mipmaps (from 1 to 5)
+
                 Defaults to 3.
             xmin (int): (from 0 to INT_MAX)
+
                 Defaults to 0.
             ymin (int): (from 0 to INT_MAX)
+
                 Defaults to 0.
             xmax (int): (from 0 to INT_MAX)
+
                 Defaults to 0.
             ymax (int): (from 0 to INT_MAX)
+
                 Defaults to 0.
             discard (bool): No description available.
+
                 Defaults to false.
 
         Returns:
@@ -11077,13 +12596,18 @@ class GeneratedFiltersMixin:
 
         Args:
             gain (str): set gain curve
+
                 Defaults to gain_interpolate(f).
             gain_entry (str): set gain entry
+
             delay (float): set delay (from 0 to 1e+10)
+
                 Defaults to 0.01.
             accuracy (float): set accuracy (from 0 to 1e+10)
+
                 Defaults to 5.
             wfunc (int | str): set window function (from 0 to 9)
+
                 Allowed values:
                     * rectangular: rectangular window
                     * hann: hann window
@@ -11095,31 +12619,42 @@ class GeneratedFiltersMixin:
                     * bnuttall: blackman-nuttall window
                     * bharris: blackman-harris window
                     * tukey: tukey window
+
                 Defaults to hann.
             fixed (bool): set fixed frame samples
+
                 Defaults to false.
             multi (bool): set multi channels mode
+
                 Defaults to false.
             zero_phase (bool): set zero phase mode
+
                 Defaults to false.
             scale (int | str): set gain scale (from 0 to 3)
+
                 Allowed values:
                     * linlin: linear-freq linear-gain
                     * linlog: linear-freq logarithmic-gain
                     * loglin: logarithmic-freq linear-gain
                     * loglog: logarithmic-freq logarithmic-gain
+
                 Defaults to linlog.
             dumpfile (str): set dump file
+
             dumpscale (int | str): set dump scale (from 0 to 3)
+
                 Allowed values:
                     * linlin: linear-freq linear-gain
                     * linlog: linear-freq logarithmic-gain
                     * loglin: logarithmic-freq linear-gain
                     * loglog: logarithmic-freq logarithmic-gain
+
                 Defaults to linlog.
             fft2 (bool): set 2-channels fft
+
                 Defaults to false.
             min_phase (bool): set minimum phase mode
+
                 Defaults to false.
 
         Returns:
@@ -11160,28 +12695,38 @@ class GeneratedFiltersMixin:
 
         Args:
             delay (float): base delay in milliseconds (from 0 to 30)
+
                 Defaults to 0.
             depth (float): added swept delay in milliseconds (from 0 to 10)
+
                 Defaults to 2.
             regen (float): percentage regeneration (delayed signal feedback) (from -95 to 95)
+
                 Defaults to 0.
             width (float): percentage of delayed signal mixed with original (from 0 to 100)
+
                 Defaults to 71.
             speed (float): sweeps per second (Hz) (from 0.1 to 10)
+
                 Defaults to 0.5.
             shape (int | str): swept wave shape (from 0 to 1)
+
                 Allowed values:
                     * triangular
                     * t
                     * sinusoidal
                     * s
+
                 Defaults to sinusoidal.
             phase (float): swept wave percentage phase-shift for multi-channel (from 0 to 100)
+
                 Defaults to 25.
             interp (int | str): delay-line interpolation (from 0 to 1)
+
                 Allowed values:
                     * linear
                     * quadratic
+
                 Defaults to linear.
 
         Returns:
@@ -11219,24 +12764,34 @@ class GeneratedFiltersMixin:
 
         Args:
             x (int): set pixel x coordinate (from 0 to 65535)
+
                 Defaults to 0.
             y (int): set pixel y coordinate (from 0 to 65535)
+
                 Defaults to 0.
             s0 (int): set source #0 component value (from -1 to 65535)
+
                 Defaults to 0.
             s1 (int): set source #1 component value (from -1 to 65535)
+
                 Defaults to 0.
             s2 (int): set source #2 component value (from -1 to 65535)
+
                 Defaults to 0.
             s3 (int): set source #3 component value (from -1 to 65535)
+
                 Defaults to 0.
             d0 (int): set destination #0 component value (from 0 to 65535)
+
                 Defaults to 0.
             d1 (int): set destination #1 component value (from 0 to 65535)
+
                 Defaults to 0.
             d2 (int): set destination #2 component value (from 0 to 65535)
+
                 Defaults to 0.
             d3 (int): set destination #3 component value (from 0 to 65535)
+
                 Defaults to 0.
 
         Returns:
@@ -11269,8 +12824,11 @@ class GeneratedFiltersMixin:
 
         Args:
             pix_fmts (str): A '|'-separated list of pixel formats
+
             color_spaces (str): A '|'-separated list of color spaces
+
             color_ranges (str): A '|'-separated list of color ranges
+
 
         Returns:
             "Stream": The output stream.
@@ -11296,21 +12854,27 @@ class GeneratedFiltersMixin:
 
         Args:
             fps (str): A string describing desired output framerate
+
                 Defaults to 25.
             start_time (float): Assume the first PTS should be this value. (from -DBL_MAX to DBL_MAX)
+
                 Defaults to DBL_MAX.
             round (int | str): set rounding method for timestamps (from 0 to 5)
+
                 Allowed values:
                     * zero: round towards 0
                     * inf: round away from 0
                     * down: round towards -infty
                     * up: round towards +infty
                     * near: round to nearest
+
                 Defaults to near.
             eof_action (int | str): action performed for last frame (from 0 to 1)
+
                 Allowed values:
                     * round: round similar to other frames
                     * pass: pass through last frame
+
                 Defaults to round.
 
         Returns:
@@ -11339,12 +12903,14 @@ class GeneratedFiltersMixin:
         Args:
             right_stream (Stream): Input video stream.
             format (int | str): Frame pack output format (from 0 to INT_MAX)
+
                 Allowed values:
                     * sbs: Views are packed next to each other
                     * tab: Views are packed on top of each other
                     * frameseq: Views are one after the other
                     * lines: Views are interleaved by lines
                     * columns: Views are interleaved by columns
+
                 Defaults to sbs.
 
         Returns:
@@ -11370,17 +12936,23 @@ class GeneratedFiltersMixin:
 
         Args:
             fps (str): required output frames per second rate
+
                 Defaults to 50.
             interp_start (int): point to start linear interpolation (from 0 to 255)
+
                 Defaults to 15.
             interp_end (int): point to end linear interpolation (from 0 to 255)
+
                 Defaults to 240.
             scene (float): scene change level (from 0 to 100)
+
                 Defaults to 8.2.
             flags (str): set flags
+
                 Allowed values:
                     * scene_change_detect: scene change detection
                     * scd: scene change detection
+
                 Defaults to scene_change_detect+scd.
 
         Returns:
@@ -11403,6 +12975,7 @@ class GeneratedFiltersMixin:
 
         Args:
             step (int): set frame step (from 1 to INT_MAX)
+
                 Defaults to 1.
 
         Returns:
@@ -11427,12 +13000,16 @@ class GeneratedFiltersMixin:
 
         Args:
             n (float): set noise tolerance (from 0 to 1)
+
                 Defaults to 0.001.
             noise (float): set noise tolerance (from 0 to 1)
+
                 Defaults to 0.001.
             d (str): set minimum duration in seconds
+
                 Defaults to 2.
             duration (str): set minimum duration in seconds
+
                 Defaults to 2.
 
         Returns:
@@ -11461,10 +13038,13 @@ class GeneratedFiltersMixin:
         Args:
             replace_stream (Stream): Input video stream.
             first (str): set first frame to freeze (from 0 to I64_MAX)
+
                 Defaults to 0.
             last (str): set last frame to freeze (from 0 to I64_MAX)
+
                 Defaults to 0.
             replace (str): set frame to replace (from 0 to I64_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -11487,7 +13067,9 @@ class GeneratedFiltersMixin:
 
         Args:
             filter_name (str): No description available.
+
             filter_params (str): No description available.
+
 
         Returns:
             "Stream": The output stream.
@@ -11512,12 +13094,16 @@ class GeneratedFiltersMixin:
 
         Args:
             quality (int): set quality (from 4 to 5)
+
                 Defaults to 4.
             qp (int): force a constant quantizer parameter (from 0 to 64)
+
                 Defaults to 0.
             strength (int): set filter strength (from -15 to 32)
+
                 Defaults to 0.
             use_bframe_qp (bool): use B-frames' QP
+
                 Defaults to false.
 
         Returns:
@@ -11539,7 +13125,9 @@ class GeneratedFiltersMixin:
 
         Args:
             file (str): set the file name to use for frame sync
+
             f (str): set the file name to use for frame sync
+
 
         Returns:
             "Stream": The output stream.
@@ -11564,12 +13152,16 @@ class GeneratedFiltersMixin:
 
         Args:
             sigma (float): set sigma (from 0 to 1024)
+
                 Defaults to 0.5.
             steps (int): set number of steps (from 1 to 6)
+
                 Defaults to 1.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             sigmaV (float): set vertical sigma (from -1 to 1024)
+
                 Defaults to -1.
 
         Returns:
@@ -11609,32 +13201,50 @@ class GeneratedFiltersMixin:
 
         Args:
             lum_expr (str): set luminance expression
+
             lum (str): set luminance expression
+
             cb_expr (str): set chroma blue expression
+
             cb (str): set chroma blue expression
+
             cr_expr (str): set chroma red expression
+
             cr (str): set chroma red expression
+
             alpha_expr (str): set alpha expression
+
             a (str): set alpha expression
+
             red_expr (str): set red expression
+
             r (str): set red expression
+
             green_expr (str): set green expression
+
             g (str): set green expression
+
             blue_expr (str): set blue expression
+
             b (str): set blue expression
+
             interpolation (int | str): set interpolation method (from 0 to 1)
+
                 Allowed values:
                     * nearest: nearest interpolation
                     * n: nearest interpolation
                     * bilinear: bilinear interpolation
                     * b: bilinear interpolation
+
                 Defaults to bilinear.
             i (int | str): set interpolation method (from 0 to 1)
+
                 Allowed values:
                     * nearest: nearest interpolation
                     * n: nearest interpolation
                     * bilinear: bilinear interpolation
                     * b: bilinear interpolation
+
                 Defaults to bilinear.
 
         Returns:
@@ -11670,8 +13280,10 @@ class GeneratedFiltersMixin:
 
         Args:
             strength (float): The maximum amount by which the filter will change any one pixel. (from 0.51 to 64)
+
                 Defaults to 1.2.
             radius (int): The neighborhood to fit the gradient to. (from 4 to 32)
+
                 Defaults to 16.
 
         Returns:
@@ -11745,30 +13357,39 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set monitor size
+
                 Defaults to hd720.
             s (str): set monitor size
+
                 Defaults to hd720.
             opacity (float): set video opacity (from 0 to 1)
+
                 Defaults to 0.9.
             o (float): set video opacity (from 0 to 1)
+
                 Defaults to 0.9.
             mode (str): set mode
+
                 Allowed values:
                     * full
                     * compact
                     * nozero
                     * noeof
                     * nodisabled
+
                 Defaults to 0.
             m (str): set mode
+
                 Allowed values:
                     * full
                     * compact
                     * nozero
                     * noeof
                     * nodisabled
+
                 Defaults to 0.
             flags (str): set flags
+
                 Allowed values:
                     * none
                     * all
@@ -11789,8 +13410,10 @@ class GeneratedFiltersMixin:
                     * sample_count_out
                     * sample_count_delta
                     * disabled
+
                 Defaults to all+queue.
             f (str): set flags
+
                 Allowed values:
                     * none
                     * all
@@ -11811,10 +13434,13 @@ class GeneratedFiltersMixin:
                     * sample_count_out
                     * sample_count_delta
                     * disabled
+
                 Defaults to all+queue.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
 
         Returns:
@@ -11859,10 +13485,13 @@ class GeneratedFiltersMixin:
 
         Args:
             difford (int): set differentiation order (from 0 to 2)
+
                 Defaults to 1.
             minknorm (int): set Minkowski norm (from 0 to 20)
+
                 Defaults to 1.
             sigma (float): set sigma (from 0 to 1024)
+
                 Defaults to 1.
 
         Returns:
@@ -11893,22 +13522,30 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             radius (int): set the box radius (from 1 to 20)
+
                 Defaults to 3.
             eps (float): set the regularization parameter (with square) (from 0 to 1)
+
                 Defaults to 0.01.
             mode (int | str): set filtering mode (0: basic mode; 1: fast mode) (from 0 to 1)
+
                 Allowed values:
                     * basic: basic guided filter
                     * fast: fast guided filter
+
                 Defaults to basic.
             sub (int): subsampling ratio for fast mode (from 2 to 64)
+
                 Defaults to 4.
             guidance (int | str): set guidance mode (0: off mode; 1: on mode) (from 0 to 1)
+
                 Allowed values:
                     * off: only one input is enabled
                     * on: two inputs are required
+
                 Defaults to off.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 1.
 
         Returns:
@@ -11947,35 +13584,49 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set level in (from 0.015625 to 64)
+
                 Defaults to 1.
             level_out (float): set level out (from 0.015625 to 64)
+
                 Defaults to 1.
             side_gain (float): set side gain (from 0.015625 to 64)
+
                 Defaults to 1.
             middle_source (int | str): set middle source (from 0 to 3)
+
                 Allowed values:
                     * left
                     * right
                     * mid: L+R
                     * side: L-R
+
                 Defaults to mid.
             middle_phase (bool): set middle phase
+
                 Defaults to false.
             left_delay (float): set left delay (from 0 to 40)
+
                 Defaults to 2.05.
             left_balance (float): set left balance (from -1 to 1)
+
                 Defaults to -1.
             left_gain (float): set left gain (from 0.015625 to 64)
+
                 Defaults to 1.
             left_phase (bool): set left phase
+
                 Defaults to false.
             right_delay (float): set right delay (from 0 to 40)
+
                 Defaults to 2.12.
             right_balance (float): set right balance (from -1 to 1)
+
                 Defaults to 1.
             right_gain (float): set right gain (from 0.015625 to 64)
+
                 Defaults to 1.
             right_phase (bool): set right phase
+
                 Defaults to true.
 
         Returns:
@@ -12014,17 +13665,21 @@ class GeneratedFiltersMixin:
         Args:
             clut_stream (Stream): Input video stream.
             clut (int | str): when to process CLUT (from 0 to 1)
+
                 Allowed values:
                     * first: process only first CLUT, ignore rest
                     * all: process all CLUTs
+
                 Defaults to all.
             interp (int | str): select interpolation mode (from 0 to 4)
+
                 Allowed values:
                     * nearest: use values from the nearest defined points
                     * trilinear: interpolate values using the 8 points defining a cube
                     * tetrahedral: interpolate values using a tetrahedron
                     * pyramid: interpolate values using a pyramid
                     * prism: interpolate values using a prism
+
                 Defaults to tetrahedral.
 
         Returns:
@@ -12052,26 +13707,34 @@ class GeneratedFiltersMixin:
 
         Args:
             disable_autoconvert (bool): Disable any format conversion or resampling in the filter graph.
+
                 Defaults to true.
             process_stereo (bool): Process stereo channels together. Only apply target_gain when both channels match.
+
                 Defaults to true.
             cdt_ms (int): Code detect timer period in ms. (from 100 to 60000)
+
                 Defaults to 2000.
             force_pe (bool): Always extend peaks above -3dBFS even when PE is not signaled.
+
                 Defaults to false.
             analyze_mode (int | str): Replace audio with solid tone and signal some processing aspect in the amplitude. (from 0 to 4)
+
                 Allowed values:
                     * off: disabled
                     * lle: gain adjustment level at each sample
                     * pe: samples where peak extend occurs
                     * cdt: samples where the code detect timer is active
                     * tgm: samples where the target gain does not match between channels
+
                 Defaults to off.
             bits_per_sample (int | str): Valid bits per sample (location of the true LSB). (from 16 to 24)
+
                 Allowed values:
                     * 16: 16-bit (in s32 or s16)
                     * 20: 20-bit (in s32)
                     * 24: 24-bit (in s32)
+
                 Defaults to 16.
 
         Returns:
@@ -12105,21 +13768,29 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             map (str): set channels convolution mappings
+
             gain (float): set gain in dB (from -20 to 40)
+
                 Defaults to 0.
             lfe (float): set lfe gain in dB (from -20 to 40)
+
                 Defaults to 0.
             type (int | str): set processing (from 0 to 1)
+
                 Allowed values:
                     * time: time domain
                     * freq: frequency domain
+
                 Defaults to freq.
             size (int): set frame size (from 1024 to 96000)
+
                 Defaults to 1024.
             hrir (int | str): set hrir format (from 0 to 1)
+
                 Allowed values:
                     * stereo: hrir files have exactly 2 channels
                     * multich: single multichannel hrir file
+
                 Defaults to stereo.
 
         Returns:
@@ -12181,46 +13852,63 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set frequency (from 0 to 999999)
+
                 Defaults to 3000.
             f (float): set frequency (from 0 to 999999)
+
                 Defaults to 3000.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.707.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.707.
             poles (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             p (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -12229,8 +13917,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -12239,26 +13929,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -12324,50 +14021,69 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             f (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             gain (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             g (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             poles (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             p (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -12376,8 +14092,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -12386,26 +14104,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -12450,14 +14175,18 @@ class GeneratedFiltersMixin:
 
         Args:
             strength (float): set the strength (from 0 to 1)
+
                 Defaults to 0.2.
             intensity (float): set the intensity (from 0 to 1)
+
                 Defaults to 0.21.
             antibanding (int | str): set the antibanding level (from 0 to 2)
+
                 Allowed values:
                     * none: apply no antibanding
                     * weak: apply weak antibanding
                     * strong: apply strong antibanding
+
                 Defaults to none.
 
         Returns:
@@ -12520,44 +14249,61 @@ class GeneratedFiltersMixin:
 
         Args:
             level_height (int): set level height (from 50 to 2048)
+
                 Defaults to 200.
             scale_height (int): set scale height (from 0 to 40)
+
                 Defaults to 12.
             display_mode (int | str): set display mode (from 0 to 2)
+
                 Allowed values:
                     * overlay
                     * parade
                     * stack
+
                 Defaults to stack.
             d (int | str): set display mode (from 0 to 2)
+
                 Allowed values:
                     * overlay
                     * parade
                     * stack
+
                 Defaults to stack.
             levels_mode (int | str): set levels mode (from 0 to 1)
+
                 Allowed values:
                     * linear
                     * logarithmic
+
                 Defaults to linear.
             m (int | str): set levels mode (from 0 to 1)
+
                 Allowed values:
                     * linear
                     * logarithmic
+
                 Defaults to linear.
             components (int): set color components to display (from 1 to 15)
+
                 Defaults to 7.
             c (int): set color components to display (from 1 to 15)
+
                 Defaults to 7.
             fgopacity (float): set foreground opacity (from 0 to 1)
+
                 Defaults to 0.7.
             f (float): set foreground opacity (from 0 to 1)
+
                 Defaults to 0.7.
             bgopacity (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.5.
             b (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.5.
             colors_mode (int | str): set colors mode (from 0 to 9)
+
                 Allowed values:
                     * whiteonblack
                     * blackonwhite
@@ -12569,8 +14315,10 @@ class GeneratedFiltersMixin:
                     * blackoncolor
                     * whiteoncolor
                     * grayoncolor
+
                 Defaults to whiteonblack.
             l (int | str): set colors mode (from 0 to 9)
+
                 Allowed values:
                     * whiteonblack
                     * blackonwhite
@@ -12582,6 +14330,7 @@ class GeneratedFiltersMixin:
                     * blackoncolor
                     * whiteoncolor
                     * grayoncolor
+
                 Defaults to whiteonblack.
 
         Returns:
@@ -12619,12 +14368,16 @@ class GeneratedFiltersMixin:
 
         Args:
             luma_spatial (float): spatial luma strength (from 0 to DBL_MAX)
+
                 Defaults to 0.
             chroma_spatial (float): spatial chroma strength (from 0 to DBL_MAX)
+
                 Defaults to 0.
             luma_tmp (float): temporal luma strength (from 0 to DBL_MAX)
+
                 Defaults to 0.
             chroma_tmp (float): temporal chroma strength (from 0 to DBL_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -12646,6 +14399,7 @@ class GeneratedFiltersMixin:
 
         Args:
             n (int): set scale factor (from 2 to 4)
+
                 Defaults to 3.
 
         Returns:
@@ -12670,8 +14424,10 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): set number of inputs (from 2 to INT_MAX)
+
                 Defaults to 2.
             shortest (bool): force termination when the shortest input terminates
+
                 Defaults to false.
 
         Returns:
@@ -12698,14 +14454,19 @@ class GeneratedFiltersMixin:
 
         Args:
             hue (float): set the hue value (from -360 to 360)
+
                 Defaults to 0.
             sat (float): set the saturation value (from -1 to 1)
+
                 Defaults to 0.
             val (float): set the value value (from -1 to 1)
+
                 Defaults to 0.
             similarity (float): set the hsvhold similarity value (from 1e-05 to 1)
+
                 Defaults to 0.01.
             blend (float): set the hsvhold blend value (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -12735,14 +14496,19 @@ class GeneratedFiltersMixin:
 
         Args:
             hue (float): set the hue value (from -360 to 360)
+
                 Defaults to 0.
             sat (float): set the saturation value (from -1 to 1)
+
                 Defaults to 0.
             val (float): set the value value (from -1 to 1)
+
                 Defaults to 0.
             similarity (float): set the hsvkey similarity value (from 1e-05 to 1)
+
                 Defaults to 0.01.
             blend (float): set the hsvkey blend value (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -12771,10 +14537,14 @@ class GeneratedFiltersMixin:
 
         Args:
             h (str): set the hue angle degrees expression
+
             s (str): set the saturation expression
+
                 Defaults to 1.
             H (str): set the hue angle radians expression
+
             b (str): set the brightness expression
+
                 Defaults to 0.
 
         Returns:
@@ -12807,12 +14577,16 @@ class GeneratedFiltersMixin:
 
         Args:
             hue (float): set the hue shift (from -180 to 180)
+
                 Defaults to 0.
             saturation (float): set the saturation shift (from -1 to 1)
+
                 Defaults to 0.
             intensity (float): set the intensity shift (from -1 to 1)
+
                 Defaults to 0.
             colors (str): set colors range
+
                 Allowed values:
                     * r: reds
                     * y: yellows
@@ -12821,16 +14595,22 @@ class GeneratedFiltersMixin:
                     * b: blues
                     * m: magentas
                     * a: all colors
+
                 Defaults to r+y+g+c+b+m+a.
             strength (float): set the filtering strength (from 0 to 100)
+
                 Defaults to 1.
             rw (float): set the red weight (from 0 to 1)
+
                 Defaults to 0.333.
             gw (float): set the green weight (from 0 to 1)
+
                 Defaults to 0.334.
             bw (float): set the blue weight (from 0 to 1)
+
                 Defaults to 0.333.
             lightness (bool): set the preserve lightness
+
                 Defaults to false.
 
         Returns:
@@ -12874,14 +14654,18 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (str): Frame mapping mode
+
                 Allowed values:
                     * read: should be readable
                     * write: should be writeable
                     * overwrite: will always overwrite the entire frame
                     * direct: should not involve any copying
+
                 Defaults to read+write.
             derive_device (str): Derive a new device of this type
+
             reverse (int): Map in reverse (create and allocate in the sink) (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -12902,6 +14686,7 @@ class GeneratedFiltersMixin:
 
         Args:
             derive_device (str): Derive a new device of this type
+
 
         Returns:
             "Stream": The output stream.
@@ -12925,8 +14710,10 @@ class GeneratedFiltersMixin:
         Args:
             alt_stream (Stream): Input video stream.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
             threshold (int): set threshold (from 0 to 65535)
+
                 Defaults to 0.
 
         Returns:
@@ -12966,14 +14753,19 @@ class GeneratedFiltersMixin:
 
         Args:
             intl_thres (float): set interlacing threshold (from -1 to FLT_MAX)
+
                 Defaults to 1.04.
             prog_thres (float): set progressive threshold (from -1 to FLT_MAX)
+
                 Defaults to 1.5.
             rep_thres (float): set repeat threshold (from -1 to FLT_MAX)
+
                 Defaults to 3.
             half_life (float): half life of cumulative statistics (from -1 to INT_MAX)
+
                 Defaults to 0.
             analyze_interlaced_flag (int): set number of frames to use to determine if the interlace flag is accurate (from 0 to INT_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -13016,64 +14808,82 @@ class GeneratedFiltersMixin:
 
         Args:
             luma_mode (int | str): select luma mode (from 0 to 2)
+
                 Allowed values:
                     * none
                     * interleave
                     * i
                     * deinterleave
                     * d
+
                 Defaults to none.
             l (int | str): select luma mode (from 0 to 2)
+
                 Allowed values:
                     * none
                     * interleave
                     * i
                     * deinterleave
                     * d
+
                 Defaults to none.
             chroma_mode (int | str): select chroma mode (from 0 to 2)
+
                 Allowed values:
                     * none
                     * interleave
                     * i
                     * deinterleave
                     * d
+
                 Defaults to none.
             c (int | str): select chroma mode (from 0 to 2)
+
                 Allowed values:
                     * none
                     * interleave
                     * i
                     * deinterleave
                     * d
+
                 Defaults to none.
             alpha_mode (int | str): select alpha mode (from 0 to 2)
+
                 Allowed values:
                     * none
                     * interleave
                     * i
                     * deinterleave
                     * d
+
                 Defaults to none.
             a (int | str): select alpha mode (from 0 to 2)
+
                 Allowed values:
                     * none
                     * interleave
                     * i
                     * deinterleave
                     * d
+
                 Defaults to none.
             luma_swap (bool): swap luma fields
+
                 Defaults to false.
             ls (bool): swap luma fields
+
                 Defaults to false.
             chroma_swap (bool): swap chroma fields
+
                 Defaults to false.
             cs (bool): swap chroma fields
+
                 Defaults to false.
             alpha_swap (bool): swap alpha fields
+
                 Defaults to false.
             as_ (bool): swap alpha fields
+
                 Defaults to false.
 
         Returns:
@@ -13109,12 +14919,16 @@ class GeneratedFiltersMixin:
 
         Args:
             threshold0 (int): set threshold for 1st plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold1 (int): set threshold for 2nd plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold2 (int): set threshold for 3rd plane (from 0 to 65535)
+
                 Defaults to 65535.
             threshold3 (int): set threshold for 4th plane (from 0 to 65535)
+
                 Defaults to 65535.
 
         Returns:
@@ -13140,15 +14954,19 @@ class GeneratedFiltersMixin:
 
         Args:
             scan (int | str): scanning mode (from 0 to 1)
+
                 Allowed values:
                     * tff: top field first
                     * bff: bottom field first
+
                 Defaults to tff.
             lowpass (int | str): set vertical low-pass filter (from 0 to 2)
+
                 Allowed values:
                     * off: disable vertical low-pass filter
                     * linear: linear vertical low-pass filter
                     * complex: complex vertical low-pass filter
+
                 Defaults to linear.
 
         Returns:
@@ -13175,14 +14993,18 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             nb_inputs (int): set number of inputs (from 1 to INT_MAX)
+
                 Defaults to 2.
             n (int): set number of inputs (from 1 to INT_MAX)
+
                 Defaults to 2.
             duration (int | str): how to determine the end-of-stream (from 0 to 2)
+
                 Allowed values:
                     * longest: Duration of longest input
                     * shortest: Duration of shortest input
                     * first: Duration of first input
+
                 Defaults to longest.
 
         Returns:
@@ -13210,10 +15032,13 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): Number of input streams. (from 1 to INT_MAX)
+
                 Defaults to 2.
             channel_layout (str): Channel layout of the output stream.
+
                 Defaults to stereo.
             map (str): A comma-separated list of channels maps in the format 'input_stream.input_channel-output_channel.
+
 
         Returns:
             "Stream": The output stream.
@@ -13240,14 +15065,19 @@ class GeneratedFiltersMixin:
 
         Args:
             thresh (int): set the threshold (from 0 to 255)
+
                 Defaults to 10.
             map (bool): set the map
+
                 Defaults to false.
             order (bool): set the order
+
                 Defaults to false.
             sharp (bool): set sharpening
+
                 Defaults to false.
             twoway (bool): set twoway
+
                 Defaults to false.
 
         Returns:
@@ -13275,10 +15105,13 @@ class GeneratedFiltersMixin:
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             scale (float): set scale (from 0 to 65535)
+
                 Defaults to 1.
             delta (float): set delta (from -65535 to 65535)
+
                 Defaults to 0.
 
         Returns:
@@ -13299,8 +15132,10 @@ class GeneratedFiltersMixin:
 
         Args:
             decay (float): set decay (from 0 to 1)
+
                 Defaults to 0.95.
             planes (str): set what planes to filter
+
                 Defaults to F.
 
         Returns:
@@ -13340,19 +15175,26 @@ class GeneratedFiltersMixin:
 
         Args:
             cx (float): set relative center x (from 0 to 1)
+
                 Defaults to 0.5.
             cy (float): set relative center y (from 0 to 1)
+
                 Defaults to 0.5.
             k1 (float): set quadratic distortion factor (from -1 to 1)
+
                 Defaults to 0.
             k2 (float): set double quadratic distortion factor (from -1 to 1)
+
                 Defaults to 0.
             i (int | str): set interpolation type (from 0 to 64)
+
                 Allowed values:
                     * nearest: nearest neighbour
                     * bilinear: bilinear
+
                 Defaults to nearest.
             fc (str): set the color of the unmapped pixels
+
                 Defaults to black@0.
 
         Returns:
@@ -13387,16 +15229,23 @@ class GeneratedFiltersMixin:
         Args:
             reference_stream (Stream): Input video stream.
             log_path (str): Set the file path to be used to write log.
+
             log_fmt (str): Set the format of the log (csv, json, xml, or sub).
+
                 Defaults to xml.
             pool (str): Set the pool method to be used for computing vmaf.
+
             n_threads (int): Set number of threads to be used when computing vmaf. (from 0 to UINT32_MAX)
+
                 Defaults to 0.
             n_subsample (int): Set interval for frame subsampling used when computing vmaf. (from 1 to UINT32_MAX)
+
                 Defaults to 1.
             model (str): Set the model to be used for computing vmaf.
+
                 Defaults to version=vmaf_v0.6.1.
             feature (str): Set the feature to be used for computing vmaf.
+
 
         Returns:
             "Stream": The output stream.
@@ -13428,12 +15277,16 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             threshold (float): set the threshold (from 0 to 1)
+
                 Defaults to 0.00392157.
             elasticity (float): set the elasticity (from 0 to 10)
+
                 Defaults to 2.
             reference (bool): enable reference stream
+
                 Defaults to false.
             planes (int): set the planes to filter (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -13457,10 +15310,13 @@ class GeneratedFiltersMixin:
 
         Args:
             min (int): set min value (from 0 to 65535)
+
                 Defaults to 0.
             max (int): set max value (from 0 to 65535)
+
                 Defaults to 65535.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -13487,12 +15343,16 @@ class GeneratedFiltersMixin:
 
         Args:
             loop (int): number of loops (from -1 to INT_MAX)
+
                 Defaults to 0.
             size (str): max number of frames to loop (from 0 to 32767)
+
                 Defaults to 0.
             start (str): set the loop start frame (from -1 to I64_MAX)
+
                 Defaults to 0.
             time (str): set the loop start time
+
                 Defaults to INT64_MAX.
 
         Returns:
@@ -13533,42 +15393,60 @@ class GeneratedFiltersMixin:
 
         Args:
             I (float): set integrated loudness target (from -70 to -5)
+
                 Defaults to -24.
             i (float): set integrated loudness target (from -70 to -5)
+
                 Defaults to -24.
             LRA (float): set loudness range target (from 1 to 50)
+
                 Defaults to 7.
             lra (float): set loudness range target (from 1 to 50)
+
                 Defaults to 7.
             TP (float): set maximum true peak (from -9 to 0)
+
                 Defaults to -2.
             tp (float): set maximum true peak (from -9 to 0)
+
                 Defaults to -2.
             measured_I (float): measured IL of input file (from -99 to 0)
+
                 Defaults to 0.
             measured_i (float): measured IL of input file (from -99 to 0)
+
                 Defaults to 0.
             measured_LRA (float): measured LRA of input file (from 0 to 99)
+
                 Defaults to 0.
             measured_lra (float): measured LRA of input file (from 0 to 99)
+
                 Defaults to 0.
             measured_TP (float): measured true peak of input file (from -99 to 99)
+
                 Defaults to 99.
             measured_tp (float): measured true peak of input file (from -99 to 99)
+
                 Defaults to 99.
             measured_thresh (float): measured threshold of input file (from -99 to 0)
+
                 Defaults to -70.
             offset (float): set offset gain (from -99 to 99)
+
                 Defaults to 0.
             linear (bool): normalize linearly if possible
+
                 Defaults to true.
             dual_mono (bool): treat mono input as dual-mono
+
                 Defaults to false.
             print_format (int | str): set print format for stats (from 0 to 2)
+
                 Allowed values:
                     * none
                     * json
                     * summary
+
                 Defaults to none.
 
         Returns:
@@ -13629,46 +15507,63 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set frequency (from 0 to 999999)
+
                 Defaults to 500.
             f (float): set frequency (from 0 to 999999)
+
                 Defaults to 500.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.707.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.707.
             poles (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             p (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -13677,8 +15572,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -13687,26 +15584,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -13772,50 +15676,69 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
+
                 Defaults to 100.
             f (float): set central frequency (from 0 to 999999)
+
                 Defaults to 100.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             gain (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             g (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             poles (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             p (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -13824,8 +15747,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -13834,26 +15759,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -13898,10 +15830,13 @@ class GeneratedFiltersMixin:
 
         Args:
             threshold (float): set the threshold value (from 0 to 1)
+
                 Defaults to 0.
             tolerance (float): set the tolerance value (from 0 to 1)
+
                 Defaults to 0.01.
             softness (float): set the softness value (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -13935,26 +15870,37 @@ class GeneratedFiltersMixin:
 
         Args:
             c0 (str): set component #0 expression
+
                 Defaults to clipval.
             c1 (str): set component #1 expression
+
                 Defaults to clipval.
             c2 (str): set component #2 expression
+
                 Defaults to clipval.
             c3 (str): set component #3 expression
+
                 Defaults to clipval.
             y (str): set Y expression
+
                 Defaults to clipval.
             u (str): set U expression
+
                 Defaults to clipval.
             v (str): set V expression
+
                 Defaults to clipval.
             r (str): set R expression
+
                 Defaults to clipval.
             g (str): set G expression
+
                 Defaults to clipval.
             b (str): set B expression
+
                 Defaults to clipval.
             a (str): set A expression
+
                 Defaults to clipval.
 
         Returns:
@@ -13989,13 +15935,16 @@ class GeneratedFiltersMixin:
 
         Args:
             file (str): set 1D LUT file name
+
             interp (int | str): select interpolation mode (from 0 to 4)
+
                 Allowed values:
                     * nearest: use values from the nearest defined points
                     * linear: use values from the linear interpolation
                     * cosine: use values from the cosine interpolation
                     * cubic: use values from the cubic interpolation
                     * spline: use values from the spline interpolation
+
                 Defaults to linear.
 
         Returns:
@@ -14024,14 +15973,19 @@ class GeneratedFiltersMixin:
         Args:
             srcy_stream (Stream): Input video stream.
             c0 (str): set component #0 expression
+
                 Defaults to x.
             c1 (str): set component #1 expression
+
                 Defaults to x.
             c2 (str): set component #2 expression
+
                 Defaults to x.
             c3 (str): set component #3 expression
+
                 Defaults to x.
             d (int): set output depth (from 0 to 16)
+
                 Defaults to 0.
 
         Returns:
@@ -14061,18 +16015,23 @@ class GeneratedFiltersMixin:
 
         Args:
             file (str): set 3D LUT file name
+
             clut (int | str): when to process CLUT (from 0 to 1)
+
                 Allowed values:
                     * first: process only first CLUT, ignore rest
                     * all: process all CLUTs
+
                 Defaults to all.
             interp (int | str): select interpolation mode (from 0 to 4)
+
                 Allowed values:
                     * nearest: use values from the nearest defined points
                     * trilinear: interpolate values using the 8 points defining a cube
                     * tetrahedral: interpolate values using a tetrahedron
                     * pyramid: interpolate values using a pyramid
                     * prism: interpolate values using a prism
+
                 Defaults to tetrahedral.
 
         Returns:
@@ -14106,26 +16065,37 @@ class GeneratedFiltersMixin:
 
         Args:
             c0 (str): set component #0 expression
+
                 Defaults to clipval.
             c1 (str): set component #1 expression
+
                 Defaults to clipval.
             c2 (str): set component #2 expression
+
                 Defaults to clipval.
             c3 (str): set component #3 expression
+
                 Defaults to clipval.
             y (str): set Y expression
+
                 Defaults to clipval.
             u (str): set U expression
+
                 Defaults to clipval.
             v (str): set V expression
+
                 Defaults to clipval.
             r (str): set R expression
+
                 Defaults to clipval.
             g (str): set G expression
+
                 Defaults to clipval.
             b (str): set B expression
+
                 Defaults to clipval.
             a (str): set A expression
+
                 Defaults to clipval.
 
         Returns:
@@ -14167,26 +16137,37 @@ class GeneratedFiltersMixin:
 
         Args:
             c0 (str): set component #0 expression
+
                 Defaults to clipval.
             c1 (str): set component #1 expression
+
                 Defaults to clipval.
             c2 (str): set component #2 expression
+
                 Defaults to clipval.
             c3 (str): set component #3 expression
+
                 Defaults to clipval.
             y (str): set Y expression
+
                 Defaults to clipval.
             u (str): set U expression
+
                 Defaults to clipval.
             v (str): set V expression
+
                 Defaults to clipval.
             r (str): set R expression
+
                 Defaults to clipval.
             g (str): set G expression
+
                 Defaults to clipval.
             b (str): set B expression
+
                 Defaults to clipval.
             a (str): set A expression
+
                 Defaults to clipval.
 
         Returns:
@@ -14224,10 +16205,13 @@ class GeneratedFiltersMixin:
             dark_stream (Stream): Input video stream.
             bright_stream (Stream): Input video stream.
             undershoot (int): set undershoot (from 0 to 65535)
+
                 Defaults to 0.
             overshoot (int): set overshoot (from 0 to 65535)
+
                 Defaults to 0.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -14255,6 +16239,7 @@ class GeneratedFiltersMixin:
             filter1_stream (Stream): Input video stream.
             filter2_stream (Stream): Input video stream.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -14277,6 +16262,7 @@ class GeneratedFiltersMixin:
             overlay_stream (Stream): Input video stream.
             mask_stream (Stream): Input video stream.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -14302,6 +16288,7 @@ class GeneratedFiltersMixin:
             filter1_stream (Stream): Input video stream.
             filter2_stream (Stream): Input video stream.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -14327,13 +16314,17 @@ class GeneratedFiltersMixin:
         Args:
             reference_stream (Stream): Input video stream.
             threshold (int): set threshold (from 0 to 65535)
+
                 Defaults to 1.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
             mode (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * abs
                     * diff
+
                 Defaults to abs.
 
         Returns:
@@ -14361,14 +16352,19 @@ class GeneratedFiltersMixin:
 
         Args:
             low (int): set low threshold (from 0 to 65535)
+
                 Defaults to 10.
             high (int): set high threshold (from 0 to 65535)
+
                 Defaults to 10.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
             fill (int): set fill value (from 0 to 65535)
+
                 Defaults to 0.
             sum (int): set sum value (from 0 to 65535)
+
                 Defaults to 10.
 
         Returns:
@@ -14396,18 +16392,23 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set mode (from 0 to 3)
+
                 Allowed values:
                     * fast
                     * medium
                     * slow
                     * extra_slow
+
                 Defaults to fast.
             parity (int | str): set the assumed picture field parity (from -1 to 1)
+
                 Allowed values:
                     * tff: assume top field first
                     * bff: assume bottom field first
+
                 Defaults to bff.
             qp (int): set qp (from INT_MIN to INT_MAX)
+
                 Defaults to 1.
 
         Returns:
@@ -14428,6 +16429,7 @@ class GeneratedFiltersMixin:
 
         Args:
             args (str): set parameters for each band
+
                 Defaults to 0.005,0.1 6 -47/-40,-34/-34,-17/-33 100 | 0.003,0.05 6 -47/-40,-34/-34,-17/-33 400 | 0.000625,0.0125 6 -47/-40,-34/-34,-15/-33 1600 | 0.0001,0.025 6 -47/-40,-34/-34,-31/-31,-0/-30 6400 | 0,0.025 6 -38/-31,-28/-28,-0/-25 22000.
 
         Returns:
@@ -14452,12 +16454,16 @@ class GeneratedFiltersMixin:
 
         Args:
             radius (int): set median radius (from 1 to 127)
+
                 Defaults to 1.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             radiusV (int): set median vertical radius (from 0 to 127)
+
                 Defaults to 0.
             percentile (float): set median percentile (from 0 to 1)
+
                 Defaults to 0.5.
 
         Returns:
@@ -14493,24 +16499,34 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             mapping (int): set input to output plane mapping (from -1 to 8.58993e+08)
+
                 Defaults to -1.
             format (str): set output pixel format
+
                 Defaults to yuva444p.
             map0s (int): set 1st input to output stream mapping (from 0 to 3)
+
                 Defaults to 0.
             map0p (int): set 1st input to output plane mapping (from 0 to 3)
+
                 Defaults to 0.
             map1s (int): set 2nd input to output stream mapping (from 0 to 3)
+
                 Defaults to 0.
             map1p (int): set 2nd input to output plane mapping (from 0 to 3)
+
                 Defaults to 0.
             map2s (int): set 3rd input to output stream mapping (from 0 to 3)
+
                 Defaults to 0.
             map2p (int): set 3rd input to output plane mapping (from 0 to 3)
+
                 Defaults to 0.
             map3s (int): set 4th input to output stream mapping (from 0 to 3)
+
                 Defaults to 0.
             map3p (int): set 4th input to output plane mapping (from 0 to 3)
+
                 Defaults to 0.
 
         Returns:
@@ -14547,6 +16563,7 @@ class GeneratedFiltersMixin:
 
         Args:
             method (int | str): motion estimation method (from 1 to 9)
+
                 Allowed values:
                     * esa: exhaustive search
                     * tss: three step search
@@ -14557,10 +16574,13 @@ class GeneratedFiltersMixin:
                     * hexbs: hexagon-based search
                     * epzs: enhanced predictive zonal search
                     * umh: uneven multi-hexagon search
+
                 Defaults to esa.
             mb_size (int): macroblock size (from 8 to INT_MAX)
+
                 Defaults to 16.
             search_param (int): search parameter (from 4 to INT_MAX)
+
                 Defaults to 7.
 
         Returns:
@@ -14594,16 +16614,21 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set a mode of operation (from 0 to 4)
+
                 Allowed values:
                     * select: select frame
                     * add: add new metadata
                     * modify: modify metadata
                     * delete: delete metadata
                     * print: print metadata
+
                 Defaults to select.
             key (str): set metadata key
+
             value (str): set metadata value
+
             function (int | str): function for comparing values (from 0 to 6)
+
                 Allowed values:
                     * same_str
                     * starts_with
@@ -14612,10 +16637,14 @@ class GeneratedFiltersMixin:
                     * greater
                     * expr
                     * ends_with
+
                 Defaults to same_str.
             expr (str): set expression for expr function
+
             file (str): set file where to print metadata information
+
             direct (bool): reduce buffering when printing to user-set file or pipe
+
                 Defaults to false.
 
         Returns:
@@ -14641,6 +16670,7 @@ class GeneratedFiltersMixin:
         Args:
             in1_stream (Stream): Input video stream.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -14673,24 +16703,32 @@ class GeneratedFiltersMixin:
 
         Args:
             fps (str): output's frame rate
+
                 Defaults to 60.
             mi_mode (int | str): motion interpolation mode (from 0 to 2)
+
                 Allowed values:
                     * dup: duplicate frames
                     * blend: blend frames
                     * mci: motion compensated interpolation
+
                 Defaults to mci.
             mc_mode (int | str): motion compensation mode (from 0 to 1)
+
                 Allowed values:
                     * obmc: overlapped block motion compensation
                     * aobmc: adaptive overlapped block motion compensation
+
                 Defaults to obmc.
             me_mode (int | str): motion estimation mode (from 0 to 1)
+
                 Allowed values:
                     * bidir: bidirectional motion estimation
                     * bilat: bilateral motion estimation
+
                 Defaults to bilat.
             me (int | str): motion estimation method (from 1 to 9)
+
                 Allowed values:
                     * esa: exhaustive search
                     * tss: three step search
@@ -14701,19 +16739,26 @@ class GeneratedFiltersMixin:
                     * hexbs: hexagon-based search
                     * epzs: enhanced predictive zonal search
                     * umh: uneven multi-hexagon search
+
                 Defaults to epzs.
             mb_size (int): macroblock size (from 4 to 16)
+
                 Defaults to 16.
             search_param (int): search parameter (from 4 to INT_MAX)
+
                 Defaults to 32.
             vsbmc (int): variable-size block motion compensation (from 0 to 1)
+
                 Defaults to 0.
             scd (int | str): scene change detection method (from 0 to 1)
+
                 Allowed values:
                     * none: disable detection
                     * fdiff: frame difference
+
                 Defaults to fdiff.
             scd_threshold (float): scene change threshold (from 0 to 100)
+
                 Defaults to 10.
 
         Returns:
@@ -14750,18 +16795,24 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): set number of inputs (from 2 to 32767)
+
                 Defaults to 2.
             weights (str): set weight for each input
+
                 Defaults to 1 1.
             scale (float): set scale (from 0 to 32767)
+
                 Defaults to 0.
             planes (str): set what planes to filter
+
                 Defaults to F.
             duration (int | str): how to determine end of stream (from 0 to 2)
+
                 Allowed values:
                     * longest: Duration of longest input
                     * shortest: Duration of shortest input
                     * first: Duration of first input
+
                 Defaults to longest.
 
         Returns:
@@ -14790,12 +16841,16 @@ class GeneratedFiltersMixin:
 
         Args:
             cb (float): set the chroma blue spot (from -1 to 1)
+
                 Defaults to 0.
             cr (float): set the chroma red spot (from -1 to 1)
+
                 Defaults to 0.
             size (float): set the color filter size (from 0.1 to 10)
+
                 Defaults to 1.
             high (float): set the highlights strength (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -14828,6 +16883,7 @@ class GeneratedFiltersMixin:
         Args:
             structure_stream (Stream): Input video stream.
             mode (int | str): set morphological transform (from 0 to 6)
+
                 Allowed values:
                     * erode
                     * dilate
@@ -14836,13 +16892,17 @@ class GeneratedFiltersMixin:
                     * gradient
                     * tophat
                     * blackhat
+
                 Defaults to erode.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 7.
             structure (int | str): when to process structures (from 0 to 1)
+
                 Allowed values:
                     * first: process only first structure, ignore rest
                     * all: process all structure
+
                 Defaults to all.
 
         Returns:
@@ -14870,14 +16930,19 @@ class GeneratedFiltersMixin:
 
         Args:
             max (int): set the maximum number of consecutive dropped frames (positive), or the minimum interval between dropped frames (negative) (from INT_MIN to INT_MAX)
+
                 Defaults to 0.
             keep (int): set the number of similar consecutive frames to be kept before starting to drop similar frames (from 0 to INT_MAX)
+
                 Defaults to 0.
             hi (int): set high dropping threshold (from INT_MIN to INT_MAX)
+
                 Defaults to 768.
             lo (int): set low dropping threshold (from INT_MIN to INT_MAX)
+
                 Defaults to 320.
             frac (float): set fraction dropping threshold (from 0 to 1)
+
                 Defaults to 0.33.
 
         Returns:
@@ -14920,10 +16985,13 @@ class GeneratedFiltersMixin:
         Args:
             factor_stream (Stream): Input video stream.
             scale (float): set scale (from 0 to 9)
+
                 Defaults to 1.
             offset (float): set offset (from -1 to 1)
+
                 Defaults to 0.5.
             planes (str): set planes
+
                 Defaults to F.
 
         Returns:
@@ -14948,6 +17016,7 @@ class GeneratedFiltersMixin:
 
         Args:
             components (str): set components to negate
+
                 Allowed values:
                     * y: luma component
                     * u: u component
@@ -14956,8 +17025,10 @@ class GeneratedFiltersMixin:
                     * g: green component
                     * b: blue component
                     * a: alpha component
+
                 Defaults to y+u+v+r+g+b.
             negate_alpha (bool): No description available.
+
                 Defaults to false.
 
         Returns:
@@ -14984,14 +17055,19 @@ class GeneratedFiltersMixin:
 
         Args:
             s (float): denoising strength (from 1 to 30)
+
                 Defaults to 1.
             p (int): patch size (from 0 to 99)
+
                 Defaults to 7.
             pc (int): patch size for chroma planes (from 0 to 99)
+
                 Defaults to 0.
             r (int): research window (from 0 to 99)
+
                 Defaults to 15.
             rc (int): research window for chroma planes (from 0 to 99)
+
                 Defaults to 0.
 
         Returns:
@@ -15027,13 +17103,17 @@ class GeneratedFiltersMixin:
 
         Args:
             weights (str): set weights file
+
                 Defaults to nnedi3_weights.bin.
             deint (int | str): set which frames to deinterlace (from 0 to 1)
+
                 Allowed values:
                     * all: deinterlace all frames
                     * interlaced: only deinterlace frames marked as interlaced
+
                 Defaults to all.
             field (int | str): set mode of operation (from -2 to 3)
+
                 Allowed values:
                     * af: use frame flags, both fields
                     * a: use frame flags, single field
@@ -15041,10 +17121,13 @@ class GeneratedFiltersMixin:
                     * b: use bottom field only
                     * tf: use both fields, top first
                     * bf: use both fields, bottom first
+
                 Defaults to a.
             planes (int): set which planes to process (from 0 to 15)
+
                 Defaults to 7.
             nsize (int | str): set size of local neighborhood around each pixel, used by the predictor neural network (from 0 to 6)
+
                 Allowed values:
                     * s8x6
                     * s16x6
@@ -15053,34 +17136,43 @@ class GeneratedFiltersMixin:
                     * s8x4
                     * s16x4
                     * s32x4
+
                 Defaults to s32x4.
             nns (int | str): set number of neurons in predictor neural network (from 0 to 4)
+
                 Allowed values:
                     * n16
                     * n32
                     * n64
                     * n128
                     * n256
+
                 Defaults to n32.
             qual (int | str): set quality (from 1 to 2)
+
                 Allowed values:
                     * fast
                     * slow
+
                 Defaults to fast.
             etype (int | str): set which set of weights to use in the predictor (from 0 to 1)
+
                 Allowed values:
                     * a: weights trained to minimize absolute error
                     * abs: weights trained to minimize absolute error
                     * s: weights trained to minimize squared error
                     * mse: weights trained to minimize squared error
+
                 Defaults to a.
             pscrn (int | str): set prescreening (from 0 to 4)
+
                 Allowed values:
                     * none
                     * original
                     * new
                     * new2
                     * new3
+
                 Defaults to new.
 
         Returns:
@@ -15112,8 +17204,11 @@ class GeneratedFiltersMixin:
 
         Args:
             pix_fmts (str): A '|'-separated list of pixel formats
+
             color_spaces (str): A '|'-separated list of color spaces
+
             color_ranges (str): A '|'-separated list of color ranges
+
 
         Returns:
             "Stream": The output stream.
@@ -15160,104 +17255,139 @@ class GeneratedFiltersMixin:
 
         Args:
             all_seed (int): set component #0 noise seed (from -1 to INT_MAX)
+
                 Defaults to -1.
             all_strength (int): set component #0 strength (from 0 to 100)
+
                 Defaults to 0.
             alls (int): set component #0 strength (from 0 to 100)
+
                 Defaults to 0.
             all_flags (str): set component #0 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
             allf (str): set component #0 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
             c0_seed (int): set component #0 noise seed (from -1 to INT_MAX)
+
                 Defaults to -1.
             c0_strength (int): set component #0 strength (from 0 to 100)
+
                 Defaults to 0.
             c0s (int): set component #0 strength (from 0 to 100)
+
                 Defaults to 0.
             c0_flags (str): set component #0 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
             c0f (str): set component #0 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
             c1_seed (int): set component #1 noise seed (from -1 to INT_MAX)
+
                 Defaults to -1.
             c1_strength (int): set component #1 strength (from 0 to 100)
+
                 Defaults to 0.
             c1s (int): set component #1 strength (from 0 to 100)
+
                 Defaults to 0.
             c1_flags (str): set component #1 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
             c1f (str): set component #1 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
             c2_seed (int): set component #2 noise seed (from -1 to INT_MAX)
+
                 Defaults to -1.
             c2_strength (int): set component #2 strength (from 0 to 100)
+
                 Defaults to 0.
             c2s (int): set component #2 strength (from 0 to 100)
+
                 Defaults to 0.
             c2_flags (str): set component #2 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
             c2f (str): set component #2 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
             c3_seed (int): set component #3 noise seed (from -1 to INT_MAX)
+
                 Defaults to -1.
             c3_strength (int): set component #3 strength (from 0 to 100)
+
                 Defaults to 0.
             c3s (int): set component #3 strength (from 0 to 100)
+
                 Defaults to 0.
             c3_flags (str): set component #3 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
             c3f (str): set component #3 flags
+
                 Allowed values:
                     * a: noise
                     * p: pattern
                     * t: noise
                     * u: noise
+
                 Defaults to 0.
 
         Returns:
@@ -15307,14 +17437,19 @@ class GeneratedFiltersMixin:
 
         Args:
             blackpt (str): output color to which darkest input color is mapped
+
                 Defaults to black.
             whitept (str): output color to which brightest input color is mapped
+
                 Defaults to white.
             smoothing (int): amount of temporal smoothing of the input range, to reduce flicker (from 0 to 2.68435e+08)
+
                 Defaults to 0.
             independence (float): proportion of independent to linked channel normalization (from 0 to 1)
+
                 Defaults to 1.
             strength (float): strength of filter, from no effect to full normalization (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -15355,11 +17490,15 @@ class GeneratedFiltersMixin:
 
         Args:
             datapath (str): set datapath
+
             language (str): set language
+
                 Defaults to eng.
             whitelist (str): set character whitelist
+
                 Defaults to 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.:;,-+_!?"'[]{}()<>|/\=*&%$#@!~.
             blacklist (str): set character blacklist
+
 
         Returns:
             "Stream": The output stream.
@@ -15395,30 +17534,43 @@ class GeneratedFiltersMixin:
 
         Args:
             x (float): set scope x position (from 0 to 1)
+
                 Defaults to 0.5.
             y (float): set scope y position (from 0 to 1)
+
                 Defaults to 0.5.
             s (float): set scope size (from 0 to 1)
+
                 Defaults to 0.8.
             t (float): set scope tilt (from 0 to 1)
+
                 Defaults to 0.5.
             o (float): set trace opacity (from 0 to 1)
+
                 Defaults to 0.8.
             tx (float): set trace x position (from 0 to 1)
+
                 Defaults to 0.5.
             ty (float): set trace y position (from 0 to 1)
+
                 Defaults to 0.9.
             tw (float): set trace width (from 0.1 to 1)
+
                 Defaults to 0.8.
             th (float): set trace height (from 0.1 to 1)
+
                 Defaults to 0.3.
             c (int): set components to trace (from 0 to 15)
+
                 Defaults to 7.
             g (bool): draw trace grid
+
                 Defaults to true.
             st (bool): draw statistics
+
                 Defaults to true.
             sc (bool): draw scope
+
                 Defaults to true.
 
         Returns:
@@ -15473,23 +17625,31 @@ class GeneratedFiltersMixin:
         Args:
             overlay_stream (Stream): Input video stream.
             x (str): set the x expression
+
                 Defaults to 0.
             y (str): set the y expression
+
                 Defaults to 0.
             eof_action (int | str): Action to take when encountering EOF from secondary input  (from 0 to 2)
+
                 Allowed values:
                     * repeat: Repeat the previous frame.
                     * endall: End both streams.
                     * pass: Pass through the main input.
+
                 Defaults to repeat.
             eval (int | str): specify when to evaluate expressions (from 0 to 1)
+
                 Allowed values:
                     * init: eval expressions once during initialization
                     * frame: eval expressions per-frame
+
                 Defaults to frame.
             shortest (bool): force termination when the shortest input terminates
+
                 Defaults to false.
             format (int | str): set output format (from 0 to 8)
+
                 Allowed values:
                     * yuv420
                     * yuv420p10
@@ -15500,13 +17660,17 @@ class GeneratedFiltersMixin:
                     * rgb
                     * gbrp
                     * auto
+
                 Defaults to yuv420.
             repeatlast (bool): repeat overlay of the last overlay frame
+
                 Defaults to true.
             alpha (int | str): alpha format (from 0 to 1)
+
                 Allowed values:
                     * straight
                     * premultiplied
+
                 Defaults to straight.
 
         Returns:
@@ -15539,14 +17703,19 @@ class GeneratedFiltersMixin:
 
         Args:
             depth (int): set depth (from 8 to 16)
+
                 Defaults to 8.
             luma_strength (float): set luma strength (from 0 to 1000)
+
                 Defaults to 1.
             ls (float): set luma strength (from 0 to 1000)
+
                 Defaults to 1.
             chroma_strength (float): set chroma strength (from 0 to 1000)
+
                 Defaults to 1.
             cs (float): set chroma strength (from 0 to 1000)
+
                 Defaults to 1.
 
         Returns:
@@ -15580,25 +17749,35 @@ class GeneratedFiltersMixin:
 
         Args:
             width (str): set the pad area width expression
+
                 Defaults to iw.
             w (str): set the pad area width expression
+
                 Defaults to iw.
             height (str): set the pad area height expression
+
                 Defaults to ih.
             h (str): set the pad area height expression
+
                 Defaults to ih.
             x (str): set the x offset expression for the input image position
+
                 Defaults to 0.
             y (str): set the y offset expression for the input image position
+
                 Defaults to 0.
             color (str): set the color of the padded area border
+
                 Defaults to black.
             eval (int | str): specify when to evaluate expressions (from 0 to 1)
+
                 Allowed values:
                     * init: eval expressions once during initialization
                     * frame: eval expressions during initialization and per-frame
+
                 Defaults to init.
             aspect (str): pad to fit an aspect instead of a resolution (from 0 to DBL_MAX)
+
                 Defaults to 0/1.
 
         Returns:
@@ -15631,16 +17810,21 @@ class GeneratedFiltersMixin:
 
         Args:
             max_colors (int): set the maximum number of colors to use in the palette (from 2 to 256)
+
                 Defaults to 256.
             reserve_transparent (bool): reserve a palette entry for transparency
+
                 Defaults to true.
             transparency_color (str): set a background color for transparency
+
                 Defaults to lime.
             stats_mode (int | str): set statistics mode (from 0 to 2)
+
                 Allowed values:
                     * full: compute full frame histograms
                     * diff: compute histograms only for the part that differs from previous frame
                     * single: compute new histogram for each frame
+
                 Defaults to full.
 
         Returns:
@@ -15683,6 +17867,7 @@ class GeneratedFiltersMixin:
         Args:
             palette_stream (Stream): Input video stream.
             dither (int | str): select dithering mode (from 0 to 8)
+
                 Allowed values:
                     * bayer: ordered 8x8 bayer dithering (deterministic)
                     * heckbert: dithering as defined by Paul Heckbert in 1982 (simple error diffusion)
@@ -15692,18 +17877,25 @@ class GeneratedFiltersMixin:
                     * sierra3: Frankie Sierra dithering v3 (error diffusion)
                     * burkes: Burkes dithering (error diffusion)
                     * atkinson: Atkinson dithering by Bill Atkinson at Apple Computer (error diffusion)
+
                 Defaults to sierra2_4a.
             bayer_scale (int): set scale for bayer dithering (from 0 to 5)
+
                 Defaults to 2.
             diff_mode (int | str): set frame difference mode (from 0 to 1)
+
                 Allowed values:
                     * rectangle: process smallest different rectangle
+
                 Defaults to 0.
             new (bool): take new palette for each output frame
+
                 Defaults to false.
             alpha_threshold (int): set the alpha threshold for transparency (from 0 to 255)
+
                 Defaults to 128.
             debug_kdtree (str): save Graphviz graph of the kdtree in specified file
+
 
         Returns:
             "Stream": The output stream.
@@ -15727,6 +17919,7 @@ class GeneratedFiltersMixin:
         Args:
             args (str): No description available.
 
+
         Returns:
             "Stream": The output stream.
         """
@@ -15747,14 +17940,17 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): select permissions mode (from 0 to 4)
+
                 Allowed values:
                     * none: do nothing
                     * ro: set all output frames read-only
                     * rw: set all output frames writable
                     * toggle: switch permissions
                     * random: set permissions randomly
+
                 Defaults to none.
             seed (str): set the seed for the random mode (from -1 to UINT32_MAX)
+
                 Defaults to -1.
 
         Returns:
@@ -15787,35 +17983,49 @@ class GeneratedFiltersMixin:
 
         Args:
             x0 (str): set top left x coordinate
+
                 Defaults to 0.
             y0 (str): set top left y coordinate
+
                 Defaults to 0.
             x1 (str): set top right x coordinate
+
                 Defaults to W.
             y1 (str): set top right y coordinate
+
                 Defaults to 0.
             x2 (str): set bottom left x coordinate
+
                 Defaults to 0.
             y2 (str): set bottom left y coordinate
+
                 Defaults to H.
             x3 (str): set bottom right x coordinate
+
                 Defaults to W.
             y3 (str): set bottom right y coordinate
+
                 Defaults to H.
             interpolation (int | str): set interpolation (from 0 to 1)
+
                 Allowed values:
                     * linear
                     * cubic
+
                 Defaults to linear.
             sense (int | str): specify the sense of the coordinates (from 0 to 1)
+
                 Allowed values:
                     * source: specify locations in source to send to corners in destination
                     * destination: specify locations in destination to send corners of source
+
                 Defaults to source.
             eval (int | str): specify when to evaluate expressions (from 0 to 1)
+
                 Allowed values:
                     * init: eval expressions once during initialization
                     * frame: eval expressions per-frame
+
                 Defaults to init.
 
         Returns:
@@ -15847,6 +18057,7 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set phase mode (from 0 to 8)
+
                 Allowed values:
                     * p: progressive
                     * t: top first
@@ -15857,6 +18068,7 @@ class GeneratedFiltersMixin:
                     * U: full analyze
                     * a: auto
                     * A: auto analyze
+
                 Defaults to A.
 
         Returns:
@@ -15883,16 +18095,22 @@ class GeneratedFiltersMixin:
 
         Args:
             frames (int): set how many frames to use (from 2 to 240)
+
                 Defaults to 30.
             f (int): set how many frames to use (from 2 to 240)
+
                 Defaults to 30.
             threshold (float): set detection threshold factor (lower is stricter) (from 0.1 to FLT_MAX)
+
                 Defaults to 1.
             t (float): set detection threshold factor (lower is stricter) (from 0.1 to FLT_MAX)
+
                 Defaults to 1.
             skip (int): set pixels to skip when sampling frames (from 1 to 1024)
+
                 Defaults to 1.
             bypass (bool): leave frames unchanged
+
                 Defaults to false.
 
         Returns:
@@ -15938,28 +18156,38 @@ class GeneratedFiltersMixin:
 
         Args:
             width (int): set block width (from 1 to 1024)
+
                 Defaults to 16.
             w (int): set block width (from 1 to 1024)
+
                 Defaults to 16.
             height (int): set block height (from 1 to 1024)
+
                 Defaults to 16.
             h (int): set block height (from 1 to 1024)
+
                 Defaults to 16.
             mode (int | str): set the pixelize mode (from 0 to 2)
+
                 Allowed values:
                     * avg: average
                     * min: minimum
                     * max: maximum
+
                 Defaults to avg.
             m (int | str): set the pixelize mode (from 0 to 2)
+
                 Allowed values:
                     * avg: average
                     * min: minimum
                     * max: maximum
+
                 Defaults to avg.
             planes (str): set what planes to filter
+
                 Defaults to F.
             p (str): set what planes to filter
+
                 Defaults to F.
 
         Returns:
@@ -15994,18 +18222,25 @@ class GeneratedFiltersMixin:
 
         Args:
             x (float): set scope x offset (from 0 to 1)
+
                 Defaults to 0.5.
             y (float): set scope y offset (from 0 to 1)
+
                 Defaults to 0.5.
             w (int): set scope width (from 1 to 80)
+
                 Defaults to 7.
             h (int): set scope height (from 1 to 80)
+
                 Defaults to 7.
             o (float): set window opacity (from 0 to 1)
+
                 Defaults to 0.5.
             wx (float): set window x offset (from -1 to 1)
+
                 Defaults to -1.
             wy (float): set window y offset (from -1 to 1)
+
                 Defaults to -1.
 
         Returns:
@@ -16034,12 +18269,15 @@ class GeneratedFiltersMixin:
 
         Args:
             qp (int): force a constant quantizer parameter (from 0 to 64)
+
                 Defaults to 0.
             mode (int | str): set thresholding mode (from 0 to 2)
+
                 Allowed values:
                     * hard: hard thresholding
                     * soft: soft thresholding
                     * medium: medium thresholding
+
                 Defaults to medium.
 
         Returns:
@@ -16062,8 +18300,10 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
             inplace (bool): enable inplace mode
+
                 Defaults to false.
 
         Returns:
@@ -16088,10 +18328,13 @@ class GeneratedFiltersMixin:
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             scale (float): set scale (from 0 to 65535)
+
                 Defaults to 1.
             delta (float): set delta (from -65535 to 65535)
+
                 Defaults to 0.
 
         Returns:
@@ -16173,18 +18416,25 @@ class GeneratedFiltersMixin:
 
         Args:
             c0 (str): set component #0 expression
+
                 Defaults to val.
             c1 (str): set component #1 expression
+
                 Defaults to val.
             c2 (str): set component #2 expression
+
                 Defaults to val.
             c3 (str): set component #3 expression
+
                 Defaults to val.
             index (int): set component as base (from 0 to 3)
+
                 Defaults to 0.
             i (int): set component as base (from 0 to 3)
+
                 Defaults to 0.
             preset (int | str): set preset (from -1 to 20)
+
                 Allowed values:
                     * none
                     * magma
@@ -16208,8 +18458,10 @@ class GeneratedFiltersMixin:
                     * blues
                     * green
                     * helix
+
                 Defaults to none.
             p (int | str): set preset (from -1 to 20)
+
                 Allowed values:
                     * none
                     * magma
@@ -16233,8 +18485,10 @@ class GeneratedFiltersMixin:
                     * blues
                     * green
                     * helix
+
                 Defaults to none.
             opacity (float): set pseudocolor opacity (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -16269,10 +18523,14 @@ class GeneratedFiltersMixin:
         Args:
             reference_stream (Stream): Input video stream.
             stats_file (str): Set file where to store per-frame difference information
+
             f (str): Set file where to store per-frame difference information
+
             stats_version (int): Set the format version for the stats file. (from 1 to 2)
+
                 Defaults to 1.
             output_max (bool): Add raw stats (max values) to the output log.
+
                 Defaults to false.
 
         Returns:
@@ -16302,20 +18560,27 @@ class GeneratedFiltersMixin:
 
         Args:
             jl (int): set left junk size (from 0 to INT_MAX)
+
                 Defaults to 1.
             jr (int): set right junk size (from 0 to INT_MAX)
+
                 Defaults to 1.
             jt (int): set top junk size (from 1 to INT_MAX)
+
                 Defaults to 4.
             jb (int): set bottom junk size (from 1 to INT_MAX)
+
                 Defaults to 4.
             sb (bool): set strict breaks
+
                 Defaults to false.
             mp (int | str): set metric plane (from 0 to 2)
+
                 Allowed values:
                     * y: luma
                     * u: chroma blue
                     * v: chroma red
+
                 Defaults to y.
 
         Returns:
@@ -16340,6 +18605,7 @@ class GeneratedFiltersMixin:
         Args:
             qp (str): set qp expression
 
+
         Returns:
             "Stream": The output stream.
         """
@@ -16356,8 +18622,10 @@ class GeneratedFiltersMixin:
 
         Args:
             frames (int): set number of frames in cache (from 2 to 512)
+
                 Defaults to 30.
             seed (str): set the seed (from -1 to UINT32_MAX)
+
                 Defaults to -1.
 
         Returns:
@@ -16384,14 +18652,19 @@ class GeneratedFiltersMixin:
 
         Args:
             scan_min (int): set from which line to scan for codes (from 0 to INT_MAX)
+
                 Defaults to 0.
             scan_max (int): set to which line to scan for codes (from 0 to INT_MAX)
+
                 Defaults to 29.
             spw (float): set ratio of width reserved for sync code detection (from 0.1 to 0.7)
+
                 Defaults to 0.27.
             chp (bool): check and apply parity bit
+
                 Defaults to false.
             lp (bool): lowpass line prior to processing
+
                 Defaults to true.
 
         Returns:
@@ -16419,10 +18692,13 @@ class GeneratedFiltersMixin:
 
         Args:
             scan_max (int): maximum line numbers to scan for VITC data (from -1 to INT_MAX)
+
                 Defaults to 45.
             thr_b (float): black color threshold (from 0 to 1)
+
                 Defaults to 0.2.
             thr_w (float): white color threshold (from 0 to 1)
+
                 Defaults to 0.6.
 
         Returns:
@@ -16445,8 +18721,10 @@ class GeneratedFiltersMixin:
 
         Args:
             limit (str): sleep time limit
+
                 Defaults to 2.
             speed (float): speed factor (from DBL_MIN to DBL_MAX)
+
                 Defaults to 1.
 
         Returns:
@@ -16474,11 +18752,14 @@ class GeneratedFiltersMixin:
             xmap_stream (Stream): Input video stream.
             ymap_stream (Stream): Input video stream.
             format (int | str): set output format (from 0 to 1)
+
                 Allowed values:
                     * color
                     * gray
+
                 Defaults to color.
             fill (str): set the color of the unmapped pixels
+
                 Defaults to black.
 
         Returns:
@@ -16504,12 +18785,16 @@ class GeneratedFiltersMixin:
 
         Args:
             m0 (int): set mode for 1st plane (from 0 to 24)
+
                 Defaults to 0.
             m1 (int): set mode for 2nd plane (from 0 to 24)
+
                 Defaults to 0.
             m2 (int): set mode for 3rd plane (from 0 to 24)
+
                 Defaults to 0.
             m3 (int): set mode for 4th plane (from 0 to 24)
+
                 Defaults to 0.
 
         Returns:
@@ -16531,7 +18816,9 @@ class GeneratedFiltersMixin:
 
         Args:
             filename (str): set bitmap filename
+
             f (str): set bitmap filename
+
 
         Returns:
             "Stream": The output stream.
@@ -16564,8 +18851,10 @@ class GeneratedFiltersMixin:
 
         Args:
             track_gain (float): track gain (dB) (from -FLT_MAX to FLT_MAX)
+
                 Defaults to 0.
             track_peak (float): track peak (from -FLT_MAX to FLT_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -16608,25 +18897,35 @@ class GeneratedFiltersMixin:
 
         Args:
             rh (int): shift red horizontally (from -255 to 255)
+
                 Defaults to 0.
             rv (int): shift red vertically (from -255 to 255)
+
                 Defaults to 0.
             gh (int): shift green horizontally (from -255 to 255)
+
                 Defaults to 0.
             gv (int): shift green vertically (from -255 to 255)
+
                 Defaults to 0.
             bh (int): shift blue horizontally (from -255 to 255)
+
                 Defaults to 0.
             bv (int): shift blue vertically (from -255 to 255)
+
                 Defaults to 0.
             ah (int): shift alpha horizontally (from -255 to 255)
+
                 Defaults to 0.
             av (int): shift alpha vertically (from -255 to 255)
+
                 Defaults to 0.
             edge (int | str): set edge operation (from 0 to 1)
+
                 Allowed values:
                     * smear
                     * wrap
+
                 Defaults to smear.
 
         Returns:
@@ -16658,10 +18957,13 @@ class GeneratedFiltersMixin:
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             scale (float): set scale (from 0 to 65535)
+
                 Defaults to 1.
             delta (float): set delta (from -65535 to 65535)
+
                 Defaults to 0.
 
         Returns:
@@ -16693,22 +18995,31 @@ class GeneratedFiltersMixin:
 
         Args:
             angle (str): set angle (in radians)
+
                 Defaults to 0.
             a (str): set angle (in radians)
+
                 Defaults to 0.
             out_w (str): set output width expression
+
                 Defaults to iw.
             ow (str): set output width expression
+
                 Defaults to iw.
             out_h (str): set output height expression
+
                 Defaults to ih.
             oh (str): set output height expression
+
                 Defaults to ih.
             fillcolor (str): set background fill color
+
                 Defaults to black.
             c (str): set background fill color
+
                 Defaults to black.
             bilinear (bool): use bilinear interpolation
+
                 Defaults to true.
 
         Returns:
@@ -16747,52 +19058,70 @@ class GeneratedFiltersMixin:
 
         Args:
             tempo (float): set tempo scale factor (from 0.01 to 100)
+
                 Defaults to 1.
             pitch (float): set pitch scale factor (from 0.01 to 100)
+
                 Defaults to 1.
             transients (int | str): set transients (from 0 to INT_MAX)
+
                 Allowed values:
                     * crisp
                     * mixed
                     * smooth
+
                 Defaults to crisp.
             detector (int | str): set detector (from 0 to INT_MAX)
+
                 Allowed values:
                     * compound
                     * percussive
                     * soft
+
                 Defaults to compound.
             phase (int | str): set phase (from 0 to INT_MAX)
+
                 Allowed values:
                     * laminar
                     * independent
+
                 Defaults to laminar.
             window (int | str): set window (from 0 to INT_MAX)
+
                 Allowed values:
                     * standard
                     * short
                     * long
+
                 Defaults to standard.
             smoothing (int | str): set smoothing (from 0 to INT_MAX)
+
                 Allowed values:
                     * off
                     * on
+
                 Defaults to off.
             formant (int | str): set formant (from 0 to INT_MAX)
+
                 Allowed values:
                     * shifted
                     * preserved
+
                 Defaults to shifted.
             pitchq (int | str): set pitch quality (from 0 to INT_MAX)
+
                 Allowed values:
                     * quality
                     * speed
                     * consistency
+
                 Defaults to speed.
             channels (int | str): set channels (from 0 to INT_MAX)
+
                 Allowed values:
                     * apart
                     * together
+
                 Defaults to apart.
 
         Returns:
@@ -16834,28 +19163,40 @@ class GeneratedFiltersMixin:
 
         Args:
             luma_radius (float): set luma radius (from 0.1 to 4)
+
                 Defaults to 1.
             lr (float): set luma radius (from 0.1 to 4)
+
                 Defaults to 1.
             luma_pre_filter_radius (float): set luma pre-filter radius (from 0.1 to 2)
+
                 Defaults to 1.
             lpfr (float): set luma pre-filter radius (from 0.1 to 2)
+
                 Defaults to 1.
             luma_strength (float): set luma strength (from 0.1 to 100)
+
                 Defaults to 1.
             ls (float): set luma strength (from 0.1 to 100)
+
                 Defaults to 1.
             chroma_radius (float): set chroma radius (from -0.9 to 4)
+
                 Defaults to -0.9.
             cr (float): set chroma radius (from -0.9 to 4)
+
                 Defaults to -0.9.
             chroma_pre_filter_radius (float): set chroma pre-filter radius (from -0.9 to 2)
+
                 Defaults to -0.9.
             cpfr (float): set chroma pre-filter radius (from -0.9 to 2)
+
                 Defaults to -0.9.
             chroma_strength (float): set chroma strength (from -0.9 to 100)
+
                 Defaults to -0.9.
             cs (float): set chroma strength (from -0.9 to 100)
+
                 Defaults to -0.9.
 
         Returns:
@@ -17031,15 +19372,24 @@ class GeneratedFiltersMixin:
 
         Args:
             w (str): Output video width
+
             width (str): Output video width
+
             h (str): Output video height
+
             height (str): Output video height
+
             flags (str): Flags to pass to libswscale
+
             interl (bool): set interlacing
+
                 Defaults to false.
             size (str): set video size
+
             s (str): set video size
+
             in_color_matrix (int | str): set input YCbCr type (from -1 to 17)
+
                 Allowed values:
                     * auto
                     * bt601
@@ -17049,8 +19399,10 @@ class GeneratedFiltersMixin:
                     * fcc
                     * smpte240m
                     * bt2020
+
                 Defaults to auto.
             out_color_matrix (int | str): set output YCbCr type (from 0 to 17)
+
                 Allowed values:
                     * auto
                     * bt601
@@ -17060,8 +19412,10 @@ class GeneratedFiltersMixin:
                     * fcc
                     * smpte240m
                     * bt2020
+
                 Defaults to 2.
             in_range (int | str): set input color range (from 0 to 2)
+
                 Allowed values:
                     * auto
                     * unknown
@@ -17071,8 +19425,10 @@ class GeneratedFiltersMixin:
                     * mpeg
                     * tv
                     * pc
+
                 Defaults to auto.
             out_range (int | str): set output color range (from 0 to 2)
+
                 Allowed values:
                     * auto
                     * unknown
@@ -17082,8 +19438,10 @@ class GeneratedFiltersMixin:
                     * mpeg
                     * tv
                     * pc
+
                 Defaults to auto.
             in_chroma_loc (int | str): set input chroma sample location (from 0 to 6)
+
                 Allowed values:
                     * auto
                     * unknown
@@ -17093,8 +19451,10 @@ class GeneratedFiltersMixin:
                     * top
                     * bottomleft
                     * bottom
+
                 Defaults to auto.
             out_chroma_loc (int | str): set output chroma sample location (from 0 to 6)
+
                 Allowed values:
                     * auto
                     * unknown
@@ -17104,8 +19464,10 @@ class GeneratedFiltersMixin:
                     * top
                     * bottomleft
                     * bottom
+
                 Defaults to auto.
             in_primaries (int | str): set input primaries (from -1 to 22)
+
                 Allowed values:
                     * auto
                     * bt709
@@ -17120,8 +19482,10 @@ class GeneratedFiltersMixin:
                     * smpte432
                     * jedec-p22
                     * ebu3213
+
                 Defaults to auto.
             out_primaries (int | str): set output primaries (from -1 to 22)
+
                 Allowed values:
                     * auto
                     * bt709
@@ -17136,8 +19500,10 @@ class GeneratedFiltersMixin:
                     * smpte432
                     * jedec-p22
                     * ebu3213
+
                 Defaults to auto.
             in_transfer (int | str): set output color transfer (from -1 to 18)
+
                 Allowed values:
                     * auto
                     * bt709
@@ -17158,8 +19524,10 @@ class GeneratedFiltersMixin:
                     * smpte2084
                     * smpte428
                     * arib-std-b67
+
                 Defaults to auto.
             out_transfer (int | str): set output color transfer (from -1 to 18)
+
                 Allowed values:
                     * auto
                     * bt709
@@ -17180,33 +19548,46 @@ class GeneratedFiltersMixin:
                     * smpte2084
                     * smpte428
                     * arib-std-b67
+
                 Defaults to auto.
             in_v_chr_pos (int): input vertical chroma position in luma grid/256 (from -513 to 512)
+
                 Defaults to -513.
             in_h_chr_pos (int): input horizontal chroma position in luma grid/256 (from -513 to 512)
+
                 Defaults to -513.
             out_v_chr_pos (int): output vertical chroma position in luma grid/256 (from -513 to 512)
+
                 Defaults to -513.
             out_h_chr_pos (int): output horizontal chroma position in luma grid/256 (from -513 to 512)
+
                 Defaults to -513.
             force_original_aspect_ratio (int | str): decrease or increase w/h if necessary to keep the original AR (from 0 to 2)
+
                 Allowed values:
                     * disable
                     * decrease
                     * increase
+
                 Defaults to disable.
             force_divisible_by (int): enforce that the output resolution is divisible by a defined integer when force_original_aspect_ratio is used (from 1 to 256)
+
                 Defaults to 1.
             reset_sar (bool): reset SAR to 1 and scale to square pixels if scaling proportionally
+
                 Defaults to false.
             param0 (float): Scaler param 0 (from -DBL_MAX to DBL_MAX)
+
                 Defaults to DBL_MAX.
             param1 (float): Scaler param 1 (from -DBL_MAX to DBL_MAX)
+
                 Defaults to DBL_MAX.
             eval (int | str): specify when to evaluate expressions (from 0 to 1)
+
                 Allowed values:
                     * init: eval expressions once during initialization
                     * frame: eval expressions during initialization and per-frame
+
                 Defaults to init.
 
         Returns:
@@ -17400,15 +19781,24 @@ class GeneratedFiltersMixin:
         Args:
             ref_stream (Stream): Input video stream.
             w (str): Output video width
+
             width (str): Output video width
+
             h (str): Output video height
+
             height (str): Output video height
+
             flags (str): Flags to pass to libswscale
+
             interl (bool): set interlacing
+
                 Defaults to false.
             size (str): set video size
+
             s (str): set video size
+
             in_color_matrix (int | str): set input YCbCr type (from -1 to 17)
+
                 Allowed values:
                     * auto
                     * bt601
@@ -17418,8 +19808,10 @@ class GeneratedFiltersMixin:
                     * fcc
                     * smpte240m
                     * bt2020
+
                 Defaults to auto.
             out_color_matrix (int | str): set output YCbCr type (from 0 to 17)
+
                 Allowed values:
                     * auto
                     * bt601
@@ -17429,8 +19821,10 @@ class GeneratedFiltersMixin:
                     * fcc
                     * smpte240m
                     * bt2020
+
                 Defaults to 2.
             in_range (int | str): set input color range (from 0 to 2)
+
                 Allowed values:
                     * auto
                     * unknown
@@ -17440,8 +19834,10 @@ class GeneratedFiltersMixin:
                     * mpeg
                     * tv
                     * pc
+
                 Defaults to auto.
             out_range (int | str): set output color range (from 0 to 2)
+
                 Allowed values:
                     * auto
                     * unknown
@@ -17451,8 +19847,10 @@ class GeneratedFiltersMixin:
                     * mpeg
                     * tv
                     * pc
+
                 Defaults to auto.
             in_chroma_loc (int | str): set input chroma sample location (from 0 to 6)
+
                 Allowed values:
                     * auto
                     * unknown
@@ -17462,8 +19860,10 @@ class GeneratedFiltersMixin:
                     * top
                     * bottomleft
                     * bottom
+
                 Defaults to auto.
             out_chroma_loc (int | str): set output chroma sample location (from 0 to 6)
+
                 Allowed values:
                     * auto
                     * unknown
@@ -17473,8 +19873,10 @@ class GeneratedFiltersMixin:
                     * top
                     * bottomleft
                     * bottom
+
                 Defaults to auto.
             in_primaries (int | str): set input primaries (from -1 to 22)
+
                 Allowed values:
                     * auto
                     * bt709
@@ -17489,8 +19891,10 @@ class GeneratedFiltersMixin:
                     * smpte432
                     * jedec-p22
                     * ebu3213
+
                 Defaults to auto.
             out_primaries (int | str): set output primaries (from -1 to 22)
+
                 Allowed values:
                     * auto
                     * bt709
@@ -17505,8 +19909,10 @@ class GeneratedFiltersMixin:
                     * smpte432
                     * jedec-p22
                     * ebu3213
+
                 Defaults to auto.
             in_transfer (int | str): set output color transfer (from -1 to 18)
+
                 Allowed values:
                     * auto
                     * bt709
@@ -17527,8 +19933,10 @@ class GeneratedFiltersMixin:
                     * smpte2084
                     * smpte428
                     * arib-std-b67
+
                 Defaults to auto.
             out_transfer (int | str): set output color transfer (from -1 to 18)
+
                 Allowed values:
                     * auto
                     * bt709
@@ -17549,33 +19957,46 @@ class GeneratedFiltersMixin:
                     * smpte2084
                     * smpte428
                     * arib-std-b67
+
                 Defaults to auto.
             in_v_chr_pos (int): input vertical chroma position in luma grid/256 (from -513 to 512)
+
                 Defaults to -513.
             in_h_chr_pos (int): input horizontal chroma position in luma grid/256 (from -513 to 512)
+
                 Defaults to -513.
             out_v_chr_pos (int): output vertical chroma position in luma grid/256 (from -513 to 512)
+
                 Defaults to -513.
             out_h_chr_pos (int): output horizontal chroma position in luma grid/256 (from -513 to 512)
+
                 Defaults to -513.
             force_original_aspect_ratio (int | str): decrease or increase w/h if necessary to keep the original AR (from 0 to 2)
+
                 Allowed values:
                     * disable
                     * decrease
                     * increase
+
                 Defaults to disable.
             force_divisible_by (int): enforce that the output resolution is divisible by a defined integer when force_original_aspect_ratio is used (from 1 to 256)
+
                 Defaults to 1.
             reset_sar (bool): reset SAR to 1 and scale to square pixels if scaling proportionally
+
                 Defaults to false.
             param0 (float): Scaler param 0 (from -DBL_MAX to DBL_MAX)
+
                 Defaults to DBL_MAX.
             param1 (float): Scaler param 1 (from -DBL_MAX to DBL_MAX)
+
                 Defaults to DBL_MAX.
             eval (int | str): specify when to evaluate expressions (from 0 to 1)
+
                 Allowed values:
                     * init: eval expressions once during initialization
                     * frame: eval expressions during initialization and per-frame
+
                 Defaults to init.
 
         Returns:
@@ -17629,12 +20050,17 @@ class GeneratedFiltersMixin:
 
         Args:
             w (str): Output video width
+
                 Defaults to iw.
             h (str): Output video height
+
                 Defaults to ih.
             color_matrix (str): Output colour matrix coefficient set
+
             color_primaries (str): Output colour primaries
+
             color_transfer (str): Output colour transfer characteristics
+
 
         Returns:
             "Stream": The output stream.
@@ -17662,12 +20088,16 @@ class GeneratedFiltersMixin:
 
         Args:
             threshold (float): set scene change detect threshold (from 0 to 100)
+
                 Defaults to 10.
             t (float): set scene change detect threshold (from 0 to 100)
+
                 Defaults to 10.
             sc_pass (bool): Set the flag to pass scene change frames
+
                 Defaults to false.
             s (bool): Set the flag to pass scene change frames
+
                 Defaults to false.
 
         Returns:
@@ -17694,10 +20124,13 @@ class GeneratedFiltersMixin:
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             scale (float): set scale (from 0 to 65535)
+
                 Defaults to 1.
             delta (float): set delta (from -65535 to 65535)
+
                 Defaults to 0.
 
         Returns:
@@ -17726,16 +20159,22 @@ class GeneratedFiltersMixin:
 
         Args:
             horizontal (float): set the horizontal scrolling speed (from -1 to 1)
+
                 Defaults to 0.
             h (float): set the horizontal scrolling speed (from -1 to 1)
+
                 Defaults to 0.
             vertical (float): set the vertical scrolling speed (from -1 to 1)
+
                 Defaults to 0.
             v (float): set the vertical scrolling speed (from -1 to 1)
+
                 Defaults to 0.
             hpos (float): set initial horizontal position (from 0 to 1)
+
                 Defaults to 0.
             vpos (float): set initial vertical position (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -17761,7 +20200,9 @@ class GeneratedFiltersMixin:
 
         Args:
             timestamps (str): timestamps of input at which to split input
+
             frames (str): frames at which to split input
+
 
         Returns:
             "FilterMultiOutput": A FilterMultiOutput object to access dynamic outputs.
@@ -17786,12 +20227,16 @@ class GeneratedFiltersMixin:
 
         Args:
             expr (str): set an expression to use for selecting frames
+
                 Defaults to 1.
             e (str): set an expression to use for selecting frames
+
                 Defaults to 1.
             outputs (int): set the number of outputs (from 1 to INT_MAX)
+
                 Defaults to 1.
             n (int): set the number of outputs (from 1 to INT_MAX)
+
                 Defaults to 1.
 
         Returns:
@@ -17826,20 +20271,32 @@ class GeneratedFiltersMixin:
 
         Args:
             correction_method (int | str): select correction method (from 0 to 1)
+
                 Allowed values:
                     * absolute
                     * relative
+
                 Defaults to absolute.
             reds (str): adjust red regions
+
             yellows (str): adjust yellow regions
+
             greens (str): adjust green regions
+
             cyans (str): adjust cyan regions
+
             blues (str): adjust blue regions
+
             magentas (str): adjust magenta regions
+
             whites (str): adjust white regions
+
             neutrals (str): adjust neutral regions
+
             blacks (str): adjust black regions
+
             psfile (str): set Photoshop selectivecolor file name
+
 
         Returns:
             "Stream": The output stream.
@@ -17873,9 +20330,13 @@ class GeneratedFiltersMixin:
 
         Args:
             commands (str): set commands
+
             c (str): set commands
+
             filename (str): set commands file
+
             f (str): set commands file
+
 
         Returns:
             "Stream": The output stream.
@@ -17914,12 +20375,16 @@ class GeneratedFiltersMixin:
 
         Args:
             dar (str): set display aspect ratio
+
                 Defaults to 0.
             ratio (str): set display aspect ratio
+
                 Defaults to 0.
             r (str): set display aspect ratio
+
                 Defaults to 0.
             max (int): set max value for nominator or denominator in the ratio (from 1 to INT_MAX)
+
                 Defaults to 100.
 
         Returns:
@@ -17943,11 +20408,13 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): select interlace mode (from -1 to 2)
+
                 Allowed values:
                     * auto: keep the same input field
                     * bff: mark as bottom-field-first
                     * tff: mark as top-field-first
                     * prog: mark as progressive
+
                 Defaults to auto.
 
         Returns:
@@ -18057,13 +20524,16 @@ class GeneratedFiltersMixin:
 
         Args:
             field_mode (int | str): select interlace mode (from -1 to 2)
+
                 Allowed values:
                     * auto: keep the same input field
                     * bff: mark as bottom-field-first
                     * tff: mark as top-field-first
                     * prog: mark as progressive
+
                 Defaults to auto.
             range (int | str): select color range (from -1 to 2)
+
                 Allowed values:
                     * auto: keep the same color range
                     * unspecified
@@ -18074,8 +20544,10 @@ class GeneratedFiltersMixin:
                     * full
                     * pc
                     * jpeg
+
                 Defaults to auto.
             color_primaries (int | str): select color primaries (from -1 to 22)
+
                 Allowed values:
                     * auto: keep the same color primaries
                     * bt709
@@ -18091,8 +20563,10 @@ class GeneratedFiltersMixin:
                     * smpte432
                     * jedec-p22
                     * ebu3213
+
                 Defaults to auto.
             color_trc (int | str): select color transfer (from -1 to 18)
+
                 Allowed values:
                     * auto: keep the same color transfer
                     * bt709
@@ -18112,8 +20586,10 @@ class GeneratedFiltersMixin:
                     * smpte2084
                     * smpte428
                     * arib-std-b67
+
                 Defaults to auto.
             colorspace (int | str): select colorspace (from -1 to 17)
+
                 Allowed values:
                     * auto: keep the same colorspace
                     * gbr
@@ -18133,8 +20609,10 @@ class GeneratedFiltersMixin:
                     * chroma-derived-c
                     * ictcp
                     * ipt-c2
+
                 Defaults to auto.
             chroma_location (int | str): select chroma sample location (from -1 to 6)
+
                 Allowed values:
                     * auto: keep the same chroma location
                     * unspecified
@@ -18145,6 +20623,7 @@ class GeneratedFiltersMixin:
                     * top
                     * bottomleft
                     * bottom
+
                 Defaults to auto.
 
         Returns:
@@ -18170,8 +20649,10 @@ class GeneratedFiltersMixin:
 
         Args:
             expr (str): Expression determining the frame timestamp
+
                 Defaults to PTS.
             strip_fps (bool): Unset framerate metadata
+
                 Defaults to false.
 
         Returns:
@@ -18206,6 +20687,7 @@ class GeneratedFiltersMixin:
 
         Args:
             range (int | str): select color range (from -1 to 2)
+
                 Allowed values:
                     * auto: keep the same color range
                     * unspecified
@@ -18216,6 +20698,7 @@ class GeneratedFiltersMixin:
                     * full
                     * pc
                     * jpeg
+
                 Defaults to auto.
 
         Returns:
@@ -18240,12 +20723,16 @@ class GeneratedFiltersMixin:
 
         Args:
             sar (str): set sample (pixel) aspect ratio
+
                 Defaults to 0.
             ratio (str): set sample (pixel) aspect ratio
+
                 Defaults to 0.
             r (str): set sample (pixel) aspect ratio
+
                 Defaults to 0.
             max (int): set max value for nominator or denominator in the ratio (from 1 to INT_MAX)
+
                 Defaults to 100.
 
         Returns:
@@ -18267,8 +20754,10 @@ class GeneratedFiltersMixin:
 
         Args:
             expr (str): set expression determining the output timebase
+
                 Defaults to intb.
             tb (str): set expression determining the output timebase
+
                 Defaults to intb.
 
         Returns:
@@ -18295,17 +20784,23 @@ class GeneratedFiltersMixin:
 
         Args:
             shx (float): set x shear factor (from -2 to 2)
+
                 Defaults to 0.
             shy (float): set y shear factor (from -2 to 2)
+
                 Defaults to 0.
             fillcolor (str): set background fill color
+
                 Defaults to black.
             c (str): set background fill color
+
                 Defaults to black.
             interp (int | str): set interpolation (from 0 to 1)
+
                 Allowed values:
                     * nearest: nearest neighbour
                     * bilinear: bilinear
+
                 Defaults to bilinear.
 
         Returns:
@@ -18375,69 +20870,103 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set video size
+
                 Defaults to 1920x1080.
             s (str): set video size
+
                 Defaults to 1920x1080.
             fps (str): set video rate
+
                 Defaults to 25.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             bar_h (int): set bargraph height (from -1 to INT_MAX)
+
                 Defaults to -1.
             axis_h (int): set axis height (from -1 to INT_MAX)
+
                 Defaults to -1.
             sono_h (int): set sonogram height (from -1 to INT_MAX)
+
                 Defaults to -1.
             fullhd (bool): set fullhd size
+
                 Defaults to true.
             sono_v (str): set sonogram volume
+
                 Defaults to 16.
             volume (str): set sonogram volume
+
                 Defaults to 16.
             bar_v (str): set bargraph volume
+
                 Defaults to sono_v.
             volume2 (str): set bargraph volume
+
                 Defaults to sono_v.
             sono_g (float): set sonogram gamma (from 1 to 7)
+
                 Defaults to 3.
             gamma (float): set sonogram gamma (from 1 to 7)
+
                 Defaults to 3.
             bar_g (float): set bargraph gamma (from 1 to 7)
+
                 Defaults to 1.
             gamma2 (float): set bargraph gamma (from 1 to 7)
+
                 Defaults to 1.
             bar_t (float): set bar transparency (from 0 to 1)
+
                 Defaults to 1.
             timeclamp (float): set timeclamp (from 0.002 to 1)
+
                 Defaults to 0.17.
             tc (float): set timeclamp (from 0.002 to 1)
+
                 Defaults to 0.17.
             attack (float): set attack time (from 0 to 1)
+
                 Defaults to 0.
             basefreq (float): set base frequency (from 10 to 100000)
+
                 Defaults to 20.0152.
             endfreq (float): set end frequency (from 10 to 100000)
+
                 Defaults to 20495.6.
             coeffclamp (float): set coeffclamp (from 0.1 to 10)
+
                 Defaults to 1.
             tlength (str): set tlength
+
                 Defaults to 384*tc/(384+tc*f).
             count (int): set transform count (from 1 to 30)
+
                 Defaults to 6.
             fcount (int): set frequency count (from 0 to 10)
+
                 Defaults to 0.
             fontfile (str): set axis font file
+
             font (str): set axis font
+
             fontcolor (str): set font color
+
                 Defaults to st(0, (midi(f)-59.5)/12);st(1, if(between(ld(0),0,1), 0.5-0.5*cos(2*PI*ld(0)), 0));r(1-ld(1)) + b(ld(1)).
             axisfile (str): set axis image
+
             axis (bool): draw axis
+
                 Defaults to true.
             text (bool): draw axis
+
                 Defaults to true.
             csp (int | str): set color space (from 0 to INT_MAX)
+
                 Allowed values:
                     * unspecified: unspecified
                     * bt709: bt709
@@ -18446,8 +20975,10 @@ class GeneratedFiltersMixin:
                     * smpte170m: smpte170m
                     * smpte240m: smpte240m
                     * bt2020ncl: bt2020ncl
+
                 Defaults to unspecified.
             cscheme (str): set color scheme
+
                 Defaults to 1|0.5|0|0|0.5|1.
 
         Returns:
@@ -18526,14 +21057,19 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set video size
+
                 Defaults to 640x512.
             s (str): set video size
+
                 Defaults to 640x512.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             scale (int | str): set frequency scale (from 0 to 8)
+
                 Allowed values:
                     * linear: linear
                     * log: logarithmic
@@ -18544,53 +21080,71 @@ class GeneratedFiltersMixin:
                     * cbrt: cbrt
                     * qdrt: qdrt
                     * fm: fm
+
                 Defaults to linear.
             iscale (int | str): set intensity scale (from 0 to 4)
+
                 Allowed values:
                     * linear: linear
                     * log: logarithmic
                     * sqrt: sqrt
                     * cbrt: cbrt
                     * qdrt: qdrt
+
                 Defaults to log.
             min (float): set minimum frequency (from 1 to 192000)
+
                 Defaults to 20.
             max (float): set maximum frequency (from 1 to 192000)
+
                 Defaults to 20000.
             imin (float): set minimum intensity (from 0 to 1)
+
                 Defaults to 0.
             imax (float): set maximum intensity (from 0 to 1)
+
                 Defaults to 1.
             logb (float): set logarithmic basis (from 0 to 1)
+
                 Defaults to 0.0001.
             deviation (float): set frequency deviation (from 0 to 100)
+
                 Defaults to 1.
             pps (int): set pixels per second (from 1 to 1024)
+
                 Defaults to 64.
             mode (int | str): set output mode (from 0 to 4)
+
                 Allowed values:
                     * magnitude: magnitude
                     * phase: phase
                     * magphase: magnitude+phase
                     * channel: color per channel
                     * stereo: stereo difference
+
                 Defaults to magnitude.
             slide (int | str): set slide mode (from 0 to 2)
+
                 Allowed values:
                     * replace: replace
                     * scroll: scroll
                     * frame: frame
+
                 Defaults to replace.
             direction (int | str): set direction mode (from 0 to 3)
+
                 Allowed values:
                     * lr: left to right
                     * rl: right to left
                     * ud: up to down
                     * du: down to up
+
                 Defaults to lr.
             bar (float): set bargraph ratio (from 0 to 1)
+
                 Defaults to 0.
             rotation (float): set color rotation (from -1 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -18669,35 +21223,47 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set video size
+
                 Defaults to 1024x512.
             s (str): set video size
+
                 Defaults to 1024x512.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             mode (int | str): set display mode (from 0 to 2)
+
                 Allowed values:
                     * line: show lines
                     * bar: show bars
                     * dot: show dots
+
                 Defaults to bar.
             ascale (int | str): set amplitude scale (from 0 to 3)
+
                 Allowed values:
                     * lin: linear
                     * sqrt: square root
                     * cbrt: cubic root
                     * log: logarithmic
+
                 Defaults to log.
             fscale (int | str): set frequency scale (from 0 to 2)
+
                 Allowed values:
                     * lin: linear
                     * log: logarithmic
                     * rlog: reverse logarithmic
+
                 Defaults to lin.
             win_size (int): set window size (from 16 to 65536)
+
                 Defaults to 2048.
             win_func (int | str): set window function (from 0 to 20)
+
                 Allowed values:
                     * rect: Rectangular
                     * bartlett: Bartlett
@@ -18721,27 +21287,37 @@ class GeneratedFiltersMixin:
                     * poisson: Poisson
                     * bohman: Bohman
                     * kaiser: Kaiser
+
                 Defaults to hann.
             overlap (float): set window overlap (from 0 to 1)
+
                 Defaults to 1.
             averaging (int): set time averaging (from 0 to INT_MAX)
+
                 Defaults to 1.
             colors (str): set channels colors
+
                 Defaults to red|green|blue|yellow|orange|lime|pink|magenta|brown.
             cmode (int | str): set channel mode (from 0 to 1)
+
                 Allowed values:
                     * combined: show all channels in same window
                     * separate: show each channel in own window
+
                 Defaults to combined.
             minamp (float): set minimum amplitude (from FLT_MIN to 1e-06)
+
                 Defaults to 1e-06.
             data (int | str): set data mode (from 0 to 2)
+
                 Allowed values:
                     * magnitude: show magnitude
                     * phase: show phase
                     * delay: show group delay
+
                 Defaults to magnitude.
             channels (str): set channels to draw
+
                 Defaults to all.
 
         Returns:
@@ -18777,8 +21353,10 @@ class GeneratedFiltersMixin:
 
         Args:
             checksum (bool): calculate checksums
+
                 Defaults to true.
             udu_sei_as_ascii (bool): try to print user data unregistered SEI as ascii character when possible
+
                 Defaults to false.
 
         Returns:
@@ -18798,6 +21376,7 @@ class GeneratedFiltersMixin:
 
         Args:
             s (int): set pixel box size (from 1 to 100)
+
                 Defaults to 30.
 
         Returns:
@@ -18849,12 +21428,16 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set video size
+
                 Defaults to 512x512.
             s (str): set video size
+
                 Defaults to 512x512.
             win_size (int): set window size (from 1024 to 65536)
+
                 Defaults to 4096.
             win_func (int | str): set window function (from 0 to 20)
+
                 Allowed values:
                     * rect: Rectangular
                     * bartlett: Bartlett
@@ -18878,10 +21461,13 @@ class GeneratedFiltersMixin:
                     * poisson: Poisson
                     * bohman: Bohman
                     * kaiser: Kaiser
+
                 Defaults to hann.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
 
         Returns:
@@ -18975,23 +21561,30 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set video size
+
                 Defaults to 640x512.
             s (str): set video size
+
                 Defaults to 640x512.
             slide (int | str): set sliding mode (from 0 to 4)
+
                 Allowed values:
                     * replace: replace old columns with new
                     * scroll: scroll from right to left
                     * fullframe: return full frames
                     * rscroll: scroll from left to right
                     * lreplace: replace from right to left
+
                 Defaults to replace.
             mode (int | str): set channel display mode (from 0 to 1)
+
                 Allowed values:
                     * combined: combined mode
                     * separate: separate mode
+
                 Defaults to combined.
             color (int | str): set channel coloring (from 0 to 14)
+
                 Allowed values:
                     * channel: separate color for each channel
                     * intensity: intensity based coloring
@@ -19008,8 +21601,10 @@ class GeneratedFiltersMixin:
                     * plasma: plasma based coloring
                     * cividis: cividis based coloring
                     * terrain: terrain based coloring
+
                 Defaults to channel.
             scale (int | str): set display scale (from 0 to 5)
+
                 Allowed values:
                     * lin: linear
                     * sqrt: square root
@@ -19017,15 +21612,20 @@ class GeneratedFiltersMixin:
                     * log: logarithmic
                     * 4thrt: 4th root
                     * 5thrt: 5th root
+
                 Defaults to sqrt.
             fscale (int | str): set frequency scale (from 0 to 1)
+
                 Allowed values:
                     * lin: linear
                     * log: logarithmic
+
                 Defaults to lin.
             saturation (float): color saturation multiplier (from -10 to 10)
+
                 Defaults to 1.
             win_func (int | str): set window function (from 0 to 20)
+
                 Allowed values:
                     * rect: Rectangular
                     * bartlett: Bartlett
@@ -19049,37 +21649,52 @@ class GeneratedFiltersMixin:
                     * poisson: Poisson
                     * bohman: Bohman
                     * kaiser: Kaiser
+
                 Defaults to hann.
             orientation (int | str): set orientation (from 0 to 1)
+
                 Allowed values:
                     * vertical
                     * horizontal
+
                 Defaults to vertical.
             overlap (float): set window overlap (from 0 to 1)
+
                 Defaults to 0.
             gain (float): set scale gain (from 0 to 128)
+
                 Defaults to 1.
             data (int | str): set data mode (from 0 to 2)
+
                 Allowed values:
                     * magnitude
                     * phase
                     * uphase
+
                 Defaults to magnitude.
             rotation (float): color rotation (from -1 to 1)
+
                 Defaults to 0.
             start (int): start frequency (from 0 to INT_MAX)
+
                 Defaults to 0.
             stop (int): stop frequency (from 0 to INT_MAX)
+
                 Defaults to 0.
             fps (str): set video rate
+
                 Defaults to auto.
             legend (bool): draw legend
+
                 Defaults to false.
             drange (float): set dynamic range in dBFS (from 10 to 200)
+
                 Defaults to 120.
             limit (float): set upper limit in dBFS (from -100 to 100)
+
                 Defaults to 0.
             opacity (float): set opacity strength (from 0 to 10)
+
                 Defaults to 1.
 
         Returns:
@@ -19182,15 +21797,20 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set video size
+
                 Defaults to 4096x2048.
             s (str): set video size
+
                 Defaults to 4096x2048.
             mode (int | str): set channel display mode (from 0 to 1)
+
                 Allowed values:
                     * combined: combined mode
                     * separate: separate mode
+
                 Defaults to combined.
             color (int | str): set channel coloring (from 0 to 14)
+
                 Allowed values:
                     * channel: separate color for each channel
                     * intensity: intensity based coloring
@@ -19207,8 +21827,10 @@ class GeneratedFiltersMixin:
                     * plasma: plasma based coloring
                     * cividis: cividis based coloring
                     * terrain: terrain based coloring
+
                 Defaults to intensity.
             scale (int | str): set display scale (from 0 to 5)
+
                 Allowed values:
                     * lin: linear
                     * sqrt: square root
@@ -19216,15 +21838,20 @@ class GeneratedFiltersMixin:
                     * log: logarithmic
                     * 4thrt: 4th root
                     * 5thrt: 5th root
+
                 Defaults to log.
             fscale (int | str): set frequency scale (from 0 to 1)
+
                 Allowed values:
                     * lin: linear
                     * log: logarithmic
+
                 Defaults to lin.
             saturation (float): color saturation multiplier (from -10 to 10)
+
                 Defaults to 1.
             win_func (int | str): set window function (from 0 to 20)
+
                 Allowed values:
                     * rect: Rectangular
                     * bartlett: Bartlett
@@ -19248,27 +21875,38 @@ class GeneratedFiltersMixin:
                     * poisson: Poisson
                     * bohman: Bohman
                     * kaiser: Kaiser
+
                 Defaults to hann.
             orientation (int | str): set orientation (from 0 to 1)
+
                 Allowed values:
                     * vertical
                     * horizontal
+
                 Defaults to vertical.
             gain (float): set scale gain (from 0 to 128)
+
                 Defaults to 1.
             legend (bool): draw legend
+
                 Defaults to true.
             rotation (float): color rotation (from -1 to 1)
+
                 Defaults to 0.
             start (int): start frequency (from 0 to INT_MAX)
+
                 Defaults to 0.
             stop (int): stop frequency (from 0 to INT_MAX)
+
                 Defaults to 0.
             drange (float): set dynamic range in dBFS (from 10 to 200)
+
                 Defaults to 120.
             limit (float): set upper limit in dBFS (from -100 to 100)
+
                 Defaults to 0.
             opacity (float): set opacity strength (from 0 to 10)
+
                 Defaults to 1.
 
         Returns:
@@ -19321,45 +21959,64 @@ class GeneratedFiltersMixin:
 
         Args:
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             b (int): set border width (from 0 to 5)
+
                 Defaults to 1.
             w (int): set channel width (from 80 to 8192)
+
                 Defaults to 400.
             h (int): set channel height (from 1 to 900)
+
                 Defaults to 20.
             f (float): set fade (from 0 to 1)
+
                 Defaults to 0.95.
             c (str): set volume color expression
+
                 Defaults to PEAK*255+floor((1-PEAK)*255)*256+0xff000000.
             t (bool): display channel names
+
                 Defaults to true.
             v (bool): display volume value
+
                 Defaults to true.
             dm (float): duration for max value display (from 0 to 9000)
+
                 Defaults to 0.
             dmc (str): set color of the max value line
+
                 Defaults to orange.
             o (int | str): set orientation (from 0 to 1)
+
                 Allowed values:
                     * h: horizontal
                     * v: vertical
+
                 Defaults to h.
             s (int): set step size (from 0 to 5)
+
                 Defaults to 0.
             p (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.
             m (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * p: peak
                     * r: rms
+
                 Defaults to p.
             ds (int | str): set display scale (from 0 to 1)
+
                 Allowed values:
                     * lin: linear
                     * log: log
+
                 Defaults to lin.
 
         Returns:
@@ -19405,37 +22062,50 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set video size
+
                 Defaults to 600x240.
             s (str): set video size
+
                 Defaults to 600x240.
             mode (int | str): select display mode (from 0 to 3)
+
                 Allowed values:
                     * point: draw a point for each sample
                     * line: draw a line for each sample
                     * p2p: draw a line between samples
                     * cline: draw a centered line for each sample
+
                 Defaults to point.
             n (str): set how many samples to show in the same point (from 0 to INT_MAX)
+
                 Defaults to 0/1.
             rate (str): set video rate
+
                 Defaults to 25.
             r (str): set video rate
+
                 Defaults to 25.
             split_channels (bool): draw channels separately
+
                 Defaults to false.
             colors (str): set channels colors
+
                 Defaults to red|green|blue|yellow|orange|lime|pink|magenta|brown.
             scale (int | str): set amplitude scale (from 0 to 3)
+
                 Allowed values:
                     * lin: linear
                     * log: logarithmic
                     * sqrt: square root
                     * cbrt: cubic root
+
                 Defaults to lin.
             draw (int | str): set draw mode (from 0 to 1)
+
                 Allowed values:
                     * scale: scale pixel values for each drawn sample
                     * full: draw every pixel for sample directly
+
                 Defaults to scale.
 
         Returns:
@@ -19472,29 +22142,39 @@ class GeneratedFiltersMixin:
 
         Args:
             size (str): set video size
+
                 Defaults to 600x240.
             s (str): set video size
+
                 Defaults to 600x240.
             split_channels (bool): draw channels separately
+
                 Defaults to false.
             colors (str): set channels colors
+
                 Defaults to red|green|blue|yellow|orange|lime|pink|magenta|brown.
             scale (int | str): set amplitude scale (from 0 to 3)
+
                 Allowed values:
                     * lin: linear
                     * log: logarithmic
                     * sqrt: square root
                     * cbrt: cubic root
+
                 Defaults to lin.
             draw (int | str): set draw mode (from 0 to 1)
+
                 Allowed values:
                     * scale: scale pixel values for each drawn sample
                     * full: draw every pixel for sample directly
+
                 Defaults to scale.
             filter (int | str): set filter mode (from 0 to 1)
+
                 Allowed values:
                     * average: use average samples
                     * peak: use peak samples
+
                 Defaults to average.
 
         Returns:
@@ -19519,6 +22199,7 @@ class GeneratedFiltersMixin:
 
         Args:
             mapping (str): set destination indexes of input frames
+
                 Defaults to 0.
 
         Returns:
@@ -19549,38 +22230,52 @@ class GeneratedFiltersMixin:
 
         Args:
             direction (int | str): set shuffle direction (from 0 to 1)
+
                 Allowed values:
                     * forward
                     * inverse
+
                 Defaults to forward.
             d (int | str): set shuffle direction (from 0 to 1)
+
                 Allowed values:
                     * forward
                     * inverse
+
                 Defaults to forward.
             mode (int | str): set shuffle mode (from 0 to 2)
+
                 Allowed values:
                     * horizontal
                     * vertical
                     * block
+
                 Defaults to horizontal.
             m (int | str): set shuffle mode (from 0 to 2)
+
                 Allowed values:
                     * horizontal
                     * vertical
                     * block
+
                 Defaults to horizontal.
             width (int): set block width (from 1 to 8000)
+
                 Defaults to 10.
             w (int): set block width (from 1 to 8000)
+
                 Defaults to 10.
             height (int): set block height (from 1 to 8000)
+
                 Defaults to 10.
             h (int): set block height (from 1 to 8000)
+
                 Defaults to 10.
             seed (str): set random seed (from -1 to UINT32_MAX)
+
                 Defaults to -1.
             s (str): set random seed (from -1 to UINT32_MAX)
+
                 Defaults to -1.
 
         Returns:
@@ -19614,12 +22309,16 @@ class GeneratedFiltersMixin:
 
         Args:
             map0 (int): Index of the input plane to be used as the first output plane  (from 0 to 3)
+
                 Defaults to 0.
             map1 (int): Index of the input plane to be used as the second output plane  (from 0 to 3)
+
                 Defaults to 1.
             map2 (int): Index of the input plane to be used as the third output plane  (from 0 to 3)
+
                 Defaults to 2.
             map3 (int): Index of the input plane to be used as the fourth output plane  (from 0 to 3)
+
                 Defaults to 3.
 
         Returns:
@@ -19657,37 +22356,52 @@ class GeneratedFiltersMixin:
         Args:
             sidechain_stream (Stream): Input audio stream.
             level_in (float): set input gain (from 0.015625 to 64)
+
                 Defaults to 1.
             mode (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * downward
                     * upward
+
                 Defaults to downward.
             threshold (float): set threshold (from 0.000976563 to 1)
+
                 Defaults to 0.125.
             ratio (float): set ratio (from 1 to 20)
+
                 Defaults to 2.
             attack (float): set attack (from 0.01 to 2000)
+
                 Defaults to 20.
             release (float): set release (from 0.01 to 9000)
+
                 Defaults to 250.
             makeup (float): set make up gain (from 1 to 64)
+
                 Defaults to 1.
             knee (float): set knee (from 1 to 8)
+
                 Defaults to 2.82843.
             link (int | str): set link type (from 0 to 1)
+
                 Allowed values:
                     * average
                     * maximum
+
                 Defaults to average.
             detection (int | str): set detection (from 0 to 1)
+
                 Allowed values:
                     * peak
                     * rms
+
                 Defaults to rms.
             level_sc (float): set sidechain gain (from 0.015625 to 64)
+
                 Defaults to 1.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -19733,37 +22447,52 @@ class GeneratedFiltersMixin:
         Args:
             sidechain_stream (Stream): Input audio stream.
             level_in (float): set input level (from 0.015625 to 64)
+
                 Defaults to 1.
             mode (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * downward
                     * upward
+
                 Defaults to downward.
             range (float): set max gain reduction (from 0 to 1)
+
                 Defaults to 0.06125.
             threshold (float): set threshold (from 0 to 1)
+
                 Defaults to 0.125.
             ratio (float): set ratio (from 1 to 9000)
+
                 Defaults to 2.
             attack (float): set attack (from 0.01 to 9000)
+
                 Defaults to 20.
             release (float): set release (from 0.01 to 9000)
+
                 Defaults to 250.
             makeup (float): set makeup gain (from 1 to 64)
+
                 Defaults to 1.
             knee (float): set knee (from 1 to 8)
+
                 Defaults to 2.82843.
             detection (int | str): set detection (from 0 to 1)
+
                 Allowed values:
                     * peak
                     * rms
+
                 Defaults to rms.
             link (int | str): set link (from 0 to 1)
+
                 Allowed values:
                     * average
                     * maximum
+
                 Defaults to average.
             level_sc (float): set sidechain gain (from 0.015625 to 64)
+
                 Defaults to 1.
 
         Returns:
@@ -19829,11 +22558,14 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set a mode of operation (from 0 to 1)
+
                 Allowed values:
                     * select: select frame
                     * delete: delete side data
+
                 Defaults to select.
             type (int | str): set side data type (from -1 to INT_MAX)
+
                 Allowed values:
                     * PANSCAN
                     * A53_CC
@@ -19864,6 +22596,7 @@ class GeneratedFiltersMixin:
                     * DYNAMIC_HDR_VIVID
                     * AMBIENT_VIEWING_ENVIRONMENT
                     * VIDEO_HINT
+
                 Defaults to -1.
 
         Returns:
@@ -19889,20 +22622,26 @@ class GeneratedFiltersMixin:
 
         Args:
             stat (str): set statistics filters
+
                 Allowed values:
                     * tout: pixels for temporal outliers
                     * vrep: video lines for vertical line repetition
                     * brng: for pixels outside of broadcast range
+
                 Defaults to 0.
             out (int | str): set video filter (from -1 to 2)
+
                 Allowed values:
                     * tout: highlight pixels that depict temporal outliers
                     * vrep: highlight video lines that depict vertical line repetition
                     * brng: highlight pixels that are outside of broadcast range
+
                 Defaults to -1.
             c (str): set highlight color
+
                 Defaults to yellow.
             color (str): set highlight color
+
                 Defaults to yellow.
 
         Returns:
@@ -19937,28 +22676,39 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             detectmode (int | str): set the detectmode (from 0 to 2)
+
                 Allowed values:
                     * off
                     * full
                     * fast
+
                 Defaults to off.
             nb_inputs (int): number of inputs (from 1 to INT_MAX)
+
                 Defaults to 1.
             filename (str): filename for output files
+
             format (int | str): set output format (from 0 to 1)
+
                 Allowed values:
                     * binary
                     * xml
+
                 Defaults to binary.
             th_d (int): threshold to detect one word as similar (from 1 to INT_MAX)
+
                 Defaults to 9000.
             th_dc (int): threshold to detect all words as similar (from 1 to INT_MAX)
+
                 Defaults to 60000.
             th_xh (int): threshold to detect frames as similar (from 1 to INT_MAX)
+
                 Defaults to 116.
             th_di (int): minimum length of matching sequence in frames (from 0 to INT_MAX)
+
                 Defaults to 0.
             th_it (float): threshold for relation of good to all frames (from 0 to 1)
+
                 Defaults to 0.5.
 
         Returns:
@@ -19993,16 +22743,22 @@ class GeneratedFiltersMixin:
 
         Args:
             n (float): set noise tolerance (from 0 to DBL_MAX)
+
                 Defaults to 0.001.
             noise (float): set noise tolerance (from 0 to DBL_MAX)
+
                 Defaults to 0.001.
             d (str): set minimum duration in seconds
+
                 Defaults to 2.
             duration (str): set minimum duration in seconds
+
                 Defaults to 2.
             mono (bool): check each channel separately
+
                 Defaults to false.
             m (bool): check each channel separately
+
                 Defaults to false.
 
         Returns:
@@ -20043,32 +22799,45 @@ class GeneratedFiltersMixin:
 
         Args:
             start_periods (int): set periods of silence parts to skip from start (from 0 to 9000)
+
                 Defaults to 0.
             start_duration (str): set start duration of non-silence part
+
                 Defaults to 0.
             start_threshold (float): set threshold for start silence detection (from 0 to DBL_MAX)
+
                 Defaults to 0.
             start_silence (str): set start duration of silence part to keep
+
                 Defaults to 0.
             start_mode (int | str): set which channel will trigger trimming from start (from 0 to 1)
+
                 Allowed values:
                     * any
                     * all
+
                 Defaults to any.
             stop_periods (int): set periods of silence parts to skip from end (from -9000 to 9000)
+
                 Defaults to 0.
             stop_duration (str): set stop duration of silence part
+
                 Defaults to 0.
             stop_threshold (float): set threshold for stop silence detection (from 0 to DBL_MAX)
+
                 Defaults to 0.
             stop_silence (str): set stop duration of silence part to keep
+
                 Defaults to 0.
             stop_mode (int | str): set which channel will trigger trimming from end (from 0 to 1)
+
                 Allowed values:
                     * any
                     * all
+
                 Defaults to all.
             detection (int | str): set how silence is detected (from 0 to 5)
+
                 Allowed values:
                     * avg: use mean absolute values of samples
                     * rms: use root mean squared values of samples
@@ -20076,13 +22845,17 @@ class GeneratedFiltersMixin:
                     * median: use median of absolute values of samples
                     * ptp: use absolute of max peak to min peak difference
                     * dev: use standard deviation from values of samples
+
                 Defaults to rms.
             window (str): set duration of window for silence detection
+
                 Defaults to 0.02.
             timestamp (int | str): set how every output frame timestamp is processed (from 0 to 1)
+
                 Allowed values:
                     * write: full timestamps rewrite, keep only the start time
                     * copy: non-dropped frames are left with same timestamp
+
                 Defaults to write.
 
         Returns:
@@ -20113,6 +22886,7 @@ class GeneratedFiltersMixin:
 
         Args:
             print_summary (bool): Print summary showing average values
+
                 Defaults to false.
 
         Returns:
@@ -20151,40 +22925,58 @@ class GeneratedFiltersMixin:
 
         Args:
             luma_radius (float): set luma radius (from 0.1 to 5)
+
                 Defaults to 1.
             lr (float): set luma radius (from 0.1 to 5)
+
                 Defaults to 1.
             luma_strength (float): set luma strength (from -1 to 1)
+
                 Defaults to 1.
             ls (float): set luma strength (from -1 to 1)
+
                 Defaults to 1.
             luma_threshold (int): set luma threshold (from -30 to 30)
+
                 Defaults to 0.
             lt (int): set luma threshold (from -30 to 30)
+
                 Defaults to 0.
             chroma_radius (float): set chroma radius (from -0.9 to 5)
+
                 Defaults to -0.9.
             cr (float): set chroma radius (from -0.9 to 5)
+
                 Defaults to -0.9.
             chroma_strength (float): set chroma strength (from -2 to 1)
+
                 Defaults to -2.
             cs (float): set chroma strength (from -2 to 1)
+
                 Defaults to -2.
             chroma_threshold (int): set chroma threshold (from -31 to 30)
+
                 Defaults to -31.
             ct (int): set chroma threshold (from -31 to 30)
+
                 Defaults to -31.
             alpha_radius (float): set alpha radius (from -0.9 to 5)
+
                 Defaults to -0.9.
             ar (float): set alpha radius (from -0.9 to 5)
+
                 Defaults to -0.9.
             alpha_strength (float): set alpha strength (from -2 to 1)
+
                 Defaults to -2.
             as_ (float): set alpha strength (from -2 to 1)
+
                 Defaults to -2.
             alpha_threshold (int): set alpha threshold (from -31 to 30)
+
                 Defaults to -31.
             at (int): set alpha threshold (from -31 to 30)
+
                 Defaults to -31.
 
         Returns:
@@ -20225,10 +23017,13 @@ class GeneratedFiltersMixin:
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             scale (float): set scale (from 0 to 65535)
+
                 Defaults to 1.
             delta (float): set delta (from -65535 to 65535)
+
                 Defaults to 0.
 
         Returns:
@@ -20285,22 +23080,29 @@ class GeneratedFiltersMixin:
         Args:
             phase_stream (Stream): Input video stream.
             sample_rate (int): set sample rate (from 15 to INT_MAX)
+
                 Defaults to 44100.
             channels (int): set channels (from 1 to 8)
+
                 Defaults to 1.
             scale (int | str): set input amplitude scale (from 0 to 1)
+
                 Allowed values:
                     * lin: linear
                     * log: logarithmic
+
                 Defaults to log.
             slide (int | str): set input sliding mode (from 0 to 3)
+
                 Allowed values:
                     * replace: consume old columns with new
                     * scroll: consume only most right column
                     * fullframe: consume full frames
                     * rscroll: consume only most left column
+
                 Defaults to fullframe.
             win_func (int | str): set window function (from 0 to 20)
+
                 Allowed values:
                     * rect: Rectangular
                     * bartlett: Bartlett
@@ -20324,13 +23126,17 @@ class GeneratedFiltersMixin:
                     * poisson: Poisson
                     * bohman: Bohman
                     * kaiser: Kaiser
+
                 Defaults to rect.
             overlap (float): set window overlap (from 0 to 1)
+
                 Defaults to 1.
             orientation (int | str): set orientation (from 0 to 1)
+
                 Allowed values:
                     * vertical
                     * horizontal
+
                 Defaults to vertical.
 
         Returns:
@@ -20377,44 +23183,64 @@ class GeneratedFiltersMixin:
 
         Args:
             peak (float): set the peak value (from 0 to 1)
+
                 Defaults to 0.95.
             p (float): set the peak value (from 0 to 1)
+
                 Defaults to 0.95.
             expansion (float): set the max expansion factor (from 1 to 50)
+
                 Defaults to 2.
             e (float): set the max expansion factor (from 1 to 50)
+
                 Defaults to 2.
             compression (float): set the max compression factor (from 1 to 50)
+
                 Defaults to 2.
             c (float): set the max compression factor (from 1 to 50)
+
                 Defaults to 2.
             threshold (float): set the threshold value (from 0 to 1)
+
                 Defaults to 0.
             t (float): set the threshold value (from 0 to 1)
+
                 Defaults to 0.
             raise_ (float): set the expansion raising amount (from 0 to 1)
+
                 Defaults to 0.001.
             r (float): set the expansion raising amount (from 0 to 1)
+
                 Defaults to 0.001.
             fall (float): set the compression raising amount (from 0 to 1)
+
                 Defaults to 0.001.
             f (float): set the compression raising amount (from 0 to 1)
+
                 Defaults to 0.001.
             channels (str): set channels to filter
+
                 Defaults to all.
             h (str): set channels to filter
+
                 Defaults to all.
             invert (bool): set inverted filtering
+
                 Defaults to false.
             i (bool): set inverted filtering
+
                 Defaults to false.
             link (bool): set linked channels filtering
+
                 Defaults to false.
             l (bool): set linked channels filtering
+
                 Defaults to false.
             rms (float): set the RMS value (from 0 to 1)
+
                 Defaults to 0.
             m (float): set the RMS value (from 0 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -20452,6 +23278,7 @@ class GeneratedFiltersMixin:
 
         Args:
             outputs (int): set number of outputs (from 1 to INT_MAX)
+
                 Defaults to 2.
 
         Returns:
@@ -20476,15 +23303,20 @@ class GeneratedFiltersMixin:
 
         Args:
             quality (int): set quality (from 0 to 6)
+
                 Defaults to 3.
             qp (int): force a constant quantizer parameter (from 0 to 63)
+
                 Defaults to 0.
             mode (int | str): set thresholding mode (from 0 to 1)
+
                 Allowed values:
                     * hard: hard thresholding
                     * soft: soft thresholding
+
                 Defaults to hard.
             use_bframe_qp (bool): use B-frames' QP
+
                 Defaults to false.
 
         Returns:
@@ -20512,7 +23344,9 @@ class GeneratedFiltersMixin:
         Args:
             reference_stream (Stream): Input video stream.
             stats_file (str): Set file where to store per-frame difference information
+
             f (str): Set file where to store per-frame difference information
+
 
         Returns:
             "Stream": The output stream.
@@ -20557,12 +23391,17 @@ class GeneratedFiltersMixin:
         Args:
             reference_stream (Stream): Input video stream.
             stats_file (str): Set file where to store per-frame difference information
+
             f (str): Set file where to store per-frame difference information
+
             compute_chroma (int): Specifies if non-luma channels must be computed (from 0 to 1)
+
                 Defaults to 1.
             frame_skip_ratio (int): Specifies the number of frames to be skipped from evaluation, for every evaluated frame (from 0 to 1e+06)
+
                 Defaults to 0.
             ref_projection (int | str): projection of the reference video (from 0 to 4)
+
                 Allowed values:
                     * e: equirectangular
                     * equirect: equirectangular
@@ -20570,8 +23409,10 @@ class GeneratedFiltersMixin:
                     * c2x3: cubemap 2x3
                     * barrel: barrel facebook's 360 format
                     * barrelsplit: barrel split facebook's 360 format
+
                 Defaults to e.
             main_projection (int | str): projection of the main video (from 0 to 5)
+
                 Allowed values:
                     * e: equirectangular
                     * equirect: equirectangular
@@ -20579,29 +23420,40 @@ class GeneratedFiltersMixin:
                     * c2x3: cubemap 2x3
                     * barrel: barrel facebook's 360 format
                     * barrelsplit: barrel split facebook's 360 format
+
                 Defaults to 5.
             ref_stereo (int | str): stereo format of the reference video (from 0 to 2)
+
                 Allowed values:
                     * mono
                     * tb
                     * lr
+
                 Defaults to mono.
             main_stereo (int | str): stereo format of main video (from 0 to 3)
+
                 Allowed values:
                     * mono
                     * tb
                     * lr
+
                 Defaults to 3.
             ref_pad (float): Expansion (padding) coefficient for each cube face of the reference video (from 0 to 10)
+
                 Defaults to 0.
             main_pad (float): Expansion (padding) coefficient for each cube face of the main video (from 0 to 10)
+
                 Defaults to 0.
             use_tape (int): Specifies if the tape based SSIM 360 algorithm must be used independent of the input video types (from 0 to 1)
+
                 Defaults to 0.
             heatmap_str (str): Heatmap data for view-based evaluation. For heatmap file format, please refer to EntSphericalVideoHeatmapData.
+
             default_heatmap_width (int): Default heatmap dimension. Will be used when dimension is not specified in heatmap data. (from 1 to 4096)
+
                 Defaults to 32.
             default_heatmap_height (int): Default heatmap dimension. Will be used when dimension is not specified in heatmap data. (from 1 to 4096)
+
                 Defaults to 16.
 
         Returns:
@@ -20698,6 +23550,7 @@ class GeneratedFiltersMixin:
 
         Args:
             in_ (int | str): set input format (from 16 to 32)
+
                 Allowed values:
                     * ab2l: above below half height left first
                     * tb2l: above below half height left first
@@ -20717,8 +23570,10 @@ class GeneratedFiltersMixin:
                     * irr: interleave rows right first
                     * icl: interleave columns left first
                     * icr: interleave columns right first
+
                 Defaults to sbsl.
             out (int | str): set output format (from 0 to 32)
+
                 Allowed values:
                     * ab2l: above below half height left first
                     * tb2l: above below half height left first
@@ -20757,6 +23612,7 @@ class GeneratedFiltersMixin:
                     * icl: interleave columns left first
                     * icr: interleave columns right first
                     * hdmi: HDMI frame pack
+
                 Defaults to arcd.
 
         Returns:
@@ -20812,24 +23668,34 @@ class GeneratedFiltersMixin:
 
         Args:
             level_in (float): set level in (from 0.015625 to 64)
+
                 Defaults to 1.
             level_out (float): set level out (from 0.015625 to 64)
+
                 Defaults to 1.
             balance_in (float): set balance in (from -1 to 1)
+
                 Defaults to 0.
             balance_out (float): set balance out (from -1 to 1)
+
                 Defaults to 0.
             softclip (bool): enable softclip
+
                 Defaults to false.
             mutel (bool): mute L
+
                 Defaults to false.
             muter (bool): mute R
+
                 Defaults to false.
             phasel (bool): phase L
+
                 Defaults to false.
             phaser (bool): phase R
+
                 Defaults to false.
             mode (int | str): set stereo mode (from 0 to 10)
+
                 Allowed values:
                     * lr>lr
                     * lr>ms
@@ -20842,34 +23708,47 @@ class GeneratedFiltersMixin:
                     * ms>rr
                     * ms>rl
                     * lr>l-r
+
                 Defaults to lr>lr.
             slev (float): set side level (from 0.015625 to 64)
+
                 Defaults to 1.
             sbal (float): set side balance (from -1 to 1)
+
                 Defaults to 0.
             mlev (float): set middle level (from 0.015625 to 64)
+
                 Defaults to 1.
             mpan (float): set middle pan (from -1 to 1)
+
                 Defaults to 0.
             base (float): set stereo base (from -1 to 1)
+
                 Defaults to 0.
             delay (float): set delay (from -20 to 20)
+
                 Defaults to 0.
             sclevel (float): set S/C level (from 1 to 100)
+
                 Defaults to 1.
             phase (float): set stereo phase (from 0 to 360)
+
                 Defaults to 0.
             bmode_in (int | str): set balance in mode (from 0 to 2)
+
                 Allowed values:
                     * balance
                     * amplitude
                     * power
+
                 Defaults to balance.
             bmode_out (int | str): set balance out mode (from 0 to 2)
+
                 Allowed values:
                     * balance
                     * amplitude
                     * power
+
                 Defaults to balance.
 
         Returns:
@@ -20913,12 +23792,16 @@ class GeneratedFiltersMixin:
 
         Args:
             delay (float): set delay time (from 1 to 100)
+
                 Defaults to 20.
             feedback (float): set feedback gain (from 0 to 0.9)
+
                 Defaults to 0.3.
             crossfeed (float): set cross feed (from 0 to 0.8)
+
                 Defaults to 0.3.
             drymix (float): set dry-mix (from 0 to 1)
+
                 Defaults to 0.8.
 
         Returns:
@@ -20943,8 +23826,10 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): number of input streams (from 2 to INT_MAX)
+
                 Defaults to 2.
             map (str): input indexes to remap to outputs
+
 
         Returns:
             "FilterMultiOutput": A FilterMultiOutput object to access dynamic outputs.
@@ -20975,18 +23860,28 @@ class GeneratedFiltersMixin:
 
         Args:
             filename (str): set the filename of file to read
+
             f (str): set the filename of file to read
+
             original_size (str): set the size of the original video (used to scale fonts)
+
             fontsdir (str): set the directory containing the fonts to read
+
             alpha (bool): enable processing of alpha channel
+
                 Defaults to false.
             charenc (str): set input character encoding
+
             stream_index (int): set stream index (from -1 to INT_MAX)
+
                 Defaults to -1.
             si (int): set stream index (from -1 to INT_MAX)
+
                 Defaults to -1.
             force_style (str): force subtitle style
+
             wrap_unicode (bool): break lines according to the Unicode Line Breaking Algorithm
+
                 Defaults to auto.
 
         Returns:
@@ -21046,40 +23941,58 @@ class GeneratedFiltersMixin:
 
         Args:
             _1b (float): set 65Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _2b (float): set 92Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _3b (float): set 131Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _4b (float): set 185Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _5b (float): set 262Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _6b (float): set 370Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _7b (float): set 523Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _8b (float): set 740Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _9b (float): set 1047Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _10b (float): set 1480Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _11b (float): set 2093Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _12b (float): set 2960Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _13b (float): set 4186Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _14b (float): set 5920Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _15b (float): set 8372Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _16b (float): set 11840Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _17b (float): set 16744Hz band gain (from 0 to 20)
+
                 Defaults to 1.
             _18b (float): set 20000Hz band gain (from 0 to 20)
+
                 Defaults to 1.
 
         Returns:
@@ -21192,105 +24105,155 @@ class GeneratedFiltersMixin:
 
         Args:
             chl_out (str): set output channel layout
+
                 Defaults to 5.1.
             chl_in (str): set input channel layout
+
                 Defaults to stereo.
             level_in (float): set input level (from 0 to 10)
+
                 Defaults to 1.
             level_out (float): set output level (from 0 to 10)
+
                 Defaults to 1.
             lfe (bool): output LFE
+
                 Defaults to true.
             lfe_low (int): LFE low cut off (from 0 to 256)
+
                 Defaults to 128.
             lfe_high (int): LFE high cut off (from 0 to 512)
+
                 Defaults to 256.
             lfe_mode (int | str): set LFE channel mode (from 0 to 1)
+
                 Allowed values:
                     * add: just add LFE channel
                     * sub: subtract LFE channel with others
+
                 Defaults to add.
             smooth (float): set temporal smoothness strength (from 0 to 1)
+
                 Defaults to 0.
             angle (float): set soundfield transform angle (from 0 to 360)
+
                 Defaults to 90.
             focus (float): set soundfield transform focus (from -1 to 1)
+
                 Defaults to 0.
             fc_in (float): set front center channel input level (from 0 to 10)
+
                 Defaults to 1.
             fc_out (float): set front center channel output level (from 0 to 10)
+
                 Defaults to 1.
             fl_in (float): set front left channel input level (from 0 to 10)
+
                 Defaults to 1.
             fl_out (float): set front left channel output level (from 0 to 10)
+
                 Defaults to 1.
             fr_in (float): set front right channel input level (from 0 to 10)
+
                 Defaults to 1.
             fr_out (float): set front right channel output level (from 0 to 10)
+
                 Defaults to 1.
             sl_in (float): set side left channel input level (from 0 to 10)
+
                 Defaults to 1.
             sl_out (float): set side left channel output level (from 0 to 10)
+
                 Defaults to 1.
             sr_in (float): set side right channel input level (from 0 to 10)
+
                 Defaults to 1.
             sr_out (float): set side right channel output level (from 0 to 10)
+
                 Defaults to 1.
             bl_in (float): set back left channel input level (from 0 to 10)
+
                 Defaults to 1.
             bl_out (float): set back left channel output level (from 0 to 10)
+
                 Defaults to 1.
             br_in (float): set back right channel input level (from 0 to 10)
+
                 Defaults to 1.
             br_out (float): set back right channel output level (from 0 to 10)
+
                 Defaults to 1.
             bc_in (float): set back center channel input level (from 0 to 10)
+
                 Defaults to 1.
             bc_out (float): set back center channel output level (from 0 to 10)
+
                 Defaults to 1.
             lfe_in (float): set lfe channel input level (from 0 to 10)
+
                 Defaults to 1.
             lfe_out (float): set lfe channel output level (from 0 to 10)
+
                 Defaults to 1.
             allx (float): set all channel's x spread (from -1 to 15)
+
                 Defaults to -1.
             ally (float): set all channel's y spread (from -1 to 15)
+
                 Defaults to -1.
             fcx (float): set front center channel x spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             flx (float): set front left channel x spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             frx (float): set front right channel x spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             blx (float): set back left channel x spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             brx (float): set back right channel x spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             slx (float): set side left channel x spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             srx (float): set side right channel x spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             bcx (float): set back center channel x spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             fcy (float): set front center channel y spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             fly (float): set front left channel y spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             fry (float): set front right channel y spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             bly (float): set back left channel y spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             bry (float): set back right channel y spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             sly (float): set side left channel y spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             sry (float): set side right channel y spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             bcy (float): set back center channel y spread (from 0.06 to 15)
+
                 Defaults to 0.5.
             win_size (int): set window size (from 1024 to 65536)
+
                 Defaults to 4096.
             win_func (int | str): set window function (from 0 to 20)
+
                 Allowed values:
                     * rect: Rectangular
                     * bartlett: Bartlett
@@ -21314,8 +24277,10 @@ class GeneratedFiltersMixin:
                     * poisson: Poisson
                     * bohman: Bohman
                     * kaiser: Kaiser
+
                 Defaults to hann.
             overlap (float): set window overlap (from 0 to 1)
+
                 Defaults to 0.5.
 
         Returns:
@@ -21391,16 +24356,22 @@ class GeneratedFiltersMixin:
 
         Args:
             w (str): set rect width
+
                 Defaults to w/2.
             h (str): set rect height
+
                 Defaults to h/2.
             x1 (str): set 1st rect x top left coordinate
+
                 Defaults to w/2.
             y1 (str): set 1st rect y top left coordinate
+
                 Defaults to h/2.
             x2 (str): set 2nd rect x top left coordinate
+
                 Defaults to 0.
             y2 (str): set 2nd rect y top left coordinate
+
                 Defaults to 0.
 
         Returns:
@@ -21678,6 +24649,7 @@ class GeneratedFiltersMixin:
 
         Args:
             c0_mode (int | str): set component #0 blend mode (from 0 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -21721,8 +24693,10 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to normal.
             c1_mode (int | str): set component #1 blend mode (from 0 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -21766,8 +24740,10 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to normal.
             c2_mode (int | str): set component #2 blend mode (from 0 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -21811,8 +24787,10 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to normal.
             c3_mode (int | str): set component #3 blend mode (from 0 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -21856,8 +24834,10 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to normal.
             all_mode (int | str): set blend mode for all components (from -1 to 39)
+
                 Allowed values:
                     * addition
                     * addition128
@@ -21901,21 +24881,32 @@ class GeneratedFiltersMixin:
                     * stain
                     * interpolate
                     * hardoverlay
+
                 Defaults to -1.
             c0_expr (str): set color component #0 expression
+
             c1_expr (str): set color component #1 expression
+
             c2_expr (str): set color component #2 expression
+
             c3_expr (str): set color component #3 expression
+
             all_expr (str): set expression for all color components
+
             c0_opacity (float): set color component #0 opacity (from 0 to 1)
+
                 Defaults to 1.
             c1_opacity (float): set color component #1 opacity (from 0 to 1)
+
                 Defaults to 1.
             c2_opacity (float): set color component #2 opacity (from 0 to 1)
+
                 Defaults to 1.
             c3_opacity (float): set color component #3 opacity (from 0 to 1)
+
                 Defaults to 1.
             all_opacity (float): set opacity for all color components (from 0 to 1)
+
                 Defaults to 1.
 
         Returns:
@@ -21952,13 +24943,16 @@ class GeneratedFiltersMixin:
 
         Args:
             first_field (int | str): select first field (from 0 to 1)
+
                 Allowed values:
                     * top: select top field first
                     * t: select top field first
                     * bottom: select bottom field first
                     * b: select bottom field first
+
                 Defaults to top.
             pattern (str): pattern that describe for how many fields a frame is to be displayed
+
                 Defaults to 23.
 
         Returns:
@@ -21997,54 +24991,74 @@ class GeneratedFiltersMixin:
 
         Args:
             width (int): set width (from 0 to 8192)
+
                 Defaults to 0.
             w (int): set width (from 0 to 8192)
+
                 Defaults to 0.
             display_mode (int | str): set display mode (from 0 to 2)
+
                 Allowed values:
                     * overlay
                     * parade
                     * stack
+
                 Defaults to stack.
             d (int | str): set display mode (from 0 to 2)
+
                 Allowed values:
                     * overlay
                     * parade
                     * stack
+
                 Defaults to stack.
             levels_mode (int | str): set levels mode (from 0 to 1)
+
                 Allowed values:
                     * linear
                     * logarithmic
+
                 Defaults to linear.
             m (int | str): set levels mode (from 0 to 1)
+
                 Allowed values:
                     * linear
                     * logarithmic
+
                 Defaults to linear.
             components (int): set color components to display (from 1 to 15)
+
                 Defaults to 7.
             c (int): set color components to display (from 1 to 15)
+
                 Defaults to 7.
             bgopacity (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.9.
             b (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.9.
             envelope (bool): display envelope
+
                 Defaults to false.
             e (bool): display envelope
+
                 Defaults to false.
             ecolor (str): set envelope color
+
                 Defaults to gold.
             ec (str): set envelope color
+
                 Defaults to gold.
             slide (int | str): set slide mode (from 0 to 4)
+
                 Allowed values:
                     * frame: draw new frames
                     * replace: replace old columns with new
                     * scroll: scroll from right to left
                     * rscroll: scroll from left to right
                     * picture: display graph in single frame
+
                 Defaults to replace.
 
         Returns:
@@ -22086,6 +25100,7 @@ class GeneratedFiltersMixin:
             min_stream (Stream): Input video stream.
             max_stream (Stream): Input video stream.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -22108,12 +25123,15 @@ class GeneratedFiltersMixin:
 
         Args:
             n (int): set the frames batch size (from 2 to INT_MAX)
+
                 Defaults to 100.
             log (int | str): force stats logging level (from INT_MIN to INT_MAX)
+
                 Allowed values:
                     * quiet: logging disabled
                     * info: information logging level
                     * verbose: verbose logging level
+
                 Defaults to info.
 
         Returns:
@@ -22142,18 +25160,25 @@ class GeneratedFiltersMixin:
 
         Args:
             layout (str): set grid size
+
                 Defaults to 6x5.
             nb_frames (int): set maximum number of frame to render (from 0 to INT_MAX)
+
                 Defaults to 0.
             margin (int): set outer border margin in pixels (from 0 to 1024)
+
                 Defaults to 0.
             padding (int): set inner border thickness in pixels (from 0 to 1024)
+
                 Defaults to 0.
             color (str): set the color of the unused area
+
                 Defaults to black.
             overlap (int): set how many frames to overlap for each render (from 0 to INT_MAX)
+
                 Defaults to 0.
             init_padding (int): set how many frames to initially pad (from 0 to INT_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -22185,22 +25210,29 @@ class GeneratedFiltersMixin:
 
         Args:
             _tilt (int): Tilt the video horizontally while shifting (from 0 to 1)
+
                 Defaults to 1.
             _start (int | str): Action at the start of input (from 0 to 3)
+
                 Allowed values:
                     * none: Start immediately (default)
                     * frame: Use the first frames
                     * black: Fill with black
+
                 Defaults to none.
             _end (int | str): Action at the end of input (from 0 to 3)
+
                 Allowed values:
                     * none: Do not pad at the end (default)
                     * frame: Use the last frame
                     * black: Fill with black
+
                 Defaults to none.
             _hold (int): Number of columns to hold at the start of the video (from 0 to INT_MAX)
+
                 Defaults to 0.
             _pad (int): Number of columns to pad at the end of the video (from 0 to INT_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -22251,50 +25283,69 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             f (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             gain (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             g (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             poles (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             p (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -22303,8 +25354,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -22313,26 +25366,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -22386,6 +25446,7 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): select interlace mode (from 0 to 7)
+
                 Allowed values:
                     * merge: merge fields
                     * drop_even: drop even fields
@@ -22395,6 +25456,7 @@ class GeneratedFiltersMixin:
                     * interleave_bottom: interleave bottom and top fields
                     * interlacex2: interlace fields from two consecutive frames
                     * mergex2: merge fields keeping same frame rate
+
                 Defaults to merge.
 
         Returns:
@@ -22419,12 +25481,16 @@ class GeneratedFiltersMixin:
 
         Args:
             c0 (str): set component #0 expression
+
                 Defaults to x.
             c1 (str): set component #1 expression
+
                 Defaults to x.
             c2 (str): set component #2 expression
+
                 Defaults to x.
             c3 (str): set component #3 expression
+
                 Defaults to x.
 
         Returns:
@@ -22451,10 +25517,13 @@ class GeneratedFiltersMixin:
 
         Args:
             radius (int): set median filter radius (from 1 to 127)
+
                 Defaults to 1.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             percentile (float): set percentile (from 0 to 1)
+
                 Defaults to 0.5.
 
         Returns:
@@ -22480,10 +25549,13 @@ class GeneratedFiltersMixin:
 
         Args:
             radius (int): set radius (from 1 to 127)
+
                 Defaults to 5.
             sigma (float): set sigma (from 0 to 1)
+
                 Defaults to 0.5.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -22510,12 +25582,16 @@ class GeneratedFiltersMixin:
 
         Args:
             frames (int): set number of successive frames to mix (from 1 to 1024)
+
                 Defaults to 3.
             weights (str): set weight for each frame
+
                 Defaults to 1 1 1.
             scale (float): set scale (from 0 to 32767)
+
                 Defaults to 0.
             planes (str): set what planes to filter
+
                 Defaults to F.
 
         Returns:
@@ -22547,6 +25623,7 @@ class GeneratedFiltersMixin:
 
         Args:
             tonemap (int | str): tonemap algorithm selection (from 0 to 6)
+
                 Allowed values:
                     * none
                     * linear
@@ -22555,12 +25632,16 @@ class GeneratedFiltersMixin:
                     * reinhard
                     * hable
                     * mobius
+
                 Defaults to none.
             param (float): tonemap parameter (from DBL_MIN to DBL_MAX)
+
                 Defaults to nan.
             desat (float): desaturation strength (from 0 to DBL_MAX)
+
                 Defaults to 2.
             peak (float): signal peak override (from 0 to DBL_MAX)
+
                 Defaults to 0.
 
         Returns:
@@ -22591,24 +25672,33 @@ class GeneratedFiltersMixin:
 
         Args:
             start (int): set the number of frames to delay input (from 0 to INT_MAX)
+
                 Defaults to 0.
             stop (int): set the number of frames to add after input finished (from -1 to INT_MAX)
+
                 Defaults to 0.
             start_mode (int | str): set the mode of added frames to start (from 0 to 1)
+
                 Allowed values:
                     * add: add solid-color frames
                     * clone: clone first/last frame
+
                 Defaults to add.
             stop_mode (int | str): set the mode of added frames to end (from 0 to 1)
+
                 Allowed values:
                     * add: add solid-color frames
                     * clone: clone first/last frame
+
                 Defaults to add.
             start_duration (str): set the duration to delay input
+
                 Defaults to 0.
             stop_duration (str): set the duration to pad input
+
                 Defaults to 0.
             color (str): set the color of the added frames
+
                 Defaults to black.
 
         Returns:
@@ -22639,17 +25729,21 @@ class GeneratedFiltersMixin:
 
         Args:
             dir (int | str): set transpose direction (from 0 to 7)
+
                 Allowed values:
                     * cclock_flip: rotate counter-clockwise with vertical flip
                     * clock: rotate clockwise
                     * cclock: rotate counter-clockwise
                     * clock_flip: rotate clockwise with vertical flip
+
                 Defaults to cclock_flip.
             passthrough (int | str): do not apply transposition if the input matches the specified geometry (from 0 to INT_MAX)
+
                 Allowed values:
                     * none: always apply transposition
                     * portrait: preserve portrait geometry
                     * landscape: preserve landscape geometry
+
                 Defaults to none.
 
         Returns:
@@ -22677,6 +25771,7 @@ class GeneratedFiltersMixin:
 
         Args:
             dir (int | str): set transpose direction (from 0 to 6)
+
                 Allowed values:
                     * cclock_flip: rotate counter-clockwise with vertical flip
                     * clock: rotate clockwise
@@ -22685,12 +25780,15 @@ class GeneratedFiltersMixin:
                     * reversal: rotate by half-turn
                     * hflip: flip horizontally
                     * vflip: flip vertically
+
                 Defaults to cclock_flip.
             passthrough (int | str): do not apply transposition if the input matches the specified geometry (from 0 to INT_MAX)
+
                 Allowed values:
                     * none: always apply transposition
                     * portrait: preserve portrait geometry
                     * landscape: preserve landscape geometry
+
                 Defaults to none.
 
         Returns:
@@ -22738,50 +25836,69 @@ class GeneratedFiltersMixin:
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             f (float): set central frequency (from 0 to 999999)
+
                 Defaults to 3000.
             width_type (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             t (int | str): set filter-width type (from 1 to 5)
+
                 Allowed values:
                     * h: Hz
                     * q: Q-Factor
                     * o: octave
                     * s: slope
                     * k: kHz
+
                 Defaults to q.
             width (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             w (float): set width (from 0 to 99999)
+
                 Defaults to 0.5.
             gain (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             g (float): set gain (from -900 to 900)
+
                 Defaults to 0.
             poles (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             p (int): set number of poles (from 1 to 2)
+
                 Defaults to 2.
             mix (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             m (float): set mix (from 0 to 1)
+
                 Defaults to 1.
             channels (str): set channels to filter
+
                 Defaults to all.
             c (str): set channels to filter
+
                 Defaults to all.
             normalize (bool): normalize coefficients
+
                 Defaults to false.
             n (bool): normalize coefficients
+
                 Defaults to false.
             transform (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -22790,8 +25907,10 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             a (int | str): set transform type (from 0 to 6)
+
                 Allowed values:
                     * di: direct form I
                     * dii: direct form II
@@ -22800,26 +25919,33 @@ class GeneratedFiltersMixin:
                     * latt: lattice-ladder form
                     * svf: state variable filter form
                     * zdf: zero-delay filter form
+
                 Defaults to di.
             precision (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             r (int | str): set filtering precision (from -1 to 3)
+
                 Allowed values:
                     * auto: automatic
                     * s16: signed 16-bit
                     * s32: signed 32-bit
                     * f32: floating-point single
                     * f64: floating-point double
+
                 Defaults to auto.
             blocksize (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
             b (int): set the block size (from 0 to 32768)
+
                 Defaults to 0.
 
         Returns:
@@ -22859,8 +25985,10 @@ class GeneratedFiltersMixin:
 
         Args:
             f (float): set frequency in hertz (from 0.1 to 20000)
+
                 Defaults to 5.
             d (float): set depth as percentage (from 0 to 1)
+
                 Defaults to 0.5.
 
         Returns:
@@ -22892,24 +26020,34 @@ class GeneratedFiltersMixin:
 
         Args:
             start (str): Timestamp of the first frame that should be passed
+
                 Defaults to INT64_MAX.
             starti (str): Timestamp of the first frame that should be passed
+
                 Defaults to INT64_MAX.
             end (str): Timestamp of the first frame that should be dropped again
+
                 Defaults to INT64_MAX.
             endi (str): Timestamp of the first frame that should be dropped again
+
                 Defaults to INT64_MAX.
             start_pts (str): Timestamp of the first frame that should be  passed (from I64_MIN to I64_MAX)
+
                 Defaults to I64_MIN.
             end_pts (str): Timestamp of the first frame that should be dropped again (from I64_MIN to I64_MAX)
+
                 Defaults to I64_MIN.
             duration (str): Maximum duration of the output
+
                 Defaults to 0.
             durationi (str): Maximum duration of the output
+
                 Defaults to 0.
             start_frame (str): Number of the first frame that should be passed to the output (from -1 to I64_MAX)
+
                 Defaults to -1.
             end_frame (str): Number of the first frame that should be dropped again (from 0 to I64_MAX)
+
                 Defaults to I64_MAX.
 
         Returns:
@@ -22940,8 +26078,10 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             planes (int): set planes (from 0 to 15)
+
                 Defaults to 15.
             inplace (bool): enable inplace mode
+
                 Defaults to false.
 
         Returns:
@@ -22981,40 +26121,58 @@ class GeneratedFiltersMixin:
 
         Args:
             luma_msize_x (int): set luma matrix horizontal size (from 3 to 23)
+
                 Defaults to 5.
             lx (int): set luma matrix horizontal size (from 3 to 23)
+
                 Defaults to 5.
             luma_msize_y (int): set luma matrix vertical size (from 3 to 23)
+
                 Defaults to 5.
             ly (int): set luma matrix vertical size (from 3 to 23)
+
                 Defaults to 5.
             luma_amount (float): set luma effect strength (from -2 to 5)
+
                 Defaults to 1.
             la (float): set luma effect strength (from -2 to 5)
+
                 Defaults to 1.
             chroma_msize_x (int): set chroma matrix horizontal size (from 3 to 23)
+
                 Defaults to 5.
             cx (int): set chroma matrix horizontal size (from 3 to 23)
+
                 Defaults to 5.
             chroma_msize_y (int): set chroma matrix vertical size (from 3 to 23)
+
                 Defaults to 5.
             cy (int): set chroma matrix vertical size (from 3 to 23)
+
                 Defaults to 5.
             chroma_amount (float): set chroma effect strength (from -2 to 5)
+
                 Defaults to 0.
             ca (float): set chroma effect strength (from -2 to 5)
+
                 Defaults to 0.
             alpha_msize_x (int): set alpha matrix horizontal size (from 3 to 23)
+
                 Defaults to 5.
             ax (int): set alpha matrix horizontal size (from 3 to 23)
+
                 Defaults to 5.
             alpha_msize_y (int): set alpha matrix vertical size (from 3 to 23)
+
                 Defaults to 5.
             ay (int): set alpha matrix vertical size (from 3 to 23)
+
                 Defaults to 5.
             alpha_amount (float): set alpha effect strength (from -2 to 5)
+
                 Defaults to 0.
             aa (float): set alpha effect strength (from -2 to 5)
+
                 Defaults to 0.
 
         Returns:
@@ -23050,6 +26208,7 @@ class GeneratedFiltersMixin:
 
         Args:
             layout (str): set grid size
+
                 Defaults to 6x5.
 
         Returns:
@@ -23074,12 +26233,16 @@ class GeneratedFiltersMixin:
 
         Args:
             quality (int): set quality (from 0 to 8)
+
                 Defaults to 3.
             qp (int): force a constant quantizer parameter (from 0 to 63)
+
                 Defaults to 0.
             use_bframe_qp (bool): use B-frames' QP
+
                 Defaults to false.
             codec (str): Codec name
+
                 Defaults to snow.
 
         Returns:
@@ -23221,6 +26384,7 @@ class GeneratedFiltersMixin:
 
         Args:
             input (int | str): set input projection (from 0 to 24)
+
                 Allowed values:
                     * e: equirectangular
                     * equirect: equirectangular
@@ -23251,8 +26415,10 @@ class GeneratedFiltersMixin:
                     * og: orthographic
                     * octahedron: octahedron
                     * cylindricalea: cylindrical equal area
+
                 Defaults to e.
             output (int | str): set output projection (from 0 to 24)
+
                 Allowed values:
                     * e: equirectangular
                     * equirect: equirectangular
@@ -23284,8 +26450,10 @@ class GeneratedFiltersMixin:
                     * og: orthographic
                     * octahedron: octahedron
                     * cylindricalea: cylindrical equal area
+
                 Defaults to c3x2.
             interp (int | str): set interpolation method (from 0 to 7)
+
                 Allowed values:
                     * near: nearest neighbour
                     * nearest: nearest neighbour
@@ -23301,80 +26469,116 @@ class GeneratedFiltersMixin:
                     * gauss: gaussian interpolation
                     * gaussian: gaussian interpolation
                     * mitchell: mitchell interpolation
+
                 Defaults to line.
             w (int): output width (from 0 to 32767)
+
                 Defaults to 0.
             h (int): output height (from 0 to 32767)
+
                 Defaults to 0.
             in_stereo (int | str): input stereo format (from 0 to 2)
+
                 Allowed values:
                     * 2d: 2d mono
                     * sbs: side by side
                     * tb: top bottom
+
                 Defaults to 2d.
             out_stereo (int | str): output stereo format (from 0 to 2)
+
                 Allowed values:
                     * 2d: 2d mono
                     * sbs: side by side
                     * tb: top bottom
+
                 Defaults to 2d.
             in_forder (str): input cubemap face order
+
                 Defaults to rludfb.
             out_forder (str): output cubemap face order
+
                 Defaults to rludfb.
             in_frot (str): input cubemap face rotation
+
                 Defaults to 000000.
             out_frot (str): output cubemap face rotation
+
                 Defaults to 000000.
             in_pad (float): percent input cubemap pads (from 0 to 0.1)
+
                 Defaults to 0.
             out_pad (float): percent output cubemap pads (from 0 to 0.1)
+
                 Defaults to 0.
             fin_pad (int): fixed input cubemap pads (from 0 to 100)
+
                 Defaults to 0.
             fout_pad (int): fixed output cubemap pads (from 0 to 100)
+
                 Defaults to 0.
             yaw (float): yaw rotation (from -180 to 180)
+
                 Defaults to 0.
             pitch (float): pitch rotation (from -180 to 180)
+
                 Defaults to 0.
             roll (float): roll rotation (from -180 to 180)
+
                 Defaults to 0.
             rorder (str): rotation order
+
                 Defaults to ypr.
             h_fov (float): output horizontal field of view (from 0 to 360)
+
                 Defaults to 0.
             v_fov (float): output vertical field of view (from 0 to 360)
+
                 Defaults to 0.
             d_fov (float): output diagonal field of view (from 0 to 360)
+
                 Defaults to 0.
             h_flip (bool): flip out video horizontally
+
                 Defaults to false.
             v_flip (bool): flip out video vertically
+
                 Defaults to false.
             d_flip (bool): flip out video indepth
+
                 Defaults to false.
             ih_flip (bool): flip in video horizontally
+
                 Defaults to false.
             iv_flip (bool): flip in video vertically
+
                 Defaults to false.
             in_trans (bool): transpose video input
+
                 Defaults to false.
             out_trans (bool): transpose video output
+
                 Defaults to false.
             ih_fov (float): input horizontal field of view (from 0 to 360)
+
                 Defaults to 0.
             iv_fov (float): input vertical field of view (from 0 to 360)
+
                 Defaults to 0.
             id_fov (float): input diagonal field of view (from 0 to 360)
+
                 Defaults to 0.
             h_offset (float): output horizontal off-axis offset (from -1 to 1)
+
                 Defaults to 0.
             v_offset (float): output vertical off-axis offset (from -1 to 1)
+
                 Defaults to 0.
             alpha_mask (bool): build mask in alpha plane
+
                 Defaults to false.
             reset_rot (bool): reset rotation
+
                 Defaults to false.
 
         Returns:
@@ -23436,23 +26640,31 @@ class GeneratedFiltersMixin:
 
         Args:
             threshold (float): set filtering strength (from 0 to DBL_MAX)
+
                 Defaults to 2.
             method (int | str): set filtering method (from 0 to 2)
+
                 Allowed values:
                     * hard: hard thresholding
                     * soft: soft thresholding
                     * garrote: garrote thresholding
+
                 Defaults to garrote.
             nsteps (int): set number of steps (from 1 to 32)
+
                 Defaults to 6.
             percent (float): set percent of full denoising (from 0 to 100)
+
                 Defaults to 85.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             type (int | str): set threshold type (from 0 to 1)
+
                 Allowed values:
                     * universal: universal (VisuShrink)
                     * bayes: bayes (BayesShrink)
+
                 Defaults to universal.
 
         Returns:
@@ -23483,10 +26695,13 @@ class GeneratedFiltersMixin:
         Args:
             radius_stream (Stream): Input video stream.
             min_r (int): set min blur radius (from 0 to 254)
+
                 Defaults to 0.
             max_r (int): set max blur radius (from 1 to 255)
+
                 Defaults to 8.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
 
         Returns:
@@ -23541,6 +26756,7 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set vectorscope mode (from 0 to 5)
+
                 Allowed values:
                     * gray
                     * tint
@@ -23549,8 +26765,10 @@ class GeneratedFiltersMixin:
                     * color3
                     * color4
                     * color5
+
                 Defaults to gray.
             m (int | str): set vectorscope mode (from 0 to 5)
+
                 Allowed values:
                     * gray
                     * tint
@@ -23559,90 +26777,123 @@ class GeneratedFiltersMixin:
                     * color3
                     * color4
                     * color5
+
                 Defaults to gray.
             x (int): set color component on X axis (from 0 to 2)
+
                 Defaults to 1.
             y (int): set color component on Y axis (from 0 to 2)
+
                 Defaults to 2.
             intensity (float): set intensity (from 0 to 1)
+
                 Defaults to 0.004.
             i (float): set intensity (from 0 to 1)
+
                 Defaults to 0.004.
             envelope (int | str): set envelope (from 0 to 3)
+
                 Allowed values:
                     * none
                     * instant
                     * peak
                     * peak+instant
+
                 Defaults to none.
             e (int | str): set envelope (from 0 to 3)
+
                 Allowed values:
                     * none
                     * instant
                     * peak
                     * peak+instant
+
                 Defaults to none.
             graticule (int | str): set graticule (from 0 to 3)
+
                 Allowed values:
                     * none
                     * green
                     * color
                     * invert
+
                 Defaults to none.
             g (int | str): set graticule (from 0 to 3)
+
                 Allowed values:
                     * none
                     * green
                     * color
                     * invert
+
                 Defaults to none.
             opacity (float): set graticule opacity (from 0 to 1)
+
                 Defaults to 0.75.
             o (float): set graticule opacity (from 0 to 1)
+
                 Defaults to 0.75.
             flags (str): set graticule flags
+
                 Allowed values:
                     * white: white point
                     * black: black point
                     * name: point name
+
                 Defaults to name.
             f (str): set graticule flags
+
                 Allowed values:
                     * white: white point
                     * black: black point
                     * name: point name
+
                 Defaults to name.
             bgopacity (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.3.
             b (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.3.
             lthreshold (float): set low threshold (from 0 to 1)
+
                 Defaults to 0.
             l (float): set low threshold (from 0 to 1)
+
                 Defaults to 0.
             hthreshold (float): set high threshold (from 0 to 1)
+
                 Defaults to 1.
             h (float): set high threshold (from 0 to 1)
+
                 Defaults to 1.
             colorspace (int | str): set colorspace (from 0 to 2)
+
                 Allowed values:
                     * auto
                     * 601
                     * 709
+
                 Defaults to auto.
             c (int | str): set colorspace (from 0 to 2)
+
                 Allowed values:
                     * auto
                     * 601
                     * 709
+
                 Defaults to auto.
             tint0 (float): set 1st tint (from -1 to 1)
+
                 Defaults to 0.
             t0 (float): set 1st tint (from -1 to 1)
+
                 Defaults to 0.
             tint1 (float): set 2nd tint (from -1 to 1)
+
                 Defaults to 0.
             t1 (float): set 2nd tint (from -1 to 1)
+
                 Defaults to 0.
 
         Returns:
@@ -23720,20 +26971,28 @@ class GeneratedFiltersMixin:
 
         Args:
             intensity (float): set the intensity value (from -2 to 2)
+
                 Defaults to 0.
             rbal (float): set the red balance value (from -10 to 10)
+
                 Defaults to 1.
             gbal (float): set the green balance value (from -10 to 10)
+
                 Defaults to 1.
             bbal (float): set the blue balance value (from -10 to 10)
+
                 Defaults to 1.
             rlum (float): set the red luma coefficient (from 0 to 1)
+
                 Defaults to 0.212656.
             glum (float): set the green luma coefficient (from 0 to 1)
+
                 Defaults to 0.715158.
             blum (float): set the blue luma coefficient (from 0 to 1)
+
                 Defaults to 0.072186.
             alternate (bool): use alternate colors
+
                 Defaults to false.
 
         Returns:
@@ -23759,8 +27018,10 @@ class GeneratedFiltersMixin:
 
         Args:
             f (float): set frequency in hertz (from 0.1 to 20000)
+
                 Defaults to 5.
             d (float): set depth as percentage (from 0 to 1)
+
                 Defaults to 0.5.
 
         Returns:
@@ -23790,23 +27051,32 @@ class GeneratedFiltersMixin:
 
         Args:
             result (str): path to the file used to write the transforms
+
                 Defaults to transforms.trf.
             shakiness (int): how shaky is the video and how quick is the camera? 1: little (fast) 10: very strong/quick (slow) (from 1 to 10)
+
                 Defaults to 5.
             accuracy (int): (>=shakiness) 1: low 15: high (slow) (from 1 to 15)
+
                 Defaults to 15.
             stepsize (int): region around minimum is scanned with 1 pixel resolution (from 1 to 32)
+
                 Defaults to 6.
             mincontrast (float): below this contrast a field is discarded (0-1) (from 0 to 1)
+
                 Defaults to 0.25.
             show (int): 0: draw nothing; 1,2: show fields and transforms (from 0 to 2)
+
                 Defaults to 0.
             tripod (int): virtual tripod mode (if >0): motion is compared to a reference reference frame (frame # is the value) (from 0 to INT_MAX)
+
                 Defaults to 0.
             fileformat (int | str): transforms data file format (from 1 to 2)
+
                 Allowed values:
                     * ascii: ASCII text
                     * binary: binary
+
                 Defaults to binary.
 
         Returns:
@@ -23848,44 +27118,61 @@ class GeneratedFiltersMixin:
 
         Args:
             input (str): set path to the file storing the transforms
+
                 Defaults to transforms.trf.
             smoothing (int): set number of frames*2 + 1 used for lowpass filtering (from 0 to 1000)
+
                 Defaults to 15.
             optalgo (int | str): set camera path optimization algo (from 0 to 2)
+
                 Allowed values:
                     * opt: global optimization
                     * gauss: gaussian kernel
                     * avg: simple averaging on motion
+
                 Defaults to opt.
             maxshift (int): set maximal number of pixels to translate image (from -1 to 500)
+
                 Defaults to -1.
             maxangle (float): set maximal angle in rad to rotate image (from -1 to 3.14)
+
                 Defaults to -1.
             crop (int | str): set cropping mode (from 0 to 1)
+
                 Allowed values:
                     * keep: keep border
                     * black: black border
+
                 Defaults to keep.
             invert (int): invert transforms (from 0 to 1)
+
                 Defaults to 0.
             relative (int): consider transforms as relative (from 0 to 1)
+
                 Defaults to 1.
             zoom (float): set percentage to zoom (>0: zoom in, <0: zoom out (from -100 to 100)
+
                 Defaults to 0.
             optzoom (int): set optimal zoom (0: nothing, 1: optimal static zoom, 2: optimal dynamic zoom) (from 0 to 2)
+
                 Defaults to 1.
             zoomspeed (float): for adative zoom: percent to zoom maximally each frame (from 0 to 5)
+
                 Defaults to 0.25.
             interpol (int | str): set type of interpolation (from 0 to 3)
+
                 Allowed values:
                     * no: no interpolation
                     * linear: linear (horizontal)
                     * bilinear: bi-linear
                     * bicubic: bi-cubic
+
                 Defaults to bilinear.
             tripod (bool): enable virtual tripod mode (same as relative=0:smoothing=0)
+
                 Defaults to false.
             debug (bool): enable debug mode and writer global motions information to file
+
                 Defaults to false.
 
         Returns:
@@ -23940,26 +27227,36 @@ class GeneratedFiltersMixin:
 
         Args:
             angle (str): set lens angle
+
                 Defaults to PI/5.
             a (str): set lens angle
+
                 Defaults to PI/5.
             x0 (str): set circle center position on x-axis
+
                 Defaults to w/2.
             y0 (str): set circle center position on y-axis
+
                 Defaults to h/2.
             mode (int | str): set forward/backward mode (from 0 to 1)
+
                 Allowed values:
                     * forward
                     * backward
+
                 Defaults to forward.
             eval (int | str): specify when to evaluate expressions (from 0 to 1)
+
                 Allowed values:
                     * init: eval expressions once during initialization
                     * frame: eval expressions for each frame
+
                 Defaults to init.
             dither (bool): set dithering
+
                 Defaults to true.
             aspect (str): set aspect ratio (from 0 to DBL_MAX)
+
                 Defaults to 1/1.
 
         Returns:
@@ -23987,8 +27284,10 @@ class GeneratedFiltersMixin:
 
         Args:
             cutoff (float): set virtual bass cutoff (from 100 to 500)
+
                 Defaults to 250.
             strength (float): set virtual bass strength (from 0.5 to 3)
+
                 Defaults to 3.
 
         Returns:
@@ -24008,6 +27307,7 @@ class GeneratedFiltersMixin:
 
         Args:
             stats_file (str): Set file where to store per-frame difference information
+
 
         Returns:
             "Stream": The output stream.
@@ -24033,28 +27333,37 @@ class GeneratedFiltersMixin:
 
         Args:
             volume (str): set volume adjustment expression
+
                 Defaults to 1.0.
             precision (int | str): select mathematical precision (from 0 to 2)
+
                 Allowed values:
                     * fixed: select 8-bit fixed-point
                     * float: select 32-bit floating-point
                     * double: select 64-bit floating-point
+
                 Defaults to float.
             eval (int | str): specify when to evaluate expressions (from 0 to 1)
+
                 Allowed values:
                     * once: eval volume expression once
                     * frame: eval volume expression per-frame
+
                 Defaults to once.
             replaygain (int | str): Apply replaygain side data when present (from 0 to 3)
+
                 Allowed values:
                     * drop: replaygain side data is dropped
                     * ignore: replaygain side data is ignored
                     * track: track gain is preferred
                     * album: album gain is preferred
+
                 Defaults to drop.
             replaygain_preamp (float): Apply replaygain pre-amplification (from -15 to 15)
+
                 Defaults to 0.
             replaygain_noclip (bool): Apply replaygain clipping prevention
+
                 Defaults to true.
 
         Returns:
@@ -24096,8 +27405,10 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): set number of inputs (from 2 to INT_MAX)
+
                 Defaults to 2.
             shortest (bool): force termination when the shortest input terminates
+
                 Defaults to false.
 
         Returns:
@@ -24123,25 +27434,33 @@ class GeneratedFiltersMixin:
 
         Args:
             filter (int | str): specify the filter (from 0 to 1)
+
                 Allowed values:
                     * simple
                     * complex
+
                 Defaults to complex.
             mode (int | str): specify the interlacing mode (from 0 to 1)
+
                 Allowed values:
                     * frame: send one frame for each frame
                     * field: send one frame for each field
+
                 Defaults to field.
             parity (int | str): specify the assumed picture field parity (from -1 to 1)
+
                 Allowed values:
                     * tff: assume top field first
                     * bff: assume bottom field first
                     * auto: auto detect parity
+
                 Defaults to auto.
             deint (int | str): specify which frames to deinterlace (from 0 to 1)
+
                 Allowed values:
                     * all: deinterlace all frames
                     * interlaced: only deinterlace frames marked as interlaced
+
                 Defaults to all.
 
         Returns:
@@ -24206,54 +27525,73 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * row
                     * column
+
                 Defaults to column.
             m (int | str): set mode (from 0 to 1)
+
                 Allowed values:
                     * row
                     * column
+
                 Defaults to column.
             intensity (float): set intensity (from 0 to 1)
+
                 Defaults to 0.04.
             i (float): set intensity (from 0 to 1)
+
                 Defaults to 0.04.
             mirror (bool): set mirroring
+
                 Defaults to true.
             r (bool): set mirroring
+
                 Defaults to true.
             display (int | str): set display mode (from 0 to 2)
+
                 Allowed values:
                     * overlay
                     * stack
                     * parade
+
                 Defaults to stack.
             d (int | str): set display mode (from 0 to 2)
+
                 Allowed values:
                     * overlay
                     * stack
                     * parade
+
                 Defaults to stack.
             components (int): set components to display (from 1 to 15)
+
                 Defaults to 1.
             c (int): set components to display (from 1 to 15)
+
                 Defaults to 1.
             envelope (int | str): set envelope to display (from 0 to 3)
+
                 Allowed values:
                     * none
                     * instant
                     * peak
                     * peak+instant
+
                 Defaults to none.
             e (int | str): set envelope to display (from 0 to 3)
+
                 Allowed values:
                     * none
                     * instant
                     * peak
                     * peak+instant
+
                 Defaults to none.
             filter (int | str): set filter (from 0 to 7)
+
                 Allowed values:
                     * lowpass
                     * flat
@@ -24263,8 +27601,10 @@ class GeneratedFiltersMixin:
                     * acolor
                     * xflat
                     * yflat
+
                 Defaults to lowpass.
             f (int | str): set filter (from 0 to 7)
+
                 Allowed values:
                     * lowpass
                     * flat
@@ -24274,73 +27614,100 @@ class GeneratedFiltersMixin:
                     * acolor
                     * xflat
                     * yflat
+
                 Defaults to lowpass.
             graticule (int | str): set graticule (from 0 to 3)
+
                 Allowed values:
                     * none
                     * green
                     * orange
                     * invert
+
                 Defaults to none.
             g (int | str): set graticule (from 0 to 3)
+
                 Allowed values:
                     * none
                     * green
                     * orange
                     * invert
+
                 Defaults to none.
             opacity (float): set graticule opacity (from 0 to 1)
+
                 Defaults to 0.75.
             o (float): set graticule opacity (from 0 to 1)
+
                 Defaults to 0.75.
             flags (str): set graticule flags
+
                 Allowed values:
                     * numbers: numbers
                     * dots: dots instead of lines
+
                 Defaults to numbers.
             fl (str): set graticule flags
+
                 Allowed values:
                     * numbers: numbers
                     * dots: dots instead of lines
+
                 Defaults to numbers.
             scale (int | str): set scale (from 0 to 2)
+
                 Allowed values:
                     * digital
                     * millivolts
                     * ire
+
                 Defaults to digital.
             s (int | str): set scale (from 0 to 2)
+
                 Allowed values:
                     * digital
                     * millivolts
                     * ire
+
                 Defaults to digital.
             bgopacity (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.75.
             b (float): set background opacity (from 0 to 1)
+
                 Defaults to 0.75.
             tint0 (float): set 1st tint (from -1 to 1)
+
                 Defaults to 0.
             t0 (float): set 1st tint (from -1 to 1)
+
                 Defaults to 0.
             tint1 (float): set 2nd tint (from -1 to 1)
+
                 Defaults to 0.
             t1 (float): set 2nd tint (from -1 to 1)
+
                 Defaults to 0.
             fitmode (int | str): set fit mode (from 0 to 1)
+
                 Allowed values:
                     * none
                     * size
+
                 Defaults to none.
             fm (int | str): set fit mode (from 0 to 1)
+
                 Allowed values:
                     * none
                     * size
+
                 Defaults to none.
             input (int | str): set input formats selection (from 0 to 1)
+
                 Allowed values:
                     * all: try to select from all available formats
                     * first: pick first available format
+
                 Defaults to first.
 
         Returns:
@@ -24391,11 +27758,13 @@ class GeneratedFiltersMixin:
 
         Args:
             first_field (int | str): set first field (from 0 to 1)
+
                 Allowed values:
                     * top: set top field first
                     * t: set top field first
                     * bottom: set bottom field first
                     * b: set bottom field first
+
                 Defaults to top.
 
         Returns:
@@ -24414,6 +27783,7 @@ class GeneratedFiltersMixin:
 
         Args:
             n (int): set scale factor (from 2 to 4)
+
                 Defaults to 3.
 
         Returns:
@@ -24438,11 +27808,14 @@ class GeneratedFiltersMixin:
         Args:
             secondary_stream (Stream): Input video stream.
             planes (int): set planes to cross-correlate (from 0 to 15)
+
                 Defaults to 7.
             secondary (int | str): when to process secondary frame (from 0 to 1)
+
                 Allowed values:
                     * first: process only first secondary frame, ignore rest
                     * all: process all secondary frames
+
                 Defaults to all.
 
         Returns:
@@ -24532,6 +27905,7 @@ class GeneratedFiltersMixin:
         Args:
             xfade_stream (Stream): Input video stream.
             transition (int | str): set cross fade transition (from -1 to 57)
+
                 Allowed values:
                     * custom: custom transition
                     * fade: fade transition
@@ -24592,12 +27966,16 @@ class GeneratedFiltersMixin:
                     * revealright: reveal right transition
                     * revealup: reveal up transition
                     * revealdown: reveal down transition
+
                 Defaults to fade.
             duration (str): set cross fade duration
+
                 Defaults to 1.
             offset (str): set cross fade start relative to first input stream
+
                 Defaults to 0.
             expr (str): set expression for custom transition
+
 
         Returns:
             "Stream": The output stream.
@@ -24625,10 +28003,13 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): set number of inputs (from 3 to 255)
+
                 Defaults to 3.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 15.
             percentile (float): set percentile (from 0 to 1)
+
                 Defaults to 0.5.
 
         Returns:
@@ -24655,7 +28036,9 @@ class GeneratedFiltersMixin:
         Args:
             reference_stream (Stream): Input video stream.
             stats_file (str): Set file where to store per-frame XPSNR information
+
             f (str): Set file where to store per-frame XPSNR information
+
 
         Returns:
             "Stream": The output stream.
@@ -24683,12 +28066,17 @@ class GeneratedFiltersMixin:
         Args:
             *streams (Stream): One or more input streams.
             inputs (int): set number of inputs (from 2 to INT_MAX)
+
                 Defaults to 2.
             layout (str): set custom layout
+
             grid (str): set fixed size grid layout
+
             shortest (bool): force termination when the shortest input terminates
+
                 Defaults to false.
             fill (str): set the color for unused pixels
+
                 Defaults to none.
 
         Returns:
@@ -24720,22 +28108,28 @@ class GeneratedFiltersMixin:
 
         Args:
             mode (int | str): specify the interlacing mode (from 0 to 3)
+
                 Allowed values:
                     * send_frame: send one frame for each frame
                     * send_field: send one frame for each field
                     * send_frame_nospatial: send one frame for each frame, but skip spatial interlacing check
                     * send_field_nospatial: send one frame for each field, but skip spatial interlacing check
+
                 Defaults to send_frame.
             parity (int | str): specify the assumed picture field parity (from -1 to 1)
+
                 Allowed values:
                     * tff: assume top field first
                     * bff: assume bottom field first
                     * auto: auto detect parity
+
                 Defaults to auto.
             deint (int | str): specify which frames to deinterlace (from 0 to 1)
+
                 Allowed values:
                     * all: deinterlace all frames
                     * interlaced: only deinterlace frames marked as interlaced
+
                 Defaults to all.
 
         Returns:
@@ -24764,16 +28158,22 @@ class GeneratedFiltersMixin:
 
         Args:
             radius (int): set window radius (from 0 to INT_MAX)
+
                 Defaults to 3.
             r (int): set window radius (from 0 to INT_MAX)
+
                 Defaults to 3.
             planes (int): set planes to filter (from 0 to 15)
+
                 Defaults to 1.
             p (int): set planes to filter (from 0 to 15)
+
                 Defaults to 1.
             sigma (int): set blur strength (from 1 to INT_MAX)
+
                 Defaults to 128.
             s (int): set blur strength (from 1 to INT_MAX)
+
                 Defaults to 128.
 
         Returns:
@@ -24797,8 +28197,10 @@ class GeneratedFiltersMixin:
 
         Args:
             bind_address (str): set bind address
+
                 Defaults to tcp://*:5555.
             b (str): set bind address
+
                 Defaults to tcp://*:5555.
 
         Returns:
@@ -24827,18 +28229,25 @@ class GeneratedFiltersMixin:
 
         Args:
             zoom (str): set the zoom expression
+
                 Defaults to 1.
             z (str): set the zoom expression
+
                 Defaults to 1.
             x (str): set the x expression
+
                 Defaults to 0.
             y (str): set the y expression
+
                 Defaults to 0.
             d (str): set the duration expression
+
                 Defaults to 90.
             s (str): set the output image size
+
                 Defaults to hd720.
             fps (str): set the output framerate
+
                 Defaults to 25.
 
         Returns:
@@ -25215,26 +28624,37 @@ class GeneratedFiltersMixin:
 
         Args:
             w (str): Output video width
+
             width (str): Output video width
+
             h (str): Output video height
+
             height (str): Output video height
+
             size (str): set video size
+
             s (str): set video size
+
             dither (int | str): set dither type (from 0 to 3)
+
                 Allowed values:
                     * none
                     * ordered
                     * random
                     * error_diffusion
+
                 Defaults to none.
             d (int | str): set dither type (from 0 to 3)
+
                 Allowed values:
                     * none
                     * ordered
                     * random
                     * error_diffusion
+
                 Defaults to none.
             filter (int | str): set filter type (from 0 to 5)
+
                 Allowed values:
                     * point
                     * bilinear
@@ -25242,8 +28662,10 @@ class GeneratedFiltersMixin:
                     * spline16
                     * spline36
                     * lanczos
+
                 Defaults to bilinear.
             f (int | str): set filter type (from 0 to 5)
+
                 Allowed values:
                     * point
                     * bilinear
@@ -25251,8 +28673,10 @@ class GeneratedFiltersMixin:
                     * spline16
                     * spline36
                     * lanczos
+
                 Defaults to bilinear.
             out_range (int | str): set color range (from -1 to 1)
+
                 Allowed values:
                     * input
                     * limited
@@ -25260,8 +28684,10 @@ class GeneratedFiltersMixin:
                     * unknown
                     * tv
                     * pc
+
                 Defaults to input.
             range (int | str): set color range (from -1 to 1)
+
                 Allowed values:
                     * input
                     * limited
@@ -25269,8 +28695,10 @@ class GeneratedFiltersMixin:
                     * unknown
                     * tv
                     * pc
+
                 Defaults to input.
             r (int | str): set color range (from -1 to 1)
+
                 Allowed values:
                     * input
                     * limited
@@ -25278,8 +28706,10 @@ class GeneratedFiltersMixin:
                     * unknown
                     * tv
                     * pc
+
                 Defaults to input.
             primaries (int | str): set color primaries (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25300,8 +28730,10 @@ class GeneratedFiltersMixin:
                     * smpte432
                     * jedec-p22
                     * ebu3213
+
                 Defaults to input.
             p (int | str): set color primaries (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25322,8 +28754,10 @@ class GeneratedFiltersMixin:
                     * smpte432
                     * jedec-p22
                     * ebu3213
+
                 Defaults to input.
             transfer (int | str): set transfer characteristic (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25347,8 +28781,10 @@ class GeneratedFiltersMixin:
                     * iec61966-2-4
                     * iec61966-2-1
                     * arib-std-b67
+
                 Defaults to input.
             t (int | str): set transfer characteristic (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25372,8 +28808,10 @@ class GeneratedFiltersMixin:
                     * iec61966-2-4
                     * iec61966-2-1
                     * arib-std-b67
+
                 Defaults to input.
             matrix (int | str): set colorspace matrix (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25395,8 +28833,10 @@ class GeneratedFiltersMixin:
                     * chroma-derived-nc
                     * chroma-derived-c
                     * ictcp
+
                 Defaults to input.
             m (int | str): set colorspace matrix (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25418,8 +28858,10 @@ class GeneratedFiltersMixin:
                     * chroma-derived-nc
                     * chroma-derived-c
                     * ictcp
+
                 Defaults to input.
             in_range (int | str): set input color range (from -1 to 1)
+
                 Allowed values:
                     * input
                     * limited
@@ -25427,8 +28869,10 @@ class GeneratedFiltersMixin:
                     * unknown
                     * tv
                     * pc
+
                 Defaults to input.
             rangein (int | str): set input color range (from -1 to 1)
+
                 Allowed values:
                     * input
                     * limited
@@ -25436,8 +28880,10 @@ class GeneratedFiltersMixin:
                     * unknown
                     * tv
                     * pc
+
                 Defaults to input.
             rin (int | str): set input color range (from -1 to 1)
+
                 Allowed values:
                     * input
                     * limited
@@ -25445,8 +28891,10 @@ class GeneratedFiltersMixin:
                     * unknown
                     * tv
                     * pc
+
                 Defaults to input.
             primariesin (int | str): set input color primaries (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25467,8 +28915,10 @@ class GeneratedFiltersMixin:
                     * smpte432
                     * jedec-p22
                     * ebu3213
+
                 Defaults to input.
             pin (int | str): set input color primaries (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25489,8 +28939,10 @@ class GeneratedFiltersMixin:
                     * smpte432
                     * jedec-p22
                     * ebu3213
+
                 Defaults to input.
             transferin (int | str): set input transfer characteristic (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25514,8 +28966,10 @@ class GeneratedFiltersMixin:
                     * iec61966-2-4
                     * iec61966-2-1
                     * arib-std-b67
+
                 Defaults to input.
             tin (int | str): set input transfer characteristic (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25539,8 +28993,10 @@ class GeneratedFiltersMixin:
                     * iec61966-2-4
                     * iec61966-2-1
                     * arib-std-b67
+
                 Defaults to input.
             matrixin (int | str): set input colorspace matrix (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25562,8 +29018,10 @@ class GeneratedFiltersMixin:
                     * chroma-derived-nc
                     * chroma-derived-c
                     * ictcp
+
                 Defaults to input.
             min (int | str): set input colorspace matrix (from -1 to INT_MAX)
+
                 Allowed values:
                     * input
                     * 709
@@ -25585,8 +29043,10 @@ class GeneratedFiltersMixin:
                     * chroma-derived-nc
                     * chroma-derived-c
                     * ictcp
+
                 Defaults to input.
             chromal (int | str): set output chroma location (from -1 to 5)
+
                 Allowed values:
                     * input
                     * left
@@ -25595,8 +29055,10 @@ class GeneratedFiltersMixin:
                     * top
                     * bottomleft
                     * bottom
+
                 Defaults to input.
             c (int | str): set output chroma location (from -1 to 5)
+
                 Allowed values:
                     * input
                     * left
@@ -25605,8 +29067,10 @@ class GeneratedFiltersMixin:
                     * top
                     * bottomleft
                     * bottom
+
                 Defaults to input.
             chromalin (int | str): set input chroma location (from -1 to 5)
+
                 Allowed values:
                     * input
                     * left
@@ -25615,8 +29079,10 @@ class GeneratedFiltersMixin:
                     * top
                     * bottomleft
                     * bottom
+
                 Defaults to input.
             cin (int | str): set input chroma location (from -1 to 5)
+
                 Allowed values:
                     * input
                     * left
@@ -25625,14 +29091,19 @@ class GeneratedFiltersMixin:
                     * top
                     * bottomleft
                     * bottom
+
                 Defaults to input.
             npl (float): set nominal peak luminance (from 0 to DBL_MAX)
+
                 Defaults to nan.
             agamma (bool): allow approximate gamma
+
                 Defaults to true.
             param_a (float): parameter A, which is parameter "b" for bicubic, and the number of filter taps for lanczos (from -DBL_MAX to DBL_MAX)
+
                 Defaults to nan.
             param_b (float): parameter B, which is parameter "c" for bicubic (from -DBL_MAX to DBL_MAX)
+
                 Defaults to nan.
 
         Returns:

@@ -28,7 +28,7 @@ METHOD_TEMPLATE = """
             {%- endfor %}
             {%- for opt in option_docs %}
             {{ opt.name }} ({{ opt.type }}): {{ opt.help }}
-                {%- if opt.choices %}
+                {% if opt.choices %}
                 Allowed values:
                     {%- for choice in opt.choices %}
                     {%- if choice.desc %}
@@ -37,8 +37,8 @@ METHOD_TEMPLATE = """
                     * {{ choice.name }}
                     {%- endif %}
                     {%- endfor %}
-                {%- endif %}
-                {%- if opt.default and opt.default != "None" and opt.default != "" %}
+                {% endif %}
+                {%- if opt.default and opt.default != "None" %}
                 Defaults to {{ opt.default }}.
                 {%- endif %}
             {%- endfor %}
