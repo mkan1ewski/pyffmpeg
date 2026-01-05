@@ -1,4 +1,4 @@
-import textwrap
+from jinja2 import Template
 from typing import Any
 import keyword
 
@@ -15,6 +15,20 @@ TYPE_MAPPING = {
     "rational": "str",
     "flags": "str",
 }
+
+METHOD_TEMPLATE = """
+    def {{ name }}(self, {{ params|join(', ') }}) -> {{ return_type }}:
+        \"\"\"{{ description }}\"\"\"
+        return self.{{ method_name }}(
+            filter_name="{{ filter_name }}",
+            inputs={{ inputs_repr }},
+            named_arguments={
+                {%- for opt in options %}
+                "{{ opt.ffmpeg_name }}": {{ opt.py_name }},
+                {%- endfor %}
+            }{{ extra_args }}
+        ){{ return_suffix }}
+"""
 
 
 def sanitize_parameter_name(name: str) -> str:
@@ -39,53 +53,78 @@ class CodeGenerator:
         self.options = filter_data.get("options", [])
         self.num_output_streams = len(filter_data.get("outputs", 1))
         self.is_dynamic_output = filter_data.get("is_dynamic_outputs", False)
+        self.is_dynamic_inputs = filter_data.get("is_dynamic_inputs", False)
 
     def generate(self) -> str:
         """Generates full method code."""
+        stream_parameters = self._get_stream_parameters()
+        option_parameters = self._get_option_parameters()
+        all_params = stream_parameters + option_parameters
 
-        stream_parameters = self._generate_stream_parameters()
-        option_parameters = self._generate_option_parameters()
+        if self.is_dynamic_inputs:
+            inputs_repr = "[self, *streams]"
+        else:
+            input_names = ["self"] + [
+                sanitize_parameter_name(inp["name"]) for inp in self.inputs[1:]
+            ]
+            inputs_repr = f"[{', '.join(input_names)}]"
 
-        all_parameters = ", ".join(["self"] + stream_parameters + option_parameters)
-
-        body = self._generate_body()
-
-        return_type = self.get_return_type()
-
-        return f"""
-    def {self.name}({all_parameters}) -> {return_type}:
-        \"\"\"{self.description}\"\"\"
-{body}
-"""
-
-    def get_return_type(self) -> str:
-        """Generates return type hint"""
         if self.is_dynamic_output:
-            return '"FilterMultiOutput"'
-        if self.num_output_streams > 1:
-            return 'list["Stream"]'
-        return '"Stream"'
+            method_name = "_apply_dynamic_outputs_filter"
+            extra_args = ""
+            return_suffix = ""
+            return_type = '"FilterMultiOutput"'
+        elif self.num_output_streams > 1:
+            method_name = "_apply_filter"
+            extra_args = f", num_output_streams={self.num_output_streams}"
+            return_suffix = ""
+            return_type = 'list["Stream"]'
+        else:
+            method_name = "_apply_filter"
+            extra_args = ""
+            return_suffix = "[0]"
+            return_type = '"Stream"'
 
-    def _generate_stream_parameters(self) -> list[str]:
+        processed_options = []
+        for opt in self.options:
+            processed_options.append(
+                {
+                    "ffmpeg_name": opt["name"],
+                    "py_name": sanitize_parameter_name(opt["name"]),
+                }
+            )
+
+        template = Template(METHOD_TEMPLATE)
+        return template.render(
+            name=self.name,
+            params=all_params,
+            return_type=return_type,
+            description=self.description,
+            method_name=method_name,
+            filter_name=self.name,
+            inputs_repr=inputs_repr,
+            options=processed_options,
+            extra_args=extra_args,
+            return_suffix=return_suffix,
+        )
+
+    def _get_stream_parameters(self) -> list[str]:
         """Generates parameters for additional input streams."""
-        if self.data.get("is_dynamic_inputs", False):
+        if self.is_dynamic_inputs:
             return ['*streams: "Stream"']
+        # skipping first because it will be self
+        return [
+            f'{sanitize_parameter_name(inp["name"])}: "Stream"'
+            for inp in self.inputs[1:]
+        ]
 
-        parameters = []
-        # Skipping first input because it is self
-        for input in self.inputs[1:]:
-            sanitized_name = sanitize_parameter_name(input["name"])
-            parameters.append(f'{sanitized_name}: "Stream"')
-        return parameters
-
-    def _generate_option_parameters(self) -> list[str]:
+    def _get_option_parameters(self) -> list[str]:
         """Generates parameters for options (x, y, eof_action)."""
         parameters = []
         for option in self.options:
             name = sanitize_parameter_name(option["name"])
             type_hint = self._get_type_hint(option)
             default = self._get_default_value_repr(option)
-
             parameters.append(f"{name}: {type_hint} = {default}")
         return parameters
 
@@ -135,48 +174,3 @@ class CodeGenerator:
 
         # return f'"{value}"'
         return "None"
-
-    def _generate_body(self) -> str:
-        """Generates body of the method."""
-        is_dynamic_inputs = self.data.get("is_dynamic_inputs", False)
-        if is_dynamic_inputs:
-            inputs_list_as_str = "[self, *streams]"
-        else:
-            inputs_list = ["self"] + [
-                sanitize_parameter_name(inp["name"]) for inp in self.inputs[1:]
-            ]
-            inputs_list_as_str = f"[{', '.join(inputs_list)}]"
-
-        named_arguments_entries = []
-        for option in self.options:
-            py_name = sanitize_parameter_name(option["name"])
-            ffmpeg_name = option["name"]
-            named_arguments_entries.append(f'"{ffmpeg_name}": {py_name},')
-
-        named_arguments_dict = "\n".join(named_arguments_entries)
-
-        if self.is_dynamic_output:
-            function_to_call = "_apply_dynamic_outputs_filter"
-            extra_arg = ""
-            suffix = ""
-
-        elif self.num_output_streams > 1:
-            function_to_call = "_apply_filter"
-            extra_arg = f", num_output_streams={self.num_output_streams}"
-            suffix = ""
-
-        else:
-            function_to_call = "_apply_filter"
-            extra_arg = ""
-            suffix = "[0]"
-
-        raw_body = f"""
-return self.{function_to_call}(
-    filter_name="{self.name}",
-    inputs={inputs_list_as_str},
-    named_arguments={{
-{textwrap.indent(named_arguments_dict, 8 * " ")}
-    }}{extra_arg}
-){suffix}
-"""
-        return textwrap.indent(raw_body.strip(), 8 * " ")
