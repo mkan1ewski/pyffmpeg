@@ -1,12 +1,11 @@
 from pyffmpeg import _utils
-from pyffmpeg.utils import input, merge_outputs, get_args, filter
+from pyffmpeg.utils import input, merge_outputs, get_args, filter, filter_multi_output
 from pyffmpeg._run import run, compile
 from pyffmpeg.errors import Error
 from pyffmpeg.node import Stream, Node
 from pyffmpeg.probe import probe
 from collections.abc import Callable
 from typing import Any
-import inspect
 
 
 def __getattr__(name: str) -> Callable[..., Any]:
@@ -32,10 +31,6 @@ def __getattr__(name: str) -> Callable[..., Any]:
                 f"and an object of type '{type(target_obj)}' does not have a method with that name."
             )
 
-        sig = inspect.signature(method)
-        if "inputs" in sig.parameters:
-            return method(inputs_list, *args, **kwargs)
-
-        return method(*args, **kwargs)
+        return method(*inputs_list, *args, **kwargs)
 
     return wrapper
