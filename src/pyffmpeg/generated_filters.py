@@ -3,7 +3,7 @@
 from typing import TYPE_CHECKING, Literal
 
 if TYPE_CHECKING:
-    from pyffmpeg.node import Stream, FilterMultiOutput
+    from pyffmpeg.node import Stream, FilterMultiOutput, FilterNode
 
 
 class GeneratedFiltersMixin:
@@ -247,6 +247,46 @@ class GeneratedFiltersMixin:
                 "m": m,
             },
         )[0]
+
+    def abuffersink(
+        self,
+        sample_fmts: str | None = None,
+        sample_rates: str | None = None,
+        ch_layouts: str | None = None,
+        all_channel_counts: Literal["sample_formats", "samplerates", "channel_layouts"]
+        | None = None,
+    ) -> "FilterNode":
+        """Buffer audio frames, and make them available to the end of the filter graph.
+
+        Args:
+            sample_fmts (str): set the supported sample formats
+
+            sample_rates (str): set the supported sample rates
+
+            ch_layouts (str): set a '|'-separated list of supported channel layouts
+
+            all_channel_counts (bool): accept all channel counts
+
+                Allowed values:
+                    * sample_formats: of supported sample formats
+                    * samplerates: array of supported sample formats
+                    * channel_layouts: of supported channel layouts
+
+                Defaults to false.
+
+        Returns:
+            "FilterNode": A FilterNode representing the sink (terminal node).
+        """
+        return self._apply_sink_filter(
+            filter_name="abuffersink",
+            inputs=[self],
+            named_arguments={
+                "sample_fmts": sample_fmts,
+                "sample_rates": sample_rates,
+                "ch_layouts": ch_layouts,
+                "all_channel_counts": all_channel_counts,
+            },
+        )
 
     def acompressor(
         self,
@@ -3692,6 +3732,18 @@ class GeneratedFiltersMixin:
         return self._apply_filter(
             filter_name="anull", inputs=[self], named_arguments={}
         )[0]
+
+    def anullsink(
+        self,
+    ) -> "FilterNode":
+        """Do absolutely nothing with the input audio.
+
+        Returns:
+            "FilterNode": A FilterNode representing the sink (terminal node).
+        """
+        return self._apply_sink_filter(
+            filter_name="anullsink", inputs=[self], named_arguments={}
+        )
 
     def apad(
         self,
@@ -7260,6 +7312,41 @@ class GeneratedFiltersMixin:
                 "ap": ap,
             },
         )[0]
+
+    def buffersink(
+        self,
+        pix_fmts: str | None = None,
+        color_spaces: str | None = None,
+        color_ranges: Literal["pixel_formats", "colorspaces", "colorranges"]
+        | None = None,
+    ) -> "FilterNode":
+        """Buffer video frames, and make them available to the end of the filter graph.
+
+        Args:
+            pix_fmts (str): set the supported pixel formats
+
+            color_spaces (str): set the supported color spaces
+
+            color_ranges (str): set the supported color ranges
+
+                Allowed values:
+                    * pixel_formats: array of supported pixel formats
+                    * colorspaces: array of supported color spaces
+                    * colorranges: array of supported color ranges
+
+
+        Returns:
+            "FilterNode": A FilterNode representing the sink (terminal node).
+        """
+        return self._apply_sink_filter(
+            filter_name="buffersink",
+            inputs=[self],
+            named_arguments={
+                "pix_fmts": pix_fmts,
+                "color_spaces": color_spaces,
+                "color_ranges": color_ranges,
+            },
+        )
 
     def bwdif(
         self,
@@ -17478,6 +17565,18 @@ class GeneratedFiltersMixin:
         return self._apply_filter(
             filter_name="null", inputs=[self], named_arguments={}
         )[0]
+
+    def nullsink(
+        self,
+    ) -> "FilterNode":
+        """Do absolutely nothing with the input video.
+
+        Returns:
+            "FilterNode": A FilterNode representing the sink (terminal node).
+        """
+        return self._apply_sink_filter(
+            filter_name="nullsink", inputs=[self], named_arguments={}
+        )
 
     def ocr(
         self,

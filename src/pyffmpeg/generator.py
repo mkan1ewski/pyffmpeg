@@ -166,6 +166,8 @@ class CodeGenerator:
                 f", num_output_streams={self.num_output_streams}",
                 inputs_repr,
             )
+        elif self.num_output_streams == 0:
+            return "_apply_sink_filter", "", inputs_repr
         else:
             return "_apply_filter", "", inputs_repr
 
@@ -189,6 +191,12 @@ class CodeGenerator:
             return (
                 f"A list of {self.num_output_streams} Stream objects.",
                 'list["Stream"]',
+                "",
+            )
+        elif self.num_output_streams == 0:
+            return (
+                "A FilterNode representing the sink (terminal node).",
+                '"FilterNode"',
                 "",
             )
         else:

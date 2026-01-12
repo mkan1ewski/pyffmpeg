@@ -414,6 +414,21 @@ class Stream(GeneratedFiltersMixin):
         )
         return FilterMultiOutput(filter_node)
 
+    def _apply_sink_filter(
+        self,
+        filter_name: str,
+        named_arguments: dict = {},
+        inputs: list["Stream"] | None = None,
+    ) -> "FilterNode":
+        node = FilterNode(
+            filter_name,
+            positional_arguments=(),
+            named_arguments=named_arguments,
+            inputs=inputs or [self],
+            num_output_streams=0,
+        )
+        return node
+
     def filter(self, filter_name: str, *args, **kwargs) -> "Stream":
         """Custom filter with a single input and a single output"""
         return self._apply_filter(filter_name, args, kwargs)[0]

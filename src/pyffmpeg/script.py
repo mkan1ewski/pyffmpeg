@@ -10,7 +10,7 @@ OUTPUT_FILE = Path("src/pyffmpeg/generated_filters.py")
 def get_filters_to_process() -> list[str]:
     """
     Gets all filter names for processing from ffmpeg -filters.
-    Excludes sources and sinks.
+    Excludes sources.
     """
     try:
         result = subprocess.run(["ffmpeg", "-filters"], capture_output=True, text=True)
@@ -31,8 +31,8 @@ def get_filters_to_process() -> list[str]:
         if "->" not in io_specifier:
             continue
 
-        # rejecting sources (|->...) and sinks (...->|)
-        if not io_specifier.startswith("|") and not io_specifier.endswith("|"):
+        # rejecting sources
+        if not io_specifier.startswith("|"):
             filters.add(name)
 
     return sorted(list(filters))
@@ -62,7 +62,9 @@ def generate_file():
         f.write("from typing import TYPE_CHECKING, Literal\n")
 
         f.write("if TYPE_CHECKING:\n")
-        f.write("    from pyffmpeg.node import Stream, FilterMultiOutput\n\n")
+        f.write(
+            "    from pyffmpeg.node import Stream, FilterMultiOutput, FilterNode\n\n"
+        )
 
         f.write("class GeneratedFiltersMixin:\n")
         f.write('    """\n')
