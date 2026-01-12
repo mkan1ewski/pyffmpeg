@@ -272,6 +272,26 @@ class MergedOutputNode(RunnableNode):
         self.outputs: tuple[OutputNode] = tuple(outputs)
 
 
+class SinkNode(RunnableNode):
+    """
+    Represents a graph terminal node that is a sink filter (e.g., nullsink, buffersink),
+    not a file output.
+    """
+
+    def __init__(self, filter_node: "FilterNode"):
+        super().__init__()
+        self.filter_node = filter_node
+        self.inputs = filter_node.inputs
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, SinkNode):
+            return NotImplemented
+        return self.filter_node == other.filter_node
+
+    def __hash__(self) -> int:
+        return hash(self.filter_node)
+
+
 class FilterNode(ProcessableNode):
     """Nodes representing filter operations."""
 
@@ -419,15 +439,15 @@ class Stream(GeneratedFiltersMixin):
         filter_name: str,
         named_arguments: dict = {},
         inputs: list["Stream"] | None = None,
-    ) -> "FilterNode":
-        node = FilterNode(
+    ) -> SinkNode:
+        filter_node = FilterNode(
             filter_name,
-            positional_arguments=(),
+            postional_arguments=(),
             named_arguments=named_arguments,
             inputs=inputs or [self],
             num_output_streams=0,
         )
-        return node
+        return SinkNode(filter_node)
 
     def filter(self, filter_name: str, *args, **kwargs) -> "Stream":
         """Custom filter with a single input and a single output"""
@@ -502,7 +522,7 @@ class GraphSorter:
 
     def sort(self) -> list[Node]:
         self._sort(self.start_node)
-        type_order = {InputNode: 0, FilterNode: 1, OutputNode: 2}
+        type_order = {InputNode: 0, FilterNode: 1, SinkNode: 2, OutputNode: 3}
         self.sorted.sort(key=lambda x: type_order[type(x)])
         self.label_streams()
         return self.sorted
@@ -512,7 +532,7 @@ class GraphSorter:
             return
         self.visited.add(node)
 
-        if isinstance(node, (FilterNode, OutputNode)):
+        if isinstance(node, (FilterNode, SinkNode, OutputNode)):
             for stream in node.inputs:
                 self._sort(stream.source_node)
 
@@ -562,6 +582,13 @@ class CommandBuilder:
                     filter_complex = True
 
                 filters.append(node.get_command_string())
+
+            if isinstance(node, SinkNode):
+                if not filter_complex:
+                    args.append("-filter_complex")
+                    filter_complex = True
+                filters.append(node.filter_node.get_command_string())
+
             if isinstance(node, OutputNode):
                 outputs.extend(node.get_output_args(enforce_output_mapping))
                 if multi_input:
