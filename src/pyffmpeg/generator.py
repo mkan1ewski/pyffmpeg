@@ -58,6 +58,39 @@ METHOD_TEMPLATE = """
         ){{ return_suffix }}
 """
 
+SOURCE_TEMPLATE = """
+def {{ name }}({{ params|join(', ') }}) -> {{ return_type }}:
+    \"\"\"{{ description }}
+
+    {%- if option_docs %}
+    Args:
+        {%- for opt in option_docs %}
+        {{ opt.name }} ({{ opt.type }}): {{ opt.help }}
+            {% if opt.choices %}
+            Allowed values:
+                {%- for choice in opt.choices %}
+                * {{ choice.name }}
+                {%- endfor %}
+            {% endif %}
+            {%- if opt.default and opt.default != "None" %}
+            Defaults to {{ opt.default }}.
+            {%- endif %}
+        {%- endfor %}
+    {%- endif %}
+
+    Returns:
+        {{ return_type }}: {{ return_help }}
+    \"\"\"
+    return create_source(
+        filter_name="{{ filter_name }}",
+        named_arguments={
+            {%- for opt in options %}
+            "{{ opt.ffmpeg_name }}": {{ opt.py_name }},
+            {%- endfor %}
+        }{{ extra_args }}
+    )
+"""
+
 
 def sanitize_parameter_name(name: str) -> str:
     """Secures against Python keywords (ex: 'class', 'import') hyphens and digits."""
@@ -73,8 +106,9 @@ def sanitize_parameter_name(name: str) -> str:
 
 
 class CodeGenerator:
-    def __init__(self, filter_data: dict[str, Any]):
+    def __init__(self, filter_data: dict[str, Any], is_source: bool = False):
         self.data = filter_data
+        self.is_source = is_source
         self.name = filter_data["filter_name"]
         self.description = filter_data.get("description", "").replace("\n", " ").strip()
         self.inputs = filter_data.get("inputs", [])
@@ -85,15 +119,8 @@ class CodeGenerator:
 
     def generate(self) -> str:
         """Generates full method code."""
-        stream_parameters = self._get_stream_parameters()
         option_parameters = self._get_option_parameters()
-        all_params = stream_parameters + option_parameters
-
-        input_docs = self._get_input_docs()
         option_docs = self._get_option_docs()
-
-        return_help, return_type, return_suffix = self._get_return_info()
-        method_name, extra_args, inputs_repr = self._get_body_info()
 
         processed_options = []
         for opt in self.options:
@@ -104,22 +131,54 @@ class CodeGenerator:
                 }
             )
 
-        template = Template(METHOD_TEMPLATE)
-        return template.render(
-            name=self.name,
-            params=all_params,
-            return_type=return_type,
-            description=self.description,
-            input_docs=input_docs,
-            option_docs=option_docs,
-            return_help=return_help,
-            method_name=method_name,
-            filter_name=self.name,
-            inputs_repr=inputs_repr,
-            options=processed_options,
-            extra_args=extra_args,
-            return_suffix=return_suffix,
-        )
+        return_help, return_type, return_suffix = self._get_return_info()
+        method_name, extra_args, inputs_repr = self._get_body_info()
+
+        if self.is_source:
+            extra_args_list = []
+            if self.is_dynamic_output:
+                extra_args_list.append("is_dynamic=True")
+            elif self.num_output_streams != 1:
+                extra_args_list.append(f"num_outputs={self.num_output_streams}")
+
+            extra_args_str = ", ".join(extra_args_list)
+            if extra_args_str:
+                extra_args_str = f", {extra_args_str}"
+
+            template = Template(SOURCE_TEMPLATE)
+            return template.render(
+                name=self.name,
+                params=option_parameters,
+                return_type=return_type,
+                description=self.description,
+                option_docs=option_docs,
+                return_help=return_help,
+                filter_name=self.name,
+                options=processed_options,
+                extra_args=extra_args_str,
+            )
+        else:
+            stream_parameters = self._get_stream_parameters()
+            input_docs = self._get_input_docs()
+
+            all_params = stream_parameters + option_parameters
+
+            template = Template(METHOD_TEMPLATE)
+            return template.render(
+                name=self.name,
+                params=all_params,
+                return_type=return_type,
+                description=self.description,
+                input_docs=input_docs,
+                option_docs=option_docs,
+                return_help=return_help,
+                method_name=method_name,
+                filter_name=self.name,
+                inputs_repr=inputs_repr,
+                options=processed_options,
+                extra_args=extra_args,
+                return_suffix=return_suffix,
+            )
 
     def _get_stream_parameters(self) -> list[str]:
         """Generates parameters for additional input streams."""

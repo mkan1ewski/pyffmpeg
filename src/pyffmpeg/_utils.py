@@ -48,3 +48,34 @@ def convert_kwargs_to_cmd_line_args(
             if value is not None:
                 args.append(str(value))
     return args
+
+
+from pyffmpeg.node import Stream, FilterMultiOutput, FilterNode
+
+
+def create_source(
+    filter_name: str,
+    positional_arguments: tuple = (),
+    named_arguments: dict[str, Any] = {},
+    num_outputs: int = 1,
+    is_dynamic: bool = False,
+) -> Stream | list[Stream] | FilterMultiOutput:
+    """
+    Internal factory for creating source filters.
+    Handles single, multiple, and dynamic outputs.
+    """
+    node = FilterNode(
+        filter_name=filter_name,
+        positional_arguments=positional_arguments,
+        named_arguments=named_arguments,
+        inputs=[],
+        num_output_streams=0 if is_dynamic else num_outputs,
+    )
+
+    if is_dynamic:
+        return FilterMultiOutput(node)
+
+    if num_outputs == 1:
+        return node.output_streams[0]
+
+    return node.output_streams
