@@ -61,7 +61,7 @@ def filter_multi_output(
         inputs = [stream_or_streams_list]
     node = FilterNode(
         filter_name=filter_name,
-        postional_arguments=args,
+        positional_arguments=args,
         named_arguments=kwargs,
         inputs=inputs,
         num_output_streams=0,

@@ -263,7 +263,7 @@ def filter_multi_output(
         stream_spec = [s.stream for s in stream_spec]
     node = FilterNode(
         filter_name=filter_name,
-        postional_arguments=args,
+        positional_arguments=args,
         named_arguments=kwargs,
         inputs=stream_spec,
         num_output_streams=0,

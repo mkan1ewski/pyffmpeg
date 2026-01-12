@@ -298,14 +298,14 @@ class FilterNode(ProcessableNode):
     def __init__(
         self,
         filter_name: str,
-        postional_arguments: tuple[str],
+        positional_arguments: tuple[str],
         named_arguments: dict[str, Any],
         inputs: list["Stream"],
         num_output_streams: int = 1,
     ):
         super().__init__(num_output_streams)
         self.filter_name: str = filter_name
-        self.positional_arguments: tuple = postional_arguments
+        self.positional_arguments: tuple = positional_arguments
         self.named_arguments: dict = named_arguments
         self.inputs: list[Stream] = inputs
 
@@ -442,7 +442,7 @@ class Stream(GeneratedFiltersMixin):
     ) -> SinkNode:
         filter_node = FilterNode(
             filter_name,
-            postional_arguments=(),
+            positional_arguments=(),
             named_arguments=named_arguments,
             inputs=inputs or [self],
             num_output_streams=0,
@@ -459,7 +459,7 @@ class Stream(GeneratedFiltersMixin):
         """Creates a custom filter allowing dynamic creation of output streams"""
         node = FilterNode(
             filter_name=filter_name,
-            postional_arguments=args,
+            positional_arguments=args,
             named_arguments=kwargs,
             inputs=[self],
             num_output_streams=0,
