@@ -5,7 +5,7 @@ from collections.abc import Callable, Sequence
 from pyffmpeg._run import run, compile
 from pyffmpeg import _run
 from pyffmpeg._utils import escape_text_content
-from pyffmpeg.utils import input, merge_outputs, get_args
+from pyffmpeg.io import input, merge_outputs, get_args
 from pyffmpeg.probe import probe
 from pyffmpeg.errors import Error
 from pyffmpeg.node import (

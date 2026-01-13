@@ -1,5 +1,5 @@
 from pyffmpeg import _utils
-from pyffmpeg.utils import input, merge_outputs, get_args, filter, filter_multi_output
+from pyffmpeg.io import input, merge_outputs, get_args, filter, filter_multi_output
 from pyffmpeg._run import run, compile
 from pyffmpeg.errors import Error
 from pyffmpeg.node import Stream, Node
