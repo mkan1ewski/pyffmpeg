@@ -1,4 +1,4 @@
-from typing import Sequence
+from typing import Sequence, Any
 
 from pyffmpeg.node import (
     FilterMultiOutput,
@@ -12,10 +12,79 @@ from pyffmpeg.node import (
 )
 
 
-def input(path: str, **kwargs) -> Stream:
-    """Creates input stream from a filename"""
-    """Accepts input options through kwargs"""
-    return InputNode(path, kwargs).output_streams[0]
+def input(
+    filename: str,
+    format: str | None = None,
+    ss: str | float | None = None,
+    t: str | float | None = None,
+    to: str | float | None = None,
+    r: str | int | float | None = None,
+    video_size: str | tuple[int, int] | None = None,
+    pix_fmt: str | None = None,
+    hwaccel: str | None = None,
+    loop: bool | int | None = None,
+    re: bool = False,
+    **kwargs,
+) -> Stream:
+    """Creates an input stream from a filename with optional input-specific flags.
+
+    This function serves as the entry point for creating a processing graph.
+    It accepts common FFmpeg input options as explicit arguments.
+    Less common options can be passed via kwargs.
+
+    Args:
+        filename (str): Path to the input file, URL, or device.
+        format (str | None): Force input format (ffmpeg flag: ``-f``).
+            Example: ``'image2'``, ``'alsa'``, ``'v4l2'``, ``'rawvideo'``.
+        ss (str | float | None): Seeks in this input file to position.
+            Note: When used as an input option, this seeks BEFORE decoding
+            (fast but less accurate).
+        t (str | float | None): Limit the duration of data read from the input file.
+        to (str | float | None): Stop reading the input after a specific time position.
+        r (str | int | float | None): Set frame rate (Hz value, fraction or abbreviation).
+            Crucial for raw video or image sequences.
+        video_size (str | tuple[int, int] | None): Set frame size.
+            Can be a string (e.g., ``'1920x1080'``) or a tuple ``(1920, 1080)``.
+            Required for raw video.
+        pix_fmt (str | None): Set input pixel format. Required for raw video (e.g., ``'yuv420p'``).
+        hwaccel (str | None): Use hardware acceleration to decode the matching stream(s).
+            Example: ``'cuda'``, ``'videotoolbox'``, ``'vaapi'``.
+        loop (bool | int | None): Loop over the input stream. Useful for images.
+            Set to ``True`` or ``1`` to enable looping.
+        re (bool): Read input at native frame rate (ffmpeg flag: ``-re``).
+            Mainly used for simulating a grab device or live input stream.
+            Defaults to ``False``.
+        **kwargs: Additional input options specific to the demuxer or decoder.
+            Example: ``input("file.mp4", log_level="debug")``.
+
+    Returns:
+        Stream: Output stream of the created InputNode.
+    """
+    options: dict[str, Any] = kwargs.copy()
+
+    if re:
+        options["re"] = None
+
+    if format is not None:
+        options["format"] = format
+    if ss is not None:
+        options["ss"] = ss
+    if t is not None:
+        options["t"] = t
+    if to is not None:
+        options["to"] = to
+    if r is not None:
+        options["r"] = r
+    if video_size is not None:
+        options["video_size"] = video_size
+    if pix_fmt is not None:
+        options["pix_fmt"] = pix_fmt
+    if hwaccel is not None:
+        options["hwaccel"] = hwaccel
+    if loop is not None:
+        options["loop"] = loop
+
+    return InputNode(filename, options).output_streams[0]
 
 
 def merge_outputs(*outputs: OutputNode) -> MergedOutputNode:
