@@ -243,6 +243,7 @@ class OutputNode(RunnableNode):
         if (
             len(self.inputs) == 1
             and isinstance(self.inputs[0].source_node, InputNode)
+            and not isinstance(self.inputs[0], (TypedStream, IndexedStream))
             and not enforce_output_mapping
         ):
             args.append(self.filename)
