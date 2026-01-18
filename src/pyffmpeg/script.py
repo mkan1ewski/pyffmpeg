@@ -80,7 +80,7 @@ def generate_files():
         f_filters.write("from typing import TYPE_CHECKING, Literal\n\n")
         f_filters.write("if TYPE_CHECKING:\n")
         f_filters.write(
-            "    from pyffmpeg.node import Stream, FilterMultiOutput, FilterNode\n\n"
+            "    from pyffmpeg.node import Stream, FilterMultiOutput, SinkNode\n\n"
         )
 
         f_filters.write("class GeneratedFiltersMixin:\n")

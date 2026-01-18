@@ -2,7 +2,7 @@
 from typing import TYPE_CHECKING, Literal
 
 if TYPE_CHECKING:
-    from pyffmpeg.node import Stream, FilterMultiOutput, FilterNode
+    from pyffmpeg.node import Stream, FilterMultiOutput, SinkNode
 
 
 class GeneratedFiltersMixin:
@@ -254,7 +254,7 @@ class GeneratedFiltersMixin:
         ch_layouts: str | None = None,
         all_channel_counts: Literal["sample_formats", "samplerates", "channel_layouts"]
         | None = None,
-    ) -> "FilterNode":
+    ) -> "SinkNode":
         """Buffer audio frames, and make them available to the end of the filter graph.
 
         Args:
@@ -274,7 +274,7 @@ class GeneratedFiltersMixin:
                 Defaults to false.
 
         Returns:
-            "FilterNode": A FilterNode representing the sink (terminal node).
+            "SinkNode": A SinkNode representing the sink (terminal node).
         """
         return self._apply_sink_filter(
             filter_name="abuffersink",
@@ -3734,11 +3734,11 @@ class GeneratedFiltersMixin:
 
     def anullsink(
         self,
-    ) -> "FilterNode":
+    ) -> "SinkNode":
         """Do absolutely nothing with the input audio.
 
         Returns:
-            "FilterNode": A FilterNode representing the sink (terminal node).
+            "SinkNode": A SinkNode representing the sink (terminal node).
         """
         return self._apply_sink_filter(
             filter_name="anullsink", inputs=[self], named_arguments={}
@@ -7318,7 +7318,7 @@ class GeneratedFiltersMixin:
         color_spaces: str | None = None,
         color_ranges: Literal["pixel_formats", "colorspaces", "colorranges"]
         | None = None,
-    ) -> "FilterNode":
+    ) -> "SinkNode":
         """Buffer video frames, and make them available to the end of the filter graph.
 
         Args:
@@ -7335,7 +7335,7 @@ class GeneratedFiltersMixin:
 
 
         Returns:
-            "FilterNode": A FilterNode representing the sink (terminal node).
+            "SinkNode": A SinkNode representing the sink (terminal node).
         """
         return self._apply_sink_filter(
             filter_name="buffersink",
@@ -17567,11 +17567,11 @@ class GeneratedFiltersMixin:
 
     def nullsink(
         self,
-    ) -> "FilterNode":
+    ) -> "SinkNode":
         """Do absolutely nothing with the input video.
 
         Returns:
-            "FilterNode": A FilterNode representing the sink (terminal node).
+            "SinkNode": A SinkNode representing the sink (terminal node).
         """
         return self._apply_sink_filter(
             filter_name="nullsink", inputs=[self], named_arguments={}

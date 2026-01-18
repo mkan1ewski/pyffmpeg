@@ -254,8 +254,8 @@ class CodeGenerator:
             )
         elif self.num_output_streams == 0:
             return (
-                "A FilterNode representing the sink (terminal node).",
-                '"FilterNode"',
+                "A SinkNode representing the sink (terminal node).",
+                '"SinkNode"',
                 "",
             )
         else:
