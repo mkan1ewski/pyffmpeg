@@ -10,6 +10,7 @@ from pyffmpeg.probe import probe
 from pyffmpeg.errors import Error
 from pyffmpeg.node import (
     Node,
+    OutputNode,
     Stream,
     TypedStream,
     IndexedStream,
@@ -115,6 +116,25 @@ class StreamCompatWrapper:
 
     def __getitem__(self, key: str) -> "StreamCompatWrapper":
         return StreamCompatWrapper(self.stream[key])
+
+    @wrap_stream_input
+    def output(self, *args, **kwargs) -> "OutputNode":
+        streams = []
+        filename = None
+        streams.append(self)
+
+        for arg in args:
+            if isinstance(arg, Stream):
+                streams.append(arg)
+            elif isinstance(arg, str):
+                filename = arg
+            else:
+                raise TypeError(f"Unexpected argument type: {type(arg)}")
+
+        if not filename:
+            raise ValueError("No output filename provided to output()")
+
+        return OutputNode(filename, streams, output_options=kwargs)
 
     def filter(self, filter_name: str, *args, **kwargs) -> "StreamCompatWrapper":
         """Custom filter with a single input and a single output"""

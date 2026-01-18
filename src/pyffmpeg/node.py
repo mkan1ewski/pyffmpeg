@@ -467,23 +467,66 @@ class Stream(GeneratedFiltersMixin):
         )
         return FilterMultiOutput(node)
 
-    def output(self, *args, **kwargs) -> "OutputNode":
-        streams = []
-        filename = None
-        streams.append(self)
+    def output(
+        self,
+        filename: str,
+        streams: list["Stream"] | None = None,
+        format: str | None = None,
+        vcodec: str | None = None,
+        acodec: str | None = None,
+        video_bitrate: str | int | None = None,
+        audio_bitrate: str | int | None = None,
+        aspect: str | float | None = None,
+        frames: int | None = None,
+        shortest: bool = False,
+        **kwargs,
+    ) -> "OutputNode":
+        """
+        Creates an output node for this stream, optionally muxing other streams.
 
-        for arg in args:
-            if isinstance(arg, Stream):
-                streams.append(arg)
-            elif isinstance(arg, str):
-                filename = arg
-            else:
-                raise TypeError(f"Unexpected argument type: {type(arg)}")
+        Args:
+            filename (str): The output file path or URL.
+            streams (list[Stream] | None): Additional streams to include in the output
+                (e.g., audio tracks, subtitles) alongside the current stream.
+            format (str | None): Force output format (ffmpeg flag: ``-f``).
+            vcodec (str | None): Video codec (ffmpeg flag: ``-c:v``).
+            acodec (str | None): Audio codec (ffmpeg flag: ``-c:a``).
+            video_bitrate (str | int | None): Video bitrate (ffmpeg flag: ``-b:v``).
+            audio_bitrate (str | int | None): Audio bitrate (ffmpeg flag: ``-b:a``).
+            aspect (str | float | None): Set aspect ratio (ffmpeg flag: ``-aspect``).
+            frames (int | None): Number of video frames to output (ffmpeg flag: ``-frames:v``).
+            shortest (bool): Finish encoding when the shortest input stream ends.
+            **kwargs: Additional output options.
 
-        if not filename:
-            raise ValueError("No output filename provided to output()")
+        Returns:
+            OutputNode: The created output node.
+        """
 
-        return OutputNode(filename, streams, output_options=kwargs)
+        output_streams = [self]
+
+        if streams is not None:
+            output_streams.extend(streams)
+
+        options = kwargs.copy()
+
+        if format is not None:
+            options["f"] = format
+        if vcodec is not None:
+            options["c:v"] = vcodec
+        if acodec is not None:
+            options["c:a"] = acodec
+        if video_bitrate is not None:
+            options["b:v"] = video_bitrate
+        if audio_bitrate is not None:
+            options["b:a"] = audio_bitrate
+        if aspect is not None:
+            options["aspect"] = aspect
+        if frames is not None:
+            options["frames:v"] = frames
+        if shortest:
+            options["shortest"] = None
+
+        return OutputNode(filename, output_streams, output_options=options)
 
 
 class TypedStream(Stream):
