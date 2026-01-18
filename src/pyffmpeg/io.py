@@ -4,6 +4,7 @@ from pyffmpeg.node import (
     FilterMultiOutput,
     FilterNode,
     InputNode,
+    RunnableNode,
     OutputNode,
     Stream,
     MergedOutputNode,
@@ -87,9 +88,18 @@ def input(
     return InputNode(filename, options).output_streams[0]
 
 
-def merge_outputs(*outputs: OutputNode) -> MergedOutputNode:
-    """Creates multioutput object from many outputs"""
-    return MergedOutputNode(outputs)
+def merge_outputs(*nodes: "RunnableNode") -> "MergedOutputNode":
+    """
+    Groups multiple runnable nodes (outputs or sinks) into a single execution unit.
+
+    Args:
+        *nodes (RunnableNode): Variable list of graph endpoints. Accepts both standard OutputNode
+            and SinkNode objects.
+
+    Returns:
+        MergedOutputNode: An aggregate object that can be run as a single process.
+    """
+    return MergedOutputNode(nodes)
 
 
 def get_args(
