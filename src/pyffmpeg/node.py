@@ -355,7 +355,7 @@ class Stream(GeneratedFiltersMixin):
     def __init__(self, source_node: Node):
         self.source_node: Node = source_node
         self.index: str | None = None
-        self.elemantary_streams: dict[str, TypedStream | IndexedStream] = {}
+        self.elementary_streams: dict[str, TypedStream | IndexedStream] = {}
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Stream):
@@ -367,11 +367,11 @@ class Stream(GeneratedFiltersMixin):
 
     @property
     def audio(self) -> "TypedStream":
-        return self.elemantary_streams.setdefault("a", TypedStream("audio", self))
+        return self.elementary_streams.setdefault("a", TypedStream("audio", self))
 
     @property
     def video(self) -> "TypedStream":
-        return self.elemantary_streams.setdefault("v", TypedStream("video", self))
+        return self.elementary_streams.setdefault("v", TypedStream("video", self))
 
     def __getitem__(self, key: str) -> "TypedStream | IndexedStream":
         """Allows accessing elementary stream contained in this Stream"""
@@ -381,12 +381,12 @@ class Stream(GeneratedFiltersMixin):
 
         if key in mapping:
             stream_type = mapping[key]
-            return self.elemantary_streams.setdefault(
+            return self.elementary_streams.setdefault(
                 key, TypedStream(stream_type, self)
             )
 
         if key.isdigit():
-            return self.elemantary_streams.setdefault(key, IndexedStream(self))
+            return self.elementary_streams.setdefault(key, IndexedStream(self))
 
         raise KeyError(
             f"Invalid stream key: {key!r}. Expected 'a', 'v', or a numeric index like '1'."
@@ -601,7 +601,7 @@ class GraphSorter:
                     self.current_filter_stream_index += 1
 
     def label_elementary_streams(self, stream: Stream):
-        for type, elementary_stream in stream.elemantary_streams.items():
+        for type, elementary_stream in stream.elementary_streams.items():
             elementary_stream.index = f"{stream.index}:{type}"
 
 
