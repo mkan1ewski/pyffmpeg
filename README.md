@@ -19,6 +19,12 @@ A modern, type-safe Python wrapper for FFmpeg with automatic filter generation a
 ### 🎯 Complete Type Safety
 Every filter method includes full type annotations, enabling IDE autocompletion and static type checking with tools like mypy. No more referring to external documentation or risking typos.
 
+![IDE Support](docs/overlay_vs_code.png)
+*Example of IDE autocompletion and inline documentation*
+
+![IDE Support](docs/xfade_pyffmpeg.png)
+*Example of IDE autocompletion in filter options*
+
 ### 🤖 Automatic Filter Generation
 The library dynamically generates Python bindings for all FFmpeg filters by parsing the official FFmpeg documentation. This ensures:
 - Support for nearly 500 filters out of the box
