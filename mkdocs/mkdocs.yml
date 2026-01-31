@@ -1,0 +1,16 @@
+site_name: pyffmpeg documentation
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+  - API Reference:
+      - Input/Output: api/io.md
+      - Nodes: api/nodes.md
+      - Streams: api/streams.md
+      - Filters: api/filters.md
+
+theme: material
+plugins:
+- search
+- mkdocstrings
