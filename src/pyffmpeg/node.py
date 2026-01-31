@@ -111,7 +111,37 @@ class RunnableNode(Node):
         cwd: str | None = None,
         compile_function=None,
     ) -> tuple[bytes | None, bytes | None]:
-        """Execute the ffmpeg command represented by a RunnableNode"""
+        """Execute the ffmpeg command represented by a RunnableNode synchronously.
+
+        This method compiles the graph into an FFmpeg command and runs it using
+        subprocess.run. It waits for the command to finish.
+
+        Args:
+            cmd (str | list[str]): The path to the FFmpeg executable or a command list.
+                Defaults to "ffmpeg".
+            capture_stdout (bool): If True, captures standard output and returns it.
+                Defaults to False.
+            capture_stderr (bool): If True, captures standard error and returns it.
+                Defaults to False.
+            input (bytes | None): Input data to be passed to the process's stdin.
+                Defaults to None.
+            quiet (bool): If True, passes a quiet flag to the compilation step to suppress logs.
+                Defaults to False.
+            overwrite_output (bool): If True, adds the '-y' flag to overwrite output files.
+                Defaults to False.
+            cwd (str | None): Sets the current working directory for the process.
+                Defaults to None.
+            compile_function (Callable | None): A custom function to compile the arguments.
+                If None, uses self.__class__.compile. Defaults to None.
+
+        Returns:
+            tuple[bytes | None, bytes | None]: A tuple containing (stdout, stderr).
+            If capture_stdout/stderr is False, the corresponding value will be None.
+
+        Raises:
+            TypeError: If the current instance is not a RunnableNode.
+            Error: If the FFmpeg process returns a non-zero exit code (wraps CalledProcessError).
+        """
         if not isinstance(self, RunnableNode):
             raise TypeError(f"Expected RunnableNode, got {type(self)}")
 
@@ -149,12 +179,33 @@ class RunnableNode(Node):
         pipe_stdin: bool = False,
         pipe_stdout: bool = False,
         pipe_stderr: bool = False,
-        input: bytes | None = None,
         quiet: bool = False,
         overwrite_output: bool = False,
         cwd: str | None = None,
     ) -> subprocess.Popen:
-        """Runs ffmpeg process asynchronously"""
+        """Runs the ffmpeg process asynchronously and returns a Popen object.
+
+        This method compiles the graph and starts the process using subprocess.Popen.
+        It does not wait for the process to finish.
+
+        Args:
+            cmd (str | list[str]): The path to the FFmpeg executable. Defaults to "ffmpeg".
+            pipe_stdin (bool): If True, opens a pipe for standard input (stdin=subprocess.PIPE).
+                Defaults to False.
+            pipe_stdout (bool): If True, opens a pipe for standard output (stdout=subprocess.PIPE).
+                Defaults to False.
+            pipe_stderr (bool): If True, opens a pipe for standard error (stderr=subprocess.PIPE).
+                Defaults to False.
+            quiet (bool): If True, redirects stderr to stdout and stdout to DEVNULL.
+                Overrides pipe configurations to silence output. Defaults to False.
+            overwrite_output (bool): If True, adds the '-y' flag to overwrite output files.
+                Defaults to False.
+            cwd (str | None): Sets the current working directory for the process.
+                Defaults to None.
+
+        Returns:
+            subprocess.Popen: A handle to the running FFmpeg process.
+        """
         args = self.compile(cmd, overwrite_output=overwrite_output)
         stdin_stream = subprocess.PIPE if pipe_stdin else None
         stdout_stream = subprocess.PIPE if pipe_stdout else None
