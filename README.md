@@ -19,10 +19,10 @@ A modern, type-safe Python wrapper for FFmpeg with automatic filter generation a
 ### 🎯 Complete Type Safety
 Every filter method includes full type annotations, enabling IDE autocompletion and static type checking with tools like mypy. No more referring to external documentation or risking typos.
 
-![IDE Support](docs/overlay_vs_code.png)
+![IDE Support](https://raw.githubusercontent.com/mkan1ewski/pyffmpeg/main/docs/overlay_vs_code.png)
 *Example of IDE autocompletion and inline documentation*
 
-![IDE Support](docs/xfade_pyffmpeg.png)
+![IDE Support](https://raw.githubusercontent.com/mkan1ewski/pyffmpeg/main/docs/xfade_pyffmpeg.png)
 *Example of IDE autocompletion in filter options*
 
 ### 🤖 Automatic Filter Generation
@@ -113,7 +113,7 @@ overlayed = (
 overlayed.output('result.png').run()
 ```
 
-![Sports Broadcast Example](docs/example_edit.png)
+![Sports Broadcast Example](https://raw.githubusercontent.com/mkan1ewski/pyffmpeg/main/docs/example_edit.png)
 *Example: Basketball court with overlaid scoreboard and player highlight (Image source: [GeekWire](https://cdn.geekwire.com/wp-content/uploads/2025/10/Screenshot-2025-10-24-at-5.13.46-PM.png))*
 
 ## Advanced Features
