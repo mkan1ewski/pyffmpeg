@@ -438,10 +438,23 @@ class Stream(GeneratedFiltersMixin):
 
     @property
     def audio(self) -> "TypedStream":
+        """Accesses the audio elementary stream component.
+
+        Returns:
+            TypedStream: An object representing the audio component of this stream.
+        """
         return self.elementary_streams.setdefault("a", TypedStream("audio", self))
 
     @property
     def video(self) -> "TypedStream":
+        """Accesses the video elementary stream component.
+
+        If the video stream wrapper has not been accessed before for this node,
+        creates and caches a new 'TypedStream' instance representing video.
+
+        Returns:
+            TypedStream: An object representing the video component of this stream.
+        """
         return self.elementary_streams.setdefault("v", TypedStream("video", self))
 
     def __getitem__(self, key: str) -> "TypedStream | IndexedStream":
@@ -464,9 +477,19 @@ class Stream(GeneratedFiltersMixin):
         )
 
     @property
-    def node(self):
-        """Returns the list of output streams produced by the filter node
-        that generated this stream."""
+    def node(self) -> list["Stream"]:
+        """Retrieves all output streams produced by the source filter node.
+
+        This property allows access to the complete list of outputs generated
+        by the filter that created this specific stream instance (accessing sibling streams).
+
+        Returns:
+            list[Stream]: A list of all output streams from the parent FilterNode.
+
+        Raises:
+            AttributeError: If the source node is not a FilterNode (e.g., it is
+                an InputNode), as it does not perform filtering operations.
+        """
         if not isinstance(self.source_node, FilterNode):
             raise AttributeError(".node is only available on filter outputs")
         return self.source_node.output_streams
