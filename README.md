@@ -43,13 +43,13 @@ Includes a dedicated compatibility layer (`_compat`) that allows existing ffmpeg
 ## Installation
 
 ```bash
-pip install py-ffmpeg
+pip install wut-ffmpeg
 ```
 
 Or using uv (recommended):
 
 ```bash
-uv add py-ffmpeg
+uv add wut-ffmpeg
 ```
 
 ## Quick Start
