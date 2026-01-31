@@ -60,8 +60,17 @@ class RunnableNode(Node):
                 args.extend([f"-{flag_name}", str(value)])
         return args
 
-    def get_args(self, overwrite_output=False, **global_options) -> list[str]:
-        """Builds command arguments"""
+    def get_args(self, overwrite_output: bool = False, **global_options) -> list[str]:
+        """Builds a list of command arguments based on the current graph.
+
+        Args:
+            overwrite_output (bool): If True, adds the '-y' flag to overwrite output files without asking.
+                Defaults to False.
+            **global_options: Arbitrary global options passed to FFmpeg (e.g., v="quiet" becomes -v quiet).
+
+        Returns:
+            list[str]: A list of command-line arguments (excluding the executable name).
+        """
         global_options["overwrite_output"] = overwrite_output
         kwargs_args = self._compile_global_kwargs(global_options)
         sorter = GraphSorter(self)
@@ -73,7 +82,18 @@ class RunnableNode(Node):
     def compile(
         self, cmd: str = "ffmpeg", overwrite_output: bool = False, **global_options
     ) -> list[str]:
-        """Builds command line arguments for invoking ffmpeg"""
+        """Builds the full command line arguments for invoking FFmpeg, including the executable.
+
+        Args:
+            cmd (str): The path to the FFmpeg executable or command list.
+                Defaults to "ffmpeg".
+            overwrite_output (bool): If True, adds the '-y' flag to overwrite output files.
+                Defaults to False.
+            **global_options: Additional global options.
+
+        Returns:
+            list[str]: The complete command line arguments ready for execution.
+        """
         if isinstance(cmd, str):
             cmd = [cmd]
         elif not isinstance(cmd, list):
