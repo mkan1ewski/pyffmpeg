@@ -18,7 +18,7 @@ TYPE_MAPPING = {
 
 METHOD_TEMPLATE = """
     def {{ name }}(self, {{ params|join(', ') }}) -> {{ return_type }}:
-        \"\"\"{{ description }}
+        r\"\"\"{{ description }}
 
         {%- if input_docs or option_docs %}
 
@@ -60,7 +60,7 @@ METHOD_TEMPLATE = """
 
 SOURCE_TEMPLATE = """
 def {{ name }}({{ params|join(', ') }}) -> {{ return_type }}:
-    \"\"\"{{ description }}
+    r\"\"\"{{ description }}
 
     {%- if option_docs %}
     Args:

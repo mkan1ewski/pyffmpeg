@@ -29,7 +29,7 @@ class GeneratedFiltersMixin:
         zpos: float | None = None,
         length: int | None = None,
     ) -> "Stream":
-        """Convert input audio to 3d scope video output.
+        r"""Convert input audio to 3d scope video output.
 
         Args:
             rate (str): set video rate
@@ -113,7 +113,7 @@ class GeneratedFiltersMixin:
         out_mode: Literal["i", "d", "o", "n", "e"] | int | None = None,
         precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
-        """Apply Affine Projection algorithm to first audio stream.
+        r"""Apply Affine Projection algorithm to first audio stream.
 
         Args:
             desired_stream (Stream): Input audio stream.
@@ -165,7 +165,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def abench(self, action: Literal["start", "stop"] | int | None = None) -> "Stream":
-        """Benchmark part of a filtergraph.
+        r"""Benchmark part of a filtergraph.
 
         Args:
             action (int | str): set action (from 0 to 1)
@@ -197,7 +197,7 @@ class GeneratedFiltersMixin:
         mode: Literal["bars", "trace"] | int | None = None,
         m: Literal["bars", "trace"] | int | None = None,
     ) -> "Stream":
-        """Convert input audio to audio bit scope video output.
+        r"""Convert input audio to audio bit scope video output.
 
         Args:
             rate (str): set video rate
@@ -255,7 +255,7 @@ class GeneratedFiltersMixin:
         all_channel_counts: Literal["sample_formats", "samplerates", "channel_layouts"]
         | None = None,
     ) -> "SinkNode":
-        """Buffer audio frames, and make them available to the end of the filter graph.
+        r"""Buffer audio frames, and make them available to the end of the filter graph.
 
         Args:
             sample_fmts (str): set the supported sample formats
@@ -302,7 +302,7 @@ class GeneratedFiltersMixin:
         level_sc: float | None = None,
         mix: float | None = None,
     ) -> "Stream":
-        """Audio compressor.
+        r"""Audio compressor.
 
         Args:
             level_in (float): set input gain (from 0.015625 to 64)
@@ -377,7 +377,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def acontrast(self, contrast: float | None = None) -> "Stream":
-        """Simple audio dynamic range compression/expansion filter.
+        r"""Simple audio dynamic range compression/expansion filter.
 
         Args:
             contrast (float): set contrast (from 0 to 100)
@@ -398,7 +398,7 @@ class GeneratedFiltersMixin:
     def acopy(
         self,
     ) -> "Stream":
-        """Copy the input audio unchanged to the output.
+        r"""Copy the input audio unchanged to the output.
 
         Returns:
             "Stream": The output stream.
@@ -529,7 +529,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Cross fade two input audio streams.
+        r"""Cross fade two input audio streams.
 
         Args:
             crossfade1_stream (Stream): Input audio stream.
@@ -700,7 +700,7 @@ class GeneratedFiltersMixin:
         gain: str | None = None,
         precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "FilterMultiOutput":
-        """Split audio into per-bands streams.
+        r"""Split audio into per-bands streams.
 
         Args:
             split (str): set split frequencies
@@ -765,7 +765,7 @@ class GeneratedFiltersMixin:
         lforange: float | None = None,
         lforate: float | None = None,
     ) -> "Stream":
-        """Reduce audio bit resolution.
+        r"""Reduce audio bit resolution.
 
         Args:
             level_in (float): set level in (from 0.015625 to 64)
@@ -833,7 +833,7 @@ class GeneratedFiltersMixin:
         preroll: str | None = None,
         buffer: str | None = None,
     ) -> "Stream":
-        """Delay filtering to match a cue.
+        r"""Delay filtering to match a cue.
 
         Args:
             cue (str): cue unix timestamp in microseconds (from 0 to I64_MAX)
@@ -868,7 +868,7 @@ class GeneratedFiltersMixin:
         qoffset: str | None = None,
         clear: bool | None = None,
     ) -> "Stream":
-        """Add region of interest to frame.
+        r"""Add region of interest to frame.
 
         Args:
             x (str): Region distance from left edge of frame.
@@ -921,7 +921,7 @@ class GeneratedFiltersMixin:
         method: Literal["add", "a", "save", "s"] | int | None = None,
         m: Literal["add", "a", "save", "s"] | int | None = None,
     ) -> "Stream":
-        """Remove impulsive noise from input audio.
+        r"""Remove impulsive noise from input audio.
 
         Args:
             window (float): set window size (from 10 to 100)
@@ -1010,7 +1010,7 @@ class GeneratedFiltersMixin:
         method: Literal["add", "a", "save", "s"] | int | None = None,
         m: Literal["add", "a", "save", "s"] | int | None = None,
     ) -> "Stream":
-        """Remove clipping from input audio.
+        r"""Remove clipping from input audio.
 
         Args:
             window (float): set window size (from 10 to 100)
@@ -1087,7 +1087,7 @@ class GeneratedFiltersMixin:
     def adecorrelate(
         self, stages: int | None = None, seed: str | None = None
     ) -> "Stream":
-        """Apply decorrelation to input audio.
+        r"""Apply decorrelation to input audio.
 
         Args:
             stages (int): set filtering stages (from 1 to 16)
@@ -1110,7 +1110,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def adelay(self, delays: str | None = None, all: bool | None = None) -> "Stream":
-        """Delay one or more audio channels.
+        r"""Delay one or more audio channels.
 
         Args:
             delays (str): set list of delays for each channel
@@ -1136,7 +1136,7 @@ class GeneratedFiltersMixin:
         level: float | None = None,
         type: Literal["dc", "ac", "square", "pulse"] | int | None = None,
     ) -> "Stream":
-        """Remedy denormals by adding extremely low-level noise.
+        r"""Remedy denormals by adding extremely low-level noise.
 
         Args:
             level (float): set level (from -451 to -90)
@@ -1167,7 +1167,7 @@ class GeneratedFiltersMixin:
     def aderivative(
         self,
     ) -> "Stream":
-        """Compute derivative of input audio.
+        r"""Compute derivative of input audio.
 
         Returns:
             "Stream": The output stream.
@@ -1198,7 +1198,7 @@ class GeneratedFiltersMixin:
         rate: str | None = None,
         r: str | None = None,
     ) -> "Stream":
-        """Draw a graph using input audio metadata.
+        r"""Draw a graph using input audio metadata.
 
         Args:
             m1 (str): set 1st metadata key
@@ -1295,7 +1295,7 @@ class GeneratedFiltersMixin:
         release: float | None = None,
         channels: str | None = None,
     ) -> "Stream":
-        """Audio Spectral Dynamic Range Controller.
+        r"""Audio Spectral Dynamic Range Controller.
 
         Args:
             transfer (str): set the transfer expression
@@ -1345,7 +1345,7 @@ class GeneratedFiltersMixin:
         auto: Literal["disabled", "off", "on", "adaptive"] | int | None = None,
         precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
-        """Apply Dynamic Equalization of input audio.
+        r"""Apply Dynamic Equalization of input audio.
 
         Args:
             threshold (float): set detection threshold (from 0 to 100)
@@ -1451,7 +1451,7 @@ class GeneratedFiltersMixin:
     def adynamicsmooth(
         self, sensitivity: float | None = None, basefreq: float | None = None
     ) -> "Stream":
-        """Apply Dynamic Smoothing of input audio.
+        r"""Apply Dynamic Smoothing of input audio.
 
         Args:
             sensitivity (float): set smooth sensitivity (from 0 to 1e+06)
@@ -1480,7 +1480,7 @@ class GeneratedFiltersMixin:
         delays: str | None = None,
         decays: str | None = None,
     ) -> "Stream":
-        """Add echoing to the audio.
+        r"""Add echoing to the audio.
 
         Args:
             in_gain (float): set signal input gain (from 0 to 1)
@@ -1519,7 +1519,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Audio emphasis.
+        r"""Audio emphasis.
 
         Args:
             level_in (float): set input gain (from 0 to 64)
@@ -1570,7 +1570,7 @@ class GeneratedFiltersMixin:
         channel_layout: str | None = None,
         c: str | None = None,
     ) -> "Stream":
-        """Filter audio signal according to a specified expression.
+        r"""Filter audio signal according to a specified expression.
 
         Args:
             exprs (str): set the '|'-separated list of channels expressions
@@ -1604,7 +1604,7 @@ class GeneratedFiltersMixin:
         ceil: float | None = None,
         listen: bool | None = None,
     ) -> "Stream":
-        """Enhance high frequency part of audio.
+        r"""Enhance high frequency part of audio.
 
         Args:
             level_in (float): set level in (from 0 to 64)
@@ -1721,7 +1721,7 @@ class GeneratedFiltersMixin:
         silence: float | None = None,
         unity: float | None = None,
     ) -> "Stream":
-        """Fade in/out input audio.
+        r"""Fade in/out input audio.
 
         Args:
             type (int | str): set the fade direction (from 0 to 1)
@@ -1890,7 +1890,7 @@ class GeneratedFiltersMixin:
         gain_smooth: int | None = None,
         gs: int | None = None,
     ) -> "Stream":
-        """Denoise audio samples using FFT.
+        r"""Denoise audio samples using FFT.
 
         Args:
             noise_reduction (float): set the noise reduction (from 0.01 to 97)
@@ -2109,7 +2109,7 @@ class GeneratedFiltersMixin:
         | None = None,
         overlap: float | None = None,
     ) -> "Stream":
-        """Apply arbitrary expressions to samples in frequency domain.
+        r"""Apply arbitrary expressions to samples in frequency domain.
 
         Args:
             real (str): set channels real expressions
@@ -2190,7 +2190,7 @@ class GeneratedFiltersMixin:
         precision: Literal["auto", "float", "double"] | int | None = None,
         irload: Literal["init", "access"] | int | None = None,
     ) -> "Stream":
-        """Apply Finite Impulse Response filter with supplied coefficients in additional stream(s).
+        r"""Apply Finite Impulse Response filter with supplied coefficients in additional stream(s).
 
         Args:
             *streams (Stream): One or more input streams.
@@ -2305,7 +2305,7 @@ class GeneratedFiltersMixin:
     def aformat(
         self,
     ) -> "Stream":
-        """Convert the input audio to one of the specified formats.
+        r"""Convert the input audio to one of the specified formats.
 
         Returns:
             "Stream": The output stream.
@@ -2320,7 +2320,7 @@ class GeneratedFiltersMixin:
         level: float | None = None,
         order: int | None = None,
     ) -> "Stream":
-        """Apply frequency shifting to input audio.
+        r"""Apply frequency shifting to input audio.
 
         Args:
             shift (float): set frequency shift (from -2.14748e+09 to INT_MAX)
@@ -2359,7 +2359,7 @@ class GeneratedFiltersMixin:
         samples: int | None = None,
         softness: float | None = None,
     ) -> "Stream":
-        """Denoise audio stream using Wavelets.
+        r"""Denoise audio stream using Wavelets.
 
         Args:
             sigma (float): set noise sigma (from 0 to 1)
@@ -2429,7 +2429,7 @@ class GeneratedFiltersMixin:
         link: Literal["average", "maximum"] | int | None = None,
         level_sc: float | None = None,
     ) -> "Stream":
-        """Audio gate.
+        r"""Audio gate.
 
         Args:
             level_in (float): set input level (from 0.015625 to 64)
@@ -2558,7 +2558,7 @@ class GeneratedFiltersMixin:
         rate: str | None = None,
         r: str | None = None,
     ) -> "Stream":
-        """Show various filtergraph stats.
+        r"""Show various filtergraph stats.
 
         Args:
             size (str): set monitor size
@@ -2682,7 +2682,7 @@ class GeneratedFiltersMixin:
         slide: Literal["replace", "scroll"] | int | None = None,
         hmode: Literal["abs", "sign"] | int | None = None,
     ) -> "Stream":
-        """Convert input audio to histogram video output.
+        r"""Convert input audio to histogram video output.
 
         Args:
             dmode (int | str): set method to display channels (from 0 to 1)
@@ -2787,7 +2787,7 @@ class GeneratedFiltersMixin:
         size: str | None = None,
         rate: str | None = None,
     ) -> "FilterMultiOutput":
-        """Apply Infinite Impulse Response filter with supplied coefficients.
+        r"""Apply Infinite Impulse Response filter with supplied coefficients.
 
         Args:
             zeros (str): set B/numerator/zeros/reflection coefficients
@@ -2928,7 +2928,7 @@ class GeneratedFiltersMixin:
     def aintegral(
         self,
     ) -> "Stream":
-        """Compute integral of input audio.
+        r"""Compute integral of input audio.
 
         Returns:
             "Stream": The output stream.
@@ -2944,7 +2944,7 @@ class GeneratedFiltersMixin:
         n: int | None = None,
         duration: Literal["longest", "shortest", "first"] | int | None = None,
     ) -> "Stream":
-        """Temporally interleave audio inputs.
+        r"""Temporally interleave audio inputs.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -2979,7 +2979,7 @@ class GeneratedFiltersMixin:
     def alatency(
         self,
     ) -> "Stream":
-        """Report audio filtering latency.
+        r"""Report audio filtering latency.
 
         Returns:
             "Stream": The output stream.
@@ -3000,7 +3000,7 @@ class GeneratedFiltersMixin:
         level: bool | None = None,
         latency: bool | None = None,
     ) -> "Stream":
-        """Audio lookahead limiter.
+        r"""Audio lookahead limiter.
 
         Args:
             level_in (float): set input level (from 0.015625 to 64)
@@ -3075,7 +3075,7 @@ class GeneratedFiltersMixin:
         precision: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
         r: Literal["auto", "s16", "s32", "f32", "f64"] | int | None = None,
     ) -> "Stream":
-        """Apply a two-pole all-pass filter.
+        r"""Apply a two-pole all-pass filter.
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
@@ -3214,7 +3214,7 @@ class GeneratedFiltersMixin:
         start: str | None = None,
         time: str | None = None,
     ) -> "Stream":
-        """Loop audio samples.
+        r"""Loop audio samples.
 
         Args:
             loop (int): number of loops (from -1 to INT_MAX)
@@ -3247,7 +3247,7 @@ class GeneratedFiltersMixin:
     def alphaextract(
         self,
     ) -> "Stream":
-        """Extract an alpha channel as a grayscale image component.
+        r"""Extract an alpha channel as a grayscale image component.
 
         Returns:
             "Stream": The output stream.
@@ -3257,7 +3257,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def alphamerge(self, alpha_stream: "Stream") -> "Stream":
-        """Copy the luma value of the second input into the alpha channel of the first input.
+        r"""Copy the luma value of the second input into the alpha channel of the first input.
 
         Args:
             alpha_stream (Stream): Input video stream.
@@ -3270,7 +3270,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def amerge(self, *streams: "Stream", inputs: int | None = None) -> "Stream":
-        """Merge two or more audio streams into a single multi-channel stream.
+        r"""Merge two or more audio streams into a single multi-channel stream.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -3303,7 +3303,7 @@ class GeneratedFiltersMixin:
         file: str | None = None,
         direct: bool | None = None,
     ) -> "Stream":
-        """Manipulate audio frame metadata.
+        r"""Manipulate audio frame metadata.
 
         Args:
             mode (int | str): set a mode of operation (from 0 to 4)
@@ -3366,7 +3366,7 @@ class GeneratedFiltersMixin:
         weights: str | None = None,
         normalize: bool | None = None,
     ) -> "Stream":
-        """Audio mixing.
+        r"""Audio mixing.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -3416,7 +3416,7 @@ class GeneratedFiltersMixin:
         high: float | None = None,
         planes: str | None = None,
     ) -> "Stream":
-        """Amplify changes between successive video frames.
+        r"""Amplify changes between successive video frames.
 
         Args:
             radius (int): set radius (from 1 to 63)
@@ -3459,7 +3459,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def amultiply(self, multiply1_stream: "Stream") -> "Stream":
-        """Multiply two audio streams.
+        r"""Multiply two audio streams.
 
         Args:
             multiply1_stream (Stream): Input audio stream.
@@ -3480,7 +3480,7 @@ class GeneratedFiltersMixin:
         fscale: Literal["lin", "log"] | int | None = None,
         colors: str | None = None,
     ) -> "FilterMultiOutput":
-        """Apply high-order audio parametric multi band equalizer.
+        r"""Apply high-order audio parametric multi band equalizer.
 
         Args:
             params (str): No description available.
@@ -3534,7 +3534,7 @@ class GeneratedFiltersMixin:
         smooth: float | None = None,
         m: float | None = None,
     ) -> "Stream":
-        """Reduce broadband noise from stream using Non-Local Means.
+        r"""Reduce broadband noise from stream using Non-Local Means.
 
         Args:
             strength (float): set denoising strength (from 1e-05 to 10000)
@@ -3608,7 +3608,7 @@ class GeneratedFiltersMixin:
         out_mode: Literal["i", "d", "o", "n", "e"] | int | None = None,
         precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
-        """Apply Normalized Least-Mean-Fourth algorithm to first audio stream.
+        r"""Apply Normalized Least-Mean-Fourth algorithm to first audio stream.
 
         Args:
             desired_stream (Stream): Input audio stream.
@@ -3669,7 +3669,7 @@ class GeneratedFiltersMixin:
         out_mode: Literal["i", "d", "o", "n", "e"] | int | None = None,
         precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
-        """Apply Normalized Least-Mean-Squares algorithm to first audio stream.
+        r"""Apply Normalized Least-Mean-Squares algorithm to first audio stream.
 
         Args:
             desired_stream (Stream): Input audio stream.
@@ -3723,7 +3723,7 @@ class GeneratedFiltersMixin:
     def anull(
         self,
     ) -> "Stream":
-        """Pass the source unchanged to the output.
+        r"""Pass the source unchanged to the output.
 
         Returns:
             "Stream": The output stream.
@@ -3735,7 +3735,7 @@ class GeneratedFiltersMixin:
     def anullsink(
         self,
     ) -> "SinkNode":
-        """Do absolutely nothing with the input audio.
+        r"""Do absolutely nothing with the input audio.
 
         Returns:
             "SinkNode": A SinkNode representing the sink (terminal node).
@@ -3752,7 +3752,7 @@ class GeneratedFiltersMixin:
         pad_dur: str | None = None,
         whole_dur: str | None = None,
     ) -> "Stream":
-        """Pad audio with silence.
+        r"""Pad audio with silence.
 
         Args:
             packet_size (int): set silence packet size (from 0 to INT_MAX)
@@ -3791,7 +3791,7 @@ class GeneratedFiltersMixin:
         mode: Literal["none", "ro", "rw", "toggle", "random"] | int | None = None,
         seed: str | None = None,
     ) -> "Stream":
-        """Set permissions for the output audio frame.
+        r"""Set permissions for the output audio frame.
 
         Args:
             mode (int | str): select permissions mode (from 0 to 4)
@@ -3839,7 +3839,7 @@ class GeneratedFiltersMixin:
         duration: str | None = None,
         d: str | None = None,
     ) -> "FilterMultiOutput":
-        """Convert input audio to phase meter video output.
+        r"""Convert input audio to phase meter video output.
 
         Args:
             rate (str): set video rate
@@ -3926,7 +3926,7 @@ class GeneratedFiltersMixin:
         speed: float | None = None,
         type: Literal["triangular", "t", "sinusoidal", "s"] | int | None = None,
     ) -> "Stream":
-        """Add a phasing effect to the audio.
+        r"""Add a phasing effect to the audio.
 
         Args:
             in_gain (float): set input gain (from 0 to 1)
@@ -3976,7 +3976,7 @@ class GeneratedFiltersMixin:
         level: float | None = None,
         order: int | None = None,
     ) -> "Stream":
-        """Apply phase shifting to input audio.
+        r"""Apply phase shifting to input audio.
 
         Args:
             shift (float): set phase shift (from -1 to 1)
@@ -4003,7 +4003,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def apsnr(self, input1_stream: "Stream") -> "Stream":
-        """Measure Audio Peak Signal-to-Noise Ratio.
+        r"""Measure Audio Peak Signal-to-Noise Ratio.
 
         Args:
             input1_stream (Stream): Input audio stream.
@@ -4025,7 +4025,7 @@ class GeneratedFiltersMixin:
         iterations: int | None = None,
         level: bool | None = None,
     ) -> "Stream":
-        """Audio Psychoacoustic Clipper.
+        r"""Audio Psychoacoustic Clipper.
 
         Args:
             level_in (float): set input level (from 0.015625 to 64)
@@ -4083,7 +4083,7 @@ class GeneratedFiltersMixin:
         ms: int | None = None,
         hz: float | None = None,
     ) -> "Stream":
-        """Audio pulsator.
+        r"""Audio pulsator.
 
         Args:
             level_in (float): set input gain (from 0.015625 to 64)
@@ -4156,7 +4156,7 @@ class GeneratedFiltersMixin:
     def arealtime(
         self, limit: str | None = None, speed: float | None = None
     ) -> "Stream":
-        """Slow down filtering to match realtime.
+        r"""Slow down filtering to match realtime.
 
         Args:
             limit (str): sleep time limit
@@ -4179,7 +4179,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def aresample(self, sample_rate: int | None = None) -> "Stream":
-        """Resample audio data.
+        r"""Resample audio data.
 
         Args:
             sample_rate (int): (from 0 to INT_MAX)
@@ -4200,7 +4200,7 @@ class GeneratedFiltersMixin:
     def areverse(
         self,
     ) -> "Stream":
-        """Reverse an audio clip.
+        r"""Reverse an audio clip.
 
         Returns:
             "Stream": The output stream.
@@ -4218,7 +4218,7 @@ class GeneratedFiltersMixin:
         out_mode: Literal["i", "d", "o", "n", "e"] | int | None = None,
         precision: Literal["auto", "float", "double"] | int | None = None,
     ) -> "Stream":
-        """Apply Recursive Least Squares algorithm to first audio stream.
+        r"""Apply Recursive Least Squares algorithm to first audio stream.
 
         Args:
             desired_stream (Stream): Input audio stream.
@@ -4268,7 +4268,7 @@ class GeneratedFiltersMixin:
     def arnndn(
         self, model: str | None = None, m: str | None = None, mix: float | None = None
     ) -> "Stream":
-        """Reduce noise from speech using Recurrent Neural Networks.
+        r"""Reduce noise from speech using Recurrent Neural Networks.
 
         Args:
             model (str): set model name
@@ -4293,7 +4293,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def asdr(self, input1_stream: "Stream") -> "Stream":
-        """Measure Audio Signal-to-Distortion Ratio.
+        r"""Measure Audio Signal-to-Distortion Ratio.
 
         Args:
             input1_stream (Stream): Input audio stream.
@@ -4308,7 +4308,7 @@ class GeneratedFiltersMixin:
     def asegment(
         self, timestamps: str | None = None, samples: str | None = None
     ) -> "FilterMultiOutput":
-        """Segment audio stream.
+        r"""Segment audio stream.
 
         Args:
             timestamps (str): timestamps of input at which to split input
@@ -4335,7 +4335,7 @@ class GeneratedFiltersMixin:
         outputs: int | None = None,
         n: int | None = None,
     ) -> "FilterMultiOutput":
-        """Select audio frames to pass in output.
+        r"""Select audio frames to pass in output.
 
         Args:
             expr (str): set an expression to use for selecting frames
@@ -4372,7 +4372,7 @@ class GeneratedFiltersMixin:
         filename: str | None = None,
         f: str | None = None,
     ) -> "Stream":
-        """Send commands to filters.
+        r"""Send commands to filters.
 
         Args:
             commands (str): set commands
@@ -4405,7 +4405,7 @@ class GeneratedFiltersMixin:
         pad: bool | None = None,
         p: bool | None = None,
     ) -> "Stream":
-        """Set the number of samples for each output audio frames.
+        r"""Set the number of samples for each output audio frames.
 
         Args:
             nb_out_samples (int): set the number of per-frame output samples (from 1 to INT_MAX)
@@ -4436,7 +4436,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def asetpts(self, expr: str | None = None) -> "Stream":
-        """Set PTS for the output audio frame.
+        r"""Set PTS for the output audio frame.
 
         Args:
             expr (str): Expression determining the frame timestamp
@@ -4457,7 +4457,7 @@ class GeneratedFiltersMixin:
     def asetrate(
         self, sample_rate: int | None = None, r: int | None = None
     ) -> "Stream":
-        """Change the sample rate without altering the data.
+        r"""Change the sample rate without altering the data.
 
         Args:
             sample_rate (int): set the sample rate (from 1 to INT_MAX)
@@ -4480,7 +4480,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def asettb(self, expr: str | None = None, tb: str | None = None) -> "Stream":
-        """Set timebase for the audio output link.
+        r"""Set timebase for the audio output link.
 
         Args:
             expr (str): set expression determining the output timebase
@@ -4505,7 +4505,7 @@ class GeneratedFiltersMixin:
     def ashowinfo(
         self,
     ) -> "Stream":
-        """Show textual information for each audio frame.
+        r"""Show textual information for each audio frame.
 
         Returns:
             "Stream": The output stream.
@@ -4551,7 +4551,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Manipulate audio frame side data.
+        r"""Manipulate audio frame side data.
 
         Args:
             mode (int | str): set a mode of operation (from 0 to 1)
@@ -4609,7 +4609,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def asisdr(self, input1_stream: "Stream") -> "Stream":
-        """Measure Audio Scale-Invariant Signal-to-Distortion Ratio.
+        r"""Measure Audio Scale-Invariant Signal-to-Distortion Ratio.
 
         Args:
             input1_stream (Stream): Input audio stream.
@@ -4633,7 +4633,7 @@ class GeneratedFiltersMixin:
         param: float | None = None,
         oversample: int | None = None,
     ) -> "Stream":
-        """Audio Soft Clipper.
+        r"""Audio Soft Clipper.
 
         Args:
             type (int | str): set softclip type (from -1 to 7)
@@ -4727,7 +4727,7 @@ class GeneratedFiltersMixin:
         ]
         | None = None,
     ) -> "Stream":
-        """Show frequency domain statistics about audio frames.
+        r"""Show frequency domain statistics about audio frames.
 
         Args:
             win_size (int): set the window size (from 32 to 65536)
@@ -4799,7 +4799,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def asplit(self, outputs: int | None = None) -> "FilterMultiOutput":
-        """Pass on the audio input to N audio outputs.
+        r"""Pass on the audio input to N audio outputs.
 
         Args:
             outputs (int): set number of outputs (from 1 to INT_MAX)
@@ -4826,7 +4826,7 @@ class GeneratedFiltersMixin:
         alpha: bool | None = None,
         shaping: Literal["auto", "simple", "complex"] | int | None = None,
     ) -> "Stream":
-        """Render ASS subtitles onto input video using the libass library.
+        r"""Render ASS subtitles onto input video using the libass library.
 
         Args:
             filename (str): set the filename of file to read
@@ -4933,7 +4933,7 @@ class GeneratedFiltersMixin:
         ]
         | None = None,
     ) -> "Stream":
-        """Show time domain statistics about audio frames.
+        r"""Show time domain statistics about audio frames.
 
         Args:
             length (float): set the window length (from 0 to 10)
@@ -5030,7 +5030,7 @@ class GeneratedFiltersMixin:
     def astreamselect(
         self, *streams: "Stream", inputs: int | None = None, map: str | None = None
     ) -> "FilterMultiOutput":
-        """Select audio streams
+        r"""Select audio streams
 
         Args:
             *streams (Stream): One or more input streams.
@@ -5064,7 +5064,7 @@ class GeneratedFiltersMixin:
         delay: float | None = None,
         channels: str | None = None,
     ) -> "Stream":
-        """Boost subwoofer frequencies.
+        r"""Boost subwoofer frequencies.
 
         Args:
             dry (float): set dry gain (from 0 to 1)
@@ -5120,7 +5120,7 @@ class GeneratedFiltersMixin:
         order: int | None = None,
         level: float | None = None,
     ) -> "Stream":
-        """Cut subwoofer frequencies.
+        r"""Cut subwoofer frequencies.
 
         Args:
             cutoff (float): set cutoff frequency (from 2 to 200)
@@ -5152,7 +5152,7 @@ class GeneratedFiltersMixin:
         order: int | None = None,
         level: float | None = None,
     ) -> "Stream":
-        """Cut super frequencies.
+        r"""Cut super frequencies.
 
         Args:
             cutoff (float): set cutoff frequency (from 20000 to 192000)
@@ -5185,7 +5185,7 @@ class GeneratedFiltersMixin:
         qfactor: float | None = None,
         level: float | None = None,
     ) -> "Stream":
-        """Apply high order Butterworth band-pass filter.
+        r"""Apply high order Butterworth band-pass filter.
 
         Args:
             centerf (float): set center frequency (from 2 to 999999)
@@ -5222,7 +5222,7 @@ class GeneratedFiltersMixin:
         qfactor: float | None = None,
         level: float | None = None,
     ) -> "Stream":
-        """Apply high order Butterworth band-stop filter.
+        r"""Apply high order Butterworth band-stop filter.
 
         Args:
             centerf (float): set center frequency (from 2 to 999999)
@@ -5267,7 +5267,7 @@ class GeneratedFiltersMixin:
         _1s: float | None = None,
         _2s: float | None = None,
     ) -> "Stream":
-        """Apply an Adaptive Temporal Averaging Denoiser.
+        r"""Apply an Adaptive Temporal Averaging Denoiser.
 
         Args:
             _0a (float): set threshold A for 1st plane (from 0 to 0.3)
@@ -5334,7 +5334,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def atempo(self, tempo: float | None = None) -> "Stream":
-        """Adjust audio tempo.
+        r"""Adjust audio tempo.
 
         Args:
             tempo (float): set tempo scale factor (from 0.5 to 100)
@@ -5360,7 +5360,7 @@ class GeneratedFiltersMixin:
         order: int | None = None,
         level: float | None = None,
     ) -> "Stream":
-        """Apply spectral tilt to audio.
+        r"""Apply spectral tilt to audio.
 
         Args:
             freq (float): set central frequency (from 20 to 192000)
@@ -5407,7 +5407,7 @@ class GeneratedFiltersMixin:
         start_sample: str | None = None,
         end_sample: str | None = None,
     ) -> "Stream":
-        """Pick one continuous section from the input, drop the rest.
+        r"""Pick one continuous section from the input, drop the rest.
 
         Args:
             start (str): Timestamp of the first frame that should be passed
@@ -5483,7 +5483,7 @@ class GeneratedFiltersMixin:
         swap: bool | None = None,
         mirror: Literal["none", "x", "y", "xy"] | int | None = None,
     ) -> "Stream":
-        """Convert input audio to vectorscope video output.
+        r"""Convert input audio to vectorscope video output.
 
         Args:
             mode (int | str): set mode (from 0 to 2)
@@ -5606,7 +5606,7 @@ class GeneratedFiltersMixin:
         planes: int | None = None,
         sizeY: int | None = None,
     ) -> "Stream":
-        """Apply Average Blur filter.
+        r"""Apply Average Blur filter.
 
         Args:
             sizeX (int): set horizontal size (from 1 to 1024)
@@ -5638,7 +5638,7 @@ class GeneratedFiltersMixin:
         size: int | None = None,
         algo: Literal["slow", "fast", "best"] | int | None = None,
     ) -> "Stream":
-        """Cross-correlate two audio streams.
+        r"""Cross-correlate two audio streams.
 
         Args:
             axcorrelate1_stream (Stream): Input audio stream.
@@ -5667,7 +5667,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def azmq(self, bind_address: str | None = None, b: str | None = None) -> "Stream":
-        """Receive commands through ZMQ and broker them to filters.
+        r"""Receive commands through ZMQ and broker them to filters.
 
         Args:
             bind_address (str): set bind address
@@ -5695,7 +5695,7 @@ class GeneratedFiltersMixin:
         similarity: float | None = None,
         blend: float | None = None,
     ) -> "Stream":
-        """Turns a static background into transparency.
+        r"""Turns a static background into transparency.
 
         Args:
             threshold (float): set the scene change threshold (from 0 to 1)
@@ -5747,7 +5747,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Apply a two-pole Butterworth band-pass filter.
+        r"""Apply a two-pole Butterworth band-pass filter.
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
@@ -5908,7 +5908,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Apply a two-pole Butterworth band-reject filter.
+        r"""Apply a two-pole Butterworth band-reject filter.
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
@@ -6069,7 +6069,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Boost or cut lower frequencies.
+        r"""Boost or cut lower frequencies.
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
@@ -6218,7 +6218,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def bbox(self, min_val: int | None = None) -> "Stream":
-        """Compute bounding box for each frame.
+        r"""Compute bounding box for each frame.
 
         Args:
             min_val (int): set minimum luminance value for bounding box (from 0 to 65535)
@@ -6237,7 +6237,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def bench(self, action: Literal["start", "stop"] | int | None = None) -> "Stream":
-        """Benchmark part of a filtergraph.
+        r"""Benchmark part of a filtergraph.
 
         Args:
             action (int | str): set action (from 0 to 1)
@@ -6265,7 +6265,7 @@ class GeneratedFiltersMixin:
         sigmaR: float | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Apply Bilateral filter.
+        r"""Apply Bilateral filter.
 
         Args:
             sigmaS (float): set spatial sigma (from 0 to 512)
@@ -6316,7 +6316,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Apply a biquad IIR filter with the given coefficients.
+        r"""Apply a biquad IIR filter with the given coefficients.
 
         Args:
             a0 (float): (from INT_MIN to INT_MAX)
@@ -6437,7 +6437,7 @@ class GeneratedFiltersMixin:
     def bitplanenoise(
         self, bitplane: int | None = None, filter: bool | None = None
     ) -> "Stream":
-        """Measure bit plane noise.
+        r"""Measure bit plane noise.
 
         Args:
             bitplane (int): set bit plane to use for measuring noise (from 1 to 16)
@@ -6469,7 +6469,7 @@ class GeneratedFiltersMixin:
         pix_th: float | None = None,
         alpha: bool | None = None,
     ) -> "Stream":
-        """Detect video intervals that are (almost) black.
+        r"""Detect video intervals that are (almost) black.
 
         Args:
             d (float): set minimum detected black duration in seconds (from 0 to DBL_MAX)
@@ -6517,7 +6517,7 @@ class GeneratedFiltersMixin:
         threshold: int | None = None,
         thresh: int | None = None,
     ) -> "Stream":
-        """Detect frames that are (almost) black.
+        r"""Detect frames that are (almost) black.
 
         Args:
             amount (int): percentage of the pixels that have to be below the threshold for the frame to be considered black (from 0 to 100)
@@ -6787,7 +6787,7 @@ class GeneratedFiltersMixin:
         c3_opacity: float | None = None,
         all_opacity: float | None = None,
     ) -> "Stream":
-        """Blend two video frames into each other.
+        r"""Blend two video frames into each other.
 
         Args:
             bottom_stream (Stream): Input video stream.
@@ -7083,7 +7083,7 @@ class GeneratedFiltersMixin:
         period_max: int | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Blockdetect filter.
+        r"""Blockdetect filter.
 
         Args:
             period_min (int): Minimum period to search for (from 2 to 32)
@@ -7119,7 +7119,7 @@ class GeneratedFiltersMixin:
         block_height: int | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Blurdetect filter.
+        r"""Blurdetect filter.
 
         Args:
             high (float): set high threshold (from 0 to 1)
@@ -7176,7 +7176,7 @@ class GeneratedFiltersMixin:
         ref: bool | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Block-Matching 3D denoiser.
+        r"""Block-Matching 3D denoiser.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -7254,7 +7254,7 @@ class GeneratedFiltersMixin:
         alpha_power: int | None = None,
         ap: int | None = None,
     ) -> "Stream":
-        """Blur the input.
+        r"""Blur the input.
 
         Args:
             luma_radius (str): Radius of the luma blurring box
@@ -7319,7 +7319,7 @@ class GeneratedFiltersMixin:
         color_ranges: Literal["pixel_formats", "colorspaces", "colorranges"]
         | None = None,
     ) -> "SinkNode":
-        """Buffer video frames, and make them available to the end of the filter graph.
+        r"""Buffer video frames, and make them available to the end of the filter graph.
 
         Args:
             pix_fmts (str): set the supported pixel formats
@@ -7353,7 +7353,7 @@ class GeneratedFiltersMixin:
         parity: Literal["tff", "bff", "auto"] | int | None = None,
         deint: Literal["all", "interlaced"] | int | None = None,
     ) -> "Stream":
-        """Deinterlace the input image.
+        r"""Deinterlace the input image.
 
         Args:
             mode (int | str): specify the interlacing mode (from 0 to 1)
@@ -7393,7 +7393,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def cas(self, strength: float | None = None, planes: str | None = None) -> "Stream":
-        """Contrast Adaptive Sharpen.
+        r"""Contrast Adaptive Sharpen.
 
         Args:
             strength (float): set the sharpening strength (from 0 to 1)
@@ -7418,7 +7418,7 @@ class GeneratedFiltersMixin:
     def ccrepack(
         self,
     ) -> "Stream":
-        """Repack CEA-708 closed caption metadata
+        r"""Repack CEA-708 closed caption metadata
 
         Returns:
             "Stream": The output stream.
@@ -7430,7 +7430,7 @@ class GeneratedFiltersMixin:
     def channelmap(
         self, map: str | None = None, channel_layout: str | None = None
     ) -> "Stream":
-        """Remap audio channels.
+        r"""Remap audio channels.
 
         Args:
             map (str): A comma-separated list of input channel numbers in output order.
@@ -7453,7 +7453,7 @@ class GeneratedFiltersMixin:
     def channelsplit(
         self, channel_layout: str | None = None, channels: str | None = None
     ) -> "FilterMultiOutput":
-        """Split audio into per-channel streams.
+        r"""Split audio into per-channel streams.
 
         Args:
             channel_layout (str): Input channel layout.
@@ -7484,7 +7484,7 @@ class GeneratedFiltersMixin:
         speeds: str | None = None,
         depths: str | None = None,
     ) -> "Stream":
-        """Add a chorus effect to the audio.
+        r"""Add a chorus effect to the audio.
 
         Args:
             in_gain (float): set input gain (from 0 to 1)
@@ -7525,7 +7525,7 @@ class GeneratedFiltersMixin:
         blend: float | None = None,
         yuv: bool | None = None,
     ) -> "Stream":
-        """Turns a certain color range into gray.
+        r"""Turns a certain color range into gray.
 
         Args:
             color (str): set the chromahold key color
@@ -7562,7 +7562,7 @@ class GeneratedFiltersMixin:
         blend: float | None = None,
         yuv: bool | None = None,
     ) -> "Stream":
-        """Turns a certain color into transparency. Operates on YUV colors.
+        r"""Turns a certain color into transparency. Operates on YUV colors.
 
         Args:
             color (str): set the chromakey key color
@@ -7604,7 +7604,7 @@ class GeneratedFiltersMixin:
         threv: float | None = None,
         distance: Literal["manhattan", "euclidean"] | int | None = None,
     ) -> "Stream":
-        """Reduce chrominance noise.
+        r"""Reduce chrominance noise.
 
         Args:
             thres (float): set y+u+v threshold (from 1 to 200)
@@ -7666,7 +7666,7 @@ class GeneratedFiltersMixin:
         crv: int | None = None,
         edge: Literal["smear", "wrap"] | int | None = None,
     ) -> "Stream":
-        """Shift chroma.
+        r"""Shift chroma.
 
         Args:
             cbh (int): shift chroma-blue horizontally (from -255 to 255)
@@ -7752,7 +7752,7 @@ class GeneratedFiltersMixin:
         gamma: float | None = None,
         fill: bool | None = None,
     ) -> "Stream":
-        """Video CIE scope.
+        r"""Video CIE scope.
 
         Args:
             system (int | str): set color system (from 0 to 9)
@@ -7861,7 +7861,7 @@ class GeneratedFiltersMixin:
         ft: Literal["if", "pf", "bf"] | None = None,
         block: bool | None = None,
     ) -> "Stream":
-        """Visualize information about some codecs.
+        r"""Visualize information about some codecs.
 
         Args:
             mv (str): set motion vectors to visualize
@@ -7939,7 +7939,7 @@ class GeneratedFiltersMixin:
         bh: float | None = None,
         pl: bool | None = None,
     ) -> "Stream":
-        """Adjust the color balance.
+        r"""Adjust the color balance.
 
         Args:
             rs (float): set red shadows (from -1 to 1)
@@ -8016,7 +8016,7 @@ class GeneratedFiltersMixin:
         | None = None,
         pa: float | None = None,
     ) -> "Stream":
-        """Adjust colors by mixing color channels.
+        r"""Adjust colors by mixing color channels.
 
         Args:
             rr (float): set the red gain for the red channel (from -2 to 2)
@@ -8121,7 +8121,7 @@ class GeneratedFiltersMixin:
         byw: float | None = None,
         pl: float | None = None,
     ) -> "Stream":
-        """Adjust color contrast between RGB components.
+        r"""Adjust color contrast between RGB components.
 
         Args:
             rc (float): set the red-cyan contrast (from -1 to 1)
@@ -8172,7 +8172,7 @@ class GeneratedFiltersMixin:
         saturation: float | None = None,
         analyze: Literal["manual", "average", "minmax", "median"] | int | None = None,
     ) -> "Stream":
-        """Adjust color white balance selectively for blacks and whites.
+        r"""Adjust color white balance selectively for blacks and whites.
 
         Args:
             rl (float): set the red shadow spot (from -1 to 1)
@@ -8219,7 +8219,7 @@ class GeneratedFiltersMixin:
     def colordetect(
         self, mode: Literal["color_range", "alpha_mode", "all"] | None = None
     ) -> "Stream":
-        """Detect video color properties.
+        r"""Detect video color properties.
 
         Args:
             mode (str): Image properties to detect
@@ -8248,7 +8248,7 @@ class GeneratedFiltersMixin:
         similarity: float | None = None,
         blend: float | None = None,
     ) -> "Stream":
-        """Turns a certain color range into gray. Operates on RGB colors.
+        r"""Turns a certain color range into gray. Operates on RGB colors.
 
         Args:
             color (str): set the colorhold key color
@@ -8281,7 +8281,7 @@ class GeneratedFiltersMixin:
         lightness: float | None = None,
         mix: float | None = None,
     ) -> "Stream":
-        """Overlay a solid color on the video stream.
+        r"""Overlay a solid color on the video stream.
 
         Args:
             hue (float): set the hue (from 0 to 360)
@@ -8317,7 +8317,7 @@ class GeneratedFiltersMixin:
         similarity: float | None = None,
         blend: float | None = None,
     ) -> "Stream":
-        """Turns a certain color into transparency. Operates on RGB colors.
+        r"""Turns a certain color into transparency. Operates on RGB colors.
 
         Args:
             color (str): set the colorkey key color
@@ -8365,7 +8365,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Adjust the color levels.
+        r"""Adjust the color levels.
 
         Args:
             rimin (float): set input red black point (from -1 to 1)
@@ -8465,7 +8465,7 @@ class GeneratedFiltersMixin:
         type: Literal["relative", "absolute"] | int | None = None,
         kernel: Literal["euclidean", "weuclidean"] | int | None = None,
     ) -> "Stream":
-        """Apply custom Color Maps to video stream.
+        r"""Apply custom Color Maps to video stream.
 
         Args:
             source_stream (Stream): Input video stream.
@@ -8532,7 +8532,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Convert color matrix.
+        r"""Convert color matrix.
 
         Args:
             src (int | str): set source color matrix (from -1 to 4)
@@ -8713,7 +8713,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Convert between colorspaces.
+        r"""Convert between colorspaces.
 
         Args:
             all (int | str): Set all color properties together (from 0 to 8)
@@ -8923,7 +8923,7 @@ class GeneratedFiltersMixin:
         mix: float | None = None,
         pl: float | None = None,
     ) -> "Stream":
-        """Adjust color temperature of video.
+        r"""Adjust color temperature of video.
 
         Args:
             temperature (float): set the temperature in Kelvin (from 1000 to 40000)
@@ -8959,7 +8959,7 @@ class GeneratedFiltersMixin:
         volume: float | None = None,
         delay: float | None = None,
     ) -> "Stream":
-        """Compress or expand audio dynamic range.
+        r"""Compress or expand audio dynamic range.
 
         Args:
             attacks (str): set time over which increase of volume is determined
@@ -9010,7 +9010,7 @@ class GeneratedFiltersMixin:
         wet: float | None = None,
         temp: int | None = None,
     ) -> "Stream":
-        """Audio Compensation Delay Line.
+        r"""Audio Compensation Delay Line.
 
         Args:
             mm (int): set mm distance (from 0 to 10)
@@ -9056,7 +9056,7 @@ class GeneratedFiltersMixin:
         a: int | None = None,
         unsafe: bool | None = None,
     ) -> "FilterMultiOutput":
-        """Concatenate audio and video streams.
+        r"""Concatenate audio and video streams.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -9106,7 +9106,7 @@ class GeneratedFiltersMixin:
         _2mode: Literal["square", "row", "column"] | int | None = None,
         _3mode: Literal["square", "row", "column"] | int | None = None,
     ) -> "Stream":
-        """Apply convolution filter.
+        r"""Apply convolution filter.
 
         Args:
             _0m (str): set matrix for 1st plane
@@ -9211,7 +9211,7 @@ class GeneratedFiltersMixin:
         impulse: Literal["first", "all"] | int | None = None,
         noise: float | None = None,
     ) -> "Stream":
-        """Convolve first video stream with second video stream.
+        r"""Convolve first video stream with second video stream.
 
         Args:
             impulse_stream (Stream): Input video stream.
@@ -9245,7 +9245,7 @@ class GeneratedFiltersMixin:
     def copy(
         self,
     ) -> "Stream":
-        """Copy the input video unchanged to the output.
+        r"""Copy the input video unchanged to the output.
 
         Returns:
             "Stream": The output stream.
@@ -9261,7 +9261,7 @@ class GeneratedFiltersMixin:
         filter: str | None = None,
         output_rect: str | None = None,
     ) -> "Stream":
-        """Video filtering using CoreImage API.
+        r"""Video filtering using CoreImage API.
 
         Args:
             list_filters (bool): list available filters
@@ -9290,7 +9290,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def corr(self, reference_stream: "Stream") -> "Stream":
-        """Calculate the correlation between two video streams.
+        r"""Calculate the correlation between two video streams.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -9307,7 +9307,7 @@ class GeneratedFiltersMixin:
         cover: str | None = None,
         mode: Literal["cover", "blur"] | int | None = None,
     ) -> "Stream":
-        """Find and cover a user specified object.
+        r"""Find and cover a user specified object.
 
         Args:
             cover (str): cover bitmap filename
@@ -9343,7 +9343,7 @@ class GeneratedFiltersMixin:
         keep_aspect: bool | None = None,
         exact: bool | None = None,
     ) -> "Stream":
-        """Crop the input video.
+        r"""Crop the input video.
 
         Args:
             out_w (str): set the width crop area expression
@@ -9402,7 +9402,7 @@ class GeneratedFiltersMixin:
         low: float | None = None,
         mv_threshold: int | None = None,
     ) -> "Stream":
-        """Auto-detect crop size.
+        r"""Auto-detect crop size.
 
         Args:
             limit (float): Threshold below which the pixel is considered black (from 0 to 65535)
@@ -9469,7 +9469,7 @@ class GeneratedFiltersMixin:
         level_out: float | None = None,
         block_size: int | None = None,
     ) -> "Stream":
-        """Apply headphone crossfeed filter.
+        r"""Apply headphone crossfeed filter.
 
         Args:
             strength (float): set crossfeed strength (from 0 to 1)
@@ -9508,7 +9508,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def crystalizer(self, i: float | None = None, c: bool | None = None) -> "Stream":
-        """Simple audio noise sharpening filter.
+        r"""Simple audio noise sharpening filter.
 
         Args:
             i (float): set intensity (from -10 to 10)
@@ -9536,7 +9536,7 @@ class GeneratedFiltersMixin:
         preroll: str | None = None,
         buffer: str | None = None,
     ) -> "Stream":
-        """Delay filtering to match a cue.
+        r"""Delay filtering to match a cue.
 
         Args:
             cue (str): cue unix timestamp in microseconds (from 0 to I64_MAX)
@@ -9592,7 +9592,7 @@ class GeneratedFiltersMixin:
         plot: str | None = None,
         interp: Literal["natural", "pchip"] | int | None = None,
     ) -> "Stream":
-        """Adjust components curves.
+        r"""Adjust components curves.
 
         Args:
             preset (int | str): select a color curves preset (from 0 to 10)
@@ -9676,7 +9676,7 @@ class GeneratedFiltersMixin:
         format: Literal["hex", "dec"] | int | None = None,
         components: int | None = None,
     ) -> "Stream":
-        """Video data analysis.
+        r"""Video data analysis.
 
         Args:
             size (str): set output size
@@ -9741,7 +9741,7 @@ class GeneratedFiltersMixin:
         radius: float | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Apply Directional Blur filter.
+        r"""Apply Directional Blur filter.
 
         Args:
             angle (float): set angle (from 0 to 360)
@@ -9770,7 +9770,7 @@ class GeneratedFiltersMixin:
     def dcshift(
         self, shift: float | None = None, limitergain: float | None = None
     ) -> "Stream":
-        """Apply a DC shift to the audio.
+        r"""Apply a DC shift to the audio.
 
         Args:
             shift (float): set DC shift (from -1 to 1)
@@ -9801,7 +9801,7 @@ class GeneratedFiltersMixin:
         e: str | None = None,
         n: int | None = None,
     ) -> "Stream":
-        """Denoise frames using 2D DCT.
+        r"""Denoise frames using 2D DCT.
 
         Args:
             sigma (float): set noise sigma constant (from 0 to 999)
@@ -9852,7 +9852,7 @@ class GeneratedFiltersMixin:
         coupling: bool | None = None,
         c: bool | None = None,
     ) -> "Stream":
-        """Debands video.
+        r"""Debands video.
 
         Args:
             _1thr (float): set 1st plane threshold (from 3e-05 to 0.5)
@@ -9924,7 +9924,7 @@ class GeneratedFiltersMixin:
         delta: float | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Deblock video.
+        r"""Deblock video.
 
         Args:
             filter (int | str): set type of filter (from 0 to 1)
@@ -9982,7 +9982,7 @@ class GeneratedFiltersMixin:
         chroma: bool | None = None,
         mixed: bool | None = None,
     ) -> "Stream":
-        """Decimate frames (post field matching filter).
+        r"""Decimate frames (post field matching filter).
 
         Args:
             *streams (Stream): One or more input streams.
@@ -10036,7 +10036,7 @@ class GeneratedFiltersMixin:
         impulse: Literal["first", "all"] | int | None = None,
         noise: float | None = None,
     ) -> "Stream":
-        """Deconvolve first video stream with second video stream.
+        r"""Deconvolve first video stream with second video stream.
 
         Args:
             impulse_stream (Stream): Input video stream.
@@ -10075,7 +10075,7 @@ class GeneratedFiltersMixin:
         tc: float | None = None,
         ct: float | None = None,
     ) -> "Stream":
-        """Reduce cross-luminance and cross-color.
+        r"""Reduce cross-luminance and cross-color.
 
         Args:
             m (str): set filtering mode
@@ -10120,7 +10120,7 @@ class GeneratedFiltersMixin:
         f: float | None = None,
         s: Literal["i", "o", "e"] | int | None = None,
     ) -> "Stream":
-        """Apply de-essing to the audio.
+        r"""Apply de-essing to the audio.
 
         Args:
             i (float): set intensity (from 0 to 1)
@@ -10162,7 +10162,7 @@ class GeneratedFiltersMixin:
         threshold2: int | None = None,
         threshold3: int | None = None,
     ) -> "Stream":
-        """Apply deflate effect.
+        r"""Apply deflate effect.
 
         Args:
             threshold0 (int): set threshold for 1st plane (from 0 to 65535)
@@ -10200,7 +10200,7 @@ class GeneratedFiltersMixin:
         m: Literal["am", "gm", "hm", "qm", "cm", "pm", "median"] | int | None = None,
         bypass: bool | None = None,
     ) -> "Stream":
-        """Remove temporal frame luminance variations.
+        r"""Remove temporal frame luminance variations.
 
         Args:
             size (int): set how many frames to use (from 2 to 129)
@@ -10253,7 +10253,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def dejudder(self, cycle: int | None = None) -> "Stream":
-        """Remove judder produced by pullup.
+        r"""Remove judder produced by pullup.
 
         Args:
             cycle (int): set the length of the cycle to use for dejuddering (from 2 to 240)
@@ -10279,7 +10279,7 @@ class GeneratedFiltersMixin:
         h: str | None = None,
         show: bool | None = None,
     ) -> "Stream":
-        """Remove logo from input video.
+        r"""Remove logo from input video.
 
         Args:
             x (str): set logo x position
@@ -10328,7 +10328,7 @@ class GeneratedFiltersMixin:
         filename: str | None = None,
         opencl: bool | None = None,
     ) -> "Stream":
-        """Stabilize shaky video.
+        r"""Stabilize shaky video.
 
         Args:
             x (int): set x for the rectangular search area (from -1 to INT_MAX)
@@ -10410,7 +10410,7 @@ class GeneratedFiltersMixin:
         brightness: float | None = None,
         alpha: bool | None = None,
     ) -> "Stream":
-        """Despill video.
+        r"""Despill video.
 
         Args:
             type (int | str): set the screen type (from 0 to 1)
@@ -10466,7 +10466,7 @@ class GeneratedFiltersMixin:
         pattern: str | None = None,
         start_frame: int | None = None,
     ) -> "Stream":
-        """Apply an inverse telecine pattern.
+        r"""Apply an inverse telecine pattern.
 
         Args:
             first_field (int | str): select first field (from 0 to 1)
@@ -10504,7 +10504,7 @@ class GeneratedFiltersMixin:
         enhance: float | None = None,
         voice: float | None = None,
     ) -> "Stream":
-        """Audio Dialogue Enhancement.
+        r"""Audio Dialogue Enhancement.
 
         Args:
             original (float): set original center factor (from 0 to 1)
@@ -10538,7 +10538,7 @@ class GeneratedFiltersMixin:
         threshold2: int | None = None,
         threshold3: int | None = None,
     ) -> "Stream":
-        """Apply dilation effect.
+        r"""Apply dilation effect.
 
         Args:
             coordinates (int): set coordinates (from 0 to 255)
@@ -10578,7 +10578,7 @@ class GeneratedFiltersMixin:
         ymap_stream: "Stream",
         edge: Literal["blank", "smear", "wrap", "mirror"] | int | None = None,
     ) -> "Stream":
-        """Displace pixels.
+        r"""Displace pixels.
 
         Args:
             xmap_stream (Stream): Input video stream.
@@ -10607,7 +10607,7 @@ class GeneratedFiltersMixin:
     def doubleweave(
         self, first_field: Literal["top", "t", "bottom", "b"] | int | None = None
     ) -> "Stream":
-        """Weave input video fields into double number of frames.
+        r"""Weave input video fields into double number of frames.
 
         Args:
             first_field (int | str): set first field (from 0 to 1)
@@ -10646,7 +10646,7 @@ class GeneratedFiltersMixin:
         replace: bool | None = None,
         box_source: str | None = None,
     ) -> "Stream":
-        """Draw a colored box on the input video.
+        r"""Draw a colored box on the input video.
 
         Args:
             x (str): set horizontal position of the left box edge
@@ -10729,7 +10729,7 @@ class GeneratedFiltersMixin:
         rate: str | None = None,
         r: str | None = None,
     ) -> "Stream":
-        """Draw a graph using input video metadata.
+        r"""Draw a graph using input video metadata.
 
         Args:
             m1 (str): set 1st metadata key
@@ -10833,7 +10833,7 @@ class GeneratedFiltersMixin:
         t: str | None = None,
         replace: bool | None = None,
     ) -> "Stream":
-        """Draw a colored grid on the input video.
+        r"""Draw a colored grid on the input video.
 
         Args:
             x (str): set horizontal offset
@@ -10961,7 +10961,7 @@ class GeneratedFiltersMixin:
         ]
         | None = None,
     ) -> "Stream":
-        """Draw text on top of video frames using libfreetype library.
+        r"""Draw text on top of video frames using libfreetype library.
 
         Args:
             fontfile (str): set font file
@@ -11154,7 +11154,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def drmeter(self, length: float | None = None) -> "Stream":
-        """Measure audio dynamic range.
+        r"""Measure audio dynamic range.
 
         Args:
             length (float): set the window length (from 0.01 to 10)
@@ -11201,7 +11201,7 @@ class GeneratedFiltersMixin:
         curve: str | None = None,
         v: str | None = None,
     ) -> "Stream":
-        """Dynamic Audio Normalizer.
+        r"""Dynamic Audio Normalizer.
 
         Args:
             framelen (int): set the frame length in msec (from 10 to 8000)
@@ -11320,7 +11320,7 @@ class GeneratedFiltersMixin:
     def earwax(
         self,
     ) -> "Stream":
-        """Widen the stereo image.
+        r"""Widen the stereo image.
 
         Returns:
             "Stream": The output stream.
@@ -11349,7 +11349,7 @@ class GeneratedFiltersMixin:
         sample_peak: float | None = None,
         true_peak: float | None = None,
     ) -> "FilterMultiOutput":
-        """EBU R128 scanner.
+        r"""EBU R128 scanner.
 
         Args:
             video (bool): set video output
@@ -11460,7 +11460,7 @@ class GeneratedFiltersMixin:
         mode: Literal["wires", "colormix", "canny"] | int | None = None,
         planes: Literal["y", "u", "v", "r", "g", "b"] | None = None,
     ) -> "Stream":
-        """Detect and draw edge.
+        r"""Detect and draw edge.
 
         Args:
             high (float): set high threshold (from 0 to 1)
@@ -11514,7 +11514,7 @@ class GeneratedFiltersMixin:
         pal8: bool | None = None,
         use_alpha: bool | None = None,
     ) -> "Stream":
-        """Apply posterize effect, using the ELBG algorithm.
+        r"""Apply posterize effect, using the ELBG algorithm.
 
         Args:
             codebook_length (int): set codebook length (from 1 to INT_MAX)
@@ -11561,7 +11561,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def entropy(self, mode: Literal["normal", "diff"] | int | None = None) -> "Stream":
-        """Measure video frames entropy.
+        r"""Measure video frames entropy.
 
         Args:
             mode (int | str): set kind of histogram entropy measurement (from 0 to 1)
@@ -11584,7 +11584,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def epx(self, n: int | None = None) -> "Stream":
-        """Scale the input using EPX algorithm.
+        r"""Scale the input using EPX algorithm.
 
         Args:
             n (int): set scale factor (from 2 to 3)
@@ -11614,7 +11614,7 @@ class GeneratedFiltersMixin:
         gamma_weight: str | None = None,
         eval: Literal["init", "frame"] | int | None = None,
     ) -> "Stream":
-        """Adjust brightness, contrast, gamma, and saturation.
+        r"""Adjust brightness, contrast, gamma, and saturation.
 
         Args:
             contrast (str): set the contrast adjustment, negative values give a negative image
@@ -11695,7 +11695,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Apply two-pole peaking equalization (EQ) filter.
+        r"""Apply two-pole peaking equalization (EQ) filter.
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
@@ -11843,7 +11843,7 @@ class GeneratedFiltersMixin:
         threshold2: int | None = None,
         threshold3: int | None = None,
     ) -> "Stream":
-        """Apply erosion effect.
+        r"""Apply erosion effect.
 
         Args:
             coordinates (int): set coordinates (from 0 to 255)
@@ -11889,7 +11889,7 @@ class GeneratedFiltersMixin:
         dcost: int | None = None,
         interp: Literal["2p", "4p", "6p"] | int | None = None,
     ) -> "Stream":
-        """Apply Edge Slope Tracing deinterlace.
+        r"""Apply Edge Slope Tracing deinterlace.
 
         Args:
             mode (int | str): specify the mode (from 0 to 1)
@@ -11960,7 +11960,7 @@ class GeneratedFiltersMixin:
     def exposure(
         self, exposure: float | None = None, black: float | None = None
     ) -> "Stream":
-        """Adjust exposure of the video stream.
+        r"""Adjust exposure of the video stream.
 
         Args:
             exposure (float): set the exposure correction (from -3 to 3)
@@ -11985,7 +11985,7 @@ class GeneratedFiltersMixin:
     def extractplanes(
         self, planes: Literal["y", "u", "v", "r", "g", "b", "a"] | None = None
     ) -> "FilterMultiOutput":
-        """Extract planes as grayscale frames.
+        r"""Extract planes as grayscale frames.
 
         Args:
             planes (str): set planes
@@ -12013,7 +12013,7 @@ class GeneratedFiltersMixin:
         )
 
     def extrastereo(self, m: float | None = None, c: bool | None = None) -> "Stream":
-        """Increase difference between stereo audio channels.
+        r"""Increase difference between stereo audio channels.
 
         Args:
             m (float): set the difference coefficient (from -10 to 10)
@@ -12051,7 +12051,7 @@ class GeneratedFiltersMixin:
         color: str | None = None,
         c: str | None = None,
     ) -> "Stream":
-        """Fade in/out input video.
+        r"""Fade in/out input video.
 
         Args:
             type (int | str): set the fade direction (from 0 to 1)
@@ -12133,7 +12133,7 @@ class GeneratedFiltersMixin:
         w: int | None = None,
         h: int | None = None,
     ) -> list["Stream"]:
-        """Apply feedback video filter.
+        r"""Apply feedback video filter.
 
         Args:
             feedin_stream (Stream): Input video stream.
@@ -12202,7 +12202,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Denoise frames using 3D FFT.
+        r"""Denoise frames using 3D FFT.
 
         Args:
             sigma (float): set denoise strength (from 0 to 100)
@@ -12290,7 +12290,7 @@ class GeneratedFiltersMixin:
         weight_V: str | None = None,
         eval: Literal["init", "frame"] | int | None = None,
     ) -> "Stream":
-        """Apply arbitrary expressions to pixels in frequency domain.
+        r"""Apply arbitrary expressions to pixels in frequency domain.
 
         Args:
             dc_Y (int): adjust gain in Y plane (from 0 to 1000)
@@ -12335,7 +12335,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def field(self, type: Literal["top", "bottom"] | int | None = None) -> "Stream":
-        """Extract a field from the input video.
+        r"""Extract a field from the input video.
 
         Args:
             type (int | str): set field type (top or bottom) (from 0 to 1)
@@ -12362,7 +12362,7 @@ class GeneratedFiltersMixin:
         hint: str | None = None,
         mode: Literal["absolute", "relative", "pattern"] | int | None = None,
     ) -> "Stream":
-        """Field matching using hints.
+        r"""Field matching using hints.
 
         Args:
             hint (str): set hint file
@@ -12409,7 +12409,7 @@ class GeneratedFiltersMixin:
         blocky: int | None = None,
         combpel: int | None = None,
     ) -> "Stream":
-        """Field matching for inverse telecine.
+        r"""Field matching for inverse telecine.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -12513,7 +12513,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def fieldorder(self, order: Literal["bff", "tff"] | int | None = None) -> "Stream":
-        """Set the field order.
+        r"""Set the field order.
 
         Args:
             order (int | str): output field order (from 0 to 1)
@@ -12546,7 +12546,7 @@ class GeneratedFiltersMixin:
         | None = None,
         color: str | None = None,
     ) -> "Stream":
-        """Fill borders of the input video.
+        r"""Fill borders of the input video.
 
         Args:
             left (int): set the left fill border (from 0 to INT_MAX)
@@ -12604,7 +12604,7 @@ class GeneratedFiltersMixin:
         ymax: int | None = None,
         discard: bool | None = None,
     ) -> "Stream":
-        """Find a user specified object.
+        r"""Find a user specified object.
 
         Args:
             object (str): object bitmap filename
@@ -12678,7 +12678,7 @@ class GeneratedFiltersMixin:
         fft2: bool | None = None,
         min_phase: bool | None = None,
     ) -> "Stream":
-        """Finite Impulse Response Equalizer.
+        r"""Finite Impulse Response Equalizer.
 
         Args:
             gain (str): set gain curve
@@ -12777,7 +12777,7 @@ class GeneratedFiltersMixin:
         phase: float | None = None,
         interp: Literal["linear", "quadratic"] | int | None = None,
     ) -> "Stream":
-        """Apply a flanging effect to the audio.
+        r"""Apply a flanging effect to the audio.
 
         Args:
             delay (float): base delay in milliseconds (from 0 to 30)
@@ -12846,7 +12846,7 @@ class GeneratedFiltersMixin:
         d2: int | None = None,
         d3: int | None = None,
     ) -> "Stream":
-        """Fill area with same color with another color.
+        r"""Fill area with same color with another color.
 
         Args:
             x (int): set pixel x coordinate (from 0 to 65535)
@@ -12906,7 +12906,7 @@ class GeneratedFiltersMixin:
         color_spaces: str | None = None,
         color_ranges: str | None = None,
     ) -> "Stream":
-        """Convert the input video to one of the specified pixel formats.
+        r"""Convert the input video to one of the specified pixel formats.
 
         Args:
             pix_fmts (str): A '|'-separated list of pixel formats
@@ -12936,7 +12936,7 @@ class GeneratedFiltersMixin:
         round: Literal["zero", "inf", "down", "up", "near"] | int | None = None,
         eof_action: Literal["round", "pass"] | int | None = None,
     ) -> "Stream":
-        """Force constant framerate.
+        r"""Force constant framerate.
 
         Args:
             fps (str): A string describing desired output framerate
@@ -12984,7 +12984,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Generate a frame packed stereoscopic video.
+        r"""Generate a frame packed stereoscopic video.
 
         Args:
             right_stream (Stream): Input video stream.
@@ -13018,7 +13018,7 @@ class GeneratedFiltersMixin:
         scene: float | None = None,
         flags: Literal["scene_change_detect", "scd"] | None = None,
     ) -> "Stream":
-        """Upsamples or downsamples progressive source between specified frame rates.
+        r"""Upsamples or downsamples progressive source between specified frame rates.
 
         Args:
             fps (str): required output frames per second rate
@@ -13057,7 +13057,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def framestep(self, step: int | None = None) -> "Stream":
-        """Select one frame every N frames.
+        r"""Select one frame every N frames.
 
         Args:
             step (int): set frame step (from 1 to INT_MAX)
@@ -13082,7 +13082,7 @@ class GeneratedFiltersMixin:
         d: str | None = None,
         duration: str | None = None,
     ) -> "Stream":
-        """Detects frozen video input.
+        r"""Detects frozen video input.
 
         Args:
             n (float): set noise tolerance (from 0 to 1)
@@ -13119,7 +13119,7 @@ class GeneratedFiltersMixin:
         last: str | None = None,
         replace: str | None = None,
     ) -> "Stream":
-        """Freeze video frames.
+        r"""Freeze video frames.
 
         Args:
             replace_stream (Stream): Input video stream.
@@ -13149,7 +13149,7 @@ class GeneratedFiltersMixin:
     def frei0r(
         self, filter_name: str | None = None, filter_params: str | None = None
     ) -> "Stream":
-        """Apply a frei0r effect.
+        r"""Apply a frei0r effect.
 
         Args:
             filter_name (str): No description available.
@@ -13176,7 +13176,7 @@ class GeneratedFiltersMixin:
         strength: int | None = None,
         use_bframe_qp: bool | None = None,
     ) -> "Stream":
-        """Apply Fast Simple Post-processing filter.
+        r"""Apply Fast Simple Post-processing filter.
 
         Args:
             quality (int): set quality (from 4 to 5)
@@ -13207,7 +13207,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def fsync(self, file: str | None = None, f: str | None = None) -> "Stream":
-        """Synchronize video frames from external source.
+        r"""Synchronize video frames from external source.
 
         Args:
             file (str): set the file name to use for frame sync
@@ -13234,7 +13234,7 @@ class GeneratedFiltersMixin:
         planes: int | None = None,
         sigmaV: float | None = None,
     ) -> "Stream":
-        """Apply Gaussian Blur filter.
+        r"""Apply Gaussian Blur filter.
 
         Args:
             sigma (float): set sigma (from 0 to 1024)
@@ -13283,7 +13283,7 @@ class GeneratedFiltersMixin:
         interpolation: Literal["nearest", "n", "bilinear", "b"] | int | None = None,
         i: Literal["nearest", "n", "bilinear", "b"] | int | None = None,
     ) -> "Stream":
-        """Apply generic equation to each pixel.
+        r"""Apply generic equation to each pixel.
 
         Args:
             lum_expr (str): set luminance expression
@@ -13362,7 +13362,7 @@ class GeneratedFiltersMixin:
     def gradfun(
         self, strength: float | None = None, radius: int | None = None
     ) -> "Stream":
-        """Debands video quickly using gradients.
+        r"""Debands video quickly using gradients.
 
         Args:
             strength (float): The maximum amount by which the filter will change any one pixel. (from 0.51 to 64)
@@ -13439,7 +13439,7 @@ class GeneratedFiltersMixin:
         rate: str | None = None,
         r: str | None = None,
     ) -> "Stream":
-        """Show various filtergraph stats.
+        r"""Show various filtergraph stats.
 
         Args:
             size (str): set monitor size
@@ -13552,7 +13552,7 @@ class GeneratedFiltersMixin:
     def grayworld(
         self,
     ) -> "Stream":
-        """Adjust white balance using LAB gray world algorithm
+        r"""Adjust white balance using LAB gray world algorithm
 
         Returns:
             "Stream": The output stream.
@@ -13567,7 +13567,7 @@ class GeneratedFiltersMixin:
         minknorm: int | None = None,
         sigma: float | None = None,
     ) -> "Stream":
-        """Estimates scene illumination by grey edge assumption.
+        r"""Estimates scene illumination by grey edge assumption.
 
         Args:
             difford (int): set differentiation order (from 0 to 2)
@@ -13603,7 +13603,7 @@ class GeneratedFiltersMixin:
         guidance: Literal["off", "on"] | int | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Apply Guided filter.
+        r"""Apply Guided filter.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -13666,7 +13666,7 @@ class GeneratedFiltersMixin:
         right_gain: float | None = None,
         right_phase: bool | None = None,
     ) -> "Stream":
-        """Apply Haas Stereo Enhancer.
+        r"""Apply Haas Stereo Enhancer.
 
         Args:
             level_in (float): set level in (from 0.015625 to 64)
@@ -13746,7 +13746,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Adjust colors using a Hald CLUT.
+        r"""Adjust colors using a Hald CLUT.
 
         Args:
             clut_stream (Stream): Input video stream.
@@ -13789,7 +13789,7 @@ class GeneratedFiltersMixin:
         analyze_mode: Literal["off", "lle", "pe", "cdt", "tgm"] | int | None = None,
         bits_per_sample: Literal["16", "20", "24"] | int | None = None,
     ) -> "Stream":
-        """Apply High Definition Compatible Digital (HDCD) decoding.
+        r"""Apply High Definition Compatible Digital (HDCD) decoding.
 
         Args:
             disable_autoconvert (bool): Disable any format conversion or resampling in the filter graph.
@@ -13849,7 +13849,7 @@ class GeneratedFiltersMixin:
         size: int | None = None,
         hrir: Literal["stereo", "multich"] | int | None = None,
     ) -> "Stream":
-        """Apply headphone binaural spatialization with HRTFs in additional streams.
+        r"""Apply headphone binaural spatialization with HRTFs in additional streams.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -13898,7 +13898,7 @@ class GeneratedFiltersMixin:
     def hflip(
         self,
     ) -> "Stream":
-        """Horizontally flip the input video.
+        r"""Horizontally flip the input video.
 
         Returns:
             "Stream": The output stream.
@@ -13934,7 +13934,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Apply a high-pass filter with 3dB point frequency.
+        r"""Apply a high-pass filter with 3dB point frequency.
 
         Args:
             frequency (float): set frequency (from 0 to 999999)
@@ -14103,7 +14103,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Apply a high shelf filter.
+        r"""Apply a high shelf filter.
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
@@ -14257,7 +14257,7 @@ class GeneratedFiltersMixin:
         intensity: float | None = None,
         antibanding: Literal["none", "weak", "strong"] | int | None = None,
     ) -> "Stream":
-        """Apply global color histogram equalization.
+        r"""Apply global color histogram equalization.
 
         Args:
             strength (float): set the strength (from 0 to 1)
@@ -14331,7 +14331,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Compute and draw a histogram.
+        r"""Compute and draw a histogram.
 
         Args:
             level_height (int): set level height (from 50 to 2048)
@@ -14450,7 +14450,7 @@ class GeneratedFiltersMixin:
         luma_tmp: float | None = None,
         chroma_tmp: float | None = None,
     ) -> "Stream":
-        """Apply a High Quality 3D Denoiser.
+        r"""Apply a High Quality 3D Denoiser.
 
         Args:
             luma_spatial (float): spatial luma strength (from 0 to DBL_MAX)
@@ -14481,7 +14481,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def hqx(self, n: int | None = None) -> "Stream":
-        """Scale the input by 2, 3 or 4 using the hq*x magnification algorithm.
+        r"""Scale the input by 2, 3 or 4 using the hq*x magnification algorithm.
 
         Args:
             n (int): set scale factor (from 2 to 4)
@@ -14505,7 +14505,7 @@ class GeneratedFiltersMixin:
         inputs: int | None = None,
         shortest: bool | None = None,
     ) -> "Stream":
-        """Stack video inputs horizontally.
+        r"""Stack video inputs horizontally.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -14536,7 +14536,7 @@ class GeneratedFiltersMixin:
         similarity: float | None = None,
         blend: float | None = None,
     ) -> "Stream":
-        """Turns a certain HSV range into gray.
+        r"""Turns a certain HSV range into gray.
 
         Args:
             hue (float): set the hue value (from -360 to 360)
@@ -14578,7 +14578,7 @@ class GeneratedFiltersMixin:
         similarity: float | None = None,
         blend: float | None = None,
     ) -> "Stream":
-        """Turns a certain HSV range into transparency. Operates on YUV colors.
+        r"""Turns a certain HSV range into transparency. Operates on YUV colors.
 
         Args:
             hue (float): set the hue value (from -360 to 360)
@@ -14619,7 +14619,7 @@ class GeneratedFiltersMixin:
         H: str | None = None,
         b: str | None = None,
     ) -> "Stream":
-        """Adjust the hue and saturation of the input video.
+        r"""Adjust the hue and saturation of the input video.
 
         Args:
             h (str): set the hue angle degrees expression
@@ -14659,7 +14659,7 @@ class GeneratedFiltersMixin:
         bw: float | None = None,
         lightness: bool | None = None,
     ) -> "Stream":
-        """Apply hue-saturation-intensity adjustments.
+        r"""Apply hue-saturation-intensity adjustments.
 
         Args:
             hue (float): set the hue shift (from -180 to 180)
@@ -14721,7 +14721,7 @@ class GeneratedFiltersMixin:
     def hwdownload(
         self,
     ) -> "Stream":
-        """Download a hardware frame to a normal frame
+        r"""Download a hardware frame to a normal frame
 
         Returns:
             "Stream": The output stream.
@@ -14736,7 +14736,7 @@ class GeneratedFiltersMixin:
         derive_device: str | None = None,
         reverse: int | None = None,
     ) -> "Stream":
-        """Map hardware frames
+        r"""Map hardware frames
 
         Args:
             mode (str): Frame mapping mode
@@ -14768,7 +14768,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def hwupload(self, derive_device: str | None = None) -> "Stream":
-        """Upload a normal frame to a hardware frame
+        r"""Upload a normal frame to a hardware frame
 
         Args:
             derive_device (str): Derive a new device of this type
@@ -14791,7 +14791,7 @@ class GeneratedFiltersMixin:
         planes: int | None = None,
         threshold: int | None = None,
     ) -> "Stream":
-        """Grow first stream into second stream by connecting components.
+        r"""Grow first stream into second stream by connecting components.
 
         Args:
             alt_stream (Stream): Input video stream.
@@ -14815,7 +14815,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def identity(self, reference_stream: "Stream") -> "Stream":
-        """Calculate the Identity between two video streams.
+        r"""Calculate the Identity between two video streams.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -14835,7 +14835,7 @@ class GeneratedFiltersMixin:
         half_life: float | None = None,
         analyze_interlaced_flag: int | None = None,
     ) -> "Stream":
-        """Interlace detect Filter.
+        r"""Interlace detect Filter.
 
         Args:
             intl_thres (float): set interlacing threshold (from -1 to FLT_MAX)
@@ -14890,7 +14890,7 @@ class GeneratedFiltersMixin:
         alpha_swap: bool | None = None,
         as_: bool | None = None,
     ) -> "Stream":
-        """Deinterleave or interleave fields.
+        r"""Deinterleave or interleave fields.
 
         Args:
             luma_mode (int | str): select luma mode (from 0 to 2)
@@ -15001,7 +15001,7 @@ class GeneratedFiltersMixin:
         threshold2: int | None = None,
         threshold3: int | None = None,
     ) -> "Stream":
-        """Apply inflate effect.
+        r"""Apply inflate effect.
 
         Args:
             threshold0 (int): set threshold for 1st plane (from 0 to 65535)
@@ -15036,7 +15036,7 @@ class GeneratedFiltersMixin:
         scan: Literal["tff", "bff"] | int | None = None,
         lowpass: Literal["off", "linear", "complex"] | int | None = None,
     ) -> "Stream":
-        """Convert progressive video into interlaced.
+        r"""Convert progressive video into interlaced.
 
         Args:
             scan (int | str): scanning mode (from 0 to 1)
@@ -15074,7 +15074,7 @@ class GeneratedFiltersMixin:
         n: int | None = None,
         duration: Literal["longest", "shortest", "first"] | int | None = None,
     ) -> "Stream":
-        """Temporally interleave video inputs.
+        r"""Temporally interleave video inputs.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -15113,7 +15113,7 @@ class GeneratedFiltersMixin:
         channel_layout: str | None = None,
         map: str | None = None,
     ) -> "Stream":
-        """Join multiple audio streams into multi-channel output.
+        r"""Join multiple audio streams into multi-channel output.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -15147,7 +15147,7 @@ class GeneratedFiltersMixin:
         sharp: bool | None = None,
         twoway: bool | None = None,
     ) -> "Stream":
-        """Apply kernel deinterlacing to the input.
+        r"""Apply kernel deinterlacing to the input.
 
         Args:
             thresh (int): set the threshold (from 0 to 255)
@@ -15187,7 +15187,7 @@ class GeneratedFiltersMixin:
         scale: float | None = None,
         delta: float | None = None,
     ) -> "Stream":
-        """Apply kirsch operator.
+        r"""Apply kirsch operator.
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
@@ -15214,7 +15214,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def lagfun(self, decay: float | None = None, planes: str | None = None) -> "Stream":
-        """Slowly update darker pixels.
+        r"""Slowly update darker pixels.
 
         Args:
             decay (float): set decay (from 0 to 1)
@@ -15239,7 +15239,7 @@ class GeneratedFiltersMixin:
     def latency(
         self,
     ) -> "Stream":
-        """Report video filtering latency.
+        r"""Report video filtering latency.
 
         Returns:
             "Stream": The output stream.
@@ -15257,7 +15257,7 @@ class GeneratedFiltersMixin:
         i: Literal["nearest", "bilinear"] | int | None = None,
         fc: str | None = None,
     ) -> "Stream":
-        """Rectify the image by correcting for lens distortion.
+        r"""Rectify the image by correcting for lens distortion.
 
         Args:
             cx (float): set relative center x (from 0 to 1)
@@ -15310,7 +15310,7 @@ class GeneratedFiltersMixin:
         model: str | None = None,
         feature: str | None = None,
     ) -> "Stream":
-        """Calculate the VMAF between two video streams.
+        r"""Calculate the VMAF between two video streams.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -15358,7 +15358,7 @@ class GeneratedFiltersMixin:
         reference: bool | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Apply filtering with limiting difference.
+        r"""Apply filtering with limiting difference.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -15392,7 +15392,7 @@ class GeneratedFiltersMixin:
     def limiter(
         self, min: int | None = None, max: int | None = None, planes: int | None = None
     ) -> "Stream":
-        """Limit pixels components to the specified range.
+        r"""Limit pixels components to the specified range.
 
         Args:
             min (int): set min value (from 0 to 65535)
@@ -15425,7 +15425,7 @@ class GeneratedFiltersMixin:
         start: str | None = None,
         time: str | None = None,
     ) -> "Stream":
-        """Loop video frames.
+        r"""Loop video frames.
 
         Args:
             loop (int): number of loops (from -1 to INT_MAX)
@@ -15475,7 +15475,7 @@ class GeneratedFiltersMixin:
         dual_mono: bool | None = None,
         print_format: Literal["none", "json", "summary"] | int | None = None,
     ) -> "Stream":
-        """EBU R128 loudness normalization
+        r"""EBU R128 loudness normalization
 
         Args:
             I (float): set integrated loudness target (from -70 to -5)
@@ -15589,7 +15589,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Apply a low-pass filter with 3dB point frequency.
+        r"""Apply a low-pass filter with 3dB point frequency.
 
         Args:
             frequency (float): set frequency (from 0 to 999999)
@@ -15758,7 +15758,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Apply a low shelf filter.
+        r"""Apply a low shelf filter.
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
@@ -15912,7 +15912,7 @@ class GeneratedFiltersMixin:
         tolerance: float | None = None,
         softness: float | None = None,
     ) -> "Stream":
-        """Turns a certain luma into transparency.
+        r"""Turns a certain luma into transparency.
 
         Args:
             threshold (float): set the threshold value (from 0 to 1)
@@ -15952,7 +15952,7 @@ class GeneratedFiltersMixin:
         b: str | None = None,
         a: str | None = None,
     ) -> "Stream":
-        """Compute and apply a lookup table to the RGB/YUV input video.
+        r"""Compute and apply a lookup table to the RGB/YUV input video.
 
         Args:
             c0 (str): set component #0 expression
@@ -16017,7 +16017,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Adjust colors using a 1D LUT.
+        r"""Adjust colors using a 1D LUT.
 
         Args:
             file (str): set 1D LUT file name
@@ -16054,7 +16054,7 @@ class GeneratedFiltersMixin:
         c3: str | None = None,
         d: int | None = None,
     ) -> "Stream":
-        """Compute and apply a lookup table from two video inputs.
+        r"""Compute and apply a lookup table from two video inputs.
 
         Args:
             srcy_stream (Stream): Input video stream.
@@ -16097,7 +16097,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Adjust colors using a 3D LUT.
+        r"""Adjust colors using a 3D LUT.
 
         Args:
             file (str): set 3D LUT file name
@@ -16147,7 +16147,7 @@ class GeneratedFiltersMixin:
         b: str | None = None,
         a: str | None = None,
     ) -> "Stream":
-        """Compute and apply a lookup table to the RGB input video.
+        r"""Compute and apply a lookup table to the RGB input video.
 
         Args:
             c0 (str): set component #0 expression
@@ -16219,7 +16219,7 @@ class GeneratedFiltersMixin:
         b: str | None = None,
         a: str | None = None,
     ) -> "Stream":
-        """Compute and apply a lookup table to the YUV input video.
+        r"""Compute and apply a lookup table to the YUV input video.
 
         Args:
             c0 (str): set component #0 expression
@@ -16285,7 +16285,7 @@ class GeneratedFiltersMixin:
         overshoot: int | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Clamp first stream with second stream and third stream.
+        r"""Clamp first stream with second stream and third stream.
 
         Args:
             dark_stream (Stream): Input video stream.
@@ -16319,7 +16319,7 @@ class GeneratedFiltersMixin:
         filter2_stream: "Stream",
         planes: int | None = None,
     ) -> "Stream":
-        """Apply filtering with maximum difference of two streams.
+        r"""Apply filtering with maximum difference of two streams.
 
         Args:
             filter1_stream (Stream): Input video stream.
@@ -16342,7 +16342,7 @@ class GeneratedFiltersMixin:
     def maskedmerge(
         self, overlay_stream: "Stream", mask_stream: "Stream", planes: int | None = None
     ) -> "Stream":
-        """Merge first stream with second stream using third stream as mask.
+        r"""Merge first stream with second stream using third stream as mask.
 
         Args:
             overlay_stream (Stream): Input video stream.
@@ -16368,7 +16368,7 @@ class GeneratedFiltersMixin:
         filter2_stream: "Stream",
         planes: int | None = None,
     ) -> "Stream":
-        """Apply filtering with minimum difference of two streams.
+        r"""Apply filtering with minimum difference of two streams.
 
         Args:
             filter1_stream (Stream): Input video stream.
@@ -16395,7 +16395,7 @@ class GeneratedFiltersMixin:
         planes: int | None = None,
         mode: Literal["abs", "diff"] | int | None = None,
     ) -> "Stream":
-        """Pick pixels comparing absolute difference of two streams with threshold.
+        r"""Pick pixels comparing absolute difference of two streams with threshold.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -16434,7 +16434,7 @@ class GeneratedFiltersMixin:
         fill: int | None = None,
         sum: int | None = None,
     ) -> "Stream":
-        """Create Mask.
+        r"""Create Mask.
 
         Args:
             low (int): set low threshold (from 0 to 65535)
@@ -16474,7 +16474,7 @@ class GeneratedFiltersMixin:
         parity: Literal["tff", "bff"] | int | None = None,
         qp: int | None = None,
     ) -> "Stream":
-        """Apply motion compensating deinterlacing.
+        r"""Apply motion compensating deinterlacing.
 
         Args:
             mode (int | str): set mode (from 0 to 3)
@@ -16511,7 +16511,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def mcompand(self, args: str | None = None) -> "Stream":
-        """Multiband Compress or expand audio dynamic range.
+        r"""Multiband Compress or expand audio dynamic range.
 
         Args:
             args (str): set parameters for each band
@@ -16536,7 +16536,7 @@ class GeneratedFiltersMixin:
         radiusV: int | None = None,
         percentile: float | None = None,
     ) -> "Stream":
-        """Apply Median filter.
+        r"""Apply Median filter.
 
         Args:
             radius (int): set median radius (from 1 to 127)
@@ -16580,7 +16580,7 @@ class GeneratedFiltersMixin:
         map3s: int | None = None,
         map3p: int | None = None,
     ) -> "Stream":
-        """Merge planes.
+        r"""Merge planes.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -16645,7 +16645,7 @@ class GeneratedFiltersMixin:
         mb_size: int | None = None,
         search_param: int | None = None,
     ) -> "Stream":
-        """Generate motion vectors.
+        r"""Generate motion vectors.
 
         Args:
             method (int | str): motion estimation method (from 1 to 9)
@@ -16696,7 +16696,7 @@ class GeneratedFiltersMixin:
         file: str | None = None,
         direct: bool | None = None,
     ) -> "Stream":
-        """Manipulate video frame metadata.
+        r"""Manipulate video frame metadata.
 
         Args:
             mode (int | str): set a mode of operation (from 0 to 4)
@@ -16751,7 +16751,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def midequalizer(self, in1_stream: "Stream", planes: int | None = None) -> "Stream":
-        """Apply Midway Equalization.
+        r"""Apply Midway Equalization.
 
         Args:
             in1_stream (Stream): Input video stream.
@@ -16785,7 +16785,7 @@ class GeneratedFiltersMixin:
         scd: Literal["none", "fdiff"] | int | None = None,
         scd_threshold: float | None = None,
     ) -> "Stream":
-        """Frame rate conversion using Motion Interpolation.
+        r"""Frame rate conversion using Motion Interpolation.
 
         Args:
             fps (str): output's frame rate
@@ -16876,7 +16876,7 @@ class GeneratedFiltersMixin:
         planes: str | None = None,
         duration: Literal["longest", "shortest", "first"] | int | None = None,
     ) -> "Stream":
-        """Mix video inputs.
+        r"""Mix video inputs.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -16923,7 +16923,7 @@ class GeneratedFiltersMixin:
         size: float | None = None,
         high: float | None = None,
     ) -> "Stream":
-        """Convert video to gray using custom color filter.
+        r"""Convert video to gray using custom color filter.
 
         Args:
             cb (float): set the chroma blue spot (from -1 to 1)
@@ -16964,7 +16964,7 @@ class GeneratedFiltersMixin:
         planes: int | None = None,
         structure: Literal["first", "all"] | int | None = None,
     ) -> "Stream":
-        """Apply Morphological filter.
+        r"""Apply Morphological filter.
 
         Args:
             structure_stream (Stream): Input video stream.
@@ -17012,7 +17012,7 @@ class GeneratedFiltersMixin:
         lo: int | None = None,
         frac: float | None = None,
     ) -> "Stream":
-        """Remove near-duplicate frames.
+        r"""Remove near-duplicate frames.
 
         Args:
             max (int): set the maximum number of consecutive dropped frames (positive), or the minimum interval between dropped frames (negative) (from INT_MIN to INT_MAX)
@@ -17047,7 +17047,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def msad(self, reference_stream: "Stream") -> "Stream":
-        """Calculate the MSAD between two video streams.
+        r"""Calculate the MSAD between two video streams.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -17066,7 +17066,7 @@ class GeneratedFiltersMixin:
         offset: float | None = None,
         planes: str | None = None,
     ) -> "Stream":
-        """Multiply first video stream with second video stream.
+        r"""Multiply first video stream with second video stream.
 
         Args:
             factor_stream (Stream): Input video stream.
@@ -17098,7 +17098,7 @@ class GeneratedFiltersMixin:
         components: Literal["y", "u", "v", "r", "g", "b", "a"] | None = None,
         negate_alpha: bool | None = None,
     ) -> "Stream":
-        """Negate input video.
+        r"""Negate input video.
 
         Args:
             components (str): set components to negate
@@ -17137,7 +17137,7 @@ class GeneratedFiltersMixin:
         r: int | None = None,
         rc: int | None = None,
     ) -> "Stream":
-        """Non-local means denoiser.
+        r"""Non-local means denoiser.
 
         Args:
             s (float): denoising strength (from 1 to 30)
@@ -17185,7 +17185,7 @@ class GeneratedFiltersMixin:
         etype: Literal["a", "abs", "s", "mse"] | int | None = None,
         pscrn: Literal["none", "original", "new", "new2", "new3"] | int | None = None,
     ) -> "Stream":
-        """Apply neural network edge directed interpolation intra-only deinterlacer.
+        r"""Apply neural network edge directed interpolation intra-only deinterlacer.
 
         Args:
             weights (str): set weights file
@@ -17286,7 +17286,7 @@ class GeneratedFiltersMixin:
         color_spaces: str | None = None,
         color_ranges: str | None = None,
     ) -> "Stream":
-        """Force libavfilter not to use any of the specified pixel formats for the input to the next filter.
+        r"""Force libavfilter not to use any of the specified pixel formats for the input to the next filter.
 
         Args:
             pix_fmts (str): A '|'-separated list of pixel formats
@@ -17337,7 +17337,7 @@ class GeneratedFiltersMixin:
         c3_flags: Literal["a", "p", "t", "u"] | None = None,
         c3f: Literal["a", "p", "t", "u"] | None = None,
     ) -> "Stream":
-        """Add noise.
+        r"""Add noise.
 
         Args:
             all_seed (int): set component #0 noise seed (from -1 to INT_MAX)
@@ -17519,7 +17519,7 @@ class GeneratedFiltersMixin:
         independence: float | None = None,
         strength: float | None = None,
     ) -> "Stream":
-        """Normalize RGB video.
+        r"""Normalize RGB video.
 
         Args:
             blackpt (str): output color to which darkest input color is mapped
@@ -17556,7 +17556,7 @@ class GeneratedFiltersMixin:
     def null(
         self,
     ) -> "Stream":
-        """Pass the source unchanged to the output.
+        r"""Pass the source unchanged to the output.
 
         Returns:
             "Stream": The output stream.
@@ -17568,7 +17568,7 @@ class GeneratedFiltersMixin:
     def nullsink(
         self,
     ) -> "SinkNode":
-        """Do absolutely nothing with the input video.
+        r"""Do absolutely nothing with the input video.
 
         Returns:
             "SinkNode": A SinkNode representing the sink (terminal node).
@@ -17584,7 +17584,7 @@ class GeneratedFiltersMixin:
         whitelist: str | None = None,
         blacklist: str | None = None,
     ) -> "Stream":
-        """Optical Character Recognition.
+        r"""Optical Character Recognition.
 
         Args:
             datapath (str): set datapath
@@ -17628,7 +17628,7 @@ class GeneratedFiltersMixin:
         st: bool | None = None,
         sc: bool | None = None,
     ) -> "Stream":
-        """2D Video Oscilloscope.
+        r"""2D Video Oscilloscope.
 
         Args:
             x (float): set scope x position (from 0 to 1)
@@ -17718,7 +17718,7 @@ class GeneratedFiltersMixin:
         repeatlast: bool | None = None,
         alpha: Literal["straight", "premultiplied"] | int | None = None,
     ) -> "Stream":
-        """Overlay a video source on top of the input.
+        r"""Overlay a video source on top of the input.
 
         Args:
             overlay_stream (Stream): Input video stream.
@@ -17797,7 +17797,7 @@ class GeneratedFiltersMixin:
         chroma_strength: float | None = None,
         cs: float | None = None,
     ) -> "Stream":
-        """Denoise using wavelets.
+        r"""Denoise using wavelets.
 
         Args:
             depth (int): set depth (from 8 to 16)
@@ -17843,7 +17843,7 @@ class GeneratedFiltersMixin:
         eval: Literal["init", "frame"] | int | None = None,
         aspect: str | None = None,
     ) -> "Stream":
-        """Pad the input video.
+        r"""Pad the input video.
 
         Args:
             width (str): set the pad area width expression
@@ -17904,7 +17904,7 @@ class GeneratedFiltersMixin:
         transparency_color: str | None = None,
         stats_mode: Literal["full", "diff", "single"] | int | None = None,
     ) -> "Stream":
-        """Find the optimal palette for a given stream.
+        r"""Find the optimal palette for a given stream.
 
         Args:
             max_colors (int): set the maximum number of colors to use in the palette (from 2 to 256)
@@ -17960,7 +17960,7 @@ class GeneratedFiltersMixin:
         alpha_threshold: int | None = None,
         debug_kdtree: str | None = None,
     ) -> "Stream":
-        """Use a palette to downsample an input video stream.
+        r"""Use a palette to downsample an input video stream.
 
         Args:
             palette_stream (Stream): Input video stream.
@@ -18012,7 +18012,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def pan(self, args: str | None = None) -> "Stream":
-        """Remix channels with coefficients (panning).
+        r"""Remix channels with coefficients (panning).
 
         Args:
             args (str): No description available.
@@ -18034,7 +18034,7 @@ class GeneratedFiltersMixin:
         mode: Literal["none", "ro", "rw", "toggle", "random"] | int | None = None,
         seed: str | None = None,
     ) -> "Stream":
-        """Set permissions for the output video frame.
+        r"""Set permissions for the output video frame.
 
         Args:
             mode (int | str): select permissions mode (from 0 to 4)
@@ -18077,7 +18077,7 @@ class GeneratedFiltersMixin:
         sense: Literal["source", "destination"] | int | None = None,
         eval: Literal["init", "frame"] | int | None = None,
     ) -> "Stream":
-        """Correct the perspective of video.
+        r"""Correct the perspective of video.
 
         Args:
             x0 (str): set top left x coordinate
@@ -18151,7 +18151,7 @@ class GeneratedFiltersMixin:
         self,
         mode: Literal["p", "t", "b", "T", "B", "u", "U", "a", "A"] | int | None = None,
     ) -> "Stream":
-        """Phase shift fields.
+        r"""Phase shift fields.
 
         Args:
             mode (int | str): set phase mode (from 0 to 8)
@@ -18189,7 +18189,7 @@ class GeneratedFiltersMixin:
         skip: int | None = None,
         bypass: bool | None = None,
     ) -> "Stream":
-        """Filter out photosensitive epilepsy seizure-inducing flashes.
+        r"""Filter out photosensitive epilepsy seizure-inducing flashes.
 
         Args:
             frames (int): set how many frames to use (from 2 to 240)
@@ -18230,7 +18230,7 @@ class GeneratedFiltersMixin:
     def pixdesctest(
         self,
     ) -> "Stream":
-        """Test pixel format definitions.
+        r"""Test pixel format definitions.
 
         Returns:
             "Stream": The output stream.
@@ -18250,7 +18250,7 @@ class GeneratedFiltersMixin:
         planes: str | None = None,
         p: str | None = None,
     ) -> "Stream":
-        """Pixelize video.
+        r"""Pixelize video.
 
         Args:
             width (int): set block width (from 1 to 1024)
@@ -18316,7 +18316,7 @@ class GeneratedFiltersMixin:
         wx: float | None = None,
         wy: float | None = None,
     ) -> "Stream":
-        """Pixel data analysis.
+        r"""Pixel data analysis.
 
         Args:
             x (float): set scope x offset (from 0 to 1)
@@ -18363,7 +18363,7 @@ class GeneratedFiltersMixin:
         qp: int | None = None,
         mode: Literal["hard", "soft", "medium"] | int | None = None,
     ) -> "Stream":
-        """Apply Postprocessing 7 filter.
+        r"""Apply Postprocessing 7 filter.
 
         Args:
             qp (int): force a constant quantizer parameter (from 0 to 64)
@@ -18393,7 +18393,7 @@ class GeneratedFiltersMixin:
     def premultiply(
         self, *streams: "Stream", planes: int | None = None, inplace: bool | None = None
     ) -> "Stream":
-        """PreMultiply first stream with first plane of second stream.
+        r"""PreMultiply first stream with first plane of second stream.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -18422,7 +18422,7 @@ class GeneratedFiltersMixin:
         scale: float | None = None,
         delta: float | None = None,
     ) -> "Stream":
-        """Apply prewitt operator.
+        r"""Apply prewitt operator.
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
@@ -18510,7 +18510,7 @@ class GeneratedFiltersMixin:
         | None = None,
         opacity: float | None = None,
     ) -> "Stream":
-        """Make pseudocolored video frames.
+        r"""Make pseudocolored video frames.
 
         Args:
             c0 (str): set component #0 expression
@@ -18616,7 +18616,7 @@ class GeneratedFiltersMixin:
         stats_version: int | None = None,
         output_max: bool | None = None,
     ) -> "Stream":
-        """Calculate the PSNR between two video streams.
+        r"""Calculate the PSNR between two video streams.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -18654,7 +18654,7 @@ class GeneratedFiltersMixin:
         sb: bool | None = None,
         mp: Literal["y", "u", "v"] | int | None = None,
     ) -> "Stream":
-        """Pullup from field sequence to frames.
+        r"""Pullup from field sequence to frames.
 
         Args:
             jl (int): set left junk size (from 0 to INT_MAX)
@@ -18698,7 +18698,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def qp(self, qp: str | None = None) -> "Stream":
-        """Change video quantization parameters.
+        r"""Change video quantization parameters.
 
         Args:
             qp (str): set qp expression
@@ -18716,7 +18716,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def random(self, frames: int | None = None, seed: str | None = None) -> "Stream":
-        """Return random frames.
+        r"""Return random frames.
 
         Args:
             frames (int): set number of frames in cache (from 2 to 512)
@@ -18746,7 +18746,7 @@ class GeneratedFiltersMixin:
         chp: bool | None = None,
         lp: bool | None = None,
     ) -> "Stream":
-        """Read EIA-608 Closed Caption codes from input video and write them to frame metadata.
+        r"""Read EIA-608 Closed Caption codes from input video and write them to frame metadata.
 
         Args:
             scan_min (int): set from which line to scan for codes (from 0 to INT_MAX)
@@ -18786,7 +18786,7 @@ class GeneratedFiltersMixin:
         thr_b: float | None = None,
         thr_w: float | None = None,
     ) -> "Stream":
-        """Read vertical interval timecode and write it to frame metadata.
+        r"""Read vertical interval timecode and write it to frame metadata.
 
         Args:
             scan_max (int): maximum line numbers to scan for VITC data (from -1 to INT_MAX)
@@ -18815,7 +18815,7 @@ class GeneratedFiltersMixin:
     def realtime(
         self, limit: str | None = None, speed: float | None = None
     ) -> "Stream":
-        """Slow down filtering to match realtime.
+        r"""Slow down filtering to match realtime.
 
         Args:
             limit (str): sleep time limit
@@ -18844,7 +18844,7 @@ class GeneratedFiltersMixin:
         format: Literal["color", "gray"] | int | None = None,
         fill: str | None = None,
     ) -> "Stream":
-        """Remap pixels.
+        r"""Remap pixels.
 
         Args:
             xmap_stream (Stream): Input video stream.
@@ -18879,7 +18879,7 @@ class GeneratedFiltersMixin:
         m2: int | None = None,
         m3: int | None = None,
     ) -> "Stream":
-        """Remove grain.
+        r"""Remove grain.
 
         Args:
             m0 (int): set mode for 1st plane (from 0 to 24)
@@ -18910,7 +18910,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def removelogo(self, filename: str | None = None, f: str | None = None) -> "Stream":
-        """Remove a TV logo based on a mask image.
+        r"""Remove a TV logo based on a mask image.
 
         Args:
             filename (str): set bitmap filename
@@ -18933,7 +18933,7 @@ class GeneratedFiltersMixin:
     def repeatfields(
         self,
     ) -> "Stream":
-        """Hard repeat fields based on MPEG repeat field flag.
+        r"""Hard repeat fields based on MPEG repeat field flag.
 
         Returns:
             "Stream": The output stream.
@@ -18945,7 +18945,7 @@ class GeneratedFiltersMixin:
     def replaygain(
         self, track_gain: float | None = None, track_peak: float | None = None
     ) -> "Stream":
-        """ReplayGain scanner.
+        r"""ReplayGain scanner.
 
         Args:
             track_gain (float): track gain (dB) (from -FLT_MAX to FLT_MAX)
@@ -18970,7 +18970,7 @@ class GeneratedFiltersMixin:
     def reverse(
         self,
     ) -> "Stream":
-        """Reverse a clip.
+        r"""Reverse a clip.
 
         Returns:
             "Stream": The output stream.
@@ -18991,7 +18991,7 @@ class GeneratedFiltersMixin:
         av: int | None = None,
         edge: Literal["smear", "wrap"] | int | None = None,
     ) -> "Stream":
-        """Shift RGBA.
+        r"""Shift RGBA.
 
         Args:
             rh (int): shift red horizontally (from -255 to 255)
@@ -19051,7 +19051,7 @@ class GeneratedFiltersMixin:
         scale: float | None = None,
         delta: float | None = None,
     ) -> "Stream":
-        """Apply roberts cross operator.
+        r"""Apply roberts cross operator.
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
@@ -19089,7 +19089,7 @@ class GeneratedFiltersMixin:
         c: str | None = None,
         bilinear: bool | None = None,
     ) -> "Stream":
-        """Rotate the input image.
+        r"""Rotate the input image.
 
         Args:
             angle (str): set angle (in radians)
@@ -19152,7 +19152,7 @@ class GeneratedFiltersMixin:
         pitchq: Literal["quality", "speed", "consistency"] | int | None = None,
         channels: Literal["apart", "together"] | int | None = None,
     ) -> "Stream":
-        """Apply time-stretching and pitch-shifting.
+        r"""Apply time-stretching and pitch-shifting.
 
         Args:
             tempo (float): set tempo scale factor (from 0.01 to 100)
@@ -19257,7 +19257,7 @@ class GeneratedFiltersMixin:
         chroma_strength: float | None = None,
         cs: float | None = None,
     ) -> "Stream":
-        """Apply shape adaptive blur.
+        r"""Apply shape adaptive blur.
 
         Args:
             luma_radius (float): set luma radius (from 0.1 to 4)
@@ -19466,7 +19466,7 @@ class GeneratedFiltersMixin:
         param1: float | None = None,
         eval: Literal["init", "frame"] | int | None = None,
     ) -> "Stream":
-        """Scale the input video size and/or convert the image format.
+        r"""Scale the input video size and/or convert the image format.
 
         Args:
             w (str): Output video width
@@ -19874,7 +19874,7 @@ class GeneratedFiltersMixin:
         param1: float | None = None,
         eval: Literal["init", "frame"] | int | None = None,
     ) -> list["Stream"]:
-        """Scale the input video size and/or convert the image format to the given reference.
+        r"""Scale the input video size and/or convert the image format to the given reference.
 
         Args:
             ref_stream (Stream): Input video stream.
@@ -20144,7 +20144,7 @@ class GeneratedFiltersMixin:
         color_primaries: str | None = None,
         color_transfer: str | None = None,
     ) -> "Stream":
-        """Scale Videotoolbox frames
+        r"""Scale Videotoolbox frames
 
         Args:
             w (str): Output video width
@@ -20182,7 +20182,7 @@ class GeneratedFiltersMixin:
         sc_pass: bool | None = None,
         s: bool | None = None,
     ) -> "Stream":
-        """Detect video scene change
+        r"""Detect video scene change
 
         Args:
             threshold (float): set scene change detect threshold (from 0 to 100)
@@ -20218,7 +20218,7 @@ class GeneratedFiltersMixin:
         scale: float | None = None,
         delta: float | None = None,
     ) -> "Stream":
-        """Apply scharr operator.
+        r"""Apply scharr operator.
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
@@ -20253,7 +20253,7 @@ class GeneratedFiltersMixin:
         hpos: float | None = None,
         vpos: float | None = None,
     ) -> "Stream":
-        """Scroll input video.
+        r"""Scroll input video.
 
         Args:
             horizontal (float): set the horizontal scrolling speed (from -1 to 1)
@@ -20294,7 +20294,7 @@ class GeneratedFiltersMixin:
     def segment(
         self, timestamps: str | None = None, frames: str | None = None
     ) -> "FilterMultiOutput":
-        """Segment video stream.
+        r"""Segment video stream.
 
         Args:
             timestamps (str): timestamps of input at which to split input
@@ -20321,7 +20321,7 @@ class GeneratedFiltersMixin:
         outputs: int | None = None,
         n: int | None = None,
     ) -> "FilterMultiOutput":
-        """Select video frames to pass in output.
+        r"""Select video frames to pass in output.
 
         Args:
             expr (str): set an expression to use for selecting frames
@@ -20365,7 +20365,7 @@ class GeneratedFiltersMixin:
         blacks: str | None = None,
         psfile: str | None = None,
     ) -> "Stream":
-        """Apply CMYK adjustments to specific color ranges.
+        r"""Apply CMYK adjustments to specific color ranges.
 
         Args:
             correction_method (int | str): select correction method (from 0 to 1)
@@ -20424,7 +20424,7 @@ class GeneratedFiltersMixin:
         filename: str | None = None,
         f: str | None = None,
     ) -> "Stream":
-        """Send commands to filters.
+        r"""Send commands to filters.
 
         Args:
             commands (str): set commands
@@ -20453,7 +20453,7 @@ class GeneratedFiltersMixin:
     def separatefields(
         self,
     ) -> "Stream":
-        """Split input video frames into fields.
+        r"""Split input video frames into fields.
 
         Returns:
             "Stream": The output stream.
@@ -20469,7 +20469,7 @@ class GeneratedFiltersMixin:
         r: str | None = None,
         max: int | None = None,
     ) -> "Stream":
-        """Set the frame display aspect ratio.
+        r"""Set the frame display aspect ratio.
 
         Args:
             dar (str): set display aspect ratio
@@ -20502,7 +20502,7 @@ class GeneratedFiltersMixin:
     def setfield(
         self, mode: Literal["auto", "bff", "tff", "prog"] | int | None = None
     ) -> "Stream":
-        """Force field for the output video frame.
+        r"""Force field for the output video frame.
 
         Args:
             mode (int | str): select interlace mode (from -1 to 2)
@@ -20618,7 +20618,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Force field, or color property for the output video frame.
+        r"""Force field, or color property for the output video frame.
 
         Args:
             field_mode (int | str): select interlace mode (from -1 to 2)
@@ -20743,7 +20743,7 @@ class GeneratedFiltersMixin:
     def setpts(
         self, expr: str | None = None, strip_fps: bool | None = None
     ) -> "Stream":
-        """Set PTS for the output video frame.
+        r"""Set PTS for the output video frame.
 
         Args:
             expr (str): Expression determining the frame timestamp
@@ -20781,7 +20781,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Force color range for the output video frame.
+        r"""Force color range for the output video frame.
 
         Args:
             range (int | str): select color range (from -1 to 2)
@@ -20817,7 +20817,7 @@ class GeneratedFiltersMixin:
         r: str | None = None,
         max: int | None = None,
     ) -> "Stream":
-        """Set the pixel sample aspect ratio.
+        r"""Set the pixel sample aspect ratio.
 
         Args:
             sar (str): set sample (pixel) aspect ratio
@@ -20848,7 +20848,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def settb(self, expr: str | None = None, tb: str | None = None) -> "Stream":
-        """Set timebase for the video output link.
+        r"""Set timebase for the video output link.
 
         Args:
             expr (str): set expression determining the output timebase
@@ -20878,7 +20878,7 @@ class GeneratedFiltersMixin:
         c: str | None = None,
         interp: Literal["nearest", "bilinear"] | int | None = None,
     ) -> "Stream":
-        """Shear transform the input image.
+        r"""Shear transform the input image.
 
         Args:
             shx (float): set x shear factor (from -2 to 2)
@@ -20964,7 +20964,7 @@ class GeneratedFiltersMixin:
         | None = None,
         cscheme: str | None = None,
     ) -> "Stream":
-        """Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output.
+        r"""Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output.
 
         Args:
             size (str): set video size
@@ -21151,7 +21151,7 @@ class GeneratedFiltersMixin:
         bar: float | None = None,
         rotation: float | None = None,
     ) -> "Stream":
-        """Convert input audio to a CWT (Continuous Wavelet Transform) spectrum video output.
+        r"""Convert input audio to a CWT (Continuous Wavelet Transform) spectrum video output.
 
         Args:
             size (str): set video size
@@ -21317,7 +21317,7 @@ class GeneratedFiltersMixin:
         data: Literal["magnitude", "phase", "delay"] | int | None = None,
         channels: str | None = None,
     ) -> "Stream":
-        """Convert input audio to a frequencies video output.
+        r"""Convert input audio to a frequencies video output.
 
         Args:
             size (str): set video size
@@ -21447,7 +21447,7 @@ class GeneratedFiltersMixin:
     def showinfo(
         self, checksum: bool | None = None, udu_sei_as_ascii: bool | None = None
     ) -> "Stream":
-        """Show textual information for each video frame.
+        r"""Show textual information for each video frame.
 
         Args:
             checksum (bool): calculate checksums
@@ -21470,7 +21470,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def showpalette(self, s: int | None = None) -> "Stream":
-        """Display frame palette.
+        r"""Display frame palette.
 
         Args:
             s (int): set pixel box size (from 1 to 100)
@@ -21522,7 +21522,7 @@ class GeneratedFiltersMixin:
         rate: str | None = None,
         r: str | None = None,
     ) -> "Stream":
-        """Convert input audio to a spatial video output.
+        r"""Convert input audio to a spatial video output.
 
         Args:
             size (str): set video size
@@ -21655,7 +21655,7 @@ class GeneratedFiltersMixin:
         limit: float | None = None,
         opacity: float | None = None,
     ) -> "Stream":
-        """Convert input audio to a spectrum video output.
+        r"""Convert input audio to a spectrum video output.
 
         Args:
             size (str): set video size
@@ -21891,7 +21891,7 @@ class GeneratedFiltersMixin:
         limit: float | None = None,
         opacity: float | None = None,
     ) -> "Stream":
-        """Convert input audio to a spectrum video output single picture.
+        r"""Convert input audio to a spectrum video output single picture.
 
         Args:
             size (str): set video size
@@ -22053,7 +22053,7 @@ class GeneratedFiltersMixin:
         m: Literal["p", "r"] | int | None = None,
         ds: Literal["lin", "log"] | int | None = None,
     ) -> "Stream":
-        """Convert input audio volume to video output.
+        r"""Convert input audio volume to video output.
 
         Args:
             rate (str): set video rate
@@ -22156,7 +22156,7 @@ class GeneratedFiltersMixin:
         scale: Literal["lin", "log", "sqrt", "cbrt"] | int | None = None,
         draw: Literal["scale", "full"] | int | None = None,
     ) -> "Stream":
-        """Convert input audio to a video output.
+        r"""Convert input audio to a video output.
 
         Args:
             size (str): set video size
@@ -22236,7 +22236,7 @@ class GeneratedFiltersMixin:
         draw: Literal["scale", "full"] | int | None = None,
         filter: Literal["average", "peak"] | int | None = None,
     ) -> "Stream":
-        """Convert input audio to a video output single picture.
+        r"""Convert input audio to a video output single picture.
 
         Args:
             size (str): set video size
@@ -22293,7 +22293,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def shuffleframes(self, mapping: str | None = None) -> "Stream":
-        """Shuffle video frames.
+        r"""Shuffle video frames.
 
         Args:
             mapping (str): set destination indexes of input frames
@@ -22324,7 +22324,7 @@ class GeneratedFiltersMixin:
         seed: str | None = None,
         s: str | None = None,
     ) -> "Stream":
-        """Shuffle video pixels.
+        r"""Shuffle video pixels.
 
         Args:
             direction (int | str): set shuffle direction (from 0 to 1)
@@ -22403,7 +22403,7 @@ class GeneratedFiltersMixin:
         map2: int | None = None,
         map3: int | None = None,
     ) -> "Stream":
-        """Shuffle video planes.
+        r"""Shuffle video planes.
 
         Args:
             map0 (int): Index of the input plane to be used as the first output plane  (from 0 to 3)
@@ -22449,7 +22449,7 @@ class GeneratedFiltersMixin:
         level_sc: float | None = None,
         mix: float | None = None,
     ) -> "Stream":
-        """Sidechain compressor.
+        r"""Sidechain compressor.
 
         Args:
             sidechain_stream (Stream): Input audio stream.
@@ -22540,7 +22540,7 @@ class GeneratedFiltersMixin:
         link: Literal["average", "maximum"] | int | None = None,
         level_sc: float | None = None,
     ) -> "Stream":
-        """Audio sidechain gate.
+        r"""Audio sidechain gate.
 
         Args:
             sidechain_stream (Stream): Input audio stream.
@@ -22652,7 +22652,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Manipulate video frame side data.
+        r"""Manipulate video frame side data.
 
         Args:
             mode (int | str): set a mode of operation (from 0 to 1)
@@ -22716,7 +22716,7 @@ class GeneratedFiltersMixin:
         c: str | None = None,
         color: str | None = None,
     ) -> "Stream":
-        """Generate statistics from video analysis.
+        r"""Generate statistics from video analysis.
 
         Args:
             stat (str): set statistics filters
@@ -22769,7 +22769,7 @@ class GeneratedFiltersMixin:
         th_di: int | None = None,
         th_it: float | None = None,
     ) -> "Stream":
-        """Calculate the MPEG-7 video signature
+        r"""Calculate the MPEG-7 video signature
 
         Args:
             *streams (Stream): One or more input streams.
@@ -22837,7 +22837,7 @@ class GeneratedFiltersMixin:
         mono: bool | None = None,
         m: bool | None = None,
     ) -> "Stream":
-        """Detect silence.
+        r"""Detect silence.
 
         Args:
             n (float): set noise tolerance (from 0 to DBL_MAX)
@@ -22893,7 +22893,7 @@ class GeneratedFiltersMixin:
         window: str | None = None,
         timestamp: Literal["write", "copy"] | int | None = None,
     ) -> "Stream":
-        """Remove silence.
+        r"""Remove silence.
 
         Args:
             start_periods (int): set periods of silence parts to skip from start (from 0 to 9000)
@@ -22980,7 +22980,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def siti(self, print_summary: bool | None = None) -> "Stream":
-        """Calculate spatial information (SI) and temporal information (TI).
+        r"""Calculate spatial information (SI) and temporal information (TI).
 
         Args:
             print_summary (bool): Print summary showing average values
@@ -23019,7 +23019,7 @@ class GeneratedFiltersMixin:
         alpha_threshold: int | None = None,
         at: int | None = None,
     ) -> "Stream":
-        """Blur the input video without impacting the outlines.
+        r"""Blur the input video without impacting the outlines.
 
         Args:
             luma_radius (float): set luma radius (from 0.1 to 5)
@@ -23111,7 +23111,7 @@ class GeneratedFiltersMixin:
         scale: float | None = None,
         delta: float | None = None,
     ) -> "Stream":
-        """Apply sobel operator.
+        r"""Apply sobel operator.
 
         Args:
             planes (int): set planes to filter (from 0 to 15)
@@ -23173,7 +23173,7 @@ class GeneratedFiltersMixin:
         overlap: float | None = None,
         orientation: Literal["vertical", "horizontal"] | int | None = None,
     ) -> "Stream":
-        """Convert input spectrum videos to audio output.
+        r"""Convert input spectrum videos to audio output.
 
         Args:
             phase_stream (Stream): Input video stream.
@@ -23277,7 +23277,7 @@ class GeneratedFiltersMixin:
         rms: float | None = None,
         m: float | None = None,
     ) -> "Stream":
-        """Speech Normalizer.
+        r"""Speech Normalizer.
 
         Args:
             peak (float): set the peak value (from 0 to 1)
@@ -23372,7 +23372,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def split(self, outputs: int | None = None) -> "FilterMultiOutput":
-        """Pass on the input to N video outputs.
+        r"""Pass on the input to N video outputs.
 
         Args:
             outputs (int): set number of outputs (from 1 to INT_MAX)
@@ -23397,7 +23397,7 @@ class GeneratedFiltersMixin:
         mode: Literal["hard", "soft"] | int | None = None,
         use_bframe_qp: bool | None = None,
     ) -> "Stream":
-        """Apply a simple post processing filter.
+        r"""Apply a simple post processing filter.
 
         Args:
             quality (int): set quality (from 0 to 6)
@@ -23437,7 +23437,7 @@ class GeneratedFiltersMixin:
         stats_file: str | None = None,
         f: str | None = None,
     ) -> "Stream":
-        """Calculate the SSIM between two video streams.
+        r"""Calculate the SSIM between two video streams.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -23484,7 +23484,7 @@ class GeneratedFiltersMixin:
         default_heatmap_width: int | None = None,
         default_heatmap_height: int | None = None,
     ) -> "Stream":
-        """Calculate the SSIM between two 360 video streams.
+        r"""Calculate the SSIM between two 360 video streams.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -23644,7 +23644,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Convert video stereoscopic 3D view.
+        r"""Convert video stereoscopic 3D view.
 
         Args:
             in_ (int | str): set input format (from 16 to 32)
@@ -23762,7 +23762,7 @@ class GeneratedFiltersMixin:
         bmode_in: Literal["balance", "amplitude", "power"] | int | None = None,
         bmode_out: Literal["balance", "amplitude", "power"] | int | None = None,
     ) -> "Stream":
-        """Apply various stereo tools.
+        r"""Apply various stereo tools.
 
         Args:
             level_in (float): set level in (from 0.015625 to 64)
@@ -23886,7 +23886,7 @@ class GeneratedFiltersMixin:
         crossfeed: float | None = None,
         drymix: float | None = None,
     ) -> "Stream":
-        """Apply stereo widening effect.
+        r"""Apply stereo widening effect.
 
         Args:
             delay (float): set delay time (from 1 to 100)
@@ -23919,7 +23919,7 @@ class GeneratedFiltersMixin:
     def streamselect(
         self, *streams: "Stream", inputs: int | None = None, map: str | None = None
     ) -> "FilterMultiOutput":
-        """Select video streams
+        r"""Select video streams
 
         Args:
             *streams (Stream): One or more input streams.
@@ -23954,7 +23954,7 @@ class GeneratedFiltersMixin:
         force_style: str | None = None,
         wrap_unicode: bool | None = None,
     ) -> "Stream":
-        """Render text subtitles onto input video using the libass library.
+        r"""Render text subtitles onto input video using the libass library.
 
         Args:
             filename (str): set the filename of file to read
@@ -24005,7 +24005,7 @@ class GeneratedFiltersMixin:
     def super2xsai(
         self,
     ) -> "Stream":
-        """Scale the input by 2x using the Super2xSaI pixel art algorithm.
+        r"""Scale the input by 2x using the Super2xSaI pixel art algorithm.
 
         Returns:
             "Stream": The output stream.
@@ -24035,7 +24035,7 @@ class GeneratedFiltersMixin:
         _17b: float | None = None,
         _18b: float | None = None,
     ) -> "Stream":
-        """Apply 18 band equalization filter.
+        r"""Apply 18 band equalization filter.
 
         Args:
             _1b (float): set 65Hz band gain (from 0 to 20)
@@ -24199,7 +24199,7 @@ class GeneratedFiltersMixin:
         | None = None,
         overlap: float | None = None,
     ) -> "Stream":
-        """Apply audio surround upmix filter.
+        r"""Apply audio surround upmix filter.
 
         Args:
             chl_out (str): set output channel layout
@@ -24450,7 +24450,7 @@ class GeneratedFiltersMixin:
         x2: str | None = None,
         y2: str | None = None,
     ) -> "Stream":
-        """Swap 2 rectangular objects in video.
+        r"""Swap 2 rectangular objects in video.
 
         Args:
             w (str): set rect width
@@ -24491,7 +24491,7 @@ class GeneratedFiltersMixin:
     def swapuv(
         self,
     ) -> "Stream":
-        """Swap U and V components.
+        r"""Swap U and V components.
 
         Returns:
             "Stream": The output stream.
@@ -24743,7 +24743,7 @@ class GeneratedFiltersMixin:
         c3_opacity: float | None = None,
         all_opacity: float | None = None,
     ) -> "Stream":
-        """Blend successive frames.
+        r"""Blend successive frames.
 
         Args:
             c0_mode (int | str): set component #0 blend mode (from 0 to 39)
@@ -25037,7 +25037,7 @@ class GeneratedFiltersMixin:
         first_field: Literal["top", "t", "bottom", "b"] | int | None = None,
         pattern: str | None = None,
     ) -> "Stream":
-        """Apply a telecine pattern.
+        r"""Apply a telecine pattern.
 
         Args:
             first_field (int | str): select first field (from 0 to 1)
@@ -25085,7 +25085,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Compute and draw a temporal histogram.
+        r"""Compute and draw a temporal histogram.
 
         Args:
             width (int): set width (from 0 to 8192)
@@ -25191,7 +25191,7 @@ class GeneratedFiltersMixin:
         max_stream: "Stream",
         planes: int | None = None,
     ) -> "Stream":
-        """Threshold first video stream using other video streams.
+        r"""Threshold first video stream using other video streams.
 
         Args:
             threshold_stream (Stream): Input video stream.
@@ -25217,7 +25217,7 @@ class GeneratedFiltersMixin:
         n: int | None = None,
         log: Literal["quiet", "info", "verbose"] | int | None = None,
     ) -> "Stream":
-        """Select the most representative frame in a given sequence of consecutive frames.
+        r"""Select the most representative frame in a given sequence of consecutive frames.
 
         Args:
             n (int): set the frames batch size (from 2 to INT_MAX)
@@ -25254,7 +25254,7 @@ class GeneratedFiltersMixin:
         overlap: int | None = None,
         init_padding: int | None = None,
     ) -> "Stream":
-        """Tile several successive frames together.
+        r"""Tile several successive frames together.
 
         Args:
             layout (str): set grid size
@@ -25304,7 +25304,7 @@ class GeneratedFiltersMixin:
         _hold: int | None = None,
         _pad: int | None = None,
     ) -> "Stream":
-        """Generate a tilt-and-shift'd video.
+        r"""Generate a tilt-and-shift'd video.
 
         Args:
             _tilt (int): Tilt the video horizontally while shifting (from 0 to 1)
@@ -25377,7 +25377,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Apply a tilt shelf filter.
+        r"""Apply a tilt shelf filter.
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
@@ -25540,7 +25540,7 @@ class GeneratedFiltersMixin:
         | int
         | None = None,
     ) -> "Stream":
-        """Perform temporal field interlacing.
+        r"""Perform temporal field interlacing.
 
         Args:
             mode (int | str): select interlace mode (from 0 to 7)
@@ -25575,7 +25575,7 @@ class GeneratedFiltersMixin:
         c2: str | None = None,
         c3: str | None = None,
     ) -> "Stream":
-        """Compute and apply a lookup table from two successive frames.
+        r"""Compute and apply a lookup table from two successive frames.
 
         Args:
             c0 (str): set component #0 expression
@@ -25611,7 +25611,7 @@ class GeneratedFiltersMixin:
         planes: int | None = None,
         percentile: float | None = None,
     ) -> "Stream":
-        """Pick median pixels from successive frames.
+        r"""Pick median pixels from successive frames.
 
         Args:
             radius (int): set median filter radius (from 1 to 127)
@@ -25643,7 +25643,7 @@ class GeneratedFiltersMixin:
         sigma: float | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Apply Temporal Midway Equalization.
+        r"""Apply Temporal Midway Equalization.
 
         Args:
             radius (int): set radius (from 1 to 127)
@@ -25676,7 +25676,7 @@ class GeneratedFiltersMixin:
         scale: float | None = None,
         planes: str | None = None,
     ) -> "Stream":
-        """Mix successive video frames.
+        r"""Mix successive video frames.
 
         Args:
             frames (int): set number of successive frames to mix (from 1 to 1024)
@@ -25717,7 +25717,7 @@ class GeneratedFiltersMixin:
         desat: float | None = None,
         peak: float | None = None,
     ) -> "Stream":
-        """Conversion to/from different dynamic ranges.
+        r"""Conversion to/from different dynamic ranges.
 
         Args:
             tonemap (int | str): tonemap algorithm selection (from 0 to 6)
@@ -25766,7 +25766,7 @@ class GeneratedFiltersMixin:
         stop_duration: str | None = None,
         color: str | None = None,
     ) -> "Stream":
-        """Temporarily pad video frames.
+        r"""Temporarily pad video frames.
 
         Args:
             start (int): set the number of frames to delay input (from 0 to INT_MAX)
@@ -25823,7 +25823,7 @@ class GeneratedFiltersMixin:
         | None = None,
         passthrough: Literal["none", "portrait", "landscape"] | int | None = None,
     ) -> "Stream":
-        """Transpose input video.
+        r"""Transpose input video.
 
         Args:
             dir (int | str): set transpose direction (from 0 to 7)
@@ -25865,7 +25865,7 @@ class GeneratedFiltersMixin:
         | None = None,
         passthrough: Literal["none", "portrait", "landscape"] | int | None = None,
     ) -> "Stream":
-        """Transpose Videotoolbox frames
+        r"""Transpose Videotoolbox frames
 
         Args:
             dir (int | str): set transpose direction (from 0 to 6)
@@ -25930,7 +25930,7 @@ class GeneratedFiltersMixin:
         blocksize: int | None = None,
         b: int | None = None,
     ) -> "Stream":
-        """Boost or cut upper frequencies.
+        r"""Boost or cut upper frequencies.
 
         Args:
             frequency (float): set central frequency (from 0 to 999999)
@@ -26079,7 +26079,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def tremolo(self, f: float | None = None, d: float | None = None) -> "Stream":
-        """Apply tremolo effect.
+        r"""Apply tremolo effect.
 
         Args:
             f (float): set frequency in hertz (from 0.1 to 20000)
@@ -26114,7 +26114,7 @@ class GeneratedFiltersMixin:
         start_frame: str | None = None,
         end_frame: str | None = None,
     ) -> "Stream":
-        """Pick one continuous section from the input, drop the rest.
+        r"""Pick one continuous section from the input, drop the rest.
 
         Args:
             start (str): Timestamp of the first frame that should be passed
@@ -26171,7 +26171,7 @@ class GeneratedFiltersMixin:
     def unpremultiply(
         self, *streams: "Stream", planes: int | None = None, inplace: bool | None = None
     ) -> "Stream":
-        """UnPreMultiply first stream with first plane of second stream.
+        r"""UnPreMultiply first stream with first plane of second stream.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -26215,7 +26215,7 @@ class GeneratedFiltersMixin:
         alpha_amount: float | None = None,
         aa: float | None = None,
     ) -> "Stream":
-        """Sharpen or blur the input video.
+        r"""Sharpen or blur the input video.
 
         Args:
             luma_msize_x (int): set luma matrix horizontal size (from 3 to 23)
@@ -26302,7 +26302,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def untile(self, layout: str | None = None) -> "Stream":
-        """Untile a frame into a sequence of frames.
+        r"""Untile a frame into a sequence of frames.
 
         Args:
             layout (str): set grid size
@@ -26327,7 +26327,7 @@ class GeneratedFiltersMixin:
         use_bframe_qp: bool | None = None,
         codec: str | None = None,
     ) -> "Stream":
-        """Apply Ultra Simple / Slow Post-processing filter.
+        r"""Apply Ultra Simple / Slow Post-processing filter.
 
         Args:
             quality (int): set quality (from 0 to 8)
@@ -26478,7 +26478,7 @@ class GeneratedFiltersMixin:
         alpha_mask: bool | None = None,
         reset_rot: bool | None = None,
     ) -> "Stream":
-        """Convert 360 projection of video.
+        r"""Convert 360 projection of video.
 
         Args:
             input (int | str): set input projection (from 0 to 24)
@@ -26734,7 +26734,7 @@ class GeneratedFiltersMixin:
         planes: int | None = None,
         type: Literal["universal", "bayes"] | int | None = None,
     ) -> "Stream":
-        """Apply a Wavelet based Denoiser.
+        r"""Apply a Wavelet based Denoiser.
 
         Args:
             threshold (float): set filtering strength (from 0 to DBL_MAX)
@@ -26788,7 +26788,7 @@ class GeneratedFiltersMixin:
         max_r: int | None = None,
         planes: int | None = None,
     ) -> "Stream":
-        """Apply Variable Blur filter.
+        r"""Apply Variable Blur filter.
 
         Args:
             radius_stream (Stream): Input video stream.
@@ -26850,7 +26850,7 @@ class GeneratedFiltersMixin:
         tint1: float | None = None,
         t1: float | None = None,
     ) -> "Stream":
-        """Video vectorscope.
+        r"""Video vectorscope.
 
         Args:
             mode (int | str): set vectorscope mode (from 0 to 5)
@@ -27033,7 +27033,7 @@ class GeneratedFiltersMixin:
     def vflip(
         self,
     ) -> "Stream":
-        """Flip the input video vertically.
+        r"""Flip the input video vertically.
 
         Returns:
             "Stream": The output stream.
@@ -27045,7 +27045,7 @@ class GeneratedFiltersMixin:
     def vfrdet(
         self,
     ) -> "Stream":
-        """Variable frame rate detect filter.
+        r"""Variable frame rate detect filter.
 
         Returns:
             "Stream": The output stream.
@@ -27065,7 +27065,7 @@ class GeneratedFiltersMixin:
         blum: float | None = None,
         alternate: bool | None = None,
     ) -> "Stream":
-        """Boost or alter saturation.
+        r"""Boost or alter saturation.
 
         Args:
             intensity (float): set the intensity value (from -2 to 2)
@@ -27112,7 +27112,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def vibrato(self, f: float | None = None, d: float | None = None) -> "Stream":
-        """Apply vibrato effect.
+        r"""Apply vibrato effect.
 
         Args:
             f (float): set frequency in hertz (from 0.1 to 20000)
@@ -27145,7 +27145,7 @@ class GeneratedFiltersMixin:
         tripod: int | None = None,
         fileformat: Literal["ascii", "binary"] | int | None = None,
     ) -> "Stream":
-        """Extract relative transformations, pass 1 of 2 for stabilization (see vidstabtransform for pass 2).
+        r"""Extract relative transformations, pass 1 of 2 for stabilization (see vidstabtransform for pass 2).
 
         Args:
             result (str): path to the file used to write the transforms
@@ -27212,7 +27212,7 @@ class GeneratedFiltersMixin:
         tripod: bool | None = None,
         debug: bool | None = None,
     ) -> "Stream":
-        """Transform the frames, pass 2 of 2 for stabilization (see vidstabdetect for pass 1).
+        r"""Transform the frames, pass 2 of 2 for stabilization (see vidstabdetect for pass 1).
 
         Args:
             input (str): set path to the file storing the transforms
@@ -27298,7 +27298,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def vif(self, reference_stream: "Stream") -> "Stream":
-        """Calculate the VIF between two video streams.
+        r"""Calculate the VIF between two video streams.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -27321,7 +27321,7 @@ class GeneratedFiltersMixin:
         dither: bool | None = None,
         aspect: str | None = None,
     ) -> "Stream":
-        """Make or reverse a vignette effect.
+        r"""Make or reverse a vignette effect.
 
         Args:
             angle (str): set lens angle
@@ -27378,7 +27378,7 @@ class GeneratedFiltersMixin:
     def virtualbass(
         self, cutoff: float | None = None, strength: float | None = None
     ) -> "Stream":
-        """Audio Virtual Bass.
+        r"""Audio Virtual Bass.
 
         Args:
             cutoff (float): set virtual bass cutoff (from 100 to 500)
@@ -27401,7 +27401,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def vmafmotion(self, stats_file: str | None = None) -> "Stream":
-        """Calculate the VMAF Motion score.
+        r"""Calculate the VMAF Motion score.
 
         Args:
             stats_file (str): Set file where to store per-frame difference information
@@ -27427,7 +27427,7 @@ class GeneratedFiltersMixin:
         replaygain_preamp: float | None = None,
         replaygain_noclip: bool | None = None,
     ) -> "Stream":
-        """Change input volume.
+        r"""Change input volume.
 
         Args:
             volume (str): set volume adjustment expression
@@ -27483,7 +27483,7 @@ class GeneratedFiltersMixin:
     def volumedetect(
         self,
     ) -> "Stream":
-        """Detect audio volume.
+        r"""Detect audio volume.
 
         Returns:
             "Stream": The output stream.
@@ -27498,7 +27498,7 @@ class GeneratedFiltersMixin:
         inputs: int | None = None,
         shortest: bool | None = None,
     ) -> "Stream":
-        """Stack video inputs vertically.
+        r"""Stack video inputs vertically.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -27528,7 +27528,7 @@ class GeneratedFiltersMixin:
         parity: Literal["tff", "bff", "auto"] | int | None = None,
         deint: Literal["all", "interlaced"] | int | None = None,
     ) -> "Stream":
-        """Apply Martin Weston three field deinterlace.
+        r"""Apply Martin Weston three field deinterlace.
 
         Args:
             filter (int | str): specify the filter (from 0 to 1)
@@ -27619,7 +27619,7 @@ class GeneratedFiltersMixin:
         fm: Literal["none", "size"] | int | None = None,
         input: Literal["all", "first"] | int | None = None,
     ) -> "Stream":
-        """Video waveform monitor.
+        r"""Video waveform monitor.
 
         Args:
             mode (int | str): set mode (from 0 to 1)
@@ -27852,7 +27852,7 @@ class GeneratedFiltersMixin:
     def weave(
         self, first_field: Literal["top", "t", "bottom", "b"] | int | None = None
     ) -> "Stream":
-        """Weave input video fields into frames.
+        r"""Weave input video fields into frames.
 
         Args:
             first_field (int | str): set first field (from 0 to 1)
@@ -27877,7 +27877,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def xbr(self, n: int | None = None) -> "Stream":
-        """Scale the input using xBR algorithm.
+        r"""Scale the input using xBR algorithm.
 
         Args:
             n (int): set scale factor (from 2 to 4)
@@ -27901,7 +27901,7 @@ class GeneratedFiltersMixin:
         planes: int | None = None,
         secondary: Literal["first", "all"] | int | None = None,
     ) -> "Stream":
-        """Cross-correlate first video stream with second video stream.
+        r"""Cross-correlate first video stream with second video stream.
 
         Args:
             secondary_stream (Stream): Input video stream.
@@ -27998,7 +27998,7 @@ class GeneratedFiltersMixin:
         offset: str | None = None,
         expr: str | None = None,
     ) -> "Stream":
-        """Cross fade one video with another video.
+        r"""Cross fade one video with another video.
 
         Args:
             xfade_stream (Stream): Input video stream.
@@ -28096,7 +28096,7 @@ class GeneratedFiltersMixin:
         planes: int | None = None,
         percentile: float | None = None,
     ) -> "Stream":
-        """Pick median pixels from several video inputs.
+        r"""Pick median pixels from several video inputs.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -28129,7 +28129,7 @@ class GeneratedFiltersMixin:
         stats_file: str | None = None,
         f: str | None = None,
     ) -> "Stream":
-        """Calculate the extended perceptually weighted peak signal-to-noise ratio (XPSNR) between two video streams.
+        r"""Calculate the extended perceptually weighted peak signal-to-noise ratio (XPSNR) between two video streams.
 
         Args:
             reference_stream (Stream): Input video stream.
@@ -28159,7 +28159,7 @@ class GeneratedFiltersMixin:
         shortest: bool | None = None,
         fill: str | None = None,
     ) -> "Stream":
-        """Stack video inputs into custom layout.
+        r"""Stack video inputs into custom layout.
 
         Args:
             *streams (Stream): One or more input streams.
@@ -28202,7 +28202,7 @@ class GeneratedFiltersMixin:
         parity: Literal["tff", "bff", "auto"] | int | None = None,
         deint: Literal["all", "interlaced"] | int | None = None,
     ) -> "Stream":
-        """Deinterlace the input image.
+        r"""Deinterlace the input image.
 
         Args:
             mode (int | str): specify the interlacing mode (from 0 to 3)
@@ -28252,7 +28252,7 @@ class GeneratedFiltersMixin:
         sigma: int | None = None,
         s: int | None = None,
     ) -> "Stream":
-        """Yet another edge preserving blur filter.
+        r"""Yet another edge preserving blur filter.
 
         Args:
             radius (int): set window radius (from 0 to INT_MAX)
@@ -28291,7 +28291,7 @@ class GeneratedFiltersMixin:
         )[0]
 
     def zmq(self, bind_address: str | None = None, b: str | None = None) -> "Stream":
-        """Receive commands through ZMQ and broker them to filters.
+        r"""Receive commands through ZMQ and broker them to filters.
 
         Args:
             bind_address (str): set bind address
@@ -28323,7 +28323,7 @@ class GeneratedFiltersMixin:
         s: str | None = None,
         fps: str | None = None,
     ) -> "Stream":
-        """Apply Zoom & Pan effect.
+        r"""Apply Zoom & Pan effect.
 
         Args:
             zoom (str): set the zoom expression
@@ -28718,7 +28718,7 @@ class GeneratedFiltersMixin:
         param_a: float | None = None,
         param_b: float | None = None,
     ) -> "Stream":
-        """Apply resizing, colorspace and bit depth conversion.
+        r"""Apply resizing, colorspace and bit depth conversion.
 
         Args:
             w (str): Output video width
