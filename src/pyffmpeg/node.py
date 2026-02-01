@@ -399,7 +399,7 @@ class FilterNode(ProcessableNode):
         input_streams = [f"[{input.index}]" for input in self.inputs]
         output_streams = [f"[{output.index}]" for output in self.output_streams]
 
-        postional_arguments = (str(arg) for arg in self.positional_arguments)
+        positional_arguments = (str(arg) for arg in self.positional_arguments)
 
         named_arguments = []
         for name, value in sorted(self.named_arguments.items()):
@@ -414,7 +414,7 @@ class FilterNode(ProcessableNode):
             val_escaped = escape_filter_description(escape_filter_option(value))
             named_arguments.append(f"{name}={val_escaped}")
 
-        all_arguments = [*postional_arguments, *named_arguments]
+        all_arguments = [*positional_arguments, *named_arguments]
         arguments_string = ":".join(all_arguments)
 
         return f"{''.join(input_streams)}{self.filter_name}{f'=' if arguments_string else ''}{arguments_string}{''.join(output_streams)}"
@@ -497,7 +497,7 @@ class Stream(GeneratedFiltersMixin):
     def _apply_filter(
         self,
         filter_name: str,
-        postional_arguments: tuple = (),
+        positional_arguments: tuple = (),
         named_arguments: dict[str, Any] = {},
         inputs: list["Stream"] | None = None,
         num_output_streams: int = 1,
@@ -505,7 +505,7 @@ class Stream(GeneratedFiltersMixin):
         """Creates a FilterNode and returns its output streams."""
         node = FilterNode(
             filter_name,
-            postional_arguments,
+            positional_arguments,
             named_arguments,
             inputs or [self],
             num_output_streams,
@@ -515,14 +515,14 @@ class Stream(GeneratedFiltersMixin):
     def _apply_dynamic_outputs_filter(
         self,
         filter_name: str,
-        postional_arguments: tuple = (),
+        positional_arguments: tuple = (),
         named_arguments: dict[str, Any] = {},
         inputs: list["Stream"] | None = None,
     ) -> "FilterMultiOutput":
         """Creates a FilterNode and returns FilterMultiOutput to allow dynamic outputs."""
         filter_node = FilterNode(
             filter_name,
-            postional_arguments,
+            positional_arguments,
             named_arguments,
             inputs or [self],
             num_output_streams=0,

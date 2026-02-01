@@ -155,7 +155,7 @@ class StreamCompatWrapper:
     def split(self, num_outputs: int = 2) -> list["Stream"]:
         """Split into multiple identical streams."""
         return self._apply_filter(
-            "split", postional_arguments=(num_outputs,), num_output_streams=num_outputs
+            "split", positional_arguments=(num_outputs,), num_output_streams=num_outputs
         )
 
     @wrap_stream_output
@@ -163,7 +163,9 @@ class StreamCompatWrapper:
     def asplit(self, num_outputs: int = 2) -> list["Stream"]:
         """Split into multiple identical audio streams."""
         return self._apply_filter(
-            "asplit", postional_arguments=(num_outputs,), num_output_streams=num_outputs
+            "asplit",
+            positional_arguments=(num_outputs,),
+            num_output_streams=num_outputs,
         )
 
     @wrap_stream_output
@@ -212,7 +214,7 @@ class StreamCompatWrapper:
     def crop(self, x: int, y: int, width: int, height: int, **kwargs) -> "Stream":
         """Crop the input video to given dimensions"""
         return self._apply_filter(
-            "crop", postional_arguments=(width, height, x, y), named_arguments=kwargs
+            "crop", positional_arguments=(width, height, x, y), named_arguments=kwargs
         )[0]
 
     @wrap_stream_output
@@ -254,7 +256,7 @@ class StreamCompatWrapper:
 
         return self._apply_filter(
             "drawbox",
-            postional_arguments=(x, y, width, height, color),
+            positional_arguments=(x, y, width, height, color),
             named_arguments=named_args,
         )[0]
 
@@ -287,7 +289,7 @@ class StreamCompatWrapper:
     @wrap_stream_input
     def setpts(self, expr: str) -> "Stream":
         """Change the PTS (presentation timestamp) of the input frames."""
-        return self._apply_filter("setpts", postional_arguments=(expr,))[0]
+        return self._apply_filter("setpts", positional_arguments=(expr,))[0]
 
     @wrap_stream_output
     @wrap_stream_input
@@ -307,7 +309,7 @@ class StreamCompatWrapper:
         """Adjust video input frames by re-mixing color channels."""
         # colorchannelmixer w oryginale przyjmuje args i kwargs
         return self._apply_filter(
-            "colorchannelmixer", postional_arguments=args, named_arguments=kwargs
+            "colorchannelmixer", positional_arguments=args, named_arguments=kwargs
         )[0]
 
 
