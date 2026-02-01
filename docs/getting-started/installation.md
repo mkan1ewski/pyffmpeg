@@ -4,7 +4,7 @@
 
 Before installing pyffmpeg, ensure you have:
 
-1. **Python 3.8 or higher**
+1. **Python 3.10 or higher**
    ```bash
    python --version
    ```
