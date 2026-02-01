@@ -174,6 +174,7 @@ class StreamCompatWrapper:
         x: int | None = None,
         y: int | None = None,
         eof_action: str = "repeat",
+        **kwargs,
     ) -> "Stream":
         """Overlay another video stream on top of this one."""
         named_arguments = {"eof_action": eof_action}
@@ -181,6 +182,7 @@ class StreamCompatWrapper:
             named_arguments["x"] = str(x)
         if y:
             named_arguments["y"] = str(y)
+        named_arguments.update(kwargs)
 
         return self._apply_filter(
             "overlay",
@@ -207,9 +209,11 @@ class StreamCompatWrapper:
 
     @wrap_stream_output
     @wrap_stream_input
-    def crop(self, x: int, y: int, width: int, height: int) -> "Stream":
+    def crop(self, x: int, y: int, width: int, height: int, **kwargs) -> "Stream":
         """Crop the input video to given dimensions"""
-        return self._apply_filter("crop", postional_arguments=(width, height, x, y))[0]
+        return self._apply_filter(
+            "crop", postional_arguments=(width, height, x, y), named_arguments=kwargs
+        )[0]
 
     @wrap_stream_output
     @wrap_stream_input
@@ -241,19 +245,70 @@ class StreamCompatWrapper:
         height: int,
         color: str,
         thickness: int | None = None,
+        **kwargs,
     ) -> "Stream":
         """Draw a colored box on the input image"""
+        named_args = kwargs.copy()
+        if thickness:
+            named_args["t"] = str(thickness)
+
         return self._apply_filter(
             "drawbox",
             postional_arguments=(x, y, width, height, color),
-            named_arguments={"t": str(thickness)},
+            named_arguments=named_args,
         )[0]
 
     @wrap_stream_output
     @wrap_stream_input
-    def drawtext(self, text: str, **kwargs) -> "Stream":
-        kwargs["text"] = escape_text_content(text)
+    def drawtext(
+        self,
+        text: str | None = None,
+        x: int | str = 0,
+        y: int | str = 0,
+        escape_text: bool = True,
+        **kwargs,
+    ) -> "Stream":
+        """Draw text on video."""
+
+        if text is not None:
+            if escape_text:
+                kwargs["text"] = escape_text_content(text)
+            else:
+                kwargs["text"] = text
+
+        if x != 0:
+            kwargs["x"] = str(x)
+        if y != 0:
+            kwargs["y"] = str(y)
+
         return self._apply_filter("drawtext", named_arguments=kwargs)[0]
+
+    @wrap_stream_output
+    @wrap_stream_input
+    def setpts(self, expr: str) -> "Stream":
+        """Change the PTS (presentation timestamp) of the input frames."""
+        return self._apply_filter("setpts", postional_arguments=(expr,))[0]
+
+    @wrap_stream_output
+    @wrap_stream_input
+    def zoompan(self, **kwargs) -> "Stream":
+        """Apply Zoom & Pan effect."""
+        return self._apply_filter("zoompan", named_arguments=kwargs)[0]
+
+    @wrap_stream_output
+    @wrap_stream_input
+    def hue(self, **kwargs) -> "Stream":
+        """Modify the hue and/or the saturation of the input."""
+        return self._apply_filter("hue", named_arguments=kwargs)[0]
+
+    @wrap_stream_output
+    @wrap_stream_input
+    def colorchannelmixer(self, *args, **kwargs) -> "Stream":
+        """Adjust video input frames by re-mixing color channels."""
+        # colorchannelmixer w oryginale przyjmuje args i kwargs
+        return self._apply_filter(
+            "colorchannelmixer", postional_arguments=args, named_arguments=kwargs
+        )[0]
 
 
 def filter(
