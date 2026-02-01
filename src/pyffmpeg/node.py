@@ -544,6 +544,38 @@ class Stream(GeneratedFiltersMixin):
         )
         return SinkNode(filter_node)
 
+    def split(self, outputs: int = 2) -> list["Stream"]:
+        """Pass on the input to N video outputs.
+
+        Args:
+            outputs (int): Set number of outputs (from 1 to INT_MAX).
+                Defaults to 2.
+
+        Returns:
+            list[Stream]: A list of output streams produced by the split filter.
+        """
+        return self._apply_filter(
+            filter_name="split",
+            named_arguments={"outputs": outputs},
+            num_output_streams=outputs,
+        )
+
+    def asplit(self, outputs: int = 2) -> list["Stream"]:
+        """Pass on the audio input to N audio outputs.
+
+        Args:
+            outputs (int): Set number of outputs (from 1 to INT_MAX).
+                Defaults to 2.
+
+        Returns:
+            list[Stream]: A list of output audio streams produced by the asplit filter.
+        """
+        return self._apply_filter(
+            filter_name="asplit",
+            named_arguments={"outputs": outputs},
+            num_output_streams=outputs,
+        )
+
     def filter(self, filter_name: str, *args, **kwargs) -> "Stream":
         """Custom filter with a single input and a single output"""
         return self._apply_filter(filter_name, args, kwargs)[0]
