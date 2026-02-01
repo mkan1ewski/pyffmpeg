@@ -205,7 +205,7 @@ print(args)
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.10+
 - FFmpeg installed and available in PATH
 
 
