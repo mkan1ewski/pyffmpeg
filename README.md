@@ -4,6 +4,11 @@ A modern, type-safe Python wrapper for FFmpeg with automatic filter generation a
 
 [![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-mkdocs-blue)](https://mkan1ewski.github.io/pyffmpeg/)
+
+## Documentation
+
+**[Read the full documentation →](https://mkan1ewski.github.io/pyffmpeg/)**
 
 ## Overview
 
