@@ -152,7 +152,7 @@ audio = input_stream.audio
 
 # Process them independently
 video = video.scale(width=1280, height=720)
-audio = audio.filter('volume', volume=0.8)
+audio = audio.volume(volume="0.8")
 
 # Combine back together
 output = ffmpeg.output(video, audio, filename='output.mp4')
