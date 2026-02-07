@@ -1,6 +1,6 @@
 [project]
 name = "wut-ffmpeg"
-version = "0.1.1"
+version = "1.0.0"
 description = "A modern, type-safe Python wrapper for FFmpeg"
 
 readme = "README.md"
