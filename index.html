@@ -1,0 +1,1454 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="getting-started/installation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>pyffmpeg documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pyffmpeg" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="pyffmpeg documentation" class="md-header__button md-logo" aria-label="pyffmpeg documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            pyffmpeg documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="pyffmpeg documentation" class="md-nav__button md-logo" aria-label="pyffmpeg documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    pyffmpeg documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-type-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Complete Type Safety
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-filter-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤖 Automatic Filter Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-based-processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Graph-Based Processing Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffmpeg-python-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 ffmpeg-python Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-chaining-fluent-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method Chaining (Fluent Interface)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complex-filter-graph-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complex Filter Graph Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Outputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-audio-and-video-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with Audio and Video Streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asynchronous Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Inspection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up Development Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regenerating-filter-bindings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regenerating Filter Bindings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-from-ffmpeg-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration from ffmpeg-python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acknowledgments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Author
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input/Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/nodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-type-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Complete Type Safety
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-filter-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤖 Automatic Filter Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-based-processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Graph-Based Processing Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffmpeg-python-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 ffmpeg-python Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-chaining-fluent-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method Chaining (Fluent Interface)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complex-filter-graph-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complex Filter Graph Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Outputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-audio-and-video-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with Audio and Video Streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asynchronous Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Inspection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up Development Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regenerating-filter-bindings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regenerating Filter Bindings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-from-ffmpeg-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration from ffmpeg-python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acknowledgments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Author
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="pyffmpeg">pyffmpeg</h1>
+<p>A modern, type-safe Python wrapper for FFmpeg with automatic filter generation and full IDE support.</p>
+<p><a href="https://www.python.org/downloads/"><img alt="Python Version" src="https://img.shields.io/badge/python-3.10+-blue.svg" /></a>
+<a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-green.svg" /></a>
+<a href="https://mkan1ewski.github.io/pyffmpeg/"><img alt="Documentation" src="https://img.shields.io/badge/docs-mkdocs-blue" /></a></p>
+<h2 id="documentation">Documentation</h2>
+<p><strong><a href="https://mkan1ewski.github.io/pyffmpeg/">Read the full documentation →</a></strong></p>
+<h2 id="overview">Overview</h2>
+<p><strong>pyffmpeg</strong> is a high-level Python library for advanced multimedia editing and processing. It provides an object-oriented interface to FFmpeg, eliminating the technical debt present in existing solutions through:</p>
+<ul>
+<li><strong>Full type safety</strong> with complete type hints and annotations (PEP 484)</li>
+<li><strong>Automatic code generation</strong> for ~500 audio and video filters from FFmpeg documentation</li>
+<li><strong>IDE integration</strong> with context-aware autocompletion and error checking</li>
+<li><strong>Backward compatibility</strong> with ffmpeg-python library for seamless migration</li>
+</ul>
+<h2 id="key-features">Key Features</h2>
+<h3 id="complete-type-safety">🎯 Complete Type Safety</h3>
+<p>Every filter method includes full type annotations, enabling IDE autocompletion and static type checking with tools like mypy. No more referring to external documentation or risking typos.</p>
+<p><img alt="IDE Support" src="https://raw.githubusercontent.com/mkan1ewski/pyffmpeg/main/docs/overlay_vs_code.png" />
+<em>Example of IDE autocompletion and inline documentation</em></p>
+<p><img alt="IDE Support" src="https://raw.githubusercontent.com/mkan1ewski/pyffmpeg/main/docs/xfade_pyffmpeg.png" />
+<em>Example of IDE autocompletion in filter options</em></p>
+<h3 id="automatic-filter-generation">🤖 Automatic Filter Generation</h3>
+<p>The library dynamically generates Python bindings for all FFmpeg filters by parsing the official FFmpeg documentation. This ensures:
+- Support for nearly 500 filters out of the box
+- Possible updates with new FFmpeg versions
+- No manual maintenance required</p>
+<h3 id="graph-based-processing-pipeline">📊 Graph-Based Processing Pipeline</h3>
+<p>Built on a Directed Acyclic Graph (DAG) engine that:
+- Models complex media processing pipelines as interconnected nodes
+- Automatically manages stream labels</p>
+<h3 id="ffmpeg-python-compatibility">🔄 ffmpeg-python Compatibility</h3>
+<p>Includes a dedicated compatibility layer (<code>_compat</code>) that allows existing ffmpeg-python code to run without modifications, while offering a modernized API for new projects.</p>
+<h2 id="installation">Installation</h2>
+<pre><code class="language-bash">pip install wut-ffmpeg
+</code></pre>
+<p>Or using uv (recommended):</p>
+<pre><code class="language-bash">uv add wut-ffmpeg
+</code></pre>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code class="language-python">import pyffmpeg as ffmpeg
+
+# Simple video processing
+stream = ffmpeg.input('input.mp4')
+stream = stream.scale(width=1920, height=1080)
+stream = stream.output('output.mp4')
+stream.run()
+</code></pre>
+<h3 id="method-chaining-fluent-interface">Method Chaining (Fluent Interface)</h3>
+<pre><code class="language-python">import pyffmpeg as ffmpeg
+
+(
+    ffmpeg
+    .input('input.mp4')
+    .scale(width=1920, height=1080)
+    .vflip()
+    .output('output.mp4', vcodec='libx264')
+    .run()
+)
+</code></pre>
+<h3 id="multiple-inputs">Multiple Inputs</h3>
+<pre><code class="language-python">import pyffmpeg as ffmpeg
+
+# Load two video sources
+main = ffmpeg.input('main_video.mp4')
+logo = ffmpeg.input('logo.png')
+
+# Overlay logo on main video
+output = main.overlay(logo, x=10, y=10)
+output.output('result.mp4').run()
+</code></pre>
+<h3 id="complex-filter-graph-example">Complex Filter Graph Example</h3>
+<pre><code class="language-python">import pyffmpeg as ffmpeg
+
+# Sports broadcast scenario: overlay scoreboard and highlight player
+court = ffmpeg.input('court.png')
+score = ffmpeg.input('score.png').scale(w=600, h=-1)
+
+overlayed = (
+    court
+    .overlay(score, x=30, y=30)
+    .drawbox(x=100, y=310, width=100, height=210, thickness=10, color='red')
+)
+
+overlayed.output('result.png').run()
+</code></pre>
+<p><img alt="Sports Broadcast Example" src="https://raw.githubusercontent.com/mkan1ewski/pyffmpeg/main/docs/example_edit.png" />
+<em>Example: Basketball court with overlaid scoreboard and player highlight (Image source: <a href="https://cdn.geekwire.com/wp-content/uploads/2025/10/Screenshot-2025-10-24-at-5.13.46-PM.png">GeekWire</a>)</em></p>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="multiple-outputs">Multiple Outputs</h3>
+<p>Process one input into multiple outputs efficiently:</p>
+<pre><code class="language-python">import pyffmpeg as ffmpeg
+
+stream = ffmpeg.input('video.mp4')
+
+mp4_output = stream.output('video.mp4', vcodec='libx264')
+mkv_output = stream.output('archive.mkv', vcodec='copy')
+
+# Run both outputs in a single FFmpeg process
+ffmpeg.merge_outputs(mp4_output, mkv_output).run()
+</code></pre>
+<h3 id="working-with-audio-and-video-streams">Working with Audio and Video Streams</h3>
+<pre><code class="language-python">import pyffmpeg as ffmpeg
+
+input_stream = ffmpeg.input('movie.mp4')
+
+# Access video and audio streams separately
+video = input_stream.video
+audio = input_stream.audio
+
+# Process them independently
+video = video.scale(width=1280, height=720)
+audio = audio.volume(volume=&quot;0.8&quot;)
+
+# Combine back together
+output = ffmpeg.output(video, audio, filename='output.mp4')
+output.run()
+</code></pre>
+<h3 id="source-filters">Source Filters</h3>
+<p>Generate synthetic media streams:</p>
+<pre><code class="language-python">from pyffmpeg import sources
+
+# Generate a colored background
+background = sources.color(color='green', size='1920x1080', duration=3)
+background.output('green_screen.mp4').run()
+</code></pre>
+<h3 id="asynchronous-execution">Asynchronous Execution</h3>
+<pre><code class="language-python">import pyffmpeg as ffmpeg
+
+# Start processing without blocking
+process = (
+    ffmpeg
+    .input('long_video.mp4')
+    .output('compressed.mp4')
+    .run_async()
+)
+
+# Do other work while processing
+do_other_work()
+
+# Wait for completion
+process.wait()
+</code></pre>
+<h3 id="command-inspection">Command Inspection</h3>
+<p>Preview the generated FFmpeg command before execution:</p>
+<pre><code class="language-python">import pyffmpeg as ffmpeg
+
+stream = ffmpeg.input('video.mp4').vflip().output('flipped.mp4')
+
+# Get the command arguments
+args = stream.compile()
+print(args)
+# ['ffmpeg', '-i', 'video.mp4', '-filter_complex', '[0]vflip[s0]', '-map', '[s0]', 'flipped.mp4']
+</code></pre>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Python 3.10+</li>
+<li>FFmpeg installed and available in PATH</li>
+</ul>
+<h2 id="setting-up-development-environment">Setting Up Development Environment</h2>
+<pre><code class="language-bash"># Clone the repository
+git clone https://github.com/mkan1ewski/pyffmpeg.git
+cd pyffmpeg
+
+# Install dependencies
+uv sync
+
+# Run tests
+uv run pytest
+
+# Code formatting
+uv run ruff format
+</code></pre>
+<h2 id="regenerating-filter-bindings">Regenerating Filter Bindings</h2>
+<p>To regenerate filter bindings for your FFmpeg version:</p>
+<pre><code class="language-bash">uv run python -m pyffmpeg.script
+</code></pre>
+<p>This will:
+1. Query your installed FFmpeg version
+2. Parse filter documentation
+3. Generate type-safe Python methods in <code>generated_filters.py</code>
+4. Generate source filter functions in <code>sources.py</code></p>
+<h2 id="migration-from-ffmpeg-python">Migration from ffmpeg-python</h2>
+<p>pyffmpeg is designed for seamless migration from ffmpeg-python. Simply change your import:</p>
+<pre><code class="language-python"># Old code
+import ffmpeg
+
+# New code - 100% compatible
+from pyffmpeg import _compat as ffmpeg
+</code></pre>
+<p>Or use the modern API for new code:</p>
+<pre><code class="language-python"># Modern API with full type safety
+import pyffmpeg as ffmpeg
+</code></pre>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see the LICENSE file for details.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<ul>
+<li>Inspired by <a href="https://github.com/kkroening/ffmpeg-python">ffmpeg-python</a> by Karl Kroening</li>
+<li>Built on top of the excellent <a href="https://ffmpeg.org/">FFmpeg</a> project</li>
+<li>Uses <a href="https://jinja.palletsprojects.com/">Jinja2</a> for code generation</li>
+</ul>
+<h2 id="author">Author</h2>
+<p>Maciej Kaniewski - <a href="https://github.com/mkan1ewski">GitHub</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
